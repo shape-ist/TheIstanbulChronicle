@@ -14,13 +14,18 @@
         --g2: #cecece;
     }
 
+    @font-face {
+        font-family: 'Old English';
+        src: url("{{ url_for('static', filename='assets/oldenglish.woff2') }}") format('woff2')
+    }
+
     body {
         background: var(--bg);
         color: var(--fg);
         --topbar-height: 80px;
         --f1: 'Roboto';
         --f2: 'Lora';
-        --f3: 'Old English Text MT';
+        --f3: 'Old English';
         --size1: .4em;
         --size2: 1em;
         --size3: 2em;
@@ -43,12 +48,6 @@
         -moz-osx-font-smoothing: grayscale
     }
 
-    #loading {
-        z-index: 999;
-        top: 0;
-        left: 0;
-    }
-
     .select {
         -webkit-user-select: text;
         -moz-user-select: text;
@@ -67,6 +66,7 @@
     }
 
     .flex-center {
+        display: flex;
         justify-content: center;
         align-items: center
     }
@@ -87,115 +87,28 @@
         transition: .65s ease;
     }
 
-    .header-button {
-        font-family: var(--f2);
-        color: var(--g1);
-        font-weight: 700;
-        text-decoration: none
-    }
-
-    #logo-wrapper {
-        position: absolute;
-        left: 50%;
-        height: var(--topbar-height)
-    }
-
-    .logo {
-        font-family: var(--f3);
-        position: relative;
-        left: -50%;
-        text-align: center;
-        margin: 0;
-        font-size: var(--size3);
-        width: 100%;
-        white-space: nowrap;
-    }
-
-    .subtitle {
-        font-family: var(--f2);
-        position: relative;
-        left: -50%;
-        text-align: center;
-        margin: 0;
-        font-size: var(--size2)
-    }
-
-    header{
-        animation: slide-in 1s;
-    }
-
-    beta {
-        border: 1px solid var(--g1);
-        padding: 2px;
-        border-radius: 3px;
-        font-family: var(--f1);
-        vertical-align: super;
-        margin: 10px;
-        color: var(--g1);
-        font-size: var(--size1);
-    }
-
-    #title {
-        height: var(--topbar-height);
-        width: 100%;
-        justify-content: space-between;
-        margin-top: 32px
-    }
-
-    .mid-section {
-        width: 600px
-    }
-
-    .title-side {
-        align-self: center;
-        margin: 0 20px;
-        font-family: Lora;
-        color: var(--g1)
-    }
-
-    @keyframes blink {
-        0% {
-            opacity: 0;
-        }
-
-        50% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 0;
-        }
-    }
-
-    #loading {
-        position: fixed;
-        height: 100vh;
-        width: 100vw;
-        background: var(--bg);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    #loading-icon {
-        font-family: var(--f3);
-        font-size: 72px;
-        margin: 0;
-        animation: blink 1.5s infinite;
-        color: var(--fg);
-    }
-
-    @keyframes slide-in{
-        from{
+    @keyframes slide-in {
+        from {
             opacity: 0;
             transform: translateY(100px) scaleX(.9);
         }
-        to{
+
+        to {
             opacity: 1;
             transform: unset;
         }
     }
 
+    .overlay {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 </style>
 {% endmacro %}

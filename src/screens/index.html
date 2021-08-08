@@ -2,6 +2,7 @@
 {% from "./macros/_style.html" import style with context %}
 {% from "./macros/_header.html" import header with context %}
 {% from "./macros/_load.html" import load with context %}
+{% from "./macros/_auth.html" import login with context %}
 
 <html lang="en">
 
@@ -20,6 +21,7 @@
         {{load()}}
         {{style()}}
         {{header()}}
+        {{login()}}
     </div>
 
 </body>

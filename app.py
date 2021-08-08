@@ -14,7 +14,5 @@ def favicon():
     return send_from_directory(path.join(app.root_path, 'static'),
     'favicon.png',mimetype='image/vnd.microsoft.icon')
 
-
-
 if __name__ == '__main__':
     app.run(debug=True)

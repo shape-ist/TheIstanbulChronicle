@@ -1,4 +1,71 @@
 {% macro header() %}
+<style>
+    .header-button {
+        font-family: var(--f2);
+        color: var(--g1);
+        font-weight: 700;
+        text-decoration: none
+    }
+
+    #logo-wrapper {
+        position: absolute;
+        left: 50%;
+        height: var(--topbar-height)
+    }
+
+    .logo {
+        font-family: var(--f3);
+        position: relative;
+        left: -50%;
+        text-align: center;
+        margin: 0;
+        font-size: var(--size3);
+        width: 100%;
+        white-space: nowrap;
+    }
+
+    .subtitle {
+        font-family: var(--f2);
+        position: relative;
+        left: -50%;
+        text-align: center;
+        margin: 0;
+        font-size: var(--size2)
+    }
+
+    header {
+        animation: slide-in 1s;
+    }
+
+    beta {
+        border: 1px solid var(--g1);
+        padding: 2px;
+        border-radius: 3px;
+        font-family: var(--f1);
+        vertical-align: super;
+        margin: 10px;
+        color: var(--g1);
+        font-size: var(--size1);
+    }
+
+    #title {
+        height: var(--topbar-height);
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 32px
+    }
+
+    .mid-section {
+        width: 600px
+    }
+
+    .title-side {
+        align-self: center;
+        margin: 0 20px;
+        font-family: Lora;
+        color: var(--g1)
+    }
+</style>
 <header>
     <div id="title" class="flex-row">
         <div id="logo-wrapper" class="flex-col flex-center">
