@@ -1,15 +1,9 @@
 {% macro login() %}
-<style>
-    .login-title{
-        font-size: var(--size4);
-        font-weight: bold;
-        text-align: center;
-        letter-spacing: -2px;
-    }
-</style>
-<div class="overlay auth-overlay flex-center">
-    <div class="auth-container flex-row flex-center">
-        <p class="login-title">Log in to the Chronicle</p>
+<script type="text/javascript" src="{{ url_for('static', filename='js/dismissHandler.js') }}"></script>
+<div id="login-area" class="overlay auth-overlay flex-center" style="display:none;">
+    <div id="login-popup" class="auth-container flex-col flex-center">
+        <p class="auth-content title-large">Log in to<br>the Chronicle</p>
+        <button class="auth-content google-auth"><i class="auth-icon fab fa-google"></i>Continue with Google</button>
     </div>
 </div>
 {% endmacro %}

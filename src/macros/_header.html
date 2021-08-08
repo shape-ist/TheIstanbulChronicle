@@ -1,10 +1,12 @@
+{% from "./macros/_auth.html" import login with context %}
 {% macro header() %}
 <style>
     .header-button {
         font-family: var(--f2);
         color: var(--g1);
         font-weight: 700;
-        text-decoration: none
+        text-decoration: none;
+        font-size: var(--size1);
     }
 
     #logo-wrapper {
@@ -19,7 +21,7 @@
         left: -50%;
         text-align: center;
         margin: 0;
-        font-size: var(--size3);
+        font-size: var(--size4);
         width: 100%;
         white-space: nowrap;
         letter-spacing: -1px;
@@ -32,7 +34,7 @@
         left: -50%;
         text-align: center;
         margin: 0;
-        font-size: var(--size2)
+        font-size: var(--size1)
     }
 
     header {
@@ -47,7 +49,7 @@
         vertical-align: super;
         margin: 10px;
         color: var(--g1);
-        font-size: var(--size1);
+        font-size: .3em;
     }
 
     #title {
@@ -57,18 +59,22 @@
         margin-top: 32px
     }
 
-    .mid-section {
-        width: 600px
-    }
-
     .title-side {
         align-self: center;
         margin: 0 20px;
         font-family: Lora;
         color: var(--g1)
     }
+    .auth{
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
 </style>
 <header>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/display.js') }}"></script>
+    {{login()}}
     <div id="title" class="flex-row">
         <div id="logo-wrapper" class="flex-col flex-center">
             <h1 class="logo">The Istanbul Chronicle<beta>beta</beta>
@@ -78,9 +84,8 @@
         <div class="title-side topmost left-section">
             <a href="#" class="header-button about-us">About Us</a>
         </div>
-        <div class="mid-section"></div>
         <div class="title-side topmost right-section">
-            <a href="#" class="header-button auth">Log in / Sign up</a>
+            <button onclick="display('login-area', 'flex')" class="header-button auth pointer">Log in / Sign up</button>
         </div>
     </div>
 </header>

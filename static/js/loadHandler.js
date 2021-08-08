@@ -1,11 +1,15 @@
-document.onreadystatechange = () => {
+"use strict";
+document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
-        console.log("dom ready.");
         setTimeout(function () {
-            document.getElementById("loading").classList.add("hide");
+            var form = document.getElementById('loading');
+            if (form)
+                form.classList.add("hide");
             setTimeout(function () {
-                document.getElementById("loading").remove();
-            }, 1000)
-        }, 800)
+                var form = document.getElementById('loading');
+                if (form)
+                    form.remove();
+            }, 1000);
+        }, 800);
     }
 };
