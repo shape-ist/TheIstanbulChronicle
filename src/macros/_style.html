@@ -45,7 +45,8 @@
         -ms-user-select: none;
         user-select: none;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 85%;
     }
 
     .select {
@@ -109,6 +110,18 @@
         left: 0;
         right: 0;
         bottom: 0;
+    }
+
+    .auth-overlay {
+        background: rgba(0, 0, 0, .65);
+        z-index: 999;
+    }
+
+    .auth-container{
+        background: var(--fg);
+        color: var(--bg);
+        padding: 80px;
+        max-width: 400px;
     }
 </style>
 {% endmacro %}

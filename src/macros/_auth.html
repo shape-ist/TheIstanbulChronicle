@@ -1,18 +1,16 @@
 {% macro login() %}
 <style>
-    .login-overlay {
-        background: rgba(0, 0, 0, .65)
+    .login-title{
+        font-size: var(--size4);
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: -2px;
     }
-
-    .auth-container{
-        background: white;
-        height: 300px;
-        width: 300px;
-    }
-
 </style>
-<div class="overlay login-overlay flex-center">
-    <div class="auth-container"></div>
+<div class="overlay auth-overlay flex-center">
+    <div class="auth-container flex-row flex-center">
+        <p class="login-title">Log in to the Chronicle</p>
+    </div>
 </div>
 {% endmacro %}
 
