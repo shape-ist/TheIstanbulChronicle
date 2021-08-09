@@ -90,3 +90,25 @@
     </div>
 </header>
 {% endmacro %}
+
+{% macro footer() %}
+<style>
+    footer{
+        justify-content: space-between;
+        background: var(--g1);
+        color: var(--bg);
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: var(--m1);
+    }
+    .footer-right{
+        text-align: right;
+    }
+</style>
+<footer class="flex-row">
+    <div class="footer-left">2021, The Istanbul Chronicle</div>
+    <div class="footer-right">Brought to you by shape.ist</div>
+</footer>
+{% endmacro %}
