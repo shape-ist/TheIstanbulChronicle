@@ -17,12 +17,20 @@
 </head>
 
 <body>
+    <style>
+        .about-title{
+            text-align: left !important;
+        }
+    </style>
     <div id="app-wrapper">
         {{style()}}
         {{header()}}
         {{socials()}}
         <div id="about-wrapper flex-col flex-center">
-            <h1>About Us</h1>
+            <h1 class="title-large about-title">About Us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit quam, dignissim nec tortor nec, pretium iaculis metus. Morbi suscipit venenatis facilisis. Etiam condimentum vitae est a laoreet. Nam finibus scelerisque metus ac tempus. Donec nec eros sed odio tristique semper. Fusce egestas vel dui semper feugiat. Suspendisse potenti. Vivamus sapien ipsum, maximus eu sapien nec, varius congue orci. Nullam ac metus gravida, molestie elit elementum, consectetur dolor. Quisque id mi nec felis convallis interdum nec ut felis.
+
+                In laoreet elit nec erat fringilla, non dapibus nibh aliquet. In et ullamcorper tellus, a commodo mauris. Praesent a tempor leo, a aliquet metus. Maecenas eget pulvinar neque. Duis sed efficitur ante. Praesent ullamcorper nulla turpis, vel tincidunt lectus pulvinar commodo. Quisque nec metus vel felis elementum euismod et sed nisl. Quisque et urna dictum, aliquam nibh at, ornare purus. Suspendisse at venenatis metus. Proin elementum dignissim convallis. Sed viverra rhoncus urna, vitae imperdiet enim euismod at.</p>
         </div>
         {{footer()}}  
     </div>
