@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% from "./macros/_style.html" import style with context %}
-{% from "./macros/_header.html" import header with context %}
+{% from "./macros/_headerFooter.html" import header, footer with context %}
+{% from "./macros/_socials.html" import socials with context %}
 
 <html lang="en">
 
@@ -19,8 +20,13 @@
     <div id="app-wrapper">
         {{style()}}
         {{header()}}
-        {{load()}}
+        {{socials()}}
+        <div id="about-wrapper flex-col flex-center">
+            <h1>About Us</h1>
+        </div>
+        {{footer()}}  
     </div>
+
 </body>
 
 </html>

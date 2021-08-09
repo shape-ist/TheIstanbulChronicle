@@ -7,7 +7,10 @@ app = Flask(__name__,
 @app.route('/')
 def home():
     return render_template('./screens/index.html')
-    # sets up www.theistanbulchronicle.com/
+
+@app.route('/about')
+def about():
+    return render_template('./screens/about.html')
 
 @app.route('/favicon.png')
 def favicon():
