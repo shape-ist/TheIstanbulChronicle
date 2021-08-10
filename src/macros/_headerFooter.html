@@ -60,13 +60,18 @@
         padding: 0;
         margin: 0;
     }
+
+    .logo-link {
+        z-index: 99 !important;
+    }
+    
 </style>
 <header>
     <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
     {{login()}}
     <div id="title" class="flex-row">
         <div id="logo-wrapper" class="flex-col flex-center">
-            <a href="/" class="pointer logo">The Istanbul Chronicle<div class="beta">beta</div>
+            <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<div class="beta">beta</div>
             </a>
             <h2 class="subtitle">From truth, comes liberation</h2>
         </div>

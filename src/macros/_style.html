@@ -1,11 +1,11 @@
 {% macro style() %}
 <style>
     .theme-dark {
-        --bg: #161718;
+        --bg: #262727;
         --fg: #ffffff;
         --g1: #cecece;
         --g2: #505050;
-        --a: #00fff2;
+        --a: #907CFF;
     }
 
     .theme-light {
@@ -13,7 +13,7 @@
         --fg: #000000;
         --g1: #505050;
         --g2: #cecece;
-        --a: #2824ff;
+        --a: #000000;
     }
 
     @font-face {
@@ -257,7 +257,7 @@
     }
 
     .beta {
-        display: inline;
+        display: inline-block;
         border: 1px solid var(--g1);
         padding: 2px;
         border-radius: 3px;
@@ -266,6 +266,8 @@
         margin: 10px;
         color: var(--g1);
         font-size: .3em;
+        height: fit-content;
+        width: fit-content;
     }
 
 </style>
