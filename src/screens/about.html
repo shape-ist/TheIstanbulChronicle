@@ -12,54 +12,73 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <script src="https://kit.fontawesome.com/9da952c940.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
+    {{style()}}
     <title>The Istanbul Chronicle</title>
 </head>
 
 <body>
-    {{style()}}
     <style>
         .about-title {
             text-align: left !important;
+            margin-bottom: var(--m2);
+        }
+        .about-content-wrapper {
+            border-right: 2px solid var(--g2);
+            margin-right: var(--m3);
+            padding-right: var(--m3);
+        }
+        #about-page-wrapper {
+            max-width: 720px;
+            padding: 60px;
+            padding-right: 80px;
+            animation: .5s fly-in;
+        }
+        .center-container{
+            top: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            right: 0;
         }
     </style>
     <div id="app-wrapper">
         {{header()}}
         {{socials()}}
-        <div id="about-wrapper flex-row flex-center">
-            <div class="about-content-wrapper">
-                <h1 class="title-large about-title">About Us</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit quam, dignissim nec tortor nec,
-                    pretium iaculis metus. Morbi suscipit venenatis facilisis. Etiam condimentum vitae est a laoreet.
-                    Nam
-                    finibus scelerisque metus ac tempus. Donec nec eros sed odio tristique semper. Fusce egestas vel dui
-                    semper feugiat. Suspendisse potenti. Vivamus sapien ipsum, maximus eu sapien nec, varius congue
-                    orci.
-                    Nullam ac metus gravida, molestie elit elementum, consectetur dolor. Quisque id mi nec felis
-                    convallis
-                    interdum nec ut felis.
-
-                    In laoreet elit nec erat fringilla, non dapibus nibh aliquet. In et ullamcorper tellus, a commodo
-                    mauris. Praesent a tempor leo, a aliquet metus. Maecenas eget pulvinar neque. Duis sed efficitur
-                    ante.
-                    Praesent ullamcorper nulla turpis, vel tincidunt lectus pulvinar commodo. Quisque nec metus vel
-                    felis
-                    elementum euismod et sed nisl. Quisque et urna dictum, aliquam nibh at, ornare purus. Suspendisse at
-                    venenatis metus. Proin elementum dignissim convallis. Sed viverra rhoncus urna, vitae imperdiet enim
-                    euismod at.
-                </p>
+        <div class="center-container flex-center">
+            <div id="about-page-wrapper">
+                <h1 class="title-larger about-title">About Us</h1>
+                <div id="about-wrapper" class="flex-row flex-center">
+                    <div class="about-content-wrapper">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit quam, dignissim nec tortor nec,
+                            pretium iaculis metus. Morbi suscipit venenatis facilisis. Etiam condimentum vitae est a laoreet.
+                            Nam
+                            finibus scelerisque metus ac tempus. Donec nec eros sed odio tristique semper. Fusce egestas vel dui
+                            semper feugiat. Suspendisse potenti. Vivamus sapien ipsum, maximus eu sapien nec, varius congue
+                            orci.
+                            Nullam ac metus gravida, molestie elit elementum, consectetur dolor. Quisque id mi nec felis
+                            convallis
+                            interdum nec ut felis.
+        
+                            In laoreet elit nec erat fringilla, non dapibus nibh aliquet. In et ullamcorper tellus, a commodo
+                            mauris. Praesent a tempor leo, a aliquet metus. Maecenas eget pulvinar neque. Duis sed efficitur
+                            ante.
+                            Praesent ullamcorper nulla turpis, vel tincidunt lectus pulvinar commodo.
+                        </p>
+                    </div>
+                    <div class="about-contact-wrapper">
+                        <p>Email us here:<br><a href="mailto: info@theistanbulchronicle.com">info@theistanbulchronicle.com</a></p>
+                        <p><br>Want to be a part<br>of the Chronicle?
+                            <br><a href="/contribute">Visit the contribution page!</a>
+                        </p>
+                        <p class='sub'><br>2021, shape.ist</p>
+                    </div>
+                </div>
             </div>
-            <div class="about-contact-wrapper">
-                <p>Email us here: wuwuwuwuwuw</p>
-                <p>Want to be a part of theistchronicle?
-                    go to theistchronicle.com/contribute
-                </p>
-            </div>
+            {{footer()}}
         </div>
-        {{footer()}}
-    </div>
-
+        </div>
 </body>
 
 </html>

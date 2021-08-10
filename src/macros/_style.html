@@ -5,6 +5,7 @@
         --fg: #ffffff;
         --g1: #cecece;
         --g2: #505050;
+        --a: #00fff2;
     }
 
     .theme-light {
@@ -12,6 +13,7 @@
         --fg: #000000;
         --g1: #505050;
         --g2: #cecece;
+        --a: #2824ff;
     }
 
     @font-face {
@@ -26,11 +28,13 @@
         --f1: 'Roboto';
         --f2: 'Lora';
         --f3: 'Old English';
+        --sub: .75em;
         --size1: 1em;
         --size2: 1.5em;
         --size3: 2em;
         --size4: 2.5em;
         --size5: 3em;
+        --size6: 4em;
         --m1: 10px;
         --m2: 20px;
         --m3: 40px;
@@ -101,7 +105,19 @@
     @keyframes slide-in {
         from {
             opacity: 0;
-            transform: translateY(100px) scaleY(1.5);
+            transform: translateY(70px) scaleY(1.35);
+        }
+
+        to {
+            opacity: 1;
+            transform: unset;
+        }
+    }
+
+    @keyframes fly-in {
+        from {
+            opacity: 0;
+            transform: translateY(60px) scaleY(1.1) scaleX(.95);
         }
 
         to {
@@ -156,6 +172,15 @@
         font-family: var(--f2);
     }
 
+    .title-larger {
+        font-size: var(--size6);
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: -2px;
+        line-height: 85%;
+        font-family: var(--f2);
+    }
+
     .google-auth {
         background: var(--bg);
         color: var(--fg);
@@ -194,6 +219,25 @@
         color: var(--g1);
         font-size: var(--size1);
         font-family: var(--f1);
+        line-height: 105%;
     }
+
+    .sub{
+        color: var(--g1);
+        font-size: var(--sub);
+        font-family: var(--f1);
+        line-height: 105%;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: var(--a);
+        font-weight: bold;
+    }
+
 </style>
 {% endmacro %}
