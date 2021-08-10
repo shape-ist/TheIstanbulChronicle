@@ -12,6 +12,10 @@ def home():
 def about():
     return render_template('./screens/about.html')
 
+@app.route('/contribute')
+def contribute():
+    return render_template('./screens/contr.html')
+
 @app.route('/favicon.png')
 def favicon():
     return send_from_directory(path.join(app.root_path, 'static'),

@@ -40,21 +40,6 @@
         font-size: var(--size1)
     }
 
-    header {
-        animation: slide-in 1s;
-    }
-
-    beta {
-        border: 1px solid var(--g1);
-        padding: 2px;
-        border-radius: 3px;
-        font-family: var(--f1);
-        vertical-align: super;
-        margin: 10px;
-        color: var(--g1);
-        font-size: .3em;
-    }
-
     #title {
         height: var(--topbar-height);
         width: 100%;
@@ -81,7 +66,7 @@
     {{login()}}
     <div id="title" class="flex-row">
         <div id="logo-wrapper" class="flex-col flex-center">
-            <a href="/" class="pointer logo">The Istanbul Chronicle<beta>beta</beta>
+            <a href="/" class="pointer logo">The Istanbul Chronicle<div class="beta">beta</div>
             </a>
             <h2 class="subtitle">From truth, comes liberation</h2>
         </div>

@@ -1,7 +1,12 @@
-document.addEventListener('mousedown', function(e) {
+function hide(el) {
+    el.classList.add('opacity-animation');
+    el.parentElement.style.display = "none";
+};
+
+document.addEventListener('mousedown', function (e) {
     var container = document.getElementById('login-popup');
     if (!container.contains(e.target)) {
-        container.parentElement.style.display = 'none';
+        hide(container)
     }
 });
 

@@ -239,5 +239,34 @@
         font-weight: bold;
     }
 
+    @keyframes fade-out{
+        from{
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    .opacity-animation {
+        transition: opacity 1s;
+    }
+
+    .block {
+        display: block;
+    }
+
+    .beta {
+        display: inline;
+        border: 1px solid var(--g1);
+        padding: 2px;
+        border-radius: 3px;
+        font-family: var(--f1);
+        vertical-align: super;
+        margin: 10px;
+        color: var(--g1);
+        font-size: .3em;
+    }
+
 </style>
 {% endmacro %}

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% from "./macros/_style.html" import style %}
 {% from "./macros/_headerFooter.html" import header, footer %}
-{% from "./macros/_load.html" import load %}
 {% from "./macros/_socials.html" import socials %}
 
 <html lang="en">
@@ -12,18 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png" />
     <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
+    {{style()}}
     <title>The Istanbul Chronicle</title>
 </head>
 
 <body>
+    <style>
+    </style>
     <div id="app-wrapper">
-        {{style()}}
         {{header()}}
-        {{load()}}
         {{socials()}}
+        {{footer()}}
     </div>
-
 </body>
 
 </html>
