@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-{% from "./macros/_style.html" import style with context %}
-{% from "./macros/_headerFooter.html" import header, footer with context %}
-{% from "./macros/_load.html" import load with context %}
-{% from "./macros/_socials.html" import socials with context %}
+{% from "./macros/_style.html" import style %}
+{% from "./macros/_headerFooter.html" import header, footer %}
+{% from "./macros/_load.html" import load %}
+{% from "./macros/_socials.html" import socials %}
 
 <html lang="en">
 
@@ -23,7 +23,6 @@
         {{header()}}
         {{load()}}
         {{socials()}}
-        {{footer()}}  
     </div>
 
 </body>

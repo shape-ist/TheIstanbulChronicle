@@ -39,7 +39,7 @@
         padding: 0;
     }
 
-    p{
+    p {
         margin: 0;
         padding: 0;
     }
@@ -110,6 +110,16 @@
         }
     }
 
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
     .overlay {
         position: fixed;
         height: 100%;
@@ -120,6 +130,8 @@
         left: 0;
         right: 0;
         bottom: 0;
+        animation: .4s fade;
+        backdrop-filter: blur(4px)
     }
 
     .auth-overlay {
@@ -127,7 +139,7 @@
         z-index: 999;
     }
 
-    .auth-container{
+    .auth-container {
         background: var(--fg);
         color: var(--bg);
         padding: 80px;
@@ -135,15 +147,15 @@
         animation: slide-in .4s;
     }
 
-    .title-large{
+    .title-large {
         font-size: var(--size5);
         font-weight: bold;
         text-align: center;
         letter-spacing: -2px;
         line-height: 85%;
     }
-    
-    .google-auth{
+
+    .google-auth {
         background: var(--bg);
         color: var(--fg);
         outline: none;
@@ -156,24 +168,24 @@
         display: none !important;
     }
 
-    .auth-content{
+    .auth-content {
         margin: var(--m2);
     }
 
-    button:active{
+    button:active {
         filter: brightness(.8) contrast(.6);
         transition: none !important;
     }
 
-    .fa{
+    .fa {
         color: var(--fg);
     }
 
-    .auth-icon{
-        margin-right:20px;
+    .auth-icon {
+        margin-right: 20px;
     }
 
-    .pointer{
+    .pointer {
         cursor: pointer;
     }
     p{

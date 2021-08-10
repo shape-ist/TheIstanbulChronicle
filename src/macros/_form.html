@@ -1,0 +1,13 @@
+{% macro form(placeholder, id) %}
+<style>
+    label{
+        background: var(--g1);
+        color: var(--fg);
+        padding: 20px;
+        outline: none;
+        border: none;
+        margin: var(--m1);
+    }
+</style>
+<label id={{id}}>{{placeholder}}</label><br>
+{% endmacro %}
