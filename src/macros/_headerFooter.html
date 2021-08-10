@@ -25,7 +25,10 @@
         width: 100%;
         white-space: nowrap;
         letter-spacing: -1px;
-
+        padding: 0 20px;
+        display: block;
+        color: var(--fg);
+        text-decoration: none;
     }
 
     .subtitle {
@@ -74,12 +77,12 @@
     }
 </style>
 <header>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/display.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
     {{login()}}
     <div id="title" class="flex-row">
         <div id="logo-wrapper" class="flex-col flex-center">
-            <h1 class="logo">The Istanbul Chronicle<beta>beta</beta>
-            </h1>
+            <a href="/" class="pointer logo">The Istanbul Chronicle<beta>beta</beta>
+            </a>
             <h2 class="subtitle">From truth, comes liberation</h2>
         </div>
         <div class="title-side topmost left-section">
