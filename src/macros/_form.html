@@ -1,13 +1,20 @@
-{% macro form(placeholder, id) %}
+{% macro form(placeholder, id, type) %}
 <style>
-    label {
-        background: var(--g1);
-        color: var(--fg);
-        padding: 20px;
-        outline: none;
+    .input-field:focus {
+        transform: scale(1.05);
         border: none;
-        margin: var(--m1);
+        outline: none;
+        box-shadow: 0 0 42px -8px var(--bg);
+        outline: 2px solid var(--accent);
+    }
+    .input-field {
+        padding: var(--m1) var(--m2);
+        border-radius: 0;
+        background: var(--bg);
+        border: none;
+        color: var(--fg);
+        width: 100%;
     }
 </style>
-<input name="email" placeholder='{{placeholder}}' id='{{id}}'>{{placeholder}}</input><br>
+<input type="{{type}}" name="{{placeholder}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field"></input><br>
 {% endmacro %}

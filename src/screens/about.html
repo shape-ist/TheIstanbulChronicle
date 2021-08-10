@@ -54,6 +54,22 @@
             margin: 12px 0;
         }
 
+        .beta-icon-side {
+            font-size: .65em;
+        }
+
+        .fa-about {
+            margin-left: 4px;
+            font-size: .75em;
+            width: 1.1em;
+            vertical-align: middle;
+            margin-bottom: 2px;
+        }
+        
+        .about-bottom-container{
+            align-items: center;
+        }
+
     </style>
     <div id="app-wrapper">
         {{header()}}
@@ -87,18 +103,24 @@
                         </p>
                     </div>
                     <div class="about-contact-wrapper">
-                        <p class='block'>Contact us here: <i class="far fa-envelope-open"></i><br>
+                        <p class='block'>Contact us here:
+                            <i class="fa-about far fa-envelope-open"></i>
+                            <br>
                             <a href="mailto: info@theistanbulchronicle.com">info@theistanbulchronicle.com</a>
                         </p>
-                        <p class='block'><br>Want to be a part<br>of the Chronicle?<br>
+                        <p class='block'><br>Want to be a part<br>of the Chronicle?
+                            <i class="fa-about fas fa-i-cursor"></i>
+                            <br>
                             <a href="/contribute">Visit the contribution page</a>
                         </p>
-                        <p class='block'><br>Have an idea, suggestion or question?<br>
+                        <p class='block'><br>Have an idea, suggestion or question?
+                            <i class="fa-about far fa-comment-alt"></i>
+                            <br>
                             <a href="/feedback">Go to the feedback hub</a>
                         </p>
                         <p class='block sub'><br>2021, shape.ist<br></p>
-                        <div class="flex-row">
-                        <p class='block about-icon'>C</p> <div class="beta">beta</div>
+                        <div class="flex-row about-bottom-container">
+                        <p class='block about-icon'>C</p> <div class="beta beta-icon-side">beta</div>
                         </div>
                     </div>
                 </div>
