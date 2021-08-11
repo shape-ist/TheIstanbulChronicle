@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% from "./macros/_style.html" import style %}
+{% from "./macros/_headerFooter.html" import header, footer %}
+{% from "./macros/_form.html" import form %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
+    <title>The Istanbul Chronicle</title>
+</head>
+<style>
+    #register-wrapper {
+        background: var(--fg);
+    } 
+</style>
+<body>
+    <div id="app-wrapper">
+        {{style()}}
+        {{header()}}
+        <div id="register-wrapper">
+            <h1 class="title-large">Register.</h1>
+            <p class="sub">Be a part of The Istnabul Chronicle community.</p>
+            {{form("Name", "register-display-name-field", "text")}}
+            {{form("E-mail", "register-email-field", "email")}}
+            {{form("Password", "register-password-field", "password")}}
+            {{form("Verify Password", "register-verify-field", "password")}}
+        </div>
+
+    </div>
+
+</body>
+
+</html>
