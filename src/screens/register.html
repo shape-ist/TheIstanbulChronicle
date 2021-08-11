@@ -17,19 +17,39 @@
 <style>
     #register-wrapper {
         background: var(--fg);
-    } 
+        padding: var(--m3);
+        max-width: 480px;
+    }
+
+    .register-form {
+        margin-bottom: var(--m2);
+    }
+
+    .personal-info {
+        margin-right: var(--m2);
+    }
+
+    .pass-container {
+        width: 25%;
+    }
+
 </style>
+
 <body>
     <div id="app-wrapper">
         {{style()}}
         {{header()}}
-        <div id="register-wrapper">
+        <div id="register-wrapper" class="flex-col">
             <h1 class="title-large">Register.</h1>
             <p class="sub">Be a part of The Istnabul Chronicle community.</p>
-            {{form("Name", "register-display-name-field", "text")}}
-            {{form("E-mail", "register-email-field", "email")}}
-            {{form("Password", "register-password-field", "password")}}
-            {{form("Verify Password", "register-verify-field", "password")}}
+            <div class="flex-row">
+                {{form("Name",              "personal-info register-form",    "register-display-name-field",  "text")}}
+                {{form("E-mail",            "personal-info register-form",    "register-email-field",         "email")}}
+            </div>
+            <div class="flex-col pass-container">
+                {{form("Password",          "register-form",    "register-password-field",      "password")}}
+                {{form("Verify Password",   "register-form",    "register-verify-field",        "password")}}
+            </div>
         </div>
 
     </div>

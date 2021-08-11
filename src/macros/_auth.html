@@ -40,6 +40,8 @@
         background: var(--fg);
         color: var(--bg);
     }
+
+    
 </style>
 <script type="text/javascript" src="{{ url_for('static', filename='js/dismissHandler.js') }}"></script>
 <div id="login-area" class="overlay auth-overlay flex-col flex-center" style="display:none;">
@@ -47,8 +49,8 @@
         <h1 class="auth-content title-large">Log in to<br>the Chronicle</h1>
         <button class="auth-content google-auth"><i class="auth-icon fab fa-google"></i>Continue with Google</button>
         <div class="form-container flex-col">
-            {{ form('E-Mail', 'email-form', 'email') }}
-            {{ form('Password', 'password-form', 'password') }}
+            {{ form('E-Mail',       '' ,    'email-form',       'email') }}
+            {{ form('Password',     '' ,    'password-form',    'password') }}
         </div>
         <div class="auth-lower-container flex-row flex-between">
             <a href="/profile/reset" class="forgot sub">Forgot<br>Password?</a>

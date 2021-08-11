@@ -2,6 +2,8 @@ from flask import *
 from os import path
 
 app = Flask(__name__, template_folder='src')
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['FLASK_ENV'] = 'development'
 
 
 @app.route('/')
@@ -31,7 +33,6 @@ def favicon():
                                mimetype='image/vnd.microsoft.icon')
 
 
-# not found
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('./err/404.html'), 404
