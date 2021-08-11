@@ -11,7 +11,7 @@
         align-items: center;
     }
 
-    .auth-lower-container{
+    .auth-lower-container {
         width: calc(50% + 40px);
     }
 
@@ -23,7 +23,8 @@
         border-radius: 999px;
     }
 
-    .auth-submit:focus, .auth-submit:hover{
+    .auth-submit:focus,
+    .auth-submit:hover {
         transform: scale(1.08);
         box-shadow: 0 0 42px -8px var(--bg);
     }
@@ -33,13 +34,12 @@
         margin-left: 6px;
     }
 
-    #register-popup{
+    #register-popup {
         padding: var(--m1) var(--m2);
         margin-top: var(--m1);
         background: var(--fg);
         color: var(--bg);
     }
-
 </style>
 <script type="text/javascript" src="{{ url_for('static', filename='js/dismissHandler.js') }}"></script>
 <div id="login-area" class="overlay auth-overlay flex-col flex-center" style="display:none;">
@@ -57,7 +57,7 @@
     </div>
     <a href="/register" id="register-popup" class="auth-container">
         <p class="register-redirector sub">
-            Don't have an account?  <span class="register-link" href="/register">Register</span>
+            Don't have an account? <span class="register-link" href="/register">Register</span>
         </p>
     </a>
 </div>

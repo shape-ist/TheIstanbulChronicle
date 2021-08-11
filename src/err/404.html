@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% from "./macros/_style.html" import style %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,9 @@
     {{style()}}
     <title>The Istanbul Chronicle</title>
 </head>
+
 <body>
     <style>
-
         body {
             background: var(--bg);
         }
@@ -26,7 +27,7 @@
             font-size: var(--size4);
         }
 
-        .return-home{
+        .return-home {
             text-decoration: underline;
         }
 
@@ -47,14 +48,13 @@
         .error-code {
             font-size: var(--size4);
         }
-
     </style>
     <div id="error-wrapper" class="flex-center flex-col">
         <div class="flex-row flex-center error-content-wrapper">
             <div class="danger error-text-wrapper">
                 <h1 class="danger error-title"><span class="error-code">404</span><br>Not Found</h1>
                 <p class="danger-sub">The page you requested is not found.<p>
-                <a href="/" class="danger-sub sub return-home">Go back to the homepage</a>
+                        <a href="/" class="danger-sub sub return-home">Go back to the homepage</a>
             </div>
         </div>
     </div>
