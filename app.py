@@ -21,5 +21,10 @@ def favicon():
     return send_from_directory(path.join(app.root_path, 'static'),
     'favicon.png',mimetype='image/vnd.microsoft.icon')
 
+# not found
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('./err/404.html'), 404
+
 if __name__ == '__main__':
     app.run(debug=True)

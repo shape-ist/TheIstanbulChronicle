@@ -8,7 +8,7 @@ document.onreadystatechange = function () {
                 var form = document.getElementById('loading');
                 if (form)
                     form.remove();
-            }, 1000);
-        }, 800);
+            }, 700);
+        }, 500);
     }
 };

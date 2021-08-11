@@ -3,7 +3,7 @@ function hide(el) {
     el.parentElement.style.display = "none";
 };
 
-document.addEventListener('mousedown', function (e) {
+document.addEventListener('mouseup', function (e) {
     var container = document.getElementById('login-popup');
     if (!container.contains(e.target)) {
         hide(container)
