@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% from "./macros/_style.html" import style %}
+{% from "./macros/_headerFooter.html" import header, footer %}
+{% from "./macros/_socials.html" import socials %}
+{% block imports %}
+{% endblock %}
+
+<html lang="en">
+
+<head>
+    {% block head %}
+    {% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</head>
+{% block style %}
+{% endblock %}
+<body>
+    <div class="import">
+        {{style()}}
+        {{header()}}
+        {{socials()}}
+    </div>
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>
