@@ -1,4 +1,4 @@
-{% macro form(placeholder, class, id, type) %}
+{% macro form(placeholder, class, id, type, name) %}
 <style>
     .input-field:focus {
         transform: scale(1.05);
@@ -18,5 +18,5 @@
         width: 100%;
     }
 </style>
-<input type="{{type}}" name="{{placeholder}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field {{class}}"></input><br>
+<input name={{name}} type="{{type}}" name="{{placeholder}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field {{class}}"></input><br>
 {% endmacro %}
