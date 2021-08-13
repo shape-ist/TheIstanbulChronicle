@@ -28,6 +28,7 @@
         color: var(--fg);
         --topbar-height: 80px;
         --danger: 245, 90, 80;
+        --positive: 0, 255, 100;
         --f1: 'Roboto';
         --f2: 'Lora';
         --f3: 'Old English';
@@ -161,7 +162,7 @@
     }
 
     .auth-overlay {
-        background: rgba(0, 0, 0, .8);
+        background: rgba(0, 0, 0, .7);
         z-index: 999;
     }
 
@@ -269,13 +270,13 @@
 
     .beta {
         display: inline-block;
-        border: 1px solid var(--g1);
-        padding: 2px;
+        background: rgba(var(--positive), .15);
+        padding: 4px;
         border-radius: 3px;
         font-family: var(--f1);
         vertical-align: super;
         margin: 10px;
-        color: var(--g1);
+        color: rgb(var(--positive));
         font-size: .3em;
         height: fit-content;
         width: fit-content;
