@@ -28,7 +28,7 @@
         color: var(--fg);
         --topbar-height: 80px;
         --danger: 245, 90, 80;
-        --positive: 0, 255, 100;
+        --positive: 40, 200, 120;
         --f1: 'Roboto';
         --f2: 'Lora';
         --f3: 'Old English';
@@ -53,7 +53,7 @@
         padding: 0;
     }
 
-    #app-wrapper {
+    .app-wrapper {
         max-width: 1000px;
         margin: auto;
     }
@@ -270,14 +270,14 @@
 
     .beta {
         display: inline-block;
-        background: rgba(var(--positive), .15);
+        background: rgba(var(--positive), .2);
         padding: 4px;
         border-radius: 3px;
         font-family: var(--f1);
         vertical-align: super;
         margin: 10px;
         color: rgb(var(--positive));
-        font-size: .3em;
+        font-size: .4em;
         height: fit-content;
         width: fit-content;
     }
@@ -286,6 +286,19 @@
         outline: none;
         border: none;
         border-radius: 0;
+    }
+
+    .submit-button {
+        padding: var(--m1) var(--m2);
+        background: var(--bg);
+        color: var(--fg);
+        border-radius: 999px;
+    }
+
+    .submit-button:focus,
+    .submit-button:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 42px -8px var(--bg);
     }
 
 </style>

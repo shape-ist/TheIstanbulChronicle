@@ -15,20 +15,6 @@
         width: calc(50% + 40px);
     }
 
-    .auth-submit {
-        padding: var(--m1) var(--m2);
-        background: var(--bg);
-        color: var(--fg);
-        font-weight: bold;
-        border-radius: 999px;
-    }
-
-    .auth-submit:focus,
-    .auth-submit:hover {
-        transform: scale(1.08);
-        box-shadow: 0 0 42px -8px var(--bg);
-    }
-
     .register-link {
         color: var(--bg);
         margin-left: 6px;
@@ -54,7 +40,7 @@
         </div>
         <div class="auth-lower-container flex-row flex-between">
             <a href="/profile/reset" class="forgot sub">Forgot<br>Password?</a>
-            <button class="auth-submit">Log in</button>
+            <button class="submit-button">Log in</button>
         </div>
     </div>
     <a href="/register" id="register-popup" class="auth-container">
@@ -63,8 +49,4 @@
         </p>
     </a>
 </div>
-{% endmacro %}
-
-{% macro signup() %}
-
 {% endmacro %}

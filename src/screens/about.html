@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+{% block title %}
+<title>About the Istanbul Chronicle</title>
+{% endblock %}
+
 {% block style %}
 <style>
     .about-title {
@@ -56,7 +61,6 @@
 </style>
 {% endblock %}
 {% block body %}
-<div id="app-wrapper">
     <div class="center-container flex-center">
         <div id="about-page-wrapper">
             <h1 class="title-large about-title">About Us</h1>
@@ -111,5 +115,4 @@
         </div>
         {{footer()}}
     </div>
-</div>
 {% endblock %}
