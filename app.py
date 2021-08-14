@@ -1,9 +1,11 @@
 from flask import *
-from os import path
+from os.path import join
+from flaskext.markdown import Markdown
 
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
+Markdown(app)
 
 
 @app.route('/')
@@ -16,8 +18,12 @@ def about():
     return render_template('./screens/about.html')
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
+    if request.method == "POST":
+        email: str = request.form.get("email_field")
+        password: str = request.form.get("password_field")
+        display_name: str = request.form.get("displayName")
     return render_template('./screens/register.html')
 
 
@@ -28,9 +34,19 @@ def contribute():
 
 @app.route('/favicon.png')
 def favicon():
-    return send_from_directory(path.join(app.root_path, 'static'),
+    return send_from_directory(join(app.root_path, 'static'),
                                'favicon.png',
                                mimetype='image/vnd.microsoft.icon')
+
+
+@app.route('/legal/license')
+def license():
+    return render_template('./legal/LICENSE.html')
+
+
+@app.route('/legal/terms-and-conditions')
+def terms():
+    return render_template('./legal/terms-and-conditions.html')
 
 
 @app.errorhandler(404)
