@@ -23,7 +23,7 @@
     }
 
     .pass-container {
-        width: 50%;
+        width: 45%;
     }
 
     .register-title {
@@ -64,7 +64,7 @@
     }
 
     .terms {
-        color: var(--g1) !important;
+        color: var(--a2) !important;
     }
 
     .page-wrapper {
@@ -88,13 +88,12 @@
         <p class="sub register-sub">Be a part of The Istnabul Chronicle community.</p>
         <div class="input-field-container"></div>
         <div class="flex-row">
-            {{form("Name",              "personal-info register-form",      "register-field register-display-name-field",      "text",         "ndame")}}
-            {{form("E-mail",            "personal-info register-form",      "register-field register-email-field",             "email",        "namfe")}}
+            {{form("Name",              "personal-info register-form",      "register-field register-display-name-field",      "text",         "py-displayname")}}
+            {{form("E-mail",            "personal-info register-form",      "register-field register-email-field",             "email",        "py-email")}}
         </div>
         <div class="flex-row">
             <div class="pass-container">
-                {{form("Password",          "register-form",                    "register-field register-password-field",          "password",     "namfae")}}
-                {{form("Verify Password",   "register-form",                    "register-field register-verify-field",            "password",     "naame")}}
+                {{form("Password",          "register-form",                    "register-field register-password-field",          "password",     "py-password")}}
             </div>
             <div class="submit-container flex-col">
                 <p class="sub register-sub terms-sub">By clicking register, you agree to the <a

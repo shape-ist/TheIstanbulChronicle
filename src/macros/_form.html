@@ -5,7 +5,7 @@
         border: none;
         outline: none;
         box-shadow: 0 0 50px -5px var(--bg);
-        outline: 2px solid var(--accent);
+        outline: 2px solid var(--a);
     }
 
     .input-field {
@@ -18,5 +18,5 @@
         width: 100%;
     }
 </style>
-<input name={{name}} type="{{type}}" name="{{placeholder}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field {{class}}"></input><br>
+<input name={{name}} type="{{type}}" name="{{placeholder}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field {{class}}" maxlength="40"></input><br>
 {% endmacro %}

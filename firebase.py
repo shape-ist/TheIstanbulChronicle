@@ -2,7 +2,8 @@ import os
 from firebase_admin import credentials
 from firebase_admin import firestore
 from firebase_admin import auth
-from pyrebase import *
+from firebase_admin import initialize_app
+import pyrebase
 import re
 
 
@@ -21,7 +22,7 @@ def firebase_init():
     firebase = initialize_app(firebaseConfig)
     cred = credentials.Certificate(
         'theistanbulchronicle-3173a-242f3f0f0efe.json')
-    firebase_admin.initialize_app(cred)
+    pyrebase.initialize_app(cred)
     auth = firebase.auth()
     db = firestore.client()
     return auth, db
@@ -41,6 +42,8 @@ class User():
             u'uid':             uid,
             u'name':            display_name,
             u'pp':              '',
+            u'elevation':       [],
+            u'ban':             False
         })
 
     def __login__(self, email, passoword):
