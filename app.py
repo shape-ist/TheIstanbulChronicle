@@ -24,6 +24,7 @@ def register():
         email: str = request.form.get("email_field")
         password: str = request.form.get("password_field")
         display_name: str = request.form.get("displayName")
+        print(email, password, display_name)
     return render_template('./screens/register.html')
 
 
@@ -34,9 +35,7 @@ def contribute():
 
 @app.route('/favicon.png')
 def favicon():
-    return send_from_directory(join(app.root_path, 'static'),
-                               'favicon.png',
-                               mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(join(app.root_path, 'static'), 'favicon.png', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route('/legal/license')
@@ -46,7 +45,7 @@ def license():
 
 @app.route('/legal/terms-and-conditions')
 def terms():
-    return render_template('./legal/terms-and-conditions.html')
+    return render_template('./legal/terms-and-conditions.html', updated="2021-09-06")
 
 
 @app.errorhandler(404)
@@ -55,4 +54,5 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
+    print("app started")
     app.run(debug=True)
