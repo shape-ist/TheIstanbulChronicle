@@ -1,11 +1,10 @@
 from flask import *
 from os.path import join
-from flaskext.markdown import Markdown
+from custom import *
 
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
-Markdown(app)
 
 
 @app.route('/')
@@ -25,6 +24,9 @@ def register():
         password: str = request.form.get("password_field")
         display_name: str = request.form.get("displayName")
         print(email, password, display_name)
+
+        Register(email, password, display_name)
+
     return render_template('./screens/register.html')
 
 
