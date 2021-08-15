@@ -6,11 +6,17 @@ app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
 
+db = firebase_init()
 
 @app.route('/')
 def home():
     return render_template('./screens/index.html')
 
+@app.route('/profile')
+def profile():
+    print(db.collection(u'users').document(auth.current_user['localId']))
+    #if request.method == "POST":
+    return render_template('./screens/profile.html')
 
 @app.route('/about')
 def about():
