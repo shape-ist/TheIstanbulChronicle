@@ -19,10 +19,10 @@ def firebase_init():
         'appId':                "1:987152272874:web:658d06259f17b2b94b3693",
         'measurementId':        "G-8QS0MZ7BX0"
     }
-    firebase = initialize_app(firebaseConfig)
+    firebase = pyrebase.initialize_app(firebaseConfig)
     cred = credentials.Certificate(
         'theistanbulchronicle-3173a-242f3f0f0efe.json')
-    pyrebase.initialize_app(cred)
+    firebase_admin.initialize_app(cred)
     auth = firebase.auth()
     db = firestore.client()
     return auth, db
@@ -46,7 +46,7 @@ class User():
             u'ban':             False
         })
 
-    def __login__(self, email, passoword):
+    def __login__(self, email, password):
         auth.sign_in_with_email_and_password(email, password)
 
 
