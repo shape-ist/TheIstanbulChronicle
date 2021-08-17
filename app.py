@@ -1,6 +1,6 @@
 from flask import *
 from os.path import join
-from custom import *
+from firebase import *
 from flaskext.markdown import Markdown
 
 app = Flask(__name__, template_folder='src')
