@@ -1,22 +1,6 @@
 {% macro form(placeholder, class, id, type, name) %}
 <style>
-    .input-field:focus {
-        transform: scale(1.05);
-        border: none;
-        outline: none;
-        box-shadow: 0 0 50px -5px var(--bg);
-        outline: 2px solid var(--a);
-    }
 
-    .input-field {
-        transition: .2s ease;
-        padding: var(--m1) var(--m2);
-        border-radius: 0;
-        background: var(--bg);
-        border: none;
-        color: var(--fg);
-        width: 100%;
-    }
 </style>
-<input name={{name}} type="{{type}}" name="{{placeholder}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field {{class}}" maxlength="40"></input><br>
+<input name={{name}} type="{{type}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field {{class}}" maxlength="40"></input><br>
 {% endmacro %}

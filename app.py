@@ -11,9 +11,12 @@ Markdown(app)
 db = firebase_init()
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('./screens/index.html')
+    if request.method == "POST":
+        email: str = request.form.get("name-email")
+        password: str = request.form.get("name-password")
+    return render_template('./index.html')
 
 
 @app.route('/profile')
@@ -30,14 +33,6 @@ def about():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == "POST":
-        email: str = request.form.get("email_field")
-        password: str = request.form.get("password_field")
-        display_name: str = request.form.get("displayName")
-        print(email, password, display_name)
-
-        Register(email, password, display_name)
-
     return render_template('./screens/register.html')
 
 
