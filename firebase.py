@@ -4,6 +4,7 @@ from firebase_admin import auth
 from firebase_admin import initialize_app
 import pyrebase
 import re
+import schema
 
 
 def get_secrets():
@@ -15,14 +16,14 @@ def get_secrets():
     SERVICE_ACCOUNT_FILE = getenv('SERVICE_ACCOUNT_FILE')
     STORAGE_BUCKET_NAME = getenv('STORAGE_BUCKET_NAME')
     return {
-        'apiKey':             getenv('apiKey'),
-        'authDomain':         getenv('authDomain'),
-        'databaseURL':        getenv('databaseURL'),
-        'projectId':          getenv('projectId'),
-        'storageBucket':      getenv('storageBucket'),
-        'messagingSenderId':  getenv('messagingSenderId'),
-        'appId':              getenv('appId'),
-        'measurementId':      getenv('measurementId')
+        'apiKey': getenv('apiKey'),
+        'authDomain': getenv('authDomain'),
+        'databaseURL': getenv('databaseURL'),
+        'projectId': getenv('projectId'),
+        'storageBucket': getenv('storageBucket'),
+        'messagingSenderId': getenv('messagingSenderId'),
+        'appId': getenv('appId'),
+        'measurementId': getenv('measurementId')
     }
 
 
@@ -41,27 +42,20 @@ def firebase_init():
 
 
 class User():
-
     def __init__(self, email, password, display_name):
         # this method assumes that the passwords are not mismatched, please use js to check for matching password
         # (password matching was removed in pre-beta)
         auth.create_user_with_email_and_password(email, password)
-        auth.sign_in_with_email_and_password(email, password)
         uid = auth.current_user['localId']
 
         # creates user document
-        db.collection(u'users').document(uid).set({
-            u'email':           email,
-            u'bio':             '',
-            u'uid':             uid,
-            u'name':            display_name,
-            u'pp':              '',
-            u'elevation':       [],
-            u'ban':             False
-        })
+        db.collection(u'users').document(uid).set(
+            schema.user(name=display_name, email=email, uid=uid))
 
-    def __login__(self, email, password):
-        auth.sign_in_with_email_and_password(email, password)
+        # the user __init__ method expects you to explicitly sign the user in after registration
+
+    def __login__(self):
+        auth.sign_in_with_email_and_password(self.email, self.password)
 
 
 if __name__ == '__main__':
