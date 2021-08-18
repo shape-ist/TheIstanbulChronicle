@@ -48,7 +48,9 @@ def contribute():
 
 @app.route('/favicon.png')
 def favicon():
-    return send_from_directory(join(app.root_path, 'static'), 'favicon.png', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(join(app.root_path, 'static'),
+                               'favicon.png',
+                               mimetype='image/vnd.microsoft.icon')
 
 
 @app.route('/legal/license')
@@ -58,7 +60,8 @@ def license():
 
 @app.route('/legal/terms-and-conditions')
 def terms():
-    return render_template('./legal/terms-and-conditions.html', updated="2021-09-06")
+    return render_template('./legal/terms-and-conditions.html',
+                           updated="2021-09-06")
 
 
 @app.errorhandler(404)
