@@ -68,6 +68,7 @@
 <div class="app-wrapper">
     <header>
         <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
         {{login()}}
         <div id="title" class="flex-row">
             <div id="logo-wrapper" class="flex-col flex-center">
@@ -76,7 +77,7 @@
                 <h2 class="subtitle">From truth, comes liberation</h2>
             </div>
             <div class="title-side topmost left-section">
-                <a href="/about" class="header-button about-us">About Us</a>
+                <a id="header-about" href="/about" class="header-button about-us">About Us</a>
             </div>
             <div class="title-side topmost right-section">
                 <button onclick="display('login-area', 'flex')" class="header-button auth pointer">Log in /

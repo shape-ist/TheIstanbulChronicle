@@ -16,6 +16,7 @@ def home():
     if request.method == "POST":
         email: str = request.form.get("name-email")
         password: str = request.form.get("name-password")
+        print(email, password)
     return render_template('./index.html')
 
 
