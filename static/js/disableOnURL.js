@@ -8,4 +8,4 @@
     }
 })();
 
-// broken, getElementById returns null.
+// TODO: broken, getElementById returns null.
