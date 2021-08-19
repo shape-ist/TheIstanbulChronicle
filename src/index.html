@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>The Istanbul Chronicle: From truth, comes liberation</title>
+{% endblock %}
+
+{% block imports %}
+{% from "./macros/_load.html" import load %}
+{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
+<title>The Istanbul Chronicle</title>
+{% endblock %}

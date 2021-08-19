@@ -1,0 +1,111 @@
+{% from "./macros/_login.html" import login with context %}
+{% macro header() %}
+<style>
+    .header-button {
+        font-family: var(--f2);
+        color: var(--g1);
+        font-weight: 700;
+        text-decoration: none;
+        font-size: var(--size1);
+    }
+
+    #logo-wrapper {
+        position: absolute;
+        left: 50%;
+        height: var(--topbar-height)
+    }
+
+    .logo {
+        font-family: var(--f3);
+        position: relative;
+        left: -50%;
+        text-align: center;
+        margin: 0;
+        font-size: var(--size4);
+        width: 100%;
+        white-space: nowrap;
+        letter-spacing: -1px;
+        padding: 0 20px;
+        display: block;
+        color: var(--fg);
+        text-decoration: none;
+    }
+
+    .subtitle {
+        font-family: var(--f2);
+        position: relative;
+        left: -50%;
+        text-align: center;
+        margin: 0;
+        font-size: var(--size1)
+    }
+
+    #title {
+        height: var(--topbar-height);
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 32px
+    }
+
+    .title-side {
+        align-self: center;
+        margin: 0 20px;
+        font-family: Lora;
+        color: var(--g1)
+    }
+
+    .auth {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .logo-link {
+        z-index: 99 !important;
+    }
+</style>
+<div class="app-wrapper">
+    <header>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
+        {{login()}}
+        <div id="title" class="flex-row">
+            <div id="logo-wrapper" class="flex-col flex-center">
+                <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<div class="beta">beta</div>
+                </a>
+                <h2 class="subtitle">From truth, comes liberation</h2>
+            </div>
+            <div class="title-side topmost left-section">
+                <a id="header-about" href="/about" class="header-button about-us">About Us</a>
+            </div>
+            <div class="title-side topmost right-section">
+                <button onclick="display('login-area', 'flex')" class="header-button auth pointer">Log in /
+                    Register</button>
+            </div>
+        </div>
+    </header>
+</div>
+{% endmacro %}
+
+{% macro footer() %}
+<style>
+    footer {
+        justify-content: space-between;
+        background: var(--g2);
+        color: var(--fg);
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer-right {
+        text-align: right;
+    }
+</style>
+<footer class="flex-row">
+    <div class="footer-left">2021, shape.ist</div>
+    <div class="footer-right">The Istanbul Chronicle</div>
+</footer>
+{% endmacro %}

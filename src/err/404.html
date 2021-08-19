@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% from "./macros/_style.html" import style %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    {{style()}}
+    <title>The Istanbul Chronicle</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background: var(--bg);
+        }
+
+        #error-wrapper {
+            height: 100vh !important;
+            width: 100%;
+        }
+
+        .error-title {
+            font-size: var(--size4);
+        }
+
+        .return-home {
+            text-decoration: underline;
+        }
+
+        .error-content-wrapper {
+            background: rgba(var(--danger), .3);
+            padding: var(--m4);
+            animation: .4s slide-in;
+        }
+
+        .danger {
+            color: rgb(var(--danger)) !important;
+        }
+
+        .danger-sub {
+            color: rgba(var(--danger), .5) !important;
+        }
+
+        .error-code {
+            font-size: var(--size4);
+        }
+    </style>
+    <div id="error-wrapper" class="flex-center flex-col">
+        <div class="flex-row flex-center error-content-wrapper">
+            <div class="danger error-text-wrapper">
+                <h1 class="danger error-title"><span class="error-code">404</span><br>Not Found</h1>
+                <p class="danger-sub">The page you requested is not found.<p>
+                        <a href="/" class="danger-sub sub return-home">Go back to the homepage</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
