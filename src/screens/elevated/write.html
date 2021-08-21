@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="utf-8">
+<title>New article - The Istanbul Chronicle</title>
+{{ easymde.css }}
+{{ easymde.js }}
+{% endblock %}
+
+{% block body %}
+<textarea>
+    Some Markdown Text Here
+    </textarea>
+{{ easymde.load }}
+{% endblock %}

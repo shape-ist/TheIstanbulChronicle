@@ -21,7 +21,7 @@
         left: -50%;
         text-align: center;
         margin: 0;
-        font-size: var(--size4);
+        font-size: var(--size3);
         width: 100%;
         white-space: nowrap;
         letter-spacing: -1px;
@@ -42,9 +42,10 @@
 
     #title {
         height: var(--topbar-height);
-        width: 100%;
         justify-content: space-between;
-        margin-top: 32px
+        margin: 20px auto;
+        max-width: 1200px;
+        padding: 0 40px;
     }
 
     .title-side {
@@ -64,8 +65,16 @@
     .logo-link {
         z-index: 99 !important;
     }
+
+    header {
+        position: fixed;
+        left: 0;
+        width: 100vw;
+        background: var(--bg);
+        z-index: 999;
+    }
+    
 </style>
-<div class="app-wrapper">
     <header>
         <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
@@ -85,7 +94,6 @@
             </div>
         </div>
     </header>
-</div>
 {% endmacro %}
 
 {% macro footer() %}

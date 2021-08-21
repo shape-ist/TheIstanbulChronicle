@@ -1,6 +1,13 @@
 from flask import *
 from os.path import join
+from os.path import isfile
+from flask_easymde import EasyMDE
 from flaskext.markdown import Markdown
+
+if not isfile('.env'):
+    raise Exception(
+        'Missing .env file, please add a .env file in your root directory.')
+
 from firebase import setup
 from firebase import user
 
@@ -8,6 +15,7 @@ app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
 Markdown(app)
+mde = EasyMDE(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -53,14 +61,22 @@ def favicon():
                                mimetype='image/vnd.microsoft.icon')
 
 
+@app.route('/write')
+def write():
+    # TODO: check access of user before returning template of elevated html pages.
+    # ERROR 403 IF ACCESS DENIED
+    # TODO: add different favicon on elevated pages.
+    return render_template('./screens/elevated/write.html')
+
+
 @app.route('/legal/license')
 def license():
-    return render_template('./legal/LICENSE.html')
+    return render_template('./screens/legal/LICENSE.html')
 
 
 @app.route('/legal/terms-and-conditions')
 def terms():
-    return render_template('./legal/terms-and-conditions.html',
+    return render_template('./screens/legal/terms-and-conditions.html',
                            updated="2021-09-06")
 
 
@@ -72,4 +88,3 @@ def page_not_found(e):
 if __name__ == '__main__':
     print("app started")
     app.run(debug=True)
-    
