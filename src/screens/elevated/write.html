@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="utf-8">
+<title>New article - The Istanbul Chronicle</title>
+{{ easymde.css }}
+{{ easymde.js }}
+{% endblock %}
+
+{% block style %}
+<!-- TODO: hide header when easymde on fullscreen -->
+<style>
+</style>
+{% endblock %}
+
+{% block body %}
+<textarea>
+    Some Markdown Text Here
+    </textarea>
+{{ easymde.load }}
+{% endblock %}

@@ -31,3 +31,7 @@
 </body>
 
 </html>
+
+{% macro stylesheet(file) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='{{file}}') }}">
+{% endmacro %}

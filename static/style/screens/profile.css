@@ -1,0 +1,30 @@
+.profile-pfp {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .16);
+    background-color: var(--g2);
+}
+
+.profile-displayname {
+    font-weight: bold;
+    width: 100%;
+    margin-top: var(--m2);
+    font-size: var(--size1);
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.profile-area {
+    width: 20%;
+}
+
+.profile-tag {
+    background: rgba(20, 160, 255, 0.2);
+    color: rgb(20, 160, 250);
+    padding: 5px;
+    margin: 6px 6px 12px 6px;
+    border-radius: 6px;
+    font-size: .8em;
+    font-weight: bold;
+}
