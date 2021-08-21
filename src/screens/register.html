@@ -5,87 +5,16 @@
 <title>Register for the Chronicle</title>
 {% endblock %}
 
-{% block style %}
-<style>
-    #register-wrapper {
-        background: var(--fg);
-        padding: var(--m3);
-        max-width: 480px;
-        height: fit-content;
-    }
-
-    .register-form {
-        margin-bottom: var(--m2);
-    }
-
-    .personal-info {
-        margin-right: var(--m2);
-    }
-
-    .pass-container {
-        width: 45%;
-    }
-
-    .register-title {
-        color: var(--bg);
-        text-align: left !important;
-        line-height: 150% !important;
-    }
-
-    .register-sub {
-        color: var(--g2) !important;
-    }
-
-    .input-field-container {
-        margin-top: var(--m3);
-    }
-
-    .register-field {
-        margin: 0;
-    }
-
-    .submit-container {
-        margin-left: 60px;
-        width: 100%;
-    }
-
-    .submit-container {
-        width: 100%;
-        justify-content: flex-end;
-        align-items: flex-end;
-        margin-bottom: 20px;
-        margin-right: 20px;
-    }
-
-    .terms-sub {
-        text-align: right;
-        width: 170px !important;
-        margin-bottom: var(--m1);
-    }
-
-    .terms {
-        color: var(--a2) !important;
-    }
-
-    .page-wrapper {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        overflow: hidden;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-</style>
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/register.css') }}">
 {% endblock %}
+
 {% block body %}
 
 <div class="page-wrapper flex-center">
     <div id="register-wrapper" class="flex-col">
         <h1 class="title-large register-title">Register.</h1>
-        <p class="sub register-sub">Be a part of The Istnabul Chronicle community.</p>
+        <p class="sub register-sub">Join the community.</p>
         <form method="POST" class="input-field-container">
             <div class="flex-row">
                 {{form("Name",              "personal-info register-form",      "register-field register-display-name-field",      "text",         "name-register-displayname")}}
