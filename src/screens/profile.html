@@ -4,38 +4,43 @@
 <title>Your profile</title>
 {% endblock %}
 
-{% block imports %}
-{% from "./macros/_load.html" import load %}
-{% endblock %}
-
 {% block style %}
 <style>
-    #profile-page-wrapper {
-        max-width: 680px;
-        padding: 60px;
-        padding-right: 80px;
-        animation: .5s fly-in;
+    .profile-pfp {
+        height: 140px;
+        width: 140px;
+        border-radius: 50%;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, .16);
     }
 
-    .center-container {
-        top: 0;
-        position: absolute;
-        height: 100%;
+    .profile-displayname {
+        font-weight: bold;
         width: 100%;
-        left: 0;
-        right: 0;
+        margin-top: var(--m2);
+        font-size: var(--size1);
+        text-align: center;
+        overflow-wrap: anywhere;
     }
 
-    .beta-icon-side {
-        font-size: 1em !important;
+    .profile-area {
+        width: 20%;
+    }
+    .profile-tag{
+        background: rgba(20, 160, 255, 0.2);
+        color: rgb(20, 160, 250);
+        padding: 5px;
+        margin: 10px;
+        border-radius: 6px;
+        font-size: .8em;
+        font-weight: bold;
     }
 </style>
 {% endblock %}
 
 {% block body %}
-<div class="center-container flex-center">
-    <div id="profile-page-wrapper">
-        <input type="file">
-    </div>
+<div class="profile-area flex-center flex-col">
+    <img src="https://i.imgur.com/7wQ61EW.jpeg" alt="username here" class="profile-pfp">
+    <p class="profile-displayname">Barış İnandıoğlu</p>
+    <tag class="profile-tag">Writer</tag>
 </div>
 {% endblock %}
