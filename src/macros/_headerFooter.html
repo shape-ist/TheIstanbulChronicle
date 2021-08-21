@@ -73,32 +73,41 @@
         background: var(--bg);
         z-index: 999;
     }
-    
+
     .top-beta {
         position: absolute;
         bottom: 0;
     }
 
+    .register-link {
+        color: unset !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
 </style>
-    <header>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
-        {{login()}}
-        <div id="title" class="flex-row">
-            <div id="logo-wrapper" class="flex-col flex-center">
-                <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<span class="beta top-beta">beta</span>
-                </a>
-                <h2 class="subtitle">From truth, comes liberation</h2>
-            </div>
-            <div class="title-side topmost left-section">
-                <a id="header-about" href="/about" class="header-button about-us">About Us</a>
-            </div>
-            <div class="title-side topmost right-section">
+<header>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
+    {{login()}}
+    <div id="title" class="flex-row">
+        <div id="logo-wrapper" class="flex-col flex-center">
+            <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<span class="beta top-beta">beta</span>
+            </a>
+            <h2 class="subtitle">From truth, comes liberation</h2>
+        </div>
+        <div class="title-side topmost left-section">
+            <a id="header-about" href="/about" class="header-button about-us">About Us</a>
+        </div>
+        <div class="title-side topmost right-section">
+            <div class="profile-are">
                 <button onclick="display('login-area', 'flex')" class="header-button auth pointer">
-                    Log in / Register</button>
+                    Log in / </button>
+                <a href="/register" class="register-link">Register</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 {% endmacro %}
 
 {% macro footer() %}
