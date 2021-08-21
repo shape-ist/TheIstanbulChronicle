@@ -74,6 +74,11 @@
         z-index: 999;
     }
     
+    .top-beta {
+        position: absolute;
+        bottom: 0;
+    }
+
 </style>
     <header>
         <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
@@ -81,7 +86,7 @@
         {{login()}}
         <div id="title" class="flex-row">
             <div id="logo-wrapper" class="flex-col flex-center">
-                <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<div class="beta">beta</div>
+                <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<span class="beta top-beta">beta</span>
                 </a>
                 <h2 class="subtitle">From truth, comes liberation</h2>
             </div>
