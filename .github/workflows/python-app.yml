@@ -34,5 +34,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: autoflake
-    - run: autoflake --recursive .
+    - name: remove unused imports
+    - run: autoflake --remove-all-unused-imports --recursive .
