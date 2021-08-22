@@ -285,9 +285,9 @@
 
     .submit-button {
         padding: var(--m1) var(--m2);
-        background: var(--bg);
+        background: linear-gradient(0deg, var(--bg), var(--g2) 150%);
         color: var(--fg);
-        border-radius: 999px;
+        border-radius: 10px;
     }
 
     .submit-button:focus,
