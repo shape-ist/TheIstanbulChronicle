@@ -3,10 +3,13 @@ from os.path import join
 from os.path import isfile
 from flask_easymde import EasyMDE
 from flaskext.markdown import Markdown
+from content import load_content
 
 if not isfile('.env'):
     raise Exception(
         'Missing .env file, please add a .env file in your root directory.')
+
+content = load_content()
 
 from firebase import setup
 from firebase import user
@@ -35,7 +38,8 @@ def profile():
 
 @app.route('/about')
 def about():
-    return render_template('./screens/about.html')
+    return render_template('./screens/about.html',
+                           about_text=content["about_text"])
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -82,7 +86,14 @@ def terms():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('./err/404.html'), 404
+    return render_template('./err/404.html',
+                           message=content["404_message"]), 404
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template('./err/403.html',
+                           message=content["403_message"]), 403
 
 
 if __name__ == '__main__':

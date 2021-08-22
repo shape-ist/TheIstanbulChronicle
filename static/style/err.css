@@ -1,0 +1,36 @@
+body {
+    background: var(--bg);
+}
+
+#error-wrapper {
+    height: 100vh !important;
+    width: 100%;
+}
+
+.error-title {
+    font-size: var(--size4);
+}
+
+.return-home {
+    text-decoration: underline;
+}
+
+.error-content-wrapper {
+    background: rgba(var(--danger), .3);
+    padding: var(--m3);
+    animation: .5s slide-in;
+    border-radius: var(--m2);
+    margin: var(--m2);
+}
+
+.danger {
+    color: rgb(var(--danger)) !important;
+}
+
+.danger-sub {
+    color: rgba(var(--danger), .5) !important;
+}
+
+.error-code {
+    font-size: var(--size4);
+}
