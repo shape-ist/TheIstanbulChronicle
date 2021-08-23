@@ -19,5 +19,6 @@ about_text: >
   efficitur
   ante.
   Praesent ullamcorper nulla turpis, vel tincidunt lectus pulvinar commodo.
+verification_text: "We sent you a verification e-mail. Please click the link on the e-mail to verify and press the 'Check' button to check again if your e-mail address is verified."
 404_message: "The page you requested is not found."
 403_message: "Hey! You're not supposed to he here."

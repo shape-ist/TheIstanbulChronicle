@@ -1,6 +1,9 @@
 ## Changelog
 
-### 0.0.3-dev-pre
+### 0.0.4-dev-pre
+- implement login and register in seperate urls as well as index.html popups
+
+### 0.0.3-dev
 - Organize CSS
 - Remove test code
 - Visual changes including animations

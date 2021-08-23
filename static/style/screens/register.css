@@ -72,6 +72,14 @@
 }
 
 #verification{
-    align-items: center;
     margin-top: var(--m1);
+}
+
+#verification-left-section {
+    margin-right: var(--m3);
+}
+
+#verification-right-section {
+    justify-content: space-evenly;
+    min-width: 25%;
 }
