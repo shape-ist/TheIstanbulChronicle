@@ -92,15 +92,6 @@ p {
 }
 
 .title-large {
-    font-size: var(--size5);
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: -2px;
-    line-height: 85%;
-    font-family: var(--f2);
-}
-
-.title-larger {
     font-size: var(--size6);
     font-weight: bold;
     text-align: center;
@@ -216,10 +207,8 @@ button {
     box-shadow: 0 0 60px -9px var(--bg);
 }
 
-
-/* TODO: this is not working */
 input {
-    border-radius: var(--r1);
+    border-radius: var(--r1) !important;
 }
 
 .input-field {
@@ -238,4 +227,8 @@ input {
 
 .r2 {
     border-radius: var(--r2);
+}
+
+.r3 {
+    border-radius: var(--r3);
 }

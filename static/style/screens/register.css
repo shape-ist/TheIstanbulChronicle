@@ -3,6 +3,7 @@
     padding: var(--m3);
     max-width: 480px;
     height: fit-content;
+    animation: .5s fly-in;
 }
 
 .register-form {

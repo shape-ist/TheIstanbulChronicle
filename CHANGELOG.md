@@ -4,6 +4,7 @@
 - Organize CSS
 - Remove test code
 - Visual changes
+- Animation Changes
 
 ### 0.0.2-dev
 - Implement Continous Integration
