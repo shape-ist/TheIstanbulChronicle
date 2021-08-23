@@ -5,5 +5,7 @@
         src: url("{{ url_for('static', filename='assets/oldenglish.woff2') }}") format('woff2')
     }
 </style>
-<link rel="stylesheet" href="{{ url_for('static', filename='style/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/global/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/global/var.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/global/ani.css') }}">
 {% endmacro %}

@@ -98,6 +98,3 @@ def forbidden(e):
 if __name__ == '__main__':
     print("app started")
     app.run(debug=True)
-
-# TODO: test
-# @todo test

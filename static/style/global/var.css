@@ -1,0 +1,43 @@
+
+.theme-dark {
+    --bg: #303032;
+    --fg: #ffffff;
+    --g1: #aeaeae;
+    --g2: #505050;
+    --a: #9481ff;
+    --a2: #3700B3;
+}
+
+.theme-light {
+    --bg: #ffffff;
+    --fg: #000000;
+    --g1: #505050;
+    --g2: #cecece;
+    --a: #3700B3;
+    --a2: #9481ff;
+}
+
+body {
+    background: var(--bg);
+    color: var(--fg);
+    --topbar-height: 40px;
+    --danger: 245, 90, 80;
+    --positive: 40, 200, 120;
+    --f1: 'Roboto';
+    --f2: 'Lora';
+    --f3: 'Old English';
+    --sub: .75em;
+    --size1: 1em;
+    --size2: 1.5em;
+    --size3: 2em;
+    --size4: 2.5em;
+    --size5: 3em;
+    --size6: 4em;
+    --m1: 10px;
+    --m2: 20px;
+    --m3: 40px;
+    --m4: 80px;
+    margin: 0;
+    padding: 0;
+    font-family: var(--f1);
+}
