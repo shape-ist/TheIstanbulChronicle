@@ -1,8 +1,8 @@
 
 .theme-dark {
-    --bg: #303032;
+    --bg: #191919;
     --fg: #ffffff;
-    --g1: #aeaeae;
+    --g1: #909090;
     --g2: #505050;
     --a: #9481ff;
     --a2: #3700B3;
@@ -21,7 +21,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     --topbar-height: 40px;
-    --danger: 245, 90, 80;
+    --danger: 245, 100, 80;
     --positive: 40, 200, 120;
     --f1: 'Roboto';
     --f2: 'Lora';

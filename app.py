@@ -20,6 +20,11 @@ app.config['FLASK_ENV'] = 'development'
 Markdown(app)
 mde = EasyMDE(app)
 
+# TODO: might be useful in the future
+# use to pass article content to article page as a kwarg though article id?
+# https://root/a=article_id
+# login_arg = request.args.get('login')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -55,6 +60,12 @@ def register():
 @app.route('/contribute')
 def contribute():
     return render_template('./screens/contr.html')
+
+
+@app.route('/verify')
+def verify():
+    return render_template('./screens/verify.html',
+                           verification_text=content["verification_text"])
 
 
 @app.route('/favicon.png')

@@ -9,12 +9,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/register.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/tablet/register_t.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mobile/register_m.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
 {% endblock %}
 
 {% block body %}
 
-<div class="page-wrapper flex-center">
-    <div id="register-wrapper" class="flex-col r2">
+<div class="page-wrapper flex-center flex-col">
+    <div id="register-wrapper" class="register-popup flex-col r2">
         <h1 class="title-large register-title">Register.</h1>
         <p class="sub register-sub">Join the community.</p>
         <form method="POST" class="input-field-container">
@@ -37,3 +38,5 @@
 </div>
 
 {% endblock %}
+
+# TODO: move this to a macro

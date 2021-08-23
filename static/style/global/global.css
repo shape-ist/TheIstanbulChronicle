@@ -119,6 +119,7 @@ p {
 
 button:active {
     filter: brightness(.8) contrast(.6);
+    opacity: .65;
     transition: none !important;
 }
 
@@ -231,4 +232,14 @@ input {
 
 .r3 {
     border-radius: var(--r3);
+}
+
+.danger {
+    background: rgba(var(--danger), .33) !important;
+    color: rgb(var(--danger)) !important;
+    padding: var(--size1);
+}
+
+.none {
+    display: none !important;
 }

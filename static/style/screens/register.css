@@ -1,7 +1,7 @@
-#register-wrapper {
+.register-popup {
     background: var(--fg);
     padding: var(--m3);
-    max-width: 480px;
+    width: 400px;
     height: fit-content;
     animation: .5s fly-in;
 }
@@ -69,4 +69,17 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+#verification{
+    margin-top: var(--m1);
+}
+
+#verification-left-section {
+    margin-right: var(--m3);
+}
+
+#verification-right-section {
+    justify-content: space-evenly;
+    min-width: 25%;
 }
