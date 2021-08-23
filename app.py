@@ -9,7 +9,7 @@ if not isfile('.env'):
     raise Exception(
         'Missing .env file, please add a .env file in your root directory.')
 
-content = load_content()
+content = load_content("content.yml")
 
 from firebase import setup
 from firebase import user
@@ -24,8 +24,8 @@ mde = EasyMDE(app)
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == "POST":
-        login_email: str = request.form.get("name-login-email")
-        login_password: str = request.form.get("name-login-password")
+        login_email = request.form.get("name-login-email")
+        login_password = request.form.get("name-login-password")
         user.login(login_email, login_password)
 
     return render_template('./index.html')
@@ -45,10 +45,9 @@ def about():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        register_email: str = request.form.get("name-register-email")
-        register_password: str = request.form.get("name-register-password")
-        register_displayname: str = request.form.get(
-            "name-register-displayname")
+        register_email = request.form.get("name-register-email")
+        register_password = request.form.get("name-register-password")
+        register_displayname = request.form.get("name-register-displayname")
         user.register(register_email, register_password, register_displayname)
     return render_template('./screens/register.html')
 
