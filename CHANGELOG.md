@@ -3,8 +3,8 @@
 ### 0.0.3-dev-pre
 - Organize CSS
 - Remove test code
-- Visual changes
-- Animation Changes
+- Visual changes including animations
+- add verification frontend to register page
 
 ### 0.0.2-dev
 - Implement Continous Integration

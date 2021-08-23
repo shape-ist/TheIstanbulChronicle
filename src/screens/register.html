@@ -13,8 +13,8 @@
 
 {% block body %}
 
-<div class="page-wrapper flex-center">
-    <div id="register-wrapper" class="flex-col r2">
+<div class="page-wrapper flex-center flex-col">
+    <div id="register-wrapper" class="register-popup flex-col r2">
         <h1 class="title-large register-title">Register.</h1>
         <p class="sub register-sub">Join the community.</p>
         <form method="POST" class="input-field-container">
@@ -33,6 +33,10 @@
                 </div>
             </div>
         </form>
+    </div>
+    <div id="verification" class="register-popup flex-col r2">
+        <h1 class="title-large register-title">Verify.</h1>
+        <p class="sub register-sub">We sent you a verification e-mail. Please click the link on the e-mail to verify.</p>
     </div>
 </div>
 
