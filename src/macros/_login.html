@@ -21,11 +21,12 @@
         margin-top: var(--m1);
         background: var(--fg);
         color: var(--bg);
+        border-radius: 999px;
     }
 </style>
 <script type="text/javascript" src="{{ url_for('static', filename='js/dismissHandler.js') }}"></script>
 <div id="login-area" class="overlay auth-overlay flex-col flex-center" style="display:none;">
-    <div id="login-popup" class="auth-container flex-col flex-center">
+    <div id="login-popup" class="auth-container flex-col flex-center r1">
         <h1 class="auth-content title-large">Log in to<br>the Chronicle</h1>
         <button class="auth-content google-auth"><i class="auth-icon fab fa-google"></i>Continue with Google</button>
         <form method="POST" class="form-container flex-col">
@@ -33,7 +34,7 @@
             {{ form('Password',     '' ,    'password-form',    'password',     'name-login-password') }}
         <div class="auth-lower-container flex-row flex-between">
             <a href="/profile/reset" class="forgot sub">Forgot<br>Password?</a>
-            <button type="submit" class="submit-button">Log in</button>
+            <button type="submit" class="r1 submit-button">Log in</button>
             <!--
                 TODO: submit button triggers js and verification code popup appears. (Button should not be enabled if password is invalid.)
             -->

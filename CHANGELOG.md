@@ -3,6 +3,7 @@
 ### 0.0.3-dev-pre
 - Organize CSS
 - Remove test code
+- Visual changes
 
 ### 0.0.2-dev
 - Implement Continous Integration

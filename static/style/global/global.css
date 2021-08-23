@@ -150,7 +150,7 @@ p {
     line-height: 105%;
 }
 
-.sub{
+.sub {
     color: var(--g1);
     font-size: var(--sub);
     font-family: var(--f1);
@@ -198,15 +198,15 @@ button {
 
 .submit-button {
     padding: var(--m1) var(--m2);
-    background: linear-gradient(0deg, var(--bg), var(--g2) 165%);
+    background: linear-gradient(0deg, var(--bg), var(--g2) 170%);
     color: var(--fg);
-    border-radius: 10px;
 }
 
 .submit-button:focus,
 .submit-button:hover {
     transform: scale(1.08);
     box-shadow: 0 0 42px -8px var(--bg);
+    filter: contrast(110%);
 }
 
 .input-field:focus {
@@ -214,7 +214,12 @@ button {
     border: none;
     outline: none;
     box-shadow: 0 0 60px -9px var(--bg);
-    outline: 2px solid var(--a);
+}
+
+
+/* TODO: this is not working */
+input {
+    border-radius: var(--r1);
 }
 
 .input-field {
@@ -225,4 +230,12 @@ button {
     border: none;
     color: var(--fg);
     width: 100%;
+}
+
+.r1 {
+    border-radius: var(--r1);
+}
+
+.r2 {
+    border-radius: var(--r2);
 }

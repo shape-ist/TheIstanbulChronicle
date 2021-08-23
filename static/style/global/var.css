@@ -37,6 +37,8 @@ body {
     --m2: 20px;
     --m3: 40px;
     --m4: 80px;
+    --r1: 8px;
+    --r2: 12px;
     margin: 0;
     padding: 0;
     font-family: var(--f1);
