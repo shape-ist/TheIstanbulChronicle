@@ -1,7 +1,7 @@
 @keyframes slide-in {
     from {
         opacity: 0;
-        transform: translateY(70px) scaleY(1.33);
+        transform: translateY(60px) scaleY(1.25);
     }
 
     to {

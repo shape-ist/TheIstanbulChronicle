@@ -4,6 +4,7 @@
 - implement login and register in seperate urls as well as popups in index.html
 - Bump dependencies
 - Security updates
+- Performance improvements
 
 ### 0.0.3-dev
 - Organize CSS
