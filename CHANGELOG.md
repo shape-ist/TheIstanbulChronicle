@@ -2,6 +2,7 @@
 
 ### 0.0.4-dev-pre
 - implement login and register in seperate urls as well as index.html popups
+- Bump dependencies
 
 ### 0.0.3-dev
 - Organize CSS
