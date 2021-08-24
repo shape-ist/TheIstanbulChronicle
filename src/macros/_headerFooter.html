@@ -1,6 +1,6 @@
-{% from "./macros/_login.html" import login %}
-{% from "./macros/_register.html" import register %}
 {% macro header() %}
+{% from "./macros/_auth.html" import login %}
+{% from "./macros/_auth.html" import register %}
 <style>
     .header-button {
         font-family: var(--f2);
