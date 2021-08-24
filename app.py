@@ -28,10 +28,18 @@ mde = EasyMDE(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    # TODO: get multiple POST methods for login and register here
+    """
     if request.method == "POST":
         login_email = request.form.get("name-login-email")
         login_password = request.form.get("name-login-password")
         user.login(login_email, login_password)
+    if request.method == 'POST':
+        register_email = request.form.get("name-register-email")
+        register_password = request.form.get("name-register-password")
+        register_displayname = request.form.get("name-register-displayname")
+        user.register(register_email, register_password, register_displayname)
+    """
 
     return render_template('./index.html')
 
@@ -45,16 +53,6 @@ def profile():
 def about():
     return render_template('./screens/about.html',
                            about_text=content["about_text"])
-
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        register_email = request.form.get("name-register-email")
-        register_password = request.form.get("name-register-password")
-        register_displayname = request.form.get("name-register-displayname")
-        user.register(register_email, register_password, register_displayname)
-    return render_template('./screens/register.html')
 
 
 @app.route('/contribute')
