@@ -30,11 +30,11 @@ mde = EasyMDE(app)
 def home():
     # TODO: get multiple POST methods for login and register here
     """
-    if request.method == "POST":
+    if request.method == "POST" and param="login": ???
         login_email = request.form.get("name-login-email")
         login_password = request.form.get("name-login-password")
         user.login(login_email, login_password)
-    if request.method == 'POST':
+    if request.method == 'POST' and param="register": ???
         register_email = request.form.get("name-register-email")
         register_password = request.form.get("name-register-password")
         register_displayname = request.form.get("name-register-displayname")
