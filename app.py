@@ -25,6 +25,16 @@ mde = EasyMDE(app)
 # https://root/a=article_id
 # login_arg = request.args.get('login')
 
+"""
+TODO: !!!important!!!
+UNCOMMENT THIS ON PRODUCTION FOR SECURE SSL CONNECTIONS
+
+@app.before_request
+def before_request():
+    if not request.is_secure:
+        url = request.url.replace('http://', 'https://', 1)
+        code = 301
+        return redirect(url, code=code) """
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
