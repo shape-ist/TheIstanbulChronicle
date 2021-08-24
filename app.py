@@ -63,6 +63,7 @@ def contribute():
 
 
 @app.route('/verify')
+# return redirect if uid param is not istype(int)
 def verify():
     return render_template('./screens/verify.html',
                            verification_text=content["verification_text"])
