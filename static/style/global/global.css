@@ -234,10 +234,17 @@ input {
     border-radius: var(--r3);
 }
 
-.danger {
-    background: rgba(var(--danger), .33) !important;
+.danger-bg {
+    background: rgba(var(--danger), .2) !important;
+    border: 2px solid rgba(var(--danger),.075);
+}
+
+.danger-fg {
     color: rgb(var(--danger)) !important;
-    padding: var(--size1);
+}
+
+.danger-sub {
+    color: rgba(var(--danger), .65) !important;
 }
 
 .none {

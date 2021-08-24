@@ -21,7 +21,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     --topbar-height: 40px;
-    --danger: 245, 100, 80;
+    --danger: 255, 100, 70;
     --positive: 40, 200, 120;
     --f1: 'Roboto';
     --f2: 'Lora';

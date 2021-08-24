@@ -83,3 +83,7 @@
     justify-content: space-evenly;
     min-width: 25%;
 }
+
+.verification-fail {
+    padding: var(--size1);
+}
