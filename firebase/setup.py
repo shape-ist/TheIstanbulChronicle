@@ -16,13 +16,13 @@ def get_secrets():
     SERVICE_ACCOUNT_FILE = getenv('SERVICE_ACCOUNT_FILE')
     STORAGE_BUCKET_NAME = getenv('STORAGE_BUCKET_NAME')
     return {
-        'apiKey': getenv('apiKey'), 
-        'authDomain': getenv('authDomain'), 
-        'databaseURL': getenv('databaseURL'), 
-        'projectId': getenv('projectId'), 
-        'storageBucket': getenv('storageBucket'), 
-        'messagingSenderId': getenv('messagingSenderId'), 
-        'appId': getenv('appId'), 
+        'apiKey': getenv('apiKey'),
+        'authDomain': getenv('authDomain'),
+        'databaseURL': getenv('databaseURL'),
+        'projectId': getenv('projectId'),
+        'storageBucket': getenv('storageBucket'),
+        'messagingSenderId': getenv('messagingSenderId'),
+        'appId': getenv('appId'),
         'measurementId': getenv('measurementId')
     }
 
