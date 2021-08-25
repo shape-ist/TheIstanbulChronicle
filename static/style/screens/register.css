@@ -1,7 +1,7 @@
 .register-popup {
     background: var(--fg);
     padding: var(--m3);
-    width: 400px;
+    max-width: 680px;
     height: fit-content;
     animation: .5s fly-in;
 }
