@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9dbf181673f0ac8ec420b3784f1ce0e629b11735a7a1b569783c39cca33f260b"
+            "sha256": "de308afb40b08fb68bcfd9e02c2c90954f7fedba64548b204c184d03837065ad"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -105,6 +105,7 @@
                 "sha256:f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3'",
             "version": "==2.0.4"
         },
         "click": {
@@ -201,9 +202,6 @@
             "version": "==0.18.3"
         },
         "google-api-core": {
-            "extras": [
-                "grpc"
-            ],
             "hashes": [
                 "sha256:384459a0dc98c1c8cd90b28dc5800b8705e0275a673a7144a513ae80fc77950b",
                 "sha256:8500aded318fdb235130bf183c726a05a9cb7c4b09c266bd5119b86cdb8a4d10"
@@ -249,6 +247,7 @@
                 "sha256:81cebc4bebad75c3b6392091031c930a39d705f53158dfc3ecf7cd837714cd0f"
             ],
             "index": "pypi",
+            "markers": "platform_python_implementation != 'PyPy'",
             "version": "==2.3.0"
         },
         "google-cloud-storage": {
@@ -300,6 +299,7 @@
                 "sha256:c65f9e08a4fe1df532138c8f00eeafcd7fe0d4db35dff70d7428b6ea659b2888"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==2.0.0"
         },
         "googleapis-common-protos": {
@@ -381,6 +381,7 @@
                 "sha256:467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3'",
             "version": "==3.2"
         },
         "iniconfig": {
@@ -585,7 +586,6 @@
                 "sha256:7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7",
                 "sha256:c86254f9220d55e31cc94d69bade760f0847da8000def4dfe1c6b872fd14ff14"
             ],
-            "markers": "python_version >= '3.6'",
             "version": "==21.0"
         },
         "pluggy": {
@@ -832,6 +832,7 @@
                 "sha256:9d689e6ca1b3038bc82bf8d23e944b6b6037bc02301a574935b2dd946e0353b9"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==4.7.2"
         },
         "shellescape": {
