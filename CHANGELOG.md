@@ -4,7 +4,6 @@
 
 ### 0.0.4-dev
 - implement login and register in seperate urls as well as index.html popups
-- Bump dependencies
 - implement profile picture backend
 - auto-redirect http to https for security reasons
 
