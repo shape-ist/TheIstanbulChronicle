@@ -23,14 +23,14 @@
     background: var(--fg);
     color: var(--bg);
     border-radius: 999px;
+    animation: .55s slide-in
 }
 
 .register-popup {
     background: var(--fg);
     padding: var(--m3);
-    width: 400px;
+    max-width: 400px;
     height: fit-content;
-    animation: .5s slide-in;
 }
 
 .register-form {
@@ -113,4 +113,48 @@
 
 .verification-fail {
     padding: var(--size1);
+}
+
+
+.auth-overlay {
+    background: rgba(0, 0, 0, .7);
+    z-index: 999;
+}
+
+.auth-container {
+    background: var(--fg);
+    color: var(--bg);
+    padding: 80px;
+    max-width: 400px;
+    animation: .35s slide-in;
+}
+
+
+.google-auth {
+    background: var(--bg);
+    color: var(--fg);
+    outline: none;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 999px;
+    font-family: var(--f1);
+    font-weight: bold;
+    font-size: var(--size1);
+    display: none !important;
+}
+
+.auth-content {
+    margin: var(--m2);
+}
+
+.register-bottom-area {
+    align-items: center;
+}
+
+.auth-main {
+    animation: .4s fly-in;
+}
+
+.auth-sub {
+    animation: .7s fly-in;
 }

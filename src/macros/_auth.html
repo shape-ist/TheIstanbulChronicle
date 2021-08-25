@@ -9,7 +9,7 @@
 {{auth_handlers()}}
 <div id="login-area" class="overlay auth-overlay flex-col flex-center" style="display:none;">
     <div id="login-popup" class="auth-container flex-col flex-center r2">
-        <h1 class="auth-content title-large">Log in to<br>the Chronicle</h1>
+        <h1 class="auth-content title-large auth-main">Log in to<br>the Chronicle</h1>
         <button class="auth-content google-auth"><i class="auth-icon fab fa-google"></i>Continue with Google</button>
         <form action="/register" method="POST" class="form-container flex-col">
             {{ form('E-Mail',       '' ,    'email-form',       'email',        'name-login-email') }}
@@ -19,7 +19,7 @@
                 <button type="submit" class="r2 submit-button">Log in</button>
                 <!--
                 TODO: submit button triggers js and verification code popup appears. (Button should not be enabled if password is invalid.)
-            -->
+                -->
             </div>
         </form>
     </div>
@@ -33,15 +33,15 @@
 {% macro register() %}
 {{auth_handlers()}}
 <div id="register-area" class="overlay auth-overlay flex-col flex-center" style="display:none">
-    <div id="register-popup" class="register-popup flex-col r2">
-        <h1 class="title-large register-title">Register.</h1>
-        <p class="sub register-sub">Join the community.</p>
+    <div id="register-popup" class="auth-container register-popup flex-col r2">
+        <h1 class="title-large register-title auth-main">Register.</h1>
+        <p class="sub register-sub auth-sub">Join the community.</p>
         <form action="/register" method="POST" class="input-field-container">
             <div class="flex-row">
                 {{form("Name",              "personal-info register-form",      "register-field register-display-name-field",      "text",         "name-register-displayname")}}
                 {{form("E-mail",            "personal-info register-form",      "register-field register-email-field",             "email",        "name-register-email")}}
             </div>
-            <div class="flex-row">
+            <div class="flex-row register-bottom-area">
                 <div class="pass-container">
                     {{form("Password",          "register-form",                    "register-field register-password-field",          "password",     "name-register-password")}}
                 </div>
@@ -51,6 +51,7 @@
                     <button type="submit" class="r2 submit-button">Register</button>
                 </div>
             </div>
+            
         </form>
     </div>
 </div>

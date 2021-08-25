@@ -78,19 +78,6 @@ p {
     backdrop-filter: blur(12px)
 }
 
-.auth-overlay {
-    background: rgba(0, 0, 0, .7);
-    z-index: 999;
-}
-
-.auth-container {
-    background: var(--fg);
-    color: var(--bg);
-    padding: 80px;
-    max-width: 400px;
-    animation: slide-in .4s;
-}
-
 .title-large {
     font-size: var(--size6);
     font-weight: bold;
@@ -98,23 +85,6 @@ p {
     letter-spacing: -2px;
     line-height: 85%;
     font-family: var(--f2);
-}
-
-.google-auth {
-    background: var(--bg);
-    color: var(--fg);
-    outline: none;
-    border: none;
-    padding: 20px 40px;
-    border-radius: 999px;
-    font-family: var(--f1);
-    font-weight: bold;
-    font-size: var(--size1);
-    display: none !important;
-}
-
-.auth-content {
-    margin: var(--m2);
 }
 
 button:active {
