@@ -1,7 +1,7 @@
 ## Changelog
 
 ### 0.0.4-dev-pre
-- implement login and register in seperate urls as well as popups in index.html
+- implement authentication popups
 - Bump dependencies
 - Security updates
 - Performance improvements
