@@ -30,7 +30,7 @@ def update_pfp(uid):
             cropped = PIL.ImageOps.contain(image, resize_size)
 
     cropped.save(uid + ".png", "PNG")
-    storage.child("profilepics/" + uid + ".png").put("temp.png")
+    storage.child("profilepics/" + uid + ".png").put(uid + ".png")
     remove(uid + ".png")
 
     url = storage.child("profilepics/" + uid + ".png").get_url()
