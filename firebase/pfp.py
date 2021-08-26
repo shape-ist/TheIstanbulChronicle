@@ -12,7 +12,8 @@ from firebase.setup import storage
 
 
 def update_pfp(uid, img_size=200):
-    image = Image.open(io.BytesIO(request.files['pfpinput'].read()))
+    # image = Image.open(io.BytesIO(request.files['pfpinput'].read()))
+    image = Image.open('C:\\Users\\binan\\Downloads\\uwu.png')
 
     width, height = image.size
 
