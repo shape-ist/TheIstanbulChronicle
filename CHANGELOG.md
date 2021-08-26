@@ -3,6 +3,7 @@
 ### 0.0.5-dev-pre
 - implement article backend
 - register and log in has seperate urls
+- performance improvements
 
 ### 0.0.4-dev
 - implement login and register in seperate urls as well as index.html popups

@@ -1,5 +1,4 @@
-function isScrolledToTop() {
-
+function headerState() {
     if (window.scrollY > 100) {
         document.getElementById("header").style.boxShadow = "var(--bs)";
         document.getElementById("header").style.background = "var(--bg-alt)";
@@ -8,7 +7,13 @@ function isScrolledToTop() {
         document.getElementById("header").style.boxShadow = "unset";
         document.getElementById("header").style.background = "var(--bg)";
     }
-    setTimeout(isScrolledToTop, 50);
 }
 
-isScrolledToTop();
+document.addEventListener('scroll', function(e) {
+    lastKnownScrollPosition = window.scrollY;
+        headerState()
+    });
+
+(function () {
+    headerState();
+})();

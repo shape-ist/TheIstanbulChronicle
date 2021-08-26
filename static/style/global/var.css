@@ -20,7 +20,7 @@
     --g2: #cecece;
     --a: #3700B3;
     --a2: #9481ff;
-    --bs: 0 10px 40px -24px rgba(0,0,0,.12);
+    --bs: 0 10px 40px -24px rgba(0,0,0,.2);
     --bs-s: 0 6px 10px -2px rgba(0,0,0,.25);
     --bs-invert: 0 0 60px -12px var(--fg);
 }
