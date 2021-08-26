@@ -2,31 +2,31 @@
 {% from "./macros/_form.html" import form %}
 
 {% block title %}
-<title>Verify Your E-Mail Address</title>
+    <title>Verify Your E-Mail Address</title>
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_auth.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/tablet/_auth_t.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/mobile/_auth_m.css') }}">
-<script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_auth.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/tablet/_auth_t.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/mobile/_auth_m.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
 {% endblock %}
 
 {% block body %}
 
-<div class="page-wrapper flex-center flex-col">
-    <div id="verification" class="register-popup flex-row r2">
-        <div id="verification-left-section" class="flex-col">
-            <h1 class="title-large register-title">Verify.</h1>
-            <p class="sub register-sub">
-                {{verification_text}}
-            </p>
-        </div>
-        <div id="verification-right-section" class="flex-col">
-            <p class="sub verification-fail danger-bg danger-fg r2">Your e-mail adress is not verified</p>
-            <button type="submit" class="r2 submit-button">Check</button>
+    <div class="page-wrapper flex-center flex-col">
+        <div id="verification" class="register-popup flex-row r2">
+            <div id="verification-left-section" class="flex-col">
+                <h1 class="title-large register-title">Verify.</h1>
+                <p class="sub register-sub">
+                    {{ verification_text }}
+                </p>
+            </div>
+            <div id="verification-right-section" class="flex-col">
+                <p class="sub verification-fail danger-bg danger-fg r2">Your e-mail adress is not verified</p>
+                <button type="submit" class="r2 submit-button">Check</button>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

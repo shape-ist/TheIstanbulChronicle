@@ -1,7 +1,7 @@
 {% extends 'err/err_base.html' %}
 
 {% block body %}
-<h1 class="danger-fg error-title"><span class="error-code">403!</span><br>Forbidden</h1>
-<p class="danger-sub">{{message}}<p>
-        <a href="/" class="danger-sub sub return-home">Go back to the homepage</a>
-        {% endblock %}
+    <h1 class="danger-fg error-title"><span class="error-code">403!</span><br>Forbidden</h1>
+    <p class="danger-sub">{{ message }}<p>
+    <a href="/" class="danger-sub sub return-home">Go back to the homepage</a>
+{% endblock %}

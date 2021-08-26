@@ -1,10 +1,7 @@
+import pyrebase
 from firebase_admin import credentials
 from firebase_admin import firestore
-from firebase_admin import auth
 from firebase_admin import initialize_app
-import pyrebase
-import re
-import firebase.schema
 
 
 def get_secrets():

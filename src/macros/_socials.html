@@ -1,24 +1,25 @@
 {% macro socials() %}
-<style>
-    #socials-side {
-        position: fixed;
-        width: 60px;
-        top: 50%;
-        left: calc(100% - 60px);
-        font-size: 32px;
-        z-index: 99;
-    }
+    <style>
+        #socials-side {
+            position: fixed;
+            width: 60px;
+            top: 50%;
+            left: calc(100% - 60px);
+            font-size: 32px;
+            z-index: 99;
+        }
 
-    .social-icon {
-        margin: 4px 12px;
-        text-decoration: none;
-        color: var(--g1);
-    }
-</style>
-<script src="https://kit.fontawesome.com/9da952c940.js" crossorigin="anonymous"></script>
-<div id="socials-side" tabindex="-1" class="flex-col">
-    <a tabindex="-1" rel="noopener" href="https://twitter.com/theistchronicle" target="_blank" class="aria-hidden pointer social-icon fab fa-twitter-square"></a>
-    <a tabindex="-1" rel="noopener" href="https://www.instagram.com/theistanbulchronicle/" target="_blank"
-        class="aria-hidden pointer social-icon fab fa-instagram-square"></a>
-</div>
+        .social-icon {
+            margin: 4px 12px;
+            text-decoration: none;
+            color: var(--g1);
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/9da952c940.js" crossorigin="anonymous"></script>
+    <div id="socials-side" tabindex="-1" class="flex-col">
+        <a tabindex="-1" rel="noopener" href="https://twitter.com/theistchronicle" target="_blank"
+           class="aria-hidden pointer social-icon fab fa-twitter-square"></a>
+        <a tabindex="-1" rel="noopener" href="https://www.instagram.com/theistanbulchronicle/" target="_blank"
+           class="aria-hidden pointer social-icon fab fa-instagram-square"></a>
+    </div>
 {% endmacro %}

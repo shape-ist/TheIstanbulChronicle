@@ -1,48 +1,48 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>About the Istanbul Chronicle</title>
+    <title>About the Istanbul Chronicle</title>
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/about.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/tablet/about_t.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mobile/about_m.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/about.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/tablet/about_t.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mobile/about_m.css') }}">
 {% endblock %}
 
 {% block body %}
-<div class="center-container flex-center">
-    <div id="about-page-wrapper">
-        <h1 class="title-large about-title">About Us</h1>
-        <div id="about-wrapper" class="flex-row flex-center">
-            <div class="about-content-wrapper">
-                <p class="select">
-                    {{about_text}}
-                </p>
-            </div>
-            <div class="about-contact-wrapper">
-                <p class='block'>Contact us here:
-                    <i class="fa-about far fa-envelope-open"></i>
-                    <br>
-                    <a href="mailto: info@theistanbulchronicle.com">info@theistanbulchronicle.com</a>
-                </p>
-                <p class='block'><br>Want to be a part<br>of the Chronicle?
-                    <i class="fa-about fas fa-i-cursor"></i>
-                    <br>
-                    <a href="/contribute">Visit the contribution page</a>
-                </p>
-                <p class='block'><br>Have an idea, suggestion or question?
-                    <i class="fa-about far fa-comment-alt"></i>
-                    <br>
-                    <a href="/feedback">Go to the feedback hub</a>
-                </p>
-                <p class='block sub'><br>2021, shape.ist<br></p>
-                <div class="flex-row about-bottom-container">
-                    <p class='block about-icon'>C</p>
-                    <div class="beta beta-icon-side">beta</div>
+    <div class="center-container flex-center">
+        <div id="about-page-wrapper">
+            <h1 class="title-large about-title">About Us</h1>
+            <div id="about-wrapper" class="flex-row flex-center">
+                <div class="about-content-wrapper">
+                    <p class="select">
+                        {{ about_text }}
+                    </p>
+                </div>
+                <div class="about-contact-wrapper">
+                    <p class='block'>Contact us here:
+                        <i class="fa-about far fa-envelope-open"></i>
+                        <br>
+                        <a href="mailto: info@theistanbulchronicle.com">info@theistanbulchronicle.com</a>
+                    </p>
+                    <p class='block'><br>Want to be a part<br>of the Chronicle?
+                        <i class="fa-about fas fa-i-cursor"></i>
+                        <br>
+                        <a href="/contribute">Visit the contribution page</a>
+                    </p>
+                    <p class='block'><br>Have an idea, suggestion or question?
+                        <i class="fa-about far fa-comment-alt"></i>
+                        <br>
+                        <a href="/feedback">Go to the feedback hub</a>
+                    </p>
+                    <p class='block sub'><br>2021, shape.ist<br></p>
+                    <div class="flex-row about-bottom-container">
+                        <p class='block about-icon'>C</p>
+                        <div class="beta beta-icon-side">beta</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

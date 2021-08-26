@@ -206,7 +206,7 @@ input {
 
 .danger-bg {
     background: rgba(var(--danger), .2) !important;
-    border: 2px solid rgba(var(--danger),.075);
+    border: 2px solid rgba(var(--danger), .075);
 }
 
 .danger-fg {

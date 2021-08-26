@@ -1,5 +1,6 @@
 from typing import List
 
+
 def user(email: str = '',
          bio: str = '',
          uid: int = 0,
@@ -19,12 +20,12 @@ def user(email: str = '',
 
 
 def article(
-    db,
-    title: str = '',
-    body: str = '',
-    writer_uid: str = '',
-    tag: str = '',
-    article_type: str = ''
+        db,
+        title: str = '',
+        body: str = '',
+        writer_uid: str = '',
+        tag: str = '',
+        article_type: str = ''
 ):
     return {
         u'title': title,

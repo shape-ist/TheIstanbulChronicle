@@ -1,8 +1,10 @@
-import PIL, base64, time, re, io
-from PIL import Image, ImageOps
-from sys import displayhook, maxsize
-from flask import request
 from os import remove
+from sys import maxsize
+
+import PIL
+import io
+from PIL import Image
+from flask import request
 
 
 def update_pfp(uid):

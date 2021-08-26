@@ -1,3 +1,4 @@
 {% macro form(placeholder, class, id, type, name) %}
-<input name={{name}} type="{{type}}" placeholder='{{placeholder}}' id='{{id}}' class="input-field {{class}}" maxlength="40"><br>
+    <input name={{ name }} type="{{ type }}" placeholder='{{ placeholder }}' id='{{ id }}'
+           class="input-field {{ class }}" maxlength="40"><br>
 {% endmacro %}

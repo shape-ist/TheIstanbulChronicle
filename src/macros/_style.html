@@ -1,15 +1,15 @@
 {% macro style() %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-<style>
-    @font-face {
-        font-family: 'Old English';
-        src: url("{{ url_for('static', filename='assets/oldenglish.woff2') }}") format('woff2')
-    }
-</style>
-<link rel="stylesheet" href="{{ url_for('static', filename='style/global/global.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/global/var.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/global/ani.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/global/scrollbars.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Old English';
+            src: url("{{ url_for('static', filename='assets/oldenglish.woff2') }}") format('woff2')
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/global/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/global/var.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/global/ani.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/global/scrollbars.css') }}">
 {% endmacro %}

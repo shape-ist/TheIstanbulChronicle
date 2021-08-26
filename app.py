@@ -1,8 +1,10 @@
-from flask import *
-from os.path import join
 from os.path import isfile
+from os.path import join
+
+from flask import *
 from flask_easymde import EasyMDE
 from flaskext.markdown import Markdown
+
 from content import load_content
 
 if not isfile('.env'):
@@ -11,7 +13,6 @@ if not isfile('.env'):
 
 content = load_content("content.yml")
 
-from firebase import setup
 from firebase import user
 
 app = Flask(__name__, template_folder='src')

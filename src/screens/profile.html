@@ -1,27 +1,30 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Your profile</title>
+    <title>Your profile</title>
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/profile.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/tablet/profile?_t.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mobile/profile?_m.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/tablet/profile?_t.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mobile/profile?_m.css') }}">
 {% endblock %}
 
 {% block body %}
-<div class="profile-area flex-center flex-col">
-    <img src="https://i.imgur.com/AizUHEf.png" alt="username" class="profile-pfp">
-    <p class="profile-displayname">Barış İnandıoğlu</p>
-    <tag class="profile-tag">Writer</tag>
-    <p class="sub select">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged.
-    </p>
-</div>
+    <div class="profile-area flex-center flex-col">
+        <img src="https://i.imgur.com/AizUHEf.png" alt="username" class="profile-pfp">
+        <p class="profile-displayname">Barış İnandıoğlu</p>
+        <tag class="profile-tag">Writer</tag>
+        <p class="sub select">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+            make
+            a type specimen book. It has survived not only five centuries, but also the leap into electronic
+            typesetting,
+            remaining essentially unchanged.
+        </p>
+    </div>
 {% endblock %}
 
 <!-- 

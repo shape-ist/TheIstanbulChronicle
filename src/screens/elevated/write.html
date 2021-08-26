@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<meta charset="utf-8">
-<title>New article - The Istanbul Chronicle</title>
-{{ easymde.css }}
-{{ easymde.js }}
+    <meta charset="utf-8">
+    <title>New article - The Istanbul Chronicle</title>
+    {{ easymde.css }}
+    {{ easymde.js }}
 {% endblock %}
 
 {% block style %}
-<!-- TODO: hide header when easymde on fullscreen -->
-<style>
-</style>
+    <!-- TODO: hide header when easymde on fullscreen -->
+    <style>
+    </style>
 {% endblock %}
 
 {% block body %}
-<textarea> Write your article here </textarea>
-{{ easymde.load }}
+    <textarea> Write your article here </textarea>
+    {{ easymde.load }}
 {% endblock %}

@@ -1,5 +1,4 @@
 from firebase.setup import db
-from firebase.schema import article
 
 
 def upload_article(content):
