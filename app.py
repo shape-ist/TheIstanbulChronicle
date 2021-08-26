@@ -56,10 +56,15 @@ def home():
     return render_template('./index.html', subpage=request.args.get('goto'))
 
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
     from firebase.pfp import update_pfp
-    update_pfp('BMWNkWjz6DgOByDxq5GiLqE5eQL2')
+
+    user.login("allah@gmail.com", "Muhammad123")
+
+    if request.method == "POST":
+        update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2')
+
     return render_template('./screens/profile.html')
 
 
@@ -135,4 +140,6 @@ def login():
 
 if __name__ == '__main__':
     print("app started")
-    app.run(debug=True, threaded=True)
+    from firebase.pfp import update_pfp
+    update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2')
+    # app.run(debug=True, threaded=True)
