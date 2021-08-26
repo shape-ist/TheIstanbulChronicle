@@ -58,6 +58,8 @@ def home():
 
 @app.route('/profile')
 def profile():
+    from firebase.pfp import update_pfp
+    update_pfp('BMWNkWjz6DgOByDxq5GiLqE5eQL2')
     return render_template('./screens/profile.html')
 
 
