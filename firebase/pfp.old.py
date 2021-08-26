@@ -1,10 +1,10 @@
 from os import remove
 from sys import maxsize
-
-import PIL
-import io
-from PIL import Image
+import PIL, base64, time, re, io, requests
+from PIL import Image, ImageOps
+from sys import displayhook, maxsize
 from flask import request
+from setup import storage
 
 
 def update_pfp(uid):
@@ -32,3 +32,7 @@ def update_pfp(uid):
     cropped.save(uid + ".png", "PNG")
     storage.child("profilepics/" + uid + ".png").put("temp.png")
     remove(uid + ".png")
+
+    url = storage.child("profilepics/" + uid + ".png").get_url()
+
+    Image.open(requests.get(url, stream=True).raw)
