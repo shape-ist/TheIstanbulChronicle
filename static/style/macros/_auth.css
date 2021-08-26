@@ -19,7 +19,7 @@
     background: var(--fg);
     color: var(--bg);
     border-radius: 999px;
-    animation: .55s slide-in
+    animation: .4s slide-in !important;
 }
 
 .register-popup {
@@ -38,17 +38,19 @@
 }
 
 .pass-container {
-    width: 45%;
+    width: 999px;
+    margin-right: var(--m1);
 }
 
 .register-title {
     color: var(--bg);
-    text-align: left !important;
+    text-align: center !important;
     line-height: 150% !important;
 }
 
 .register-sub {
     color: var(--g2) !important;
+    text-align: center;
 }
 
 .input-field-container {
@@ -118,7 +120,7 @@
     color: var(--bg);
     padding: 80px;
     max-width: 400px;
-    animation: .35s slide-in;
+    animation: .25s slide-in;
 }
 
 
@@ -140,14 +142,15 @@
     color: var(--bg) !important;
 }
 
-.register-bottom-area {
-    align-items: center;
-}
-
 .auth-main {
     animation: .4s fly-in;
 }
 
 .auth-sub {
-    animation: .7s fly-in;
+    animation: .65s fly-in;
+}
+
+.auth-item {
+    animation: .2s fly-in-subtle;
+    animation-delay: .05s;
 }

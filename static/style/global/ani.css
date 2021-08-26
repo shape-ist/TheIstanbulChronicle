@@ -24,6 +24,17 @@
     }
 }
 
+
+@keyframes fly-in-subtle {
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: unset;
+    }
+}
+
 @keyframes fade {
     from {
         opacity: 0;
