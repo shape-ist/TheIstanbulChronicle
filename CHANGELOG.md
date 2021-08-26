@@ -7,6 +7,7 @@
 - performance improvements
 - custom scrollbars
 - code reformatting
+- add user profile picture support
 
 ### 0.0.4-dev
 
