@@ -1,10 +1,14 @@
 ## Changelog
 
-### 0.0.4-dev-pre
-- implement authentication popups
-- Bump dependencies
-- Security updates
-- Performance improvements
+### 0.0.5-dev-pre
+- implement article backend
+
+### 0.0.4-dev
+- implement login and register in seperate urls as well as index.html popups
+- implement profile picture backend
+- auto-redirect http to https for security reasons
+- Security Updates
+- performance improvements
 
 ### 0.0.3-dev
 - Organize CSS

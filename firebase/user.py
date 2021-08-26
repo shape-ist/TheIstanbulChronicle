@@ -23,3 +23,7 @@ def login(email, password):
 def user_exists(uid):
     doc = db.collection('users').document(uid).get()
     return bool(doc.exists)
+
+
+def delete_user(uid):
+    db.collection(u'users').document(uid).delete()

@@ -23,9 +23,9 @@ body {
     --topbar-height: 40px;
     --danger: 255, 100, 70;
     --positive: 40, 200, 120;
-    --f1: 'Roboto';
-    --f2: 'Lora';
-    --f3: 'Old English';
+    --f1: 'Roboto', 'Arial', sans-serif;
+    --f2: 'Fraunces', 'Times New Roman', 'Times', serif;
+    --f3: 'Old English', serif;
     --sub: .75em;
     --size1: 1em;
     --size2: 1.5em;
