@@ -1,5 +1,6 @@
-{% from "./macros/_login.html" import login with context %}
 {% macro header() %}
+{% from "./macros/_auth.html" import login %}
+{% from "./macros/_auth.html" import register %}
 <style>
     .header-button {
         font-family: var(--f2);
@@ -90,6 +91,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
     {{login()}}
+    {{register()}}
     <div id="title" class="flex-row">
         <div id="logo-wrapper" class="flex-col flex-center">
             <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<span class="beta top-beta">beta</span>
@@ -103,7 +105,8 @@
             <div class="profile-are">
                 <button onclick="display('login-area', 'flex')" class="header-button auth pointer">
                     Log in / </button>
-                <a href="/register" class="header-register-link">Register</a>
+                <button onclick="display('register-area', 'flex')" class="header-button auth pointer">
+                    Register </button>
             </div>
         </div>
     </div>

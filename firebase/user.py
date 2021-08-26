@@ -1,4 +1,5 @@
 from firebase.setup import db, auth
+from firebase_admin import firestore
 
 
 def register(email, password, display_name):

@@ -10,4 +10,9 @@ document.addEventListener('mouseup', function (e) {
     }
 });
 
-// TODO: implement a class-based for-loop version for a multi-use version
+document.addEventListener('mouseup', function (e) {
+    var container = document.getElementById('register-popup');
+    if (!container.contains(e.target)) {
+        hide(container)
+    }
+});

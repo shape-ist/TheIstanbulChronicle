@@ -39,10 +39,18 @@ def before_request():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == "POST":
+    # TODO: get multiple POST methods for login and register here
+    """
+    if request.method == "POST" and param="login": ???
         login_email = request.form.get("name-login-email")
         login_password = request.form.get("name-login-password")
         user.login(login_email, login_password)
+    if request.method == 'POST' and param="register": ???
+        register_email = request.form.get("name-register-email")
+        register_password = request.form.get("name-register-password")
+        register_displayname = request.form.get("name-register-displayname")
+        user.register(register_email, register_password, register_displayname)
+    """
 
     return render_template('./index.html')
 
@@ -58,25 +66,20 @@ def about():
                            about_text=content["about_text"])
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        register_email = request.form.get("name-register-email")
-        register_password = request.form.get("name-register-password")
-        register_displayname = request.form.get("name-register-displayname")
-        user.register(register_email, register_password, register_displayname)
-    return render_template('./screens/register.html')
-
-
 @app.route('/contribute')
 def contribute():
     return render_template('./screens/contr.html')
 
 
 @app.route('/verify')
+# return redirect if uid param is not istype(int)
 def verify():
-    return render_template('./screens/verify.html',
-                           verification_text=content["verification_text"])
+    uid = request.args.get('uid')
+    if user.user_exists(uid):
+        return render_template('./screens/verify.html',
+                               verification_text=content["verification_text"])
+    else:
+        return redirect("/")
 
 
 @app.route('/favicon.png')
@@ -119,4 +122,4 @@ def forbidden(e):
 
 if __name__ == '__main__':
     print("app started")
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)

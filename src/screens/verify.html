@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/register.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/tablet/register_t.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mobile/register_m.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_auth.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/tablet/_auth_t.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/mobile/_auth_m.css') }}">
 <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
 {% endblock %}
 
@@ -23,7 +23,7 @@
             </p>
         </div>
         <div id="verification-right-section" class="flex-col">
-            <p class="sub verification-fail danger r2">Your e-mail adress is not verified</p>
+            <p class="sub verification-fail danger-bg danger-fg r2">Your e-mail adress is not verified</p>
             <button type="submit" class="r2 submit-button">Check</button>
         </div>
     </div>
