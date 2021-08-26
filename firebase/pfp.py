@@ -1,8 +1,8 @@
-import os, PIL, base64, time, re, io
+import PIL, base64, time, re, io
 from PIL import Image, ImageOps
 from sys import displayhook, maxsize
 from flask import request
-from firebase.setup import db, auth, storage
+from os import remove
 
 def update(uid):
     image = Image.open(io.BytesIO(request.files['pfpinput'].read()))
@@ -28,4 +28,4 @@ def update(uid):
 
     cropped.save(uid + ".png", "PNG")
     storage.child("profilepics/" + uid + ".png").put("temp.png")
-    os.remove(uid + ".png")
+    remove(uid + ".png")

@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 0.0.5-dev-pre
+- implement article backend
 
 ### 0.0.4-dev
 - implement login and register in seperate urls as well as index.html popups

@@ -1,6 +1,5 @@
 from typing import List
 
-
 def user(email: str = '',
          bio: str = '',
          uid: int = 0,
@@ -20,19 +19,20 @@ def user(email: str = '',
 
 
 def article(
+    db,
     title: str = '',
-    body: str = '',  # TODO: implement markdown here
-    writer: str = '',
-    #  ^^ reference uid here
-    # use firestore reference object here if possible
+    body: str = '',
+    writer_uid: str = '',
     tag: str = '',
-    # ^^ same here, use reference object here
+    article_type: str = ''
 ):
     return {
         u'title': title,
         u'body': body,
-        u'writer': writer,
-        u'tag': tag,
+        u'writer_uid': db.collection(u'users').document(writer_uid),
+        u'article_type': article_type
+        # u'tag': tag,
+        # ^^ TODO: UNCOMMENT THIS WHEN TAGS ARE IMPLEMENTED
     }
 
 

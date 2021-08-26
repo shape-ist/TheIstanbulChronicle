@@ -34,7 +34,8 @@ def before_request():
     if not request.is_secure:
         url = request.url.replace('http://', 'https://', 1)
         code = 301
-        return redirect(url, code=code) """
+        return redirect(url, code=code)
+"""
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -88,8 +89,8 @@ def favicon():
 @app.route('/write')
 def write():
     # TODO: check access of user before returning template of elevated html pages.
-    # ERROR 403 IF ACCESS DENIED
-    # TODO: add different favicon on elevated pages.
+    # TODO: ERROR 403-like page IF ACCESS DENIED
+    # TODO: add different favicon on elevated pages. (see elevated directory)
     return render_template('./screens/elevated/write.html')
 
 
