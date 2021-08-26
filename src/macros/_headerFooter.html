@@ -1,95 +1,11 @@
 {% macro header() %}
 {% from "./macros/_auth.html" import login %}
 {% from "./macros/_auth.html" import register %}
-<style>
-    .header-button {
-        font-family: var(--f2);
-        color: var(--g1);
-        font-weight: 700;
-        text-decoration: none;
-        font-size: var(--size1);
-    }
-
-    #logo-wrapper {
-        position: absolute;
-        left: 50%;
-        height: var(--topbar-height)
-    }
-
-    .logo {
-        font-family: var(--f3);
-        position: relative;
-        left: -50%;
-        text-align: center;
-        margin: 0;
-        font-size: var(--size3);
-        width: 100%;
-        white-space: nowrap;
-        letter-spacing: -1px;
-        padding: 0 20px;
-        display: block;
-        color: var(--fg);
-        text-decoration: none;
-    }
-
-    .subtitle {
-        font-family: var(--f2);
-        position: relative;
-        left: -50%;
-        text-align: center;
-        margin: 0;
-        font-size: var(--size1)
-    }
-
-    #title {
-        height: var(--topbar-height);
-        justify-content: space-between;
-        margin: 20px auto;
-        max-width: 1200px;
-        padding: 0 40px;
-    }
-
-    .title-side {
-        align-self: center;
-        margin: 0 20px;
-        font-family: Lora;
-        color: var(--g1)
-    }
-
-    .auth {
-        background: transparent;
-        border: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .logo-link {
-        z-index: 99 !important;
-    }
-
-    header {
-        position: fixed;
-        left: 0;
-        width: 100vw;
-        background: var(--bg);
-        z-index: 999;
-    }
-
-    .top-beta {
-        position: absolute;
-        bottom: 0;
-    }
-
-    .header-register-link {
-        color: unset !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-</style>
-<header>
+<header id="header">
     <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/checkScroll.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_headerFooter.css') }}">
     {{login()}}
     {{register()}}
     <div id="title" class="flex-row">

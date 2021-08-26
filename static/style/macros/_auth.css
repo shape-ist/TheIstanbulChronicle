@@ -19,7 +19,7 @@
     background: var(--fg);
     color: var(--bg);
     border-radius: 999px;
-    animation: .4s slide-in !important;
+    animation: .2s slide-in !important;
 }
 
 .register-popup {

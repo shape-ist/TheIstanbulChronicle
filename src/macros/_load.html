@@ -1,40 +1,5 @@
 {% macro load() %}
-<style>
-    #loading {
-        z-index: 999;
-        top: 0;
-        left: 0;
-    }
-
-    @keyframes blink {
-        0% {
-            opacity: 0;
-        }
-
-        50% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 0;
-        }
-    }
-
-    #loading {
-        background: var(--bg);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #loading-icon {
-        font-family: var(--f3);
-        font-size: 72px;
-        margin: 0;
-        animation: blink 1.5s infinite;
-        color: var(--fg);
-    }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_load.css') }}">
 <div id="loading" class="overlay">
     <p id="loading-icon">C</p>
 </div>
