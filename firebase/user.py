@@ -17,7 +17,12 @@ def register(email, password, display_name):
 def login(email, password):
     auth.sign_in_with_email_and_password(email, password)
     # TODO: implement persistent login here. (Maybe use @persistent decorator?)
-    
+
+
 def user_exists(uid):
     doc = db.collection('users').document(uid).get()
     return bool(doc.exists)
+
+
+def delete_user(uid):
+    db.collection(u'users').document(uid).delete()
