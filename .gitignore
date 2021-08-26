@@ -17,7 +17,6 @@ _mailinglist
 .pytest_cache/
 .idea/
 docs/_build/
-.vscode/
 .mypy_cache
 
 # Coverage reports
