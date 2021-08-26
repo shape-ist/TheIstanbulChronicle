@@ -13,8 +13,8 @@
     margin-left: 6px;
 }
 
-#register-link-popup {
-    padding: var(--m1) var(--m2);
+.sub-auth-redirect-popup {
+    padding: var(--m1) var(--m2) !important;
     margin-top: var(--m1);
     background: var(--fg);
     color: var(--bg);

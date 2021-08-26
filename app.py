@@ -24,7 +24,6 @@ mde = EasyMDE(app)
 # use to pass article content to article page as a kwarg though article id?
 # https://root/a=article_id
 # login_arg = request.args.get('login')
-
 """
 TODO: !!!important!!!
 UNCOMMENT THIS ON PRODUCTION FOR SECURE SSL CONNECTIONS
@@ -36,6 +35,7 @@ def before_request():
         code = 301
         return redirect(url, code=code)
 """
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -52,7 +52,7 @@ def home():
         user.register(register_email, register_password, register_displayname)
     """
 
-    return render_template('./index.html')
+    return render_template('./index.html', subpage=request.args.get('goto'))
 
 
 @app.route('/profile')
@@ -118,6 +118,16 @@ def page_not_found(e):
 def forbidden(e):
     return render_template('./err/403.html',
                            message=content["403_message"]), 403
+
+
+@app.route('/register')
+def register():
+    return redirect("/?goto=register")
+
+
+@app.route('/login')
+def login():
+    return redirect("/?goto=login")
 
 
 if __name__ == '__main__':

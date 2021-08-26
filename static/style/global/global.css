@@ -80,7 +80,7 @@ p {
 
 .title-large {
     font-size: var(--size6);
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
     letter-spacing: -2px;
     line-height: 85%;
