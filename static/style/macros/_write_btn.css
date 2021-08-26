@@ -1,0 +1,31 @@
+.write-btn {
+    background: var(--fg);
+    color: var(--bg);
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: var(--m3);
+    padding: var(--m2) var(--m3);
+    border-radius: 999px;
+    font-size: var(--size1);
+    box-shadow: var(--bs-s) !important;
+}
+
+.write-btn:hover {
+    box-shadow: var(--bs-invert) !important;
+    transform: scale(1.08);
+}
+
+.write-icon {
+    font-size: .85em;
+}
+
+.write-link {
+    height: 100%;
+    width: 100%;
+}
+
+.write-icon,
+.write-link {
+    margin-right: .25em;
+}

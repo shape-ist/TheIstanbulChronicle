@@ -2,6 +2,7 @@
 {% from "./macros/_style.html" import style %}
 {% from "./macros/_headerFooter.html" import header, footer %}
 {% from "./macros/_socials.html" import socials %}
+{% from "./macros/_write_btn.html" import write_btn %}
 
 <html lang="en">
 
@@ -24,6 +25,7 @@
         {{style()}}
         {{header()}}
         {{socials()}}
+        {{write_btn()}}
     </div>
     <div class="app-wrapper">
         {% block body %}
@@ -32,7 +34,3 @@
 </body>
 
 </html>
-
-{% macro stylesheet(file) %}
-<link rel="stylesheet" href="{{ url_for('static', filename='{{file}}') }}">
-{% endmacro %}

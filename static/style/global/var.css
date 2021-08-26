@@ -1,22 +1,28 @@
 
 .theme-dark {
     --bg: #191919;
+    --bg-alt: #202020;
     --fg: #ffffff;
     --g1: #909090;
     --g2: #505050;
     --a: #9481ff;
     --a2: #3700B3;
     --bs: 0 10px 60px -24px #000000;
+    --bs-s: 0 6px 16px -3px #101010;
+    --bs-invert: 0 0 56px -20px var(--fg);
 }
 
 .theme-light {
     --bg: #ffffff;
+    --bg-alt: #fefefe;
     --fg: #000000;
     --g1: #505050;
     --g2: #cecece;
     --a: #3700B3;
     --a2: #9481ff;
-    --bs: 0 10px 50px -24px rgba(0,0,1,.16);
+    --bs: 0 10px 40px -24px rgba(0,0,0,.12);
+    --bs-s: 0 6px 10px -2px rgba(0,0,0,.25);
+    --bs-invert: 0 0 60px -12px var(--fg);
 }
 
 body {

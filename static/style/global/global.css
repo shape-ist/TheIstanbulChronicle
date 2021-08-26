@@ -89,7 +89,7 @@ p {
 
 button:active {
     filter: brightness(.8) contrast(.6);
-    opacity: .65;
+    opacity: .9;
     transition: none !important;
 }
 
