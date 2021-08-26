@@ -4,14 +4,14 @@ function hide(el) {
 };
 
 document.addEventListener('mouseup', function (e) {
-    var container = document.getElementById('login-popup');
+    var container = document.getElementById('login-content-container');
     if (!container.contains(e.target)) {
         hide(container)
     }
 });
 
 document.addEventListener('mouseup', function (e) {
-    var container = document.getElementById('register-popup');
+    var container = document.getElementById('register-content-container');
     if (!container.contains(e.target)) {
         hide(container)
     }
