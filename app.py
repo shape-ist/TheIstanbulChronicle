@@ -64,6 +64,7 @@ def profile():
         imagefile = request.files.get('pfpinput', '')
     update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2') """
 
+    # pfp = '' results in default pfp, enter a valid url for a custom pfp.
     return render_template('./screens/profile.html', pfp='')
 
 
