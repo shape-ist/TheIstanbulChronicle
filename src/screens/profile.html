@@ -10,31 +10,68 @@
 
 {% block body %}
 <div class="profile-area flex-center flex-col">
-    <div class="profile-pfp-area">
-        {% if pfp|string() == '' %}
-        <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
-        alt="current username comes here"
-        class="profile-default-pfp"
-        unselectable="on">
-        {% else %}
-        <img src="{{pfp}}"
-        alt="current username comes here"
-        class="profile-pfp"
-        unselectable="on">
-        {% endif %}
+    <div class="flex-row profile-top">
+        <div class="profile-main flex-center">
+            <div class="profile-pfp-area">
+                {% if pfp|string() == '' %}
+                <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
+                    alt="current username comes here" class="profile-default-pfp pfp" unselectable="on">
+                {% else %}
+                <img src="{{pfp}}" alt="current username comes here" class="custom-pfp pfp" unselectable="on">
+                {% endif %}
+            </div>
+            <div class="profile-displayname">
+                <span>{{displayname}}</span>
+                <br>
+                <div class="profile-tags">
+                    {% if 'S' in elevations %}
+                    <span class="profile-tag staff-tag">Staff</span>{% endif %}
+                    {% if 'A' in elevations %}
+                    <span class="profile-tag admin-tag">Admin</span>{% endif %}
+                    {% if 'E' in elevations %}
+                    <span class="profile-tag editor-tag">Editor</span>{% endif %}
+                    {% if 'W' in elevations %}
+                    <span class="profile-tag writer-tag">Writer</span>{% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="profile-info-container flex-col" id="bio">
+            <div class="profile-info-area">
+                {% if email|string() != '' %}
+                <span class="profile-info-field">
+                    <a href="mailto:{{email}}">
+                    <i class="profile-info-icon fas fa-envelope"></i>
+                        {{email}}
+                    </a>
+                    <br>
+                </span>
+                {% endif %}
+                {% if location|string() != '' %}
+                <span class="profile-info-field">
+                    <a href="https://www.google.com/maps/search/{{location}}" target="_blank" rel="noopener">
+                    <i class="profile-info-icon fas fa-map-marker-alt"></i>
+                        {{location}}
+                    </a>
+                    <br>
+                </span>
+                {% endif %}
+                {% if phone|string() != '' %}
+                <span class="profile-info-field">
+                    <a href="tel:{{phone}}">
+                    <i class="profile-info-icon fas fa-phone"></i>
+                        {{phone}}
+                    </a>
+                    <br>
+                </span>
+                {% endif %}
+            </div>
+                <p class="sub select">{{bio}}</p>
+        </div>
     </div>
-    <p class="profile-displayname">Barış İnandıoğlu</p>
-    <tag class="profile-tag">Writer</tag>
-    <p class="sub select">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-        industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-        make
-        a type specimen book. It has survived not only five centuries, but also the leap into electronic
-        typesetting,
-        remaining essentially unchanged.
-    </p>
-    <form>
+
+
+
+    <form style="margin-top: 200px;">
         <input type="file" id="pfpinput" name="pfpinput">
         <button type="submit">Submit</button>
     </form>

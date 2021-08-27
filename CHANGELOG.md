@@ -8,6 +8,7 @@
 - custom scrollbars
 - code reformatting
 - add user profile picture support
+- progress on profile page
 
 ### 0.0.4-dev
 

@@ -65,7 +65,17 @@ def profile():
     update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2') """
 
     # pfp = '' results in default pfp, enter a valid url for a custom pfp.
-    return render_template('./screens/profile.html', pfp='')
+    return render_template(
+        './screens/profile.html',
+        pfp='',
+        displayname='Barış İnandıoğlu',
+        elevations=['S'],
+        location='Istanbul',
+        phone='543 863 6598',
+        email='baris@gmail.com',
+        bio=
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    )
 
 
 @app.route('/about')

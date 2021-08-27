@@ -1,37 +1,94 @@
-.profile-pfp {
+.custom-pfp {
+    box-shadow: var(--bs-s);
+}
+
+.pfp {
     height: 160px;
     width: 160px;
-    border-radius: 50%;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, .16);
+    margin-right: var(--m3);
+    border-radius: 999px;
 }
-
-.default-pfp {
-    width: 160px;
-}
-
-.profile-default-pfp{
-    width: 160px;
-} 
 
 .profile-displayname {
     font-weight: bold;
     width: 100%;
-    margin-top: var(--m2);
-    font-size: var(--size1);
-    text-align: center;
+    font-size: var(--size3);
+    font-family: var(--f2);
+    color: var(--fg);
+    text-align: left;
     overflow-wrap: anywhere;
+    max-width: 220px;
 }
 
 .profile-area {
-    width: 20%;
+    width: 100%;
+}
+
+.writer-tag {
+    background: rgba(20, 160, 255, 0.25);
+    color: rgb(20, 160, 250);
+}
+
+.admin-tag {
+    background: rgba(255, 72, 0, 0.25);
+    color: rgb(255, 94, 0);
+}
+
+.editor-tag {
+    background: rgba(20, 255, 79, 0.25);
+    color: rgb(0, 218, 160);
+}
+
+.staff-tag {
+    background: rgba(255, 166, 0, 0.25);
+    color: rgb(252, 172, 0);
 }
 
 .profile-tag {
-    background: rgba(20, 160, 255, 0.2);
-    color: rgb(20, 160, 250);
     padding: 5px;
-    margin: 6px 6px 12px 6px;
     border-radius: 6px;
     font-size: .8em;
     font-weight: bold;
+    font-family: var(--f1);
+    font-size: .35em;
+    vertical-align: middle;
+}
+
+.profile-tags {
+    display: inline;
+    vertical-align: middle;
+    position: fixed;
+    margin-top: .1em;
+}
+
+.profile-top {
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+#bio {
+    max-width: 220px;
+    text-align: right;
+}
+
+.profile-info-field {
+    font-size: .75em;
+    font-family: var(--f1);
+    margin-left: 1em;
+    color: var(--g1);
+    line-height: 150%;
+}
+
+.profile-info-area{
+    margin-bottom: .75em;
+}
+
+.profile-info-container{
+    flex-wrap: wrap;flex-basis: 100%;
+}
+
+.profile-info-icon {
+    margin-right: .15em;
+    font-size: .8em;
 }
