@@ -41,18 +41,12 @@ def update_pfp(uid, target_size=400, target_filetype='webp'):
         mkdir('pfp_temp')
 
     cropped_image.save(f'./pfp_temp/{uid}.{target_filetype}',
-                       target_filetype.upper())
+                       target_filetype.upper(),
+                       optimize=True,
+                       quality=95)
     storage.child(f'pfps/{uid}.{target_filetype}').put(
         f'./pfp_temp/{uid}.{target_filetype}')
     remove(f'./pfp_temp/{uid}.{target_filetype}')
-
-    print(f'./pfp_temp/{uid}.{target_filetype}')
-    print(f'./pfp_temp/{uid}.{target_filetype}')
-    print(f'./pfp_temp/{uid}.{target_filetype}')
-    print(f'./pfp_temp/{uid}.{target_filetype}')
-    print(f'./pfp_temp/{uid}.{target_filetype}')
-    print(f'./pfp_temp/{uid}.{target_filetype}')
-    print(f'./pfp_temp/{uid}.{target_filetype}')
 
     # get_url method requires one positional argument for some reason, we don't know why
     url = storage.child(f'pfps/{uid}.{target_filetype}').get_url(None)
@@ -63,4 +57,4 @@ def update_pfp(uid, target_size=400, target_filetype='webp'):
 
 def get_default():
     from random import randint
-    return storage.child(f'default.webp').get_url(None)
+    return storage.child(f'default_pfp.webp').get_url(None)

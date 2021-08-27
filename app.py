@@ -58,13 +58,13 @@ def home():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    from firebase.pfp import update_pfp
+    from firebase.pfp import update_pfp, get_default
+    """ 
     if request.method == "POST":
         imagefile = request.files.get('pfpinput', '')
-    update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2')
+    update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2') """
 
-    return render_template('./screens/profile.html',
-                           pfp="https://i.imgur.com/WCUqGFa.jpeg")
+    return render_template('./screens/profile.html', pfp='')
 
 
 @app.route('/about')
@@ -139,6 +139,4 @@ def login():
 
 if __name__ == '__main__':
     print("app started")
-    from firebase import pfp
-    print(pfp.get_default())
-    # app.run(debug=True, threaded=True)
+    app.run(debug=True, threaded=True)

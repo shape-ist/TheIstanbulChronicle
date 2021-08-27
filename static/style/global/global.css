@@ -17,6 +17,12 @@ p {
     user-select: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     line-height: 90%;
 }
 
@@ -25,6 +31,15 @@ p {
     -moz-user-select: text !important;
     -ms-user-select: text !important;
     user-select: text !important;
+}
+
+.drag {
+    user-drag: auto !important;
+    -webkit-user-drag: auto !important;
+    user-select: auto !important;
+    -moz-user-select: auto !important;
+    -webkit-user-select: auto !important;
+    -ms-user-select: auto !important;
 }
 
 .flex-col {

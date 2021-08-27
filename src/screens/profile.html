@@ -1,32 +1,42 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Your profile</title>
+<title>Your profile</title>
 {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/profile.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/tablet/profile?_t.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mobile/profile?_m.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/profile.css') }}">
 {% endblock %}
 
 {% block body %}
-    <div class="profile-area flex-center flex-col">
-        <img src="{{pfp}}" alt="username" class="profile-pfp">
-        <p class="profile-displayname">Barış İnandıoğlu</p>
-        <tag class="profile-tag">Writer</tag>
-        <p class="sub select">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-            make
-            a type specimen book. It has survived not only five centuries, but also the leap into electronic
-            typesetting,
-            remaining essentially unchanged.
-        </p>
-        <form>
-            <input type="file" id="pfpinput" name="pfpinput">
-            <button type="submit">Submit</button>
-        </form>
+<div class="profile-area flex-center flex-col">
+    <div class="profile-pfp-area">
+        {% if pfp|string() == '' %}
+        <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
+        alt="current username comes here"
+        class="profile-default-pfp"
+        unselectable="on">
+        {% else %}
+        <img src="{{pfp}}"
+        alt="current username comes here"
+        class="profile-pfp"
+        unselectable="on">
+        {% endif %}
     </div>
+    <p class="profile-displayname">Barış İnandıoğlu</p>
+    <tag class="profile-tag">Writer</tag>
+    <p class="sub select">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+        make
+        a type specimen book. It has survived not only five centuries, but also the leap into electronic
+        typesetting,
+        remaining essentially unchanged.
+    </p>
+    <form>
+        <input type="file" id="pfpinput" name="pfpinput">
+        <button type="submit">Submit</button>
+    </form>
+</div>
 {% endblock %}

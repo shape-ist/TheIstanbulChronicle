@@ -1,10 +1,17 @@
 .profile-pfp {
-    height: 140px;
-    width: 140px;
+    height: 160px;
+    width: 160px;
     border-radius: 50%;
     box-shadow: 0 10px 24px rgba(0, 0, 0, .16);
-    background-color: var(--g2);
 }
+
+.default-pfp {
+    width: 160px;
+}
+
+.profile-default-pfp{
+    width: 160px;
+} 
 
 .profile-displayname {
     font-weight: bold;
