@@ -47,7 +47,6 @@
 .profile-tag {
     padding: 5px;
     border-radius: 6px;
-    font-size: .8em;
     font-weight: bold;
     font-family: var(--f1);
     font-size: .35em;
@@ -80,12 +79,13 @@
     line-height: 150%;
 }
 
-.profile-info-area{
+.profile-info-area {
     margin-bottom: .75em;
 }
 
-.profile-info-container{
-    flex-wrap: wrap;flex-basis: 100%;
+.profile-info-container {
+    flex-wrap: wrap;
+    flex-basis: 100%;
 }
 
 .profile-info-icon {
