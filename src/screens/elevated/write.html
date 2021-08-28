@@ -5,6 +5,7 @@
     <title>New article - The Istanbul Chronicle</title>
     {{ easymde.css }}
     {{ easymde.js }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mde.css') }}">
 {% endblock %}
 
 {% block style %}
@@ -14,6 +15,8 @@
 {% endblock %}
 
 {% block body %}
-    <textarea> Write your article here </textarea>
+    <div class="mde-container flex-center">
+        <textarea> Write your article here </textarea>
+    </div>
     {{ easymde.load }}
 {% endblock %}
