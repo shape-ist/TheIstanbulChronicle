@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <meta charset="utf-8">
-    <title>New article - The Istanbul Chronicle</title>
-    {{ easymde.css }}
-    {{ easymde.js }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mde.css') }}">
+<meta charset="utf-8">
+<title>New article - The Istanbul Chronicle</title>
+{{ easymde.css }}
+{{ easymde.js }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mde.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/write.css') }}">
 {% endblock %}
 
 {% block style %}
-    <!-- TODO: hide header when easymde on fullscreen -->
-    <style>
-    </style>
+<!-- TODO: hide header when easymde on fullscreen -->
+<style>
+</style>
 {% endblock %}
 
 {% block body %}
-    <div class="mde-container flex-center">
-        <textarea> Write your article here </textarea>
-    </div>
-    {{ easymde.load }}
+<input class="input-field write-input-field">     
+<div class="mde-container flex-center">
+    <textarea> Write your article here </textarea>
+    <!--TODO: #20 give the textarea tag a name="" and get the data using pull method-->
+</div>
+{{ easymde.load }}
 {% endblock %}

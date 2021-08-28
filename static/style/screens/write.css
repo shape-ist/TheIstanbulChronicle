@@ -1,0 +1,4 @@
+.write-input-field {
+    background: var(--fg) !important;
+    color: var(--bg) !important;
+}

@@ -3,7 +3,7 @@
     border-radius: var(--r2);
     border: 2px solid var(--g2);
     box-shadow: var(--bs);
-    margin: var(--m3);
+    margin: 0 !important;
     width: 100%;
     min-height: 100%;
     font-family: var(--f1) !important;
