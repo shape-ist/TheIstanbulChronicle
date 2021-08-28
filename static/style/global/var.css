@@ -1,7 +1,7 @@
 
 .theme-dark {
     --bg: #191919;
-    --bg-alt: #202020;
+    --bg-alt: #212121;
     --fg: #ffffff;
     --g1: #909090;
     --g2: #505050;
@@ -9,13 +9,13 @@
     --a2: #3700B3;
     --c: #161616;
     --bs: 0 10px 64px -28px #000000;
-    --bs-s: 0 6px 16px -3px #101010;
+    --bs-s: 0 6px 16px -5px #121212;
     --bs-invert: 0 0 48px -20px var(--fg);
 }
 
 .theme-light {
     --bg: #ffffff;
-    --bg-alt: #ededed;
+    --bg-alt: #dcdcdc;
     --fg: #000000;
     --g1: #505050;
     --g2: #cecece;

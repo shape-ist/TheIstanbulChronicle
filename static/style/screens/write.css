@@ -1,4 +1,24 @@
 .write-input-field {
-    background: var(--fg) !important;
-    color: var(--bg) !important;
+    background: var(--bg-alt) !important;
+    color: var(--fg) !important;
+}
+
+.article-date {
+    text-align: right;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.article-top-section {
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--m3) 0 var(--m2) 0;
+}
+
+.article-name-field {
+    max-width: 33%;
+}
+
+.article-date-icon {
+    margin-left: .5em;
 }

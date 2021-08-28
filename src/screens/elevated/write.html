@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from "./macros/_form.html" import form %}
 
 {% block head %}
 <meta charset="utf-8">
@@ -11,12 +12,15 @@
 
 {% block style %}
 <!-- TODO: hide header when easymde on fullscreen -->
-<style>
-</style>
 {% endblock %}
 
 {% block body %}
-<input class="input-field write-input-field">     
+<div class="flex-row article-top-section">
+{{ form('Title',       'write-input-field article-name-field' ,    'write-article-title',       'text',        'name-article-title') }}
+<span class="sub article-date">11.12.2021
+    <i class="article-date-icon fas fa-calendar"></i>
+</span>
+</div>
 <div class="mde-container flex-center">
     <textarea> Write your article here </textarea>
     <!--TODO: #20 give the textarea tag a name="" and get the data using pull method-->

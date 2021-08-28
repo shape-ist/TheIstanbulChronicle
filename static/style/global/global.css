@@ -6,7 +6,7 @@ p {
 .app-wrapper {
     max-width: 960px;
     margin: auto;
-    padding: calc(var(--topbar-height) * 3) 100px;
+    padding: calc(var(--topbar-height) * 4) 100px;
 }
 
 * {
