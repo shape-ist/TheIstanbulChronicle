@@ -9,6 +9,7 @@
     border-radius: 999px;
     font-size: var(--size1);
     box-shadow: var(--bs-s) !important;
+    z-index: 999;
 }
 
 .write-btn:hover {
