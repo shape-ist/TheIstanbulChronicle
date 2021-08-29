@@ -26,21 +26,25 @@
 
 .writer-tag {
     background: rgba(20, 160, 255, 0.25);
+    border: 1px solid rgba(20, 160, 255, 0.12);
     color: rgb(20, 160, 250);
 }
 
 .admin-tag {
     background: rgba(255, 72, 0, 0.25);
+    border: 1px solid rgba(255, 72, 0, 0.12);
     color: rgb(255, 94, 0);
 }
 
 .editor-tag {
     background: rgba(20, 255, 79, 0.25);
+    border: 1px solid rgba(20, 255, 79, 0.12);
     color: rgb(0, 218, 160);
 }
 
 .staff-tag {
     background: rgba(255, 166, 0, 0.25);
+    border: 1px solid rgba(255, 166, 0, 0.12);
     color: rgb(252, 172, 0);
 }
 
