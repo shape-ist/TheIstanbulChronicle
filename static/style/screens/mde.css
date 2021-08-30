@@ -22,6 +22,7 @@
     padding: 16px 14px;
     border-top-right-radius: var(--r2);
     border-top-left-radius: var(--r2);
+    align-items: center;
 }
 .EasyMDEContainer .CodeMirror {
     border: none !important;
@@ -72,4 +73,25 @@
 
 .EasyMDEContainer span.cm-header {
     font-family: var(--f2);
+}
+
+.EasyMDEContainer .editor-toolbar.fullscreen{
+    width: 100vw;
+    top: calc(var(--topbar-height) * 2);
+    border-radius: 0;
+    height: 60px;
+    background: var(--bg);
+    border-top: 1px solid var(--g2) !important;
+    padding-right: 50vw;
+}
+.CodeMirror-fullscreen  {
+    top: calc(var(--topbar-height) * 2 + 60px);
+}
+
+.editor-preview {
+    top: calc(var(--topbar-height) * 2);
+    padding: 20px;
+    background: var(--bg-alt);
+    border: none !important;
+    border-top: 1px solid var(--g2) !important;
 }

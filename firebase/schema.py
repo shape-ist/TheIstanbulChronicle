@@ -1,4 +1,5 @@
 from typing import List
+from firebase.setup import db
 
 
 def user(email: str = '',
@@ -19,7 +20,7 @@ def user(email: str = '',
     }
 
 
-def article(db,
+def article(db=db,
             title: str = '',
             body: str = '',
             writer_uid: str = '',
