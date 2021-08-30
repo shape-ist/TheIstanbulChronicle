@@ -19,19 +19,17 @@ def user(email: str = '',
     }
 
 
-def article(
-        db,
-        title: str = '',
-        body: str = '',
-        writer_uid: str = '',
-        tag: str = '',
-        article_type: str = ''
-):
+def article(db,
+            title: str = '',
+            body: str = '',
+            writer_uid: str = '',
+            tag: str = '',
+            article_type: str = ''):
     return {
         u'title': title,
         u'body': body,
         u'writer_uid': db.collection(u'users').document(writer_uid),
-        u'article_type': article_type
+        u'article_type': article_type,
         u'is_approved': False
         # u'tag': tag,
         # ^^ TODO: UNCOMMENT THIS WHEN TAGS ARE IMPLEMENTED
