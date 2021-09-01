@@ -6,6 +6,7 @@
             background: var(--g2);
             border-radius: 999px;
         }
+
         .header-pfp-image {
             height: 100%;
             width: 100%;
@@ -19,7 +20,8 @@
         {% if pfp != '' %}
             <img alt="username comes here" class="header-pfp-image" src="{{ current_pfp() }}">
         {% else %}
-        <img alt="username comes here" class="header-pfp-image" src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}">
+            <img alt="username comes here" class="header-pfp-image"
+                 src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}">
         {% endif %}
     </div>
 
