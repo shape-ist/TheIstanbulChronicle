@@ -13,6 +13,7 @@ if not isfile('.env'):
 
 content = load_content("content.yml")
 
+# firebase imports (should be done after dotenv validation)
 from firebase import user
 
 app = Flask(__name__, template_folder='src')
@@ -36,6 +37,22 @@ def before_request():
         code = 301
         return redirect(url, code=code)
 """
+
+
+@app.context_processor
+def utility_processor():
+    def get_display_name(amount, currency=u'$'):
+        return u'{1}{0:.2f}'.format(amount, currency)
+
+    def allah(a):
+        return a
+
+    def is_signed_in():
+        return user.is_signed_in()
+
+    return dict(get_display_name=get_display_name,
+                allah=allah,
+                is_signed_in=is_signed_in)
 
 
 @app.route('/', methods=['GET', 'POST'])
