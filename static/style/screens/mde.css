@@ -13,7 +13,7 @@
     display: none !important;
 }
 
-.EasyMDEContainer .editor-toolbar{
+.EasyMDEContainer .editor-toolbar {
     background: var(--bg-alt);
     border: none !important;
     display: flex;
@@ -24,6 +24,7 @@
     border-top-left-radius: var(--r2);
     align-items: center;
 }
+
 .EasyMDEContainer .CodeMirror {
     border: none !important;
     margin-top: var(--m2);
@@ -75,7 +76,7 @@
     font-family: var(--f2);
 }
 
-.EasyMDEContainer .editor-toolbar.fullscreen{
+.EasyMDEContainer .editor-toolbar.fullscreen {
     width: 100vw;
     top: calc(var(--topbar-height) * 2);
     border-radius: 0;
@@ -84,11 +85,12 @@
     border-top: 1px solid var(--g2) !important;
     padding-right: 50vw;
 }
-.CodeMirror-fullscreen  {
+
+.EasyMDEContainer .CodeMirror-fullscreen {
     top: calc(var(--topbar-height) * 2 + 60px);
 }
 
-.editor-preview {
+.EasyMDEContainer .editor-preview {
     top: calc(var(--topbar-height) * 2);
     padding: 20px;
     background: var(--bg-alt);
