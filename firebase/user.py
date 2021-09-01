@@ -28,5 +28,13 @@ def delete_user(uid):
     db.collection(u'users').document(uid).delete()
 
 
+def current():
+    return auth.current_user
+
+
+def current_uid():
+    return auth.current_user['localId']
+
+
 def is_signed_in():
-    return 0 if auth.current_user is None else 1
+    return current is not None

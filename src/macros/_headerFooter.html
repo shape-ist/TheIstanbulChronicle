@@ -1,6 +1,8 @@
 {% macro header() %}
     {% from "./macros/_auth.html" import login %}
     {% from "./macros/_auth.html" import register %}
+    {% from "./macros/_header_auth.html" import header_auth %}
+    {% from "./macros/_header_profile.html" import header_profile with context %}
     <header id="header">
         <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
@@ -18,11 +20,11 @@
                 <a id="header-about" href="/about" class="header-button about-us">About Us</a>
             </div>
             <div class="title-side topmost right-section">
-                {% set signed_in = is_signed_in() | int %}
-                {% if signed_in == 1 %}
-                    User signed in
+                {% set signed_in = is_signed_in() %}
+                {% if signed_in %}
+                    {{ header_profile() }}
                 {% else %}
-                    User not signed in
+                    {{ header_auth() }}
                 {% endif %}
             </div>
         </div>

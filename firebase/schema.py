@@ -1,4 +1,5 @@
 from typing import List
+
 from firebase.setup import db
 
 

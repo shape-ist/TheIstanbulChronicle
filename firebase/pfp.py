@@ -2,16 +2,11 @@ from os import remove, mkdir
 from os.path import exists
 from sys import maxsize
 
-import PIL
-import io
-import requests
 from PIL import Image
-from flask import request
+from PIL import ImageOps
 
 from firebase.setup import db
 from firebase.setup import storage
-
-from PIL import ImageOps
 
 
 def update_pfp(uid, target_size=400, target_filetype='webp'):
@@ -56,5 +51,4 @@ def update_pfp(uid, target_size=400, target_filetype='webp'):
 
 
 def get_default():
-    from random import randint
     return storage.child(f'default_pfp.webp').get_url(None)

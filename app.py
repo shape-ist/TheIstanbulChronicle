@@ -15,6 +15,7 @@ content = load_content("content.yml")
 
 # firebase imports (should be done after dotenv validation)
 from firebase import user
+from firebase import tools as fbtools
 
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -41,18 +42,14 @@ def before_request():
 
 @app.context_processor
 def utility_processor():
-    def get_display_name(amount, currency=u'$'):
-        return u'{1}{0:.2f}'.format(amount, currency)
-
-    def allah(a):
-        return a
-
     def is_signed_in():
         return user.is_signed_in()
 
-    return dict(get_display_name=get_display_name,
-                allah=allah,
-                is_signed_in=is_signed_in)
+    def header_user_data():
+        user = fbtools.get_doc(u'users', user.current_uid())
+        return list(user['pfp'], user['name'])
+
+    return dict(is_signed_in=is_signed_in, header_user_data=header_user_data)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -75,8 +72,7 @@ def home():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    from firebase.pfp import update_pfp, get_default
-    """ 
+    """
     if request.method == "POST":
         imagefile = request.files.get('pfpinput', '')
     update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2') """
@@ -167,4 +163,5 @@ def login():
 
 if __name__ == '__main__':
     print("app started")
+    user.login("allffffah@gmaildd.com", "31Allah31")
     app.run(debug=True, threaded=True)
