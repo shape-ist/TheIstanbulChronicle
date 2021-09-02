@@ -1,6 +1,6 @@
 ## Changelog
 
-### 0.0.5-dev-pre
+### 0.0.5-dev
 
 - implement article backend
 - register and log in has seperate urls
