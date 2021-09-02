@@ -1,5 +1,7 @@
 ## Changelog
 
+### 0.0.6-dev-pre
+
 ### 0.0.5-dev
 
 - implement article backend
