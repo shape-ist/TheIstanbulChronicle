@@ -2,16 +2,13 @@ from firebase.setup import db, auth
 
 
 def register(email, password, display_name):
-    auth.create_user_with_email_and_password(email, password)
-    login(email, password)
-    uid = auth.current_user['localId']
+    new_user = auth.create_user_with_email_and_password(email, password)
+    uid = new_user['localId']
 
     # creates user document
     from firebase import schema
     db.collection(u'users').document(uid).set(
         schema.user(name=display_name, email=email, uid=uid))
-
-    # this function expects you to explicitly sign the user in after registration
 
 
 def login(email, password):

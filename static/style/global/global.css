@@ -276,3 +276,13 @@ input {
     position: fixed;
     margin-top: .1em;
 }
+
+::-moz-selection {
+    color: var(--bg);
+    background: var(--fg);
+  }
+  
+  ::selection {
+    color: var(--bg);
+    background: var(--fg);
+  }

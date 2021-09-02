@@ -189,5 +189,5 @@ def user_profile(uid):
 
 if __name__ == '__main__':
     print("app started")
-    user.login("allffffah@gmaildd.com", "31Allah31")
+    user.login("allah@gmail.comuwu", "uwu123")
     app.run(debug=True, threaded=True)
