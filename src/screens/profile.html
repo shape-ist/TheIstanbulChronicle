@@ -2,93 +2,93 @@
 
 {% block title %}
 
-{% if var is iterable and (var is not string and var is not mapping) %}
-<title>{{ user_data["name"] }}</title> {% else %}
-<title>Profile not found</title> {% endif %}
+    {% if var is iterable and (var is not string and var is not mapping) %}
+        <title>{{ user_data["name"] }}</title> {% else %}
+        <title>Profile not found</title> {% endif %}
 {% endblock %}
 
 {% block head %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/profile.css') }}">
 {% endblock %}
 
 {% block body %}
-{% if user_data is iterable and (var is not string and var is not mapping) %}
+    {% if user_data is iterable and (var is not string and var is not mapping) %}
 
-<div class="profile-area flex-center flex-col">
-    <div class="flex-row profile-top">
-        <div class="profile-main flex-center">
-            <div class="profile-pfp-area">
-                {% set pfp = user_data["pfp"] %}
-                {% if pfp|string() == '' %}
-                <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
-                    alt="current username comes here" class="profile-default-pfp pfp">
-                {% else %}
-                <img src="{{ pfp }}" alt="current username comes here" class="custom-pfp pfp">
-                {% endif %}
-            </div>
-            <div class="profile-displayname">
-                <span>{{ user_data["name"] }}</span>
-                <br>
-                <div class="profile-tags">
-                    {% if 'S' in user_data["elevation"] %}
-                    <span class="profile-tag staff-tag">Staff</span>{% endif %}
-                    {% if 'A' in user_data["elevation"] %}
-                    <span class="profile-tag admin-tag">Admin</span>{% endif %}
-                    {% if 'E' in user_data["elevation"] %}
-                    <span class="profile-tag editor-tag">Editor</span>{% endif %}
-                    {% if 'W' in user_data["elevation"] %}
-                    <span class="profile-tag writer-tag">Writer</span>{% endif %}
+        <div class="profile-area flex-center flex-col">
+            <div class="flex-row profile-top">
+                <div class="profile-main flex-center">
+                    <div class="profile-pfp-area">
+                        {% set pfp = user_data["pfp"] %}
+                        {% if pfp|string() == '' %}
+                            <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
+                                 alt="current username comes here" class="profile-default-pfp pfp">
+                        {% else %}
+                            <img src="{{ pfp }}" alt="current username comes here" class="custom-pfp pfp">
+                        {% endif %}
+                    </div>
+                    <div class="profile-displayname">
+                        <span>{{ user_data["name"] }}</span>
+                        <br>
+                        <div class="profile-tags">
+                            {% if 'S' in user_data["elevation"] %}
+                                <span class="profile-tag staff-tag">Staff</span>{% endif %}
+                            {% if 'A' in user_data["elevation"] %}
+                                <span class="profile-tag admin-tag">Admin</span>{% endif %}
+                            {% if 'E' in user_data["elevation"] %}
+                                <span class="profile-tag editor-tag">Editor</span>{% endif %}
+                            {% if 'W' in user_data["elevation"] %}
+                                <span class="profile-tag writer-tag">Writer</span>{% endif %}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        {% set email = user_data["email"] %}
-        {% set location = user_data["location"] %}
-        {% set phone = user_data["phone"] %}
+                {% set email = user_data["email"] %}
+                {% set location = user_data["location"] %}
+                {% set phone = user_data["phone"] %}
 
-        <div class="profile-info-container flex-col" id="bio">
-            <div class="profile-info-area">
-                {% if email|string() != '' and user_data["email_public"] == True %}
-                <span class="profile-info-field">
+                <div class="profile-info-container flex-col" id="bio">
+                    <div class="profile-info-area">
+                        {% if email|string() != '' and user_data["email_public"] == True %}
+                            <span class="profile-info-field">
                     <a href="mailto:{{ email }}">
                         <i class="profile-info-icon fas fa-envelope"></i>
                         {{ email }}
                     </a>
                     <br>
                 </span>
-                {% endif %}
-                {% if location|string() != '' %}
-                <span class="profile-info-field">
+                        {% endif %}
+                        {% if location|string() != '' %}
+                            <span class="profile-info-field">
                     <a href="https://www.google.com/maps/search/{{ location }}" target="_blank" rel="noopener">
                         <i class="profile-info-icon fas fa-map-marker-alt"></i>
                         {{ location }}
                     </a>
                     <br>
                 </span>
-                {% endif %}
-                {% if phone|string() != '' %}
-                <span class="profile-info-field">
+                        {% endif %}
+                        {% if phone|string() != '' %}
+                            <span class="profile-info-field">
                     <a href="tel:{{ phone }}">
                         <i class="profile-info-icon fas fa-phone"></i>
                         {{ phone }}
                     </a>
                     <br>
                 </span>
-                {% endif %}
+                        {% endif %}
+                    </div>
+                    <p class="sub select">{{ user_data["bio"] }}</p>
+                </div>
             </div>
-            <p class="sub select">{{ user_data["bio"] }}</p>
+
+
+            <form style="margin-top: 200px;">
+                <input type="file" id="pfpinput" name="pfpinput">
+                <button type="submit">Submit</button>
+            </form>
         </div>
-    </div>
-
-
-    <form style="margin-top: 200px;">
-        <input type="file" id="pfpinput" name="pfpinput">
-        <button type="submit">Submit</button>
-    </form>
-</div>
-{% else %}
-{% from "./macros/_profile_not_found.html" import profile_not_found %}
-{{ profile_not_found() }}
-{% endif %}
+    {% else %}
+        {% from "./macros/_profile_not_found.html" import profile_not_found %}
+        {{ profile_not_found() }}
+    {% endif %}
 
 {% endblock %}

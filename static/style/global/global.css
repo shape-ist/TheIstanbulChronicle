@@ -280,9 +280,9 @@ input {
 ::-moz-selection {
     color: var(--bg);
     background: var(--fg);
-  }
-  
-  ::selection {
+}
+
+::selection {
     color: var(--bg);
     background: var(--fg);
-  }
+}
