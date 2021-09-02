@@ -36,7 +36,7 @@ def before_request():
     if not request.is_secure:
         url = request.url.replace('http://', 'https://', 1)
         code = 301
-        return redirect(url, code=code)
+        return redirect(url, code = code)
 """
 
 
@@ -45,22 +45,32 @@ def utility_processor():
     def is_signed_in():
         return user.is_signed_in()
 
-    def header_user_data():
-        user = fbtools.get_doc(u'users', user.current_uid())
-        return list(user['pfp'], user['name'])
+    def current_pfp():
+        try:
+            return fbtools.get_doc(u'users', user.current_uid())['pfp']
+        except Exception:
+            return ''
 
-    return dict(is_signed_in=is_signed_in, header_user_data=header_user_data)
+    def user_elevations():
+        try:
+            return fbtools.get_doc(u'users', user.current_uid())['elevation']
+        except Exception:
+            return []
+
+    return dict(is_signed_in=is_signed_in,
+                current_pfp=current_pfp,
+                user_elevations=user_elevations)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     # TODO: get multiple POST methods for login and register here
     """
-    if request.method == "POST" and param="login": ???
+    if request.method == "POST" and param = "login": ???
         login_email = request.form.get("name-login-email")
         login_password = request.form.get("name-login-password")
         user.login(login_email, login_password)
-    if request.method == 'POST' and param="register": ???
+    if request.method == 'POST' and param = "register": ???
         register_email = request.form.get("name-register-email")
         register_password = request.form.get("name-register-password")
         register_displayname = request.form.get("name-register-displayname")
@@ -70,25 +80,30 @@ def home():
     return render_template('./index.html', subpage=request.args.get('goto'))
 
 
-@app.route('/profile', methods=['GET', 'POST'])
-def profile():
-    """
-    if request.method == "POST":
-        imagefile = request.files.get('pfpinput', '')
-    update_pfp('QuVb0qlU6GfW9CYW9iuIXGRVlhp2') """
+@app.route('/profile/me', methods=['GET', 'POST'])
+def profile_me():
+    # TODO: Check if user signed in, redirect to /register
+    return redirect(f'/profile/{user.current_uid()}')
 
-    # pfp = '' results in default pfp, enter a valid url for a custom pfp.
-    return render_template(
-        './screens/profile.html',
-        pfp='',
-        displayname='Barış İnandıoğlu',
-        elevations=['S'],
-        location='Istanbul',
-        phone='543 863 6598',
-        email='baris@gmail.com',
-        bio=
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-    )
+
+@app.route('/profile')
+def profile_redir():
+    return redirect("/profile/me")
+
+
+@app.route('/user')
+def user_redir():
+    return redirect("/profile/me")
+
+
+@app.route('/account')
+def account_redir():
+    return redirect("/profile/me")
+
+
+@app.route('/me')
+def me_redir():
+    return redirect("/profile/me")
 
 
 @app.route('/about')
@@ -159,6 +174,17 @@ def register():
 @app.route('/login')
 def login():
     return redirect("/?goto=login")
+
+
+@app.route('/profile/<uid>')
+def user_profile(uid):
+    # try fetching data from the uid using fbtools and redirect to / if Exception
+    try:
+        user_data = fbtools.get_doc(u'users', uid)
+        return render_template('./screens/profile.html', user_data=user_data)
+    except Exception as e:
+        # render a profile doesnt exists or is deleted message if user_data=None
+        return render_template('./screens/profile.html', user_data=None)
 
 
 if __name__ == '__main__':

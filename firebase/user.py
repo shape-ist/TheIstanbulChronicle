@@ -37,4 +37,4 @@ def current_uid():
 
 
 def is_signed_in():
-    return current is not None
+    return current() is not None

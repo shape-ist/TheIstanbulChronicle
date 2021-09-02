@@ -1,0 +1,62 @@
+{% macro header_profile() %}
+<style>
+    .header-pfp-container {
+        height: 40px;
+        width: 40px;
+        background: var(--g2);
+        border-radius: 999px;
+    }
+
+    .header-pfp-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 999px;
+    }
+
+    .header-profile-link {
+        padding: 15px 30px;
+        position: relative;
+        right: 125%;
+        bottom: 25%;
+    }
+
+    .header-profile-tag {
+        height: fit-content;
+        margin-right: var(--m2);
+        font-size: 11px;
+    }
+</style>
+<div class="header-profile-is-signed-in flex-row flex-center">
+    {% set elevations = user_elevations()  %}
+    {% if 'S' in elevations %}
+    <span class="profile-tag staff-tag header-profile-tag">Staff</span>
+    {% elif 'A' in elevations %}
+    <span class="profile-tag admin-tag header-profile-tag">Admin</span>
+    {% elif 'E' in elevations %}
+    <span class="profile-tag editor-tag header-profile-tag">Editor</span>
+    {% elif 'W' in elevations %}
+    <span class="profile-tag writer-tag header-profile-tag">Writer</span>{% endif %}
+
+    <div class="header-pfp-container">
+
+        {% if current_pfp() != '' %}
+        <img alt="Your profile" class="header-pfp-image" src="{{ current_pfp() }}">
+        {% else %}
+        <img alt="Your profile" class="header-pfp-image"
+            src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}">
+        {% endif %}
+        <a href="/profile/me" class="header-profile-link"></a>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro header_auth() %}
+<div class="profile-area">
+    <button onclick="display('login-area', 'flex')" class="header-button auth pointer">
+        Log in /
+    </button>
+    <button onclick="display('register-area', 'flex')" class="header-button auth pointer">
+        Register
+    </button>
+</div>
+{% endmacro %}

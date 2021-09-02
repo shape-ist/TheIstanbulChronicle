@@ -9,7 +9,10 @@ def user(email: str = '',
          name: str = '',
          pfp: str = '',
          elevation: List[str] = [],
-         ban: bool = False):
+         ban: bool = False,
+         location: str = '',
+         phone: str = '',
+         email_public: bool = False):
     return {
         u'email': email,
         u'bio': bio,
@@ -18,6 +21,9 @@ def user(email: str = '',
         u'pfp': pfp,
         u'elevation': elevation,
         u'ban': ban,
+        u'location': location,
+        u'phone': phone,
+        u'email_public': email_public
     }
 
 
