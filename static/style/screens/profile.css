@@ -70,7 +70,6 @@
     padding-bottom: var(--m2);
 }
 
-.profile-section {
-    padding: var(--m1) 0;
-    border-bottom: 1px solid var(--g2);
+.profile-info-spacer {
+    height: var(--m2);
 }

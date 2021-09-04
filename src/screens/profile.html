@@ -41,13 +41,20 @@
                 <span class="profile-tag writer-tag">Writer</span>{% endif %}
             </div>
             <div class="profile-moreinfo">
+                {% if user_data["email_public"] == True %}
                 {% set email = user_data["email"] %}
+                {% else %}
+                {% set email = '' %}
+                {% endif %}
                 {% set location = user_data["location"] %}
                 {% set phone = user_data["phone"] %}
                 <div class="profile-info-container flex-col" id="profile-info-section">
                     <p class="sub select profile-section">{{ user_data["bio"] }}</p>
                     <div class="profile-info-area profile-section">
-                        {% if email|string() != '' and user_data["email_public"] == True %}
+                        {% if email != '' or location != '' or phone != '' %}
+                        <div class="profile-info-spacer"></div>
+                        {% endif %}
+                        {% if email|string() != '' %}
                         <span class="profile-info-field">
                             <a href="mailto:{{ email }}">
                                 <i class="profile-info-icon fas fa-envelope"></i>
