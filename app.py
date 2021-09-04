@@ -181,9 +181,14 @@ def user_profile(uid):
     # try fetching data from the uid using fbtools and redirect to / if Exception
     try:
         user_data = fbtools.get_doc(u'users', uid)
-        return render_template('./screens/profile.html', user_data=user_data)
+        if user_data["elevation"] != [] and user_data["ban"] is False:
+            # user is elevated, return profile page
+            return render_template('./screens/profile.html',
+                                   user_data=user_data)
+        else:
+            raise Exception("Unelevated user profile")
     except Exception as e:
-        # render a profile doesnt exists or is deleted message if user_data=None
+        # render a profile doesn't exists or is deleted message if user_data=None
         return render_template('./screens/profile.html', user_data=None)
 
 

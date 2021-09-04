@@ -5,17 +5,16 @@
 .pfp {
     height: 160px;
     width: 160px;
-    margin-right: var(--m3);
     border-radius: 999px;
 }
 
 .profile-displayname {
     font-weight: bold;
     width: 100%;
-    font-size: var(--size3);
-    font-family: var(--f2);
+    font-size: var(--size2);
+    font-family: var(--f1);
     color: var(--fg);
-    text-align: left;
+    text-align: center;
     overflow-wrap: anywhere;
     max-width: 220px;
 }
@@ -30,15 +29,14 @@
     align-items: center;
 }
 
-#bio {
+#profile-info-section {
     max-width: 220px;
-    text-align: right;
+    text-align: left;
 }
 
 .profile-info-field {
     font-size: .75em;
     font-family: var(--f1);
-    margin-left: 1em;
     color: var(--g1);
     line-height: 150%;
 }
@@ -59,4 +57,20 @@
 
 .profile-main {
     padding-right: var(--m3);
+}
+
+.profile-tags {
+    display: inline;
+    vertical-align: middle;
+    margin-top: .25em;
+    width: 100%;
+}
+
+.profile-pfp-area {
+    padding-bottom: var(--m2);
+}
+
+.profile-section {
+    padding: var(--m1) 0;
+    border-bottom: 1px solid var(--g2);
 }

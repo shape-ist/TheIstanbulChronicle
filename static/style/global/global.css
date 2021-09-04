@@ -238,21 +238,21 @@ input {
 }
 
 .writer-tag {
-    background: rgba(20, 160, 255, 0.25);
+    background: rgba(20, 122, 255, 0.25);
     border: 1px solid rgba(20, 160, 255, 0.12);
-    color: rgb(20, 160, 250);
+    color: rgb(12, 177, 228);
 }
 
 .admin-tag {
-    background: rgba(255, 72, 0, 0.25);
-    border: 1px solid rgba(255, 72, 0, 0.12);
-    color: rgb(255, 94, 0);
+    background: rgba(255, 90, 0, 0.25);
+    border: 1px solid rgba(255, 90, 0, 0.12);
+    color: rgb(255, 120, 0);
 }
 
 .editor-tag {
     background: rgba(20, 255, 79, 0.25);
     border: 1px solid rgba(20, 255, 79, 0.12);
-    color: rgb(0, 218, 160);
+    color: rgb(0, 214, 185);
 }
 
 .staff-tag {
@@ -266,15 +266,9 @@ input {
     border-radius: 6px;
     font-weight: bold;
     font-family: var(--f1);
-    font-size: .35em;
+    font-size: 0.75em;
+    margin: .25em;
     vertical-align: middle;
-}
-
-.profile-tags {
-    display: inline;
-    vertical-align: middle;
-    position: fixed;
-    margin-top: .1em;
 }
 
 ::-moz-selection {

@@ -2,10 +2,12 @@
 
 ### 0.0.6-dev-pre
 
+- non-elevated users don't have a unique profile page
+
 ### 0.0.5-dev
 
 - implement article backend
-- register and log in has seperate urls
+- register and log in has separate urls
 - performance improvements
 - custom scrollbars
 - code reformatting
@@ -14,7 +16,7 @@
 
 ### 0.0.4-dev
 
-- implement login and register in seperate urls as well as index.html popups
+- implement login and register in separate urls as well as index.html popups
 - implement profile picture backend
 - auto-redirect http to https for security reasons
 - Security Updates
