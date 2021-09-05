@@ -187,9 +187,24 @@ def user_profile(uid):
                                    user_data=user_data)
         else:
             raise Exception("Unelevated user profile")
-    except Exception as e:
+    except Exception:
         # render a profile doesn't exists or is deleted message if user_data=None
         return render_template('./screens/profile.html', user_data=None)
+
+
+@app.route('/article/<uid>')
+def article(uid):
+    # try fetching data from the uid using fbtools and redirect to / if Exception
+    try:
+        article = fbtools.get_doc(u'articles', uid)
+        if article["is_approved"] == True:
+            # Article approved and published, return the content
+            return render_template('./screens/article.html', article=article)
+        else:
+            raise Exception("Non-approved article")
+    except Exception:
+        # Render an article not found message
+        return render_template('./screens/article.html', article=None)
 
 
 if __name__ == '__main__':

@@ -2,8 +2,6 @@
 
 ### 0.0.6-dev-pre
 
-- non-elevated users don't have a unique profile page
-
 ### 0.0.5-dev
 
 - implement article backend
