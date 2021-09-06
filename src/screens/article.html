@@ -8,14 +8,32 @@
 {% endblock %}
 
 {% block head %}
-
 <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/article.css') }}">
 {% endblock %}
 
 {% block body %}
-{% if article is iterable and (var is not string and var is not mapping) %}
+{% if article != none %}
 
-<h1>{{ article["title"] }}</h1>
+<div class="article-wrapper">
+{% filter markdown %}
+    # Title
+    body body body
+    
+    * body
+    * body
+    * body
+    * body
+
+    - body
+    - body
+    - body
+    - body
+
+    *body*
+    **body**
+{% endfilter %}
+{{ article["body"]|markdown }}
+</div>
 
 {% else %}
 {% from "./macros/_article_not_found.html" import article_not_found %}

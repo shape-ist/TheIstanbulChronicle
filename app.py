@@ -4,6 +4,7 @@ from os.path import join
 from flask import *
 from flask_easymde import EasyMDE
 from flaskext.markdown import Markdown
+from markdown import markdown
 
 from content import load_content
 
@@ -192,6 +193,10 @@ def user_profile(uid):
         return render_template('./screens/profile.html', user_data=None)
 
 
+def md_html(md_str):
+    return markdown(md_str)
+
+
 @app.route('/article/<uid>')
 def article(uid):
     # try fetching data from the uid using fbtools and redirect to / if Exception
@@ -199,7 +204,9 @@ def article(uid):
         article = fbtools.get_doc(u'articles', uid)
         if article["is_approved"] == True:
             # Article approved and published, return the content
-            return render_template('./screens/article.html', article=article)
+            return render_template('./screens/article.html',
+                                   article=article,
+                                   article_body=md_html(article["body"]))
         else:
             raise Exception("Non-approved article")
     except Exception:
