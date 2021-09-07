@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "30f1d1c04252ee54dcff8c88df3886d6fd91cc65479b39ddd0cab2656305cae7"
+            "sha256": "7f6934698c6d9eac135ef398112195f4262007ff364e2a93d2a9e0d1d53341ee"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -156,11 +156,11 @@
         },
         "deprecated": {
             "hashes": [
-                "sha256:08452d69b6b5bc66e8330adde0a4f8642e969b9e1702904d137eeb29c8ffc771",
-                "sha256:6d2de2de7931a968874481ef30208fd4e08da39177d61d3d4ebdf4366e7dbca1"
+                "sha256:43ac5335da90c31c24ba028af536a91d41d53f9e6901ddb021bcc572ce44e38d",
+                "sha256:64756e3e14c8c5eea9795d93c524551432a0be75629f8f29e67ab8caf076c76d"
             ],
             "index": "pypi",
-            "version": "==1.2.12"
+            "version": "==1.2.13"
         },
         "firebase-admin": {
             "hashes": [

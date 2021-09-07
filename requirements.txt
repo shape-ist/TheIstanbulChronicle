@@ -16,7 +16,7 @@ click==8.0.1
 colorama==0.4.4
 crypto==1.4.1
 cryptography==3.4.8
-deprecated==1.2.12
+deprecated==1.2.13
 firebase-admin==5.0.2
 flask-easymde==1.0
 flask-markdown==0.3
