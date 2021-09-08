@@ -27,7 +27,9 @@
     {{ style() }}
     {{ header() }}
     {{ socials() }}
+    {% if authorized('W') %}
     {{ write_btn() }}
+    {% endif %}
 </div>
 <div class="app-wrapper">
     {% block body %}

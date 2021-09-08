@@ -53,9 +53,13 @@ def utility_processor():
         except Exception:
             return []
 
+    def authorized(level, uid=user.current_uid()):
+        return fbtools.isauthorized(level, uid)
+
     return dict(is_signed_in=is_signed_in,
                 current_pfp=current_pfp,
-                user_elevations=user_elevations)
+                user_elevations=user_elevations,
+                authorized=authorized)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -133,10 +137,12 @@ def favicon():
 
 @app.route('/write')
 def write():
-    # TODO: check access of user before returning template of elevated html pages.
-    # TODO: ERROR 403-like page IF ACCESS DENIED
     # TODO: add different favicon on elevated pages. (see elevated directory)
-    return render_template('./screens/elevated/write.html')
+
+    if fbtools.isauthorized('W', user.current_uid()):
+        return render_template('./screens/elevated/write.html')
+    else:
+        return forbidden(Exception("User not authorized"))
 
 
 @app.route('/legal/license')
