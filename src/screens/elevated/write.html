@@ -4,10 +4,10 @@
 {% block head %}
     <meta charset="utf-8">
     <title>New article - The Istanbul Chronicle</title>
-    {{ easymde.css }}
-    {{ easymde.js }}
     <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mde.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/write.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
 {% endblock %}
 
 {% block style %}
@@ -17,13 +17,11 @@
 {% block body %}
     <div class="flex-row article-top-section">
         {{ form('Title',       'write-input-field article-name-field' ,    'write-article-title',       'text',        'name-article-title') }}
-        <span class="sub article-date">11.12.2021
-    <i class="article-date-icon fas fa-calendar"></i>
-</span>
+        <span class="sub article-date">11.12.2021<i class="article-date-icon fas fa-calendar"></i></span>
     </div>
     <div class="mde-container flex-center">
-        <textarea> Write your article here </textarea>
-        <!--TODO: #20 give the textarea tag a name="" and get the data using pull method-->
+        <textarea></textarea>
+        <script src="{{ url_for('static', filename='js/mde.js') }}"></script>
+        <!--TODO: #20 use jquery ajax here to send a request to server and read data -->
     </div>
-    {{ easymde.load }}
 {% endblock %}

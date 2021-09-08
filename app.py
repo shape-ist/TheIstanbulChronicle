@@ -2,9 +2,6 @@ from os.path import isfile
 from os.path import join
 
 from flask import *
-from flask_easymde import EasyMDE
-from flaskext.markdown import Markdown
-from markdown import markdown
 
 from content import load_content
 
@@ -21,8 +18,6 @@ from firebase import tools as fbtools
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
-Markdown(app)
-mde = EasyMDE(app)
 
 # TODO: might be useful in the future
 # use to pass article content to article page as a kwarg though article id?
