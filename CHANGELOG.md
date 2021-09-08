@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 0.0.6-dev-pre
+
 - Autosave articles
 - Now non-writers cannot access the write page
 

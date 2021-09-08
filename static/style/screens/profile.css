@@ -87,7 +87,7 @@
     background: var(--bg-alt);
     box-shadow: var(--bs);
     padding: var(--m3) var(--m2);
-    border: 1px solid rgba(0,0,0,.05);
+    border: 1px solid rgba(0, 0, 0, .05);
 }
 
 .non-writer-card {

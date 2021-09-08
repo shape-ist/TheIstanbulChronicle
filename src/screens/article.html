@@ -2,42 +2,42 @@
 
 {% block title %}
 
-{% if var is iterable and (var is not string and var is not mapping) %}
-<title>{{ article["title"] }}</title> {% else %}
-<title>Profile not found</title> {% endif %}
+    {% if var is iterable and (var is not string and var is not mapping) %}
+        <title>{{ article["title"] }}</title> {% else %}
+        <title>Profile not found</title> {% endif %}
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='style/screens/article.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/article.css') }}">
 {% endblock %}
 
 {% block body %}
-{% if article != none %}
+    {% if article != none %}
 
-<div class="article-wrapper">
-{% filter markdown %}
-    # Title
-    body body body
-    
-    * body
-    * body
-    * body
-    * body
+        <div class="article-wrapper">
+            {% filter markdown %}
+                # Title
+                body body body
 
-    - body
-    - body
-    - body
-    - body
+                * body
+                * body
+                * body
+                * body
 
-    *body*
-    **body**
-{% endfilter %}
-{{ article["body"]|markdown }}
-</div>
+                - body
+                - body
+                - body
+                - body
 
-{% else %}
-{% from "./macros/_article_not_found.html" import article_not_found %}
-{{ article_not_found() }}
-{% endif %}
+                *body*
+                **body**
+            {% endfilter %}
+            {{ article["body"]|markdown }}
+        </div>
+
+    {% else %}
+        {% from "./macros/_article_not_found.html" import article_not_found %}
+        {{ article_not_found() }}
+    {% endif %}
 
 {% endblock %}
