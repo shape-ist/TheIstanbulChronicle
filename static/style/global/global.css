@@ -124,14 +124,14 @@ p {
     color: var(--g1);
     font-size: var(--size1);
     font-family: var(--f1);
-    line-height: 105%;
+    line-height: 125%;
 }
 
 .sub {
     color: var(--g1);
     font-size: var(--sub);
     font-family: var(--f1);
-    line-height: 105%;
+    line-height: 110%;
 }
 
 h1 {
