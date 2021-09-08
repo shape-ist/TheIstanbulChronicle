@@ -202,7 +202,7 @@ def article(uid):
     # try fetching data from the uid using fbtools and redirect to / if Exception
     try:
         article = fbtools.get_doc(u'articles', uid)
-        if article["is_approved"] == True:
+        if article["is_approved"] is True:
             # Article approved and published, return the content
             return render_template('./screens/article.html',
                                    article=article,
