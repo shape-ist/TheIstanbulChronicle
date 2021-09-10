@@ -20,13 +20,6 @@ var easyMDE = new EasyMDE({
         uniqueId: "write-mde-autosave",
         delay: 1000,
         submit_delay: 5000,
-        timeFormat: {
-            locale: 'en-US',
-            format: {
-                hour: '2-digit',
-                minute: '2-digit',
-            },
-        },
         text: "Autosaved at  "
     },
 });
