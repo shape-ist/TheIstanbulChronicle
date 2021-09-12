@@ -195,4 +195,11 @@ def user_profile(uid):
 if __name__ == '__main__':
     print("app started")
     user.login("allah@gmail.comuwu", "uwu123")
-    app.run(debug=True, threaded=True)
+    #app.run(debug=True, threaded=True)
+    
+    from firebase.schema import article
+    from firebase.article import upload_article
+
+    from firebase.paginate import paginate
+    for article in paginate('articles', 'timestamp', 3, 'asc'):
+        print(article['title'])

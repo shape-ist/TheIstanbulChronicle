@@ -2,7 +2,6 @@ from typing import List
 
 from firebase.setup import db
 
-
 def user(email: str = '',
          bio: str = '',
          uid: int = 0,
@@ -33,12 +32,14 @@ def article(db=db,
             writer_uid: str = '',
             tag: str = '',
             article_type: str = ''):
+    from time import time
     return {
         u'title': title,
         u'body': body,
         u'writer_uid': db.collection(u'users').document(writer_uid),
         u'article_type': article_type,
-        u'is_approved': False
+        u'is_approved': False,
+        u'timestamp': time()
         # u'tag': tag,
         # ^^ TODO: UNCOMMENT THIS WHEN TAGS ARE IMPLEMENTED
     }
