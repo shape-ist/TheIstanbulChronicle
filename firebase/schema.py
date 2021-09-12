@@ -31,7 +31,8 @@ def article(db=db,
             body: str = '',
             writer_uid: str = '',
             tag: str = '',
-            article_type: str = ''):
+            article_type: str = '',
+            cover_image: str = ''):
     from time import time
     return {
         u'title': title,
@@ -39,7 +40,8 @@ def article(db=db,
         u'writer_uid': db.collection(u'users').document(writer_uid),
         u'article_type': article_type,
         u'is_approved': False,
-        u'timestamp': time()
+        u'timestamp': time(),
+        u'cover_image': cover_image
         # u'tag': tag,
         # ^^ TODO: UNCOMMENT THIS WHEN TAGS ARE IMPLEMENTED
     }

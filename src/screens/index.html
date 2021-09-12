@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>The Istanbul Chronicle: From truth, comes liberation</title>
+{% endblock %}
+
+{% block imports %}
+{% from "./macros/_load.html" import load %}
+{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
+<title>The Istanbul Chronicle</title>
+{% endblock %}
+
+{% block body %}
+
+<script>
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    (function () {
+        var sub = htmlDecode('{{subpage}}')
+        if (sub == 'login') {
+            display('login-area', 'flex')
+        } else if (sub == 'register') {
+            display('register-area', 'flex')
+        }
+    })();
+</script>
+
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_article_item.css') }}">
+
+<div class="item-pagi-container">
+    <div class="article-item r2"
+        style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), url('https://i.imgur.com/2k8WNSM.jpeg');">
+        <div class="article-item-content flex-row pointer">
+            <div class="article-item-content-text">
+                <h1 class="article-item-text article-item-title">Article Title</h1>
+                <p class="article-item-text article-item-preview">The quick brown fox jumps over the lazy dog.The quick
+                    brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.</p>
+            </div>
+            <div class="article-item-writer-pfp-wrapper">
+                <img src="https://live.staticflickr.com/7325/27326351080_12cd24a5d8_k.jpg" alt="Emir Öven" class="article-item-writer-pfp">
+            </div>
+        </div>
+    </div>
+
+    <div class="article-item r2"
+    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), url('https://i.imgur.com/2k8WNSM.jpeg');">
+    <div class="article-item-content flex-row pointer">
+        <div class="article-item-content-text">
+            <h1 class="article-item-text article-item-title">Article Title</h1>
+            <p class="article-item-text article-item-preview">The quick brown fox jumps over the lazy dog.The quick
+                brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="article-item-writer-pfp-wrapper">
+            <img src="https://live.staticflickr.com/7325/27326351080_12cd24a5d8_k.jpg" alt="Emir Öven" class="article-item-writer-pfp">
+        </div>
+    </div>
+</div>
+
+<div class="article-item r2"
+style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), url('https://i.imgur.com/2k8WNSM.jpeg');">
+<div class="article-item-content flex-row pointer">
+    <div class="article-item-content-text">
+        <h1 class="article-item-text article-item-title">Article Title</h1>
+        <p class="article-item-text article-item-preview">The quick brown fox jumps over the lazy dog.The quick
+            brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.</p>
+    </div>
+    <div class="article-item-writer-pfp-wrapper">
+        <img src="https://live.staticflickr.com/7325/27326351080_12cd24a5d8_k.jpg" alt="Emir Öven" class="article-item-writer-pfp">
+    </div>
+</div>
+</div>
+
+<div class="article-item r2"
+style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), url('https://i.imgur.com/2k8WNSM.jpeg');">
+<div class="article-item-content flex-row pointer">
+    <div class="article-item-content-text">
+        <h1 class="article-item-text article-item-title">Article Title</h1>
+        <p class="article-item-text article-item-preview">The quick brown fox jumps over the lazy dog.The quick
+            brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.</p>
+    </div>
+    <div class="article-item-writer-pfp-wrapper">
+        <img src="https://live.staticflickr.com/7325/27326351080_12cd24a5d8_k.jpg" alt="Emir Öven" class="article-item-writer-pfp">
+    </div>
+</div>
+</div>
+
+<div class="article-item r2"
+style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), url('https://i.imgur.com/2k8WNSM.jpeg');">
+<div class="article-item-content flex-row pointer">
+    <div class="article-item-content-text">
+        <h1 class="article-item-text article-item-title">Article Title</h1>
+        <p class="article-item-text article-item-preview">The quick brown fox jumps over the lazy dog.The quick
+            brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.</p>
+    </div>
+    <div class="article-item-writer-pfp-wrapper">
+        <img src="https://live.staticflickr.com/7325/27326351080_12cd24a5d8_k.jpg" alt="Emir Öven" class="article-item-writer-pfp">
+    </div>
+</div>
+</div>
+
+<div class="article-item r2"
+style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), url('https://i.imgur.com/2k8WNSM.jpeg');">
+<div class="article-item-content flex-row pointer">
+    <div class="article-item-content-text">
+        <h1 class="article-item-text article-item-title">Article Title</h1>
+        <p class="article-item-text article-item-preview">The quick brown fox jumps over the lazy dog.The quick
+            brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.</p>
+    </div>
+    <div class="article-item-writer-pfp-wrapper">
+        <img src="https://live.staticflickr.com/7325/27326351080_12cd24a5d8_k.jpg" alt="Emir Öven" class="article-item-writer-pfp">
+    </div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
