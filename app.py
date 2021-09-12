@@ -64,19 +64,6 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    # TODO: get multiple POST methods for login and register here
-    """
-    if request.method == "POST" and param = "login": ???
-        login_email = request.form.get("name-login-email")
-        login_password = request.form.get("name-login-password")
-        user.login(login_email, login_password)
-    if request.method == 'POST' and param = "register": ???
-        register_email = request.form.get("name-register-email")
-        register_password = request.form.get("name-register-password")
-        register_displayname = request.form.get("name-register-displayname")
-        user.register(register_email, register_password, register_displayname)
-    """
-
     return render_template('./index.html', subpage=request.args.get('goto'))
 
 
@@ -217,5 +204,5 @@ def article(uid):
 
 if __name__ == '__main__':
     print("app started")
-    user.login("allah@gmail.comuwu", "uwu123")
+    # user.login("allah@gmail.comuwu", "uwu123")
     app.run(debug=True, threaded=True)

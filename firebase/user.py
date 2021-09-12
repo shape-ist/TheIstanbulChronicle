@@ -26,12 +26,18 @@ def delete_user(uid):
 
 
 def current():
-    return auth.current_user
+    current_user = auth.current_user
+    if current_user is None: return ''
+    return current_user
 
 
 def current_uid():
-    return current()['localId']
+    try:
+        return current()['localId']
+    except Exception:
+        return None
 
 
 def is_signed_in():
     return current() is not None
+    # check if this function reutrns expected values
