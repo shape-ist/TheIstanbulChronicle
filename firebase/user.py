@@ -30,7 +30,7 @@ def current():
 
 
 def current_uid():
-    return auth.current_user['localId']
+    return current()['localId']
 
 
 def is_signed_in():
