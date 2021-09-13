@@ -1,9 +1,10 @@
 .new-article-item-container {
-    height: calc(100% - var(--m1) * 2);
-    width: 80%;
-    background: green;
+    height: 100%;
+    width: 70%;
     margin: var(--m1) 0;
+    justify-content: space-between;
 }
+
 
 .highlight-article-item {
     height: 100%;
@@ -11,20 +12,24 @@
     margin-left: 10%;
     padding: var(--m1) 0;
 }
+
 .highlights-right-container {
     height: 100%;
     width: 100%;
 }
+
 .article-highlight-section {
     height: 600px;
 }
-.article-list-item{
+
+.article-list-item {
     list-style-type: none;
 }
 
 li::marker {
     display: none !important;
 }
+
 .article-list-area,
 .article-list,
 .article-list-item {
@@ -32,11 +37,13 @@ li::marker {
     margin: 0;
     padding: 0;
 }
+
 .highlight-article-item {
     justify-content: space-between;
     align-items: center;
 }
-.article-list-area{
+
+.article-list-area {
     padding-top: var(--m2) !important;
 }
 
@@ -47,6 +54,7 @@ li::marker {
     margin: var(--m2) 0;
     background: lime;
 }
+
 .highlight-article-image {
     height: 100px;
     width: 120px;
@@ -62,7 +70,7 @@ li::marker {
     margin-right: var(--m2);
 }
 
-.article-li{
+.article-li {
     border-bottom: 1px solid var(--g2);
 }
 
@@ -71,16 +79,63 @@ li::marker {
     font-size: .75em;
 }
 
-.article-li h1{
+.article-li h1 {
     font-size: var(--size2);
     margin-bottom: .25em;
 }
 
 .article-cover {
-    box-shadow: var(--bs-s);
     object-fit: cover;
 }
+
 .article-readmore {
     text-align: right;
     margin-left: .5em;
+}
+
+.new-article-cover {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.new-article-cover h1 {
+    padding: calc(var(--m2) * 1.5) var(--m2);
+    padding-right: 35%;
+    font-family: var(--f2);
+    color: white;
+}
+
+.mini-pfp {
+    height: 16px;
+    width: 16px;
+    object-fit: cover;
+    border-radius: 999px;
+    margin-right: .75em;
+    box-shadow: var(--bs-s)
+}
+
+.mini-user {
+    font-size: .75em;
+    align-items: center;
+    margin: var(--m1) 0;
+}
+
+.new-article-preview {
+    max-height: 150px;
+    overflow: hidden;
+}
+
+.new-article-highlighted-content {
+    justify-content: space-between;
+}
+
+.new-article-text-fade-out {
+    height: 40%;
+    width: 100%;
+    position: relative;
+    bottom: 40%;
+    background: linear-gradient(transparent, var(--bg));
+    pointer-events: none
 }
