@@ -8,6 +8,7 @@ def upload_article(content):
 def delete_article(id):
     db.collection(u'articles').document(id).delete()
 
+
 """use it like so:
 
 upload_article(

@@ -2,6 +2,7 @@ from typing import List
 
 from firebase.setup import db
 
+
 def user(email: str = '',
          bio: str = '',
          uid: int = 0,

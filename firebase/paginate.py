@@ -1,11 +1,12 @@
 from firebase.setup import db
 
-def paginate(coll:str, sort:str, limit:int, order:str):
+
+def paginate(coll: str, sort: str, limit: int, order: str):
     out: list = []
     query = (
-    db.collection(coll)
-    .order_by(sort)
-    .limit(limit)
+        db.collection(coll)
+            .order_by(sort)
+            .limit(limit)
     )
     pagi_stream = query.stream()
     for i in pagi_stream:
@@ -13,5 +14,3 @@ def paginate(coll:str, sort:str, limit:int, order:str):
     if order == 'desc':
         return out[::-1]
     return out
-
-
