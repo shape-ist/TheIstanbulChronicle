@@ -280,3 +280,8 @@ input {
     color: var(--bg);
     background: var(--fg);
 }
+
+.top-beta {
+    pointer-events: none;
+    animation: .65s fade;
+}
