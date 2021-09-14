@@ -90,9 +90,9 @@ p {
     right: 0;
     bottom: 0;
     -webkit-animation: .4s fade;
-            animation: .4s fade;
+    animation: .4s fade;
     -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px)
+    backdrop-filter: blur(12px)
 }
 
 .title-large {
@@ -106,7 +106,7 @@ p {
 
 button:active {
     -webkit-filter: brightness(.8) contrast(.6);
-            filter: brightness(.8) contrast(.6);
+    filter: brightness(.8) contrast(.6);
     opacity: .9;
     transition: none !important;
 }
@@ -192,7 +192,7 @@ button {
     transform: scale(1.08);
     box-shadow: 0 0 42px -8px var(--bg);
     -webkit-filter: contrast(110%);
-            filter: contrast(110%);
+    filter: contrast(110%);
 }
 
 .input-field:focus {
@@ -273,5 +273,5 @@ input {
 .top-beta {
     pointer-events: none;
     -webkit-animation: .65s fade;
-            animation: .65s fade;
+    animation: .65s fade;
 }

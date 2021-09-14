@@ -3,14 +3,14 @@
         opacity: 0;
         transform: translateY(50px) scaleY(1.12);
         -webkit-filter: blur(3px);
-                filter: blur(3px);
+        filter: blur(3px);
     }
 
     to {
         opacity: 1;
         transform: unset;
         -webkit-filter: unset;
-                filter: unset;
+        filter: unset;
     }
 }
 
@@ -19,14 +19,14 @@
         opacity: 0;
         transform: translateY(50px) scaleY(1.12);
         -webkit-filter: blur(3px);
-                filter: blur(3px);
+        filter: blur(3px);
     }
 
     to {
         opacity: 1;
         transform: unset;
         -webkit-filter: unset;
-                filter: unset;
+        filter: unset;
     }
 }
 

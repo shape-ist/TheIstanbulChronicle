@@ -41,6 +41,6 @@
     font-size: 72px;
     margin: 0;
     -webkit-animation: blink 1.5s infinite;
-            animation: blink 1.5s infinite;
+    animation: blink 1.5s infinite;
     color: var(--fg);
 }

@@ -87,7 +87,7 @@ li::marker {
 
 .article-cover {
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 .article-readmore {
@@ -113,7 +113,7 @@ li::marker {
     height: 16px;
     width: 16px;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     border-radius: 999px;
     margin-right: .75em;
     box-shadow: var(--bs-s)

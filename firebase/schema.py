@@ -34,21 +34,21 @@ def article(db=db,
             tag: str = '',
             article_type: str = '',
             cover_image: str = ''):
-            article_type: str = '',
-            is_approved: bool = False):
-    from time import time
-    return {
-        u'title': title,
-        u'body': body,
-        u'writer_uid': db.collection(u'users').document(writer_uid),
-        u'article_type': article_type,
-        u'is_approved': False,
-        u'timestamp': time(),
-        u'cover_image': cover_image
-        u'is_approved': is_approved
-        # TODO: implement tags here ^^^^
-    }
+    article_type: str = '',
+    is_approved: bool = False):
 
+
+return {
+    u'title': title,
+    u'body': body,
+    u'writer_uid': db.collection(u'users').document(writer_uid),
+    u'article_type': article_type,
+    u'is_approved': False,
+    u'timestamp': time(),
+    u'cover_image': cover_image
+    u'is_approved': is_approved
+    # TODO: implement tags here ^^^^
+}
 
 """
     The schema module will be used like so:
