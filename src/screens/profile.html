@@ -17,13 +17,6 @@
 
         <div class="profile-area flex-center flex-col">
             <div class="flex-row profile-top">
-                <div class="profile-main flex-center flex-col">
-            {% if 'W' not in user_data["elevation"] %}
-                {% set profile_card_class = 'non-writer-card' %}
-            {% else %}
-                {% set profile_card_class = '' %}
-            {% endif %}
-            <div class="flex-row profile-top {{ profile_card_class }}">
                 <div class="profile-main flex-center flex-col r2">
                     <div class="profile-pfp-area">
                         {% set pfp = user_data["pfp"] %}
@@ -31,7 +24,7 @@
                             <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
                                  alt="current username comes here" class="profile-default-pfp pfp">
                         {% else %}
-                            <img src="{{ pfp }}" alt="current username comes here" class="custom-pfp pfp">
+                            <img src="{{ pfp }}" alt="{{ user_data['name'] }}" class="custom-pfp pfp">
                         {% endif %}
                     </div>
                     <div class="profile-displayname profile-section">
@@ -39,13 +32,6 @@
                     </div>
                     <div class="profile-tags flex-center profile-section">
                         {% if 'S' in user_data["elevation"] %}
-                            <span class="profile-tag staff-tag">Staff</span>{% endif %}
-                        {% if 'A' in user_data["elevation"] %}
-                            <span class="profile-tag admin-tag">Admin</span>{% endif %}
-                        {% if 'E' in user_data["elevation"] %}
-                            <span class="profile-tag editor-tag">Editor</span>{% endif %}
-                        {% if 'W' in user_data["elevation"] %}
-                            <span class="profile-tag writer-tag">Writer</span>{% endif %}
                             <span class="profile-tag mini-tag">Staff</span>{% endif %}
                         {% if 'A' in user_data["elevation"] %}
                             <span class="profile-tag mini-tag">Admin</span>{% endif %}
@@ -64,7 +50,6 @@
                         {% set phone = user_data["phone"] %}
                         <div class="profile-info-container flex-col" id="profile-info-section">
                             <p class="sub select profile-section user-bio-text">{{ user_data["bio"] }}</p>
-                            <p class="bio-text sub select profile-section">{{ user_data["bio"] }}</p>
                             <div class="profile-info-area profile-section">
                                 {% if email != '' or location != '' or phone != '' %}
                                     <div class="profile-info-spacer"></div>

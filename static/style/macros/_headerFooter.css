@@ -84,6 +84,7 @@ header {
 
 #title {
     animation: .5s top-in !important;
+}
 
 .about-us-active {
     background: var(--g2);
