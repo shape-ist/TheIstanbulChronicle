@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>The Istanbul Chronicle: From truth, comes liberation</title>
+{% endblock %}
+
+{% block imports %}
+    {% from "./macros/_load.html" import load %}
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
+    <title>The Istanbul Chronicle</title>
+{% endblock %}
+
+{% block body %}
+
+    <script>
+        function htmlDecode(input) {
+            var e = document.createElement('textarea');
+            e.innerHTML = input;
+            return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+        }
+
+        (function () {
+            var sub = htmlDecode('{{subpage}}')
+            if (sub == 'login') {
+                display('login-area', 'flex')
+            } else if (sub == 'register') {
+                display('register-area', 'flex')
+            }
+        })();
+    </script>
+
+    <div class="flex-col">
+        <div class="article-highlight-section flex-row">
+            <div class="new-article-item-container flex-col">
+                <div class="new-article-cover"
+                     style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 49.48%, rgba(0, 0, 0, 0.75) 100%), url(https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg);">
+                    <h1>Article Title the quick brown</h1>
+                </div>
+                <div class="new-article-highlighted-content flex-col">
+                    <div class="new-article-preview-text-wrapper">
+                        <p class="new-article-preview select">
+                            Bişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler
+                            bişilerBişiler
+                            bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler
+                            bişiler
+                            bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler Bişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler bişilerBişiler
+                            bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler
+                            bişiler
+                            bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler Bişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler bişilerBişiler
+                            bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler
+                            bişiler
+                            bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler Bişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler bişilerBişiler
+                            bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler
+                            bişiler
+                            bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler Bişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler bişilerBişiler
+                            bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler
+                            bişiler
+                            bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler Bişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler bişilerBişiler
+                            bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler
+                            bişiler
+                            bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler Bişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler bişilerBişiler
+                            bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler
+                            bişiler
+                            bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler bişiler bişilerBişiler bişiler
+                            bişiler
+                        </p>
+                        <div class="new-article-text-fade-out"></div>
+                    </div>
+
+                    <div class="mini-user flex-row">
+                        <img class="mini-pfp" src="https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg"
+                             alt="Profile name comes here">
+                        <p>
+                            <b>Emir Şahin</b>
+                            <span class="sub"> 12 Sep 2021 </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="highlights-right-container flex-col">
+
+
+                <div class="highlight-article-item flex-row artlicle-list-item article-li">
+                    <div class="highlight-article-text">
+                        <h1>Article Title</h1>
+                        <p>
+                            <b>Emir Şahin</b>
+                            <span class="sub"> 12 Sep 2021 </span>
+                        </p>
+                    </div>
+                    <div class="highlight-article-right-section flex-row flex-center">
+                        <p class="highlight-article-preview">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum is dummy text used in
+                            typewriting
+                        </p>
+                        <img class="highlight-article-image  article-cover"
+                             src="https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg" alt="Article image">
+                    </div>
+                </div>
+
+                <div class="highlight-article-item flex-row artlicle-list-item article-li">
+                    <div class="highlight-article-text">
+                        <h1>Article Title</h1>
+                        <p>
+                            <b>Emir Şahin</b>
+                            <span class="sub"> 12 Sep 2021 </span>
+                        </p>
+                    </div>
+                    <div class="highlight-article-right-section flex-row flex-center">
+                        <p class="highlight-article-preview">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum is dummy text used in
+                            typewriting
+                        </p>
+                        <img class="highlight-article-image article-cover"
+                             src="https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg" alt="Article image">
+                    </div>
+                </div>
+
+                <div class="highlight-article-item flex-row artlicle-list-item article-li">
+                    <div class="highlight-article-text">
+                        <h1>Article Title</h1>
+                        <p>
+                            <b>Emir Şahin</b>
+                            <span class="sub"> 12 Sep 2021 </span>
+                        </p>
+                    </div>
+                    <div class="highlight-article-right-section flex-row flex-center">
+                        <p class="highlight-article-preview">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum is dummy text used in
+                            typewriting
+                        </p>
+                        <img class="highlight-article-image  article-cover"
+                             src="https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg" alt="Article image">
+                    </div>
+                </div>
+
+                <div class="highlight-article-item flex-row artlicle-list-item article-li">
+                    <div class="highlight-article-text">
+                        <h1>Article Title</h1>
+                        <p>
+                            <b>Emir Şahin</b>
+                            <span class="sub"> 12 Sep 2021 </span>
+                        </p>
+                    </div>
+                    <div class="highlight-article-right-section flex-row flex-center">
+                        <div class="highlight-article-preview-wrapper">
+                            <p class="highlight-article-preview flex-col">
+                            <span class="select">
+                                <!--this part should be cut to x characters, the below list should have an ellipsis overflow-->
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum is dummy text used
+                                in
+                                typewriting <span>...</span> <a class="article-readmore" href="/allah">Read More... </a>
+                            </span>
+                            </p>
+                        </div>
+
+                        <img class="highlight-article-image  article-cover"
+                             src="https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg" alt="Article image">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="article-list-area">
+            <ul class="article-list">
+
+
+
+
+                <li class="article-list-item">
+                    <div class="article-list-body flex-row">
+                        <img class="highlight-article-image article-cover main-article-cover"
+                             src="https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg" alt="Article image">
+                        <div class="article-item-content">
+                            <h1>Article Title</h1>
+                            <p>texttexttexttext
+                                <a href="/allah" alt="Read More" class="sub">Read more...</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+                <li class="article-list-item">
+                    <div class="article-list-body"></div>
+                </li>
+                <li class="article-list-item">
+                    <div class="article-list-body"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_article_item.css') }}">
+
+
+{% endblock %}

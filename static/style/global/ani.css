@@ -53,3 +53,13 @@
         opacity: 0;
     }
 }
+
+@keyframes top-in {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: none;
+    }
+}

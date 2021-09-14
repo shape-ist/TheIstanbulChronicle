@@ -82,6 +82,9 @@ header {
     padding: 0 !important;
 }
 
+#title {
+    animation: .5s top-in !important;
+
 .about-us-active {
     background: var(--g2);
     padding: var(--m1);

@@ -75,6 +75,9 @@
     height: var(--m2);
 }
 
+.user-bio-text {
+    margin-top: var(--m2);
+
 .bio-text {
     margin-top: var(--m2);
 }

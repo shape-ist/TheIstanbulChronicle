@@ -16,6 +16,8 @@
     {% if user_data is iterable and (var is not string and var is not mapping) %}
 
         <div class="profile-area flex-center flex-col">
+            <div class="flex-row profile-top">
+                <div class="profile-main flex-center flex-col">
             {% if 'W' not in user_data["elevation"] %}
                 {% set profile_card_class = 'non-writer-card' %}
             {% else %}
@@ -37,6 +39,13 @@
                     </div>
                     <div class="profile-tags flex-center profile-section">
                         {% if 'S' in user_data["elevation"] %}
+                            <span class="profile-tag staff-tag">Staff</span>{% endif %}
+                        {% if 'A' in user_data["elevation"] %}
+                            <span class="profile-tag admin-tag">Admin</span>{% endif %}
+                        {% if 'E' in user_data["elevation"] %}
+                            <span class="profile-tag editor-tag">Editor</span>{% endif %}
+                        {% if 'W' in user_data["elevation"] %}
+                            <span class="profile-tag writer-tag">Writer</span>{% endif %}
                             <span class="profile-tag mini-tag">Staff</span>{% endif %}
                         {% if 'A' in user_data["elevation"] %}
                             <span class="profile-tag mini-tag">Admin</span>{% endif %}
@@ -54,6 +63,7 @@
                         {% set location = user_data["location"] %}
                         {% set phone = user_data["phone"] %}
                         <div class="profile-info-container flex-col" id="profile-info-section">
+                            <p class="sub select profile-section user-bio-text">{{ user_data["bio"] }}</p>
                             <p class="bio-text sub select profile-section">{{ user_data["bio"] }}</p>
                             <div class="profile-info-area profile-section">
                                 {% if email != '' or location != '' or phone != '' %}

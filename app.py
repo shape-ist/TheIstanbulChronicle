@@ -36,6 +36,11 @@ def before_request():
 """
 
 
+def start():
+    user.login("allah@gmail.comuwu", "uwu123")
+    app.run(debug=True, threaded=True)
+
+
 @app.context_processor
 def utility_processor():
     def is_signed_in():
@@ -64,7 +69,8 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('./index.html', subpage=request.args.get('goto'))
+    return render_template('./screens/index.html',
+                           subpage=request.args.get('goto'))
 
 
 @app.route('/profile/me', methods=['GET', 'POST'])
@@ -203,6 +209,4 @@ def article(uid):
 
 
 if __name__ == '__main__':
-    print("app started")
-    user.login("allah@gmail.comuwu", "uwu123")
-    app.run(debug=True, threaded=True)
+    start()
