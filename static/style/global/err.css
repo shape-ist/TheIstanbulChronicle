@@ -17,7 +17,8 @@ body {
 
 .error-content-wrapper {
     padding: var(--m3);
-    animation: .5s slide-in;
+    -webkit-animation: .5s slide-in;
+            animation: .5s slide-in;
     margin: var(--m2);
 }
 

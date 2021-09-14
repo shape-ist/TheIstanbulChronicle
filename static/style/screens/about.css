@@ -16,7 +16,8 @@
     max-width: 680px;
     padding: 60px;
     padding-right: 80px;
-    animation: .5s fly-in;
+    -webkit-animation: .5s fly-in;
+            animation: .5s fly-in;
 }
 
 .center-container {

@@ -19,13 +19,16 @@
     background: var(--fg);
     color: var(--bg);
     border-radius: 999px;
-    animation: .2s slide-in !important;
+    -webkit-animation: .2s slide-in !important;
+            animation: .2s slide-in !important;
 }
 
 .register-popup {
     background: var(--fg);
     padding: var(--m3);
     max-width: 400px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
 }
 
@@ -120,7 +123,8 @@
     color: var(--bg);
     padding: 80px;
     max-width: 400px;
-    animation: .45s slide-in;
+    -webkit-animation: .45s slide-in;
+            animation: .45s slide-in;
 }
 
 
@@ -143,14 +147,18 @@
 }
 
 .auth-main {
-    animation: .5s fly-in;
+    -webkit-animation: .5s fly-in;
+            animation: .5s fly-in;
 }
 
 .auth-sub {
-    animation: .65s fly-in;
+    -webkit-animation: .65s fly-in;
+            animation: .65s fly-in;
 }
 
 .auth-item {
-    animation: .2s fly-in-subtle;
-    animation-delay: .05s;
+    -webkit-animation: .2s fly-in-subtle;
+            animation: .2s fly-in-subtle;
+    -webkit-animation-delay: .05s;
+            animation-delay: .05s;
 }

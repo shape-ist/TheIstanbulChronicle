@@ -83,7 +83,8 @@ header {
 }
 
 #title {
-    animation: .5s top-in !important;
+    -webkit-animation: .5s top-in !important;
+            animation: .5s top-in !important;
 }
 
 .about-us-active {

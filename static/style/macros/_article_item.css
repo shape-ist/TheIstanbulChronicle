@@ -86,7 +86,8 @@ li::marker {
 }
 
 .article-cover {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .article-readmore {
@@ -111,7 +112,8 @@ li::marker {
 .mini-pfp {
     height: 16px;
     width: 16px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 999px;
     margin-right: .75em;
     box-shadow: var(--bs-s)

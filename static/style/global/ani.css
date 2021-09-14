@@ -1,14 +1,44 @@
-@keyframes slide-in {
+@-webkit-keyframes slide-in {
     from {
         opacity: 0;
         transform: translateY(50px) scaleY(1.12);
-        filter: blur(3px);
+        -webkit-filter: blur(3px);
+                filter: blur(3px);
     }
 
     to {
         opacity: 1;
         transform: unset;
-        filter: unset;
+        -webkit-filter: unset;
+                filter: unset;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scaleY(1.12);
+        -webkit-filter: blur(3px);
+                filter: blur(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: unset;
+        -webkit-filter: unset;
+                filter: unset;
+    }
+}
+
+@-webkit-keyframes fly-in {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: unset;
     }
 }
 
@@ -25,6 +55,17 @@
 }
 
 
+@-webkit-keyframes fly-in-subtle {
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: unset;
+    }
+}
+
+
 @keyframes fly-in-subtle {
     from {
         transform: translateY(20px);
@@ -32,6 +73,16 @@
 
     to {
         transform: unset;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 
@@ -45,12 +96,31 @@
     }
 }
 
+@-webkit-keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 @keyframes fade-out {
     from {
         opacity: 1;
     }
     to {
         opacity: 0;
+    }
+}
+
+@-webkit-keyframes top-in {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: none;
     }
 }
 

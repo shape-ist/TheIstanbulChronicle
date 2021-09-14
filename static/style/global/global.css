@@ -89,8 +89,10 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    animation: .4s fade;
-    backdrop-filter: blur(12px)
+    -webkit-animation: .4s fade;
+            animation: .4s fade;
+    -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px)
 }
 
 .title-large {
@@ -103,7 +105,8 @@ p {
 }
 
 button:active {
-    filter: brightness(.8) contrast(.6);
+    -webkit-filter: brightness(.8) contrast(.6);
+            filter: brightness(.8) contrast(.6);
     opacity: .9;
     transition: none !important;
 }
@@ -164,7 +167,11 @@ a {
     margin: 10px;
     color: rgb(var(--positive));
     font-size: .4em;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -184,7 +191,8 @@ button {
 .submit-button:hover {
     transform: scale(1.08);
     box-shadow: 0 0 42px -8px var(--bg);
-    filter: contrast(110%);
+    -webkit-filter: contrast(110%);
+            filter: contrast(110%);
 }
 
 .input-field:focus {
@@ -264,5 +272,6 @@ input {
 
 .top-beta {
     pointer-events: none;
-    animation: .65s fade;
+    -webkit-animation: .65s fade;
+            animation: .65s fade;
 }
