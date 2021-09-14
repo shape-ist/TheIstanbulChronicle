@@ -37,13 +37,13 @@
                     </div>
                     <div class="profile-tags flex-center profile-section">
                         {% if 'S' in user_data["elevation"] %}
-                            <span class="profile-tag staff-tag">Staff</span>{% endif %}
+                            <span class="profile-tag mini-tag">Staff</span>{% endif %}
                         {% if 'A' in user_data["elevation"] %}
-                            <span class="profile-tag admin-tag">Admin</span>{% endif %}
+                            <span class="profile-tag mini-tag">Admin</span>{% endif %}
                         {% if 'E' in user_data["elevation"] %}
-                            <span class="profile-tag editor-tag">Editor</span>{% endif %}
+                            <span class="profile-tag mini-tag">Editor</span>{% endif %}
                         {% if 'W' in user_data["elevation"] %}
-                            <span class="profile-tag writer-tag">Writer</span>{% endif %}
+                            <span class="profile-tag mini-tag">Writer</span>{% endif %}
                     </div>
                     <div class="profile-moreinfo">
                         {% if user_data["email_public"] == True %}

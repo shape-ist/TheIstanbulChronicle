@@ -204,5 +204,5 @@ def article(uid):
 
 if __name__ == '__main__':
     print("app started")
-    # user.login("allah@gmail.comuwu", "uwu123")
+    user.login("allah@gmail.comuwu", "uwu123")
     app.run(debug=True, threaded=True)
