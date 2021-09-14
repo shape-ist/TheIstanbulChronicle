@@ -1,11 +1,14 @@
-(function () {
-    var parts = window.location.href.split('/');
-    var lastSegment = parts.pop() || parts.pop();
-    console.log(lastSegment);
-    if (lastSegment = 'about') {
-        console.log(document.getElementById('about-header'))
-        // document.getElementById('about-header').style.pointerEvents = 'none';
-    }
-})();
+function classOnURL(slug, elementID, className) {
+    const windowSlug = window.location.pathname;
+    const jqElement = `#${elementID}`
+    if (windowSlug == slug) {
+        $(jqElement).ready(function () {
+            $(jqElement).addClass(className);
+        });
 
-// TODO: broken, getElementById returns null.
+    }
+}
+
+(function () {
+    classOnURL('/about', 'header-about', 'about-us-active')
+})();

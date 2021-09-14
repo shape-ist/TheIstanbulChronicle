@@ -14,7 +14,7 @@
 
 .theme-light {
     --bg: #ffffff;
-    --bg-alt: #dcdcdc;
+    --bg-alt: #ededed;
     --fg: #000000;
     --g1: #505050;
     --g2: #cecece;
@@ -31,7 +31,7 @@ body {
     --topbar-height: 40px;
     --danger: 255, 112, 70;
     --positive: 40, 200, 120;
-    --f1: 'Roboto', 'Noto Sans', 'Arial', sans-serif;
+    --f1: 'Inter', 'Roboto', 'Noto Sans', 'Arial', sans-serif;
     --f2: 'DM Serif Display', 'Times New Roman', 'Times', serif;
     --f3: 'Old English', serif;
     --sub: .75em;

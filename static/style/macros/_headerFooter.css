@@ -81,3 +81,11 @@ header {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+.about-us-active {
+    background: var(--g2);
+    padding: var(--m1);
+    pointer-events: none;
+    border-radius: var(--r1);
+    opacity: .5;
+}

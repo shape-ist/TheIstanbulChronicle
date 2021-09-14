@@ -56,7 +56,8 @@
 }
 
 .profile-main {
-    padding-right: var(--m3);
+    width: 200px;
+    padding: var(--m1) var(--m2);
 }
 
 .profile-tags {
@@ -72,4 +73,27 @@
 
 .profile-info-spacer {
     height: var(--m2);
+}
+
+.bio-text {
+    margin-top: var(--m2);
+}
+
+.profile-section {
+    padding: 2px var(--m2);
+}
+
+.profile-main {
+    background: var(--bg-alt);
+    box-shadow: var(--bs);
+    padding: var(--m3) var(--m2);
+    border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.non-writer-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }

@@ -29,13 +29,13 @@
     <div class="header-profile-is-signed-in flex-row flex-center">
         {% set elevations = user_elevations() %}
         {% if 'S' in elevations %}
-            <span class="profile-tag staff-tag header-profile-tag">Staff</span>
+            <span class="profile-tag mini-tag header-profile-tag">Staff</span>
         {% elif 'A' in elevations %}
-            <span class="profile-tag admin-tag header-profile-tag">Admin</span>
+            <span class="profile-tag mini-tag header-profile-tag">Admin</span>
         {% elif 'E' in elevations %}
-            <span class="profile-tag editor-tag header-profile-tag">Editor</span>
+            <span class="profile-tag mini-tag header-profile-tag">Editor</span>
         {% elif 'W' in elevations %}
-            <span class="profile-tag writer-tag header-profile-tag">Writer</span>{% endif %}
+            <span class="profile-tag mini-tag header-profile-tag">Writer</span>{% endif %}
 
         <div class="header-pfp-container">
 
