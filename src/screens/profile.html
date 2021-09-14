@@ -49,7 +49,7 @@
                         {% set location = user_data["location"] %}
                         {% set phone = user_data["phone"] %}
                         <div class="profile-info-container flex-col" id="profile-info-section">
-                            <p class="sub select profile-section">{{ user_data["bio"] }}</p>
+                            <p class="sub select profile-section user-bio-text">{{ user_data["bio"] }}</p>
                             <div class="profile-info-area profile-section">
                                 {% if email != '' or location != '' or phone != '' %}
                                     <div class="profile-info-spacer"></div>
