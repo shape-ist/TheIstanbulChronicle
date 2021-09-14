@@ -124,14 +124,14 @@ p {
     color: var(--g1);
     font-size: var(--size1);
     font-family: var(--f1);
-    line-height: 105%;
+    line-height: 125%;
 }
 
 .sub {
     color: var(--g1);
     font-size: var(--sub);
     font-family: var(--f1);
-    line-height: 105%;
+    line-height: 110%;
 }
 
 h1 {
@@ -237,28 +237,9 @@ input {
     display: none !important;
 }
 
-.writer-tag {
-    background: rgba(20, 122, 255, 0.25);
-    border: 1px solid rgba(20, 160, 255, 0.12);
-    color: rgb(12, 177, 228);
-}
-
-.admin-tag {
-    background: rgba(255, 90, 0, 0.25);
-    border: 1px solid rgba(255, 90, 0, 0.12);
-    color: rgb(255, 120, 0);
-}
-
-.editor-tag {
-    background: rgba(20, 255, 79, 0.25);
-    border: 1px solid rgba(20, 255, 79, 0.12);
-    color: rgb(0, 214, 185);
-}
-
-.staff-tag {
-    background: rgba(255, 166, 0, 0.25);
-    border: 1px solid rgba(255, 166, 0, 0.12);
-    color: rgb(252, 172, 0);
+.mini-tag {
+    border: 1px solid var(--g1);
+    color: var(--g1);
 }
 
 .profile-tag {

@@ -2,8 +2,6 @@ from os.path import isfile
 from os.path import join
 
 from flask import *
-from flask_easymde import EasyMDE
-from flaskext.markdown import Markdown
 
 from content import load_content
 
@@ -20,8 +18,6 @@ from firebase import tools as fbtools
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
-Markdown(app)
-mde = EasyMDE(app)
 
 # TODO: might be useful in the future
 # use to pass article content to article page as a kwarg though article id?
@@ -62,9 +58,13 @@ def utility_processor():
         except Exception:
             return []
 
+    def authorized(level, uid=user.current_uid()):
+        return fbtools.isauthorized(level, uid)
+
     return dict(is_signed_in=is_signed_in,
                 current_pfp=current_pfp,
-                user_elevations=user_elevations)
+                user_elevations=user_elevations,
+                authorized=authorized)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -130,10 +130,12 @@ def favicon():
 
 @app.route('/write')
 def write():
-    # TODO: check access of user before returning template of elevated html pages.
-    # TODO: ERROR 403-like page IF ACCESS DENIED
     # TODO: add different favicon on elevated pages. (see elevated directory)
-    return render_template('./screens/elevated/write.html')
+
+    if fbtools.isauthorized('W', user.current_uid()):
+        return render_template('./screens/elevated/write.html')
+    else:
+        return forbidden(Exception("User not authorized"))
 
 
 @app.route('/legal/license')
@@ -180,9 +182,30 @@ def user_profile(uid):
                                    user_data=user_data)
         else:
             raise Exception("Unelevated user profile")
-    except Exception as e:
+    except Exception:
         # render a profile doesn't exists or is deleted message if user_data=None
         return render_template('./screens/profile.html', user_data=None)
+
+
+def md_html(md_str):
+    return markdown(md_str)
+
+
+@app.route('/article/<uid>')
+def article(uid):
+    # try fetching data from the uid using fbtools and redirect to / if Exception
+    try:
+        article = fbtools.get_doc(u'articles', uid)
+        if article["is_approved"] is True:
+            # Article approved and published, return the content
+            return render_template('./screens/article.html',
+                                   article=article,
+                                   article_body=md_html(article["body"]))
+        else:
+            raise Exception("Non-approved article")
+    except Exception:
+        # Render an article not found message
+        return render_template('./screens/article.html', article=None)
 
 
 if __name__ == '__main__':

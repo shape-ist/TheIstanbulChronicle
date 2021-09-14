@@ -29,14 +29,14 @@
 }
 
 .about-icon {
-    font-size: var(--size4);
+    font-size: var(--size3);
     color: var(--fg);
     font-family: var(--f3);
     margin: 12px 0;
 }
 
 .beta-icon-side {
-    font-size: 1em !important;
+    font-size: .8em !important;
 }
 
 .fa-about {

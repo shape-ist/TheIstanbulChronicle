@@ -34,6 +34,8 @@ def article(db=db,
             tag: str = '',
             article_type: str = '',
             cover_image: str = ''):
+            article_type: str = '',
+            is_approved: bool = False):
     from time import time
     return {
         u'title': title,
@@ -43,8 +45,8 @@ def article(db=db,
         u'is_approved': False,
         u'timestamp': time(),
         u'cover_image': cover_image
-        # u'tag': tag,
-        # ^^ TODO: UNCOMMENT THIS WHEN TAGS ARE IMPLEMENTED
+        u'is_approved': is_approved
+        # TODO: implement tags here ^^^^
     }
 
 
