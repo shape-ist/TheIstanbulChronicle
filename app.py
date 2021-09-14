@@ -39,6 +39,7 @@ def before_request():
         return redirect(url, code = code)
 """
 
+
 def start():
     user.login("allah@gmail.comuwu", "uwu123")
     app.run(debug=True, threaded=True)
@@ -185,6 +186,4 @@ def user_profile(uid):
 
 
 if __name__ == '__main__':
-    print("app started")
-    if fbtools.connected() is True:
-        start()
+    start()
