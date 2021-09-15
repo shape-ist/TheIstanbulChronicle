@@ -88,9 +88,6 @@ header {
 }
 
 .about-us-active {
-    background: var(--g2);
-    padding: var(--m1);
     pointer-events: none;
-    border-radius: var(--r1);
-    opacity: .5;
+    opacity: .35;
 }
