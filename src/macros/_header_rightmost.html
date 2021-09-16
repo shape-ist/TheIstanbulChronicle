@@ -1,56 +1,162 @@
 {% macro header_profile() %}
-    <style>
-        .header-pfp-container {
-            height: 40px;
-            width: 40px;
-            background: var(--g2);
-            border-radius: 999px;
-        }
+<style>
+    .header-pfp-container {
+        height: 40px;
+        width: 40px;
+        background: var(--g2);
+        border-radius: 999px;
+        padding: 0;
+    }
 
-        .header-pfp-image {
-            height: 100%;
-            width: 100%;
-            border-radius: 999px;
-        }
+    .header-pfp-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 999px;
+        box-shadow: var(--bs-s);
+    }
 
-        .header-profile-link {
-            padding: 15px 30px;
-            position: relative;
-            right: 125%;
-            bottom: 25%;
-        }
+    .header-profile-link {
+        padding: 15px 30px;
+        position: relative;
+        right: 125%;
+        bottom: 25%;
+    }
 
-        .header-profile-tag {
-            height: fit-content;
-            margin-right: var(--m2);
-            font-size: 12px;
-        }
-    </style>
-    <div class="header-profile-is-signed-in flex-row flex-center">
-        {% set elevations = user_elevations() %}
-        {% if 'S' in elevations %}
-            <span class="profile-tag mini-tag header-profile-tag">Staff</span>
-        {% elif 'A' in elevations %}
-            <span class="profile-tag mini-tag header-profile-tag">Admin</span>
-        {% elif 'E' in elevations %}
-            <span class="profile-tag mini-tag header-profile-tag">Editor</span>
-        {% elif 'W' in elevations %}
-            <span class="profile-tag mini-tag header-profile-tag">Writer</span>{% endif %}
+    .header-profile-tag {
+        height: fit-content;
+        margin-right: var(--m2);
+        font-size: 12px;
+    }
 
-        <div class="header-pfp-container">
+    .profile-pre-dropdown {
+        height: fit-content;
+        min-width: 150px;
+        max-width: 200px;
+        background: var(--bg);
+        position: relative;
+        left: calc(-200px / 2 - var(--m2));
+        top: var(--m2);
+        border: 1px solid var(--g2);
+        font-size: .65em;
+        box-shadow: var(--bs-s);
+    }
 
-            {% if current_pfp() != '' %}
-                <img alt="Your profile" class="header-pfp-image" src="{{ current_pfp() }}">
-            {% else %}
-                <img alt="Your profile" class="header-pfp-image"
-                     src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}">
-            {% endif %}
-            <a href="/profile/me" class="header-profile-link"></a>
+    .header-drop-pfp-wrapper {
+        height: 50px;
+        width: 50px;
+    }
+
+    .profile-pre-dropdown-topmost {
+        padding: var(--m2);
+    }
+
+    .yourprofile-text {
+        font-size: var(--size1);
+        color: var(--fg);
+        margin-top: 1em;
+        font-family: var(--f1);
+        text-align: center;
+        margin-bottom: .5em;
+    }
+
+    .yourprofile-dropdown-list {
+        list-style-type: none;
+        padding-left: 0;
+        font-family: var(--f1);
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .yourprofile-dropdown-list li {
+        padding: var(--m1);
+    }
+
+    .yourprofile-dropdown-list li .fas {
+        margin-right: .5em;
+    }
+
+    .yourprofile-dropdown-personal {
+        padding: 0 !important;
+        margin-bottom: var(--m2);
+    }
+
+    .yourprofile-dropdown-personal li {
+        border-bottom: 1px solid var(--g2);
+    }
+
+    .yourprofile-bottom {
+        border-radius: calc(var(--r2) / 1.5);
+        margin: calc(var(--m1) / 1.25);
+        padding: calc(var(--m1) / 1.25) !important;
+    }
+
+    .yourprofile-danger {
+        background: rgb(var(--danger));
+    }
+    .yourprofile-danger a {
+        color: white;
+    }
+</style>
+<div class="header-profile-is-signed-in flex-row flex-center">
+    {% set user = c_user() %}
+    {% set elevations = user["elevation"] %}
+    {% set name = user["name"] %}
+    {% if 'S' in elevations %}
+    <span class="profile-tag mini-tag header-profile-tag">Staff</span>
+    {% elif 'A' in elevations %}
+    <span class="profile-tag mini-tag header-profile-tag">Admin</span>
+    {% elif 'E' in elevations %}
+    <span class="profile-tag mini-tag header-profile-tag">Editor</span>
+    {% elif 'W' in elevations %}
+    <span class="profile-tag mini-tag header-profile-tag">Writer</span>{% endif %}
+
+    <div class="header-pfp-container">
+        {% if current_pfp() != '' %}
+        {% set pfp_src = current_pfp() %}
+        {% else %}
+        {% set pfp_src = url_for('static', filename='assets/default_pfp/pfp.svg') %}
+        {% endif %}
+        <img alt="{{ name }}" class="header-pfp-image" src="{{ pfp_src }}">
+
+        <a href="/profile/me" class="header-profile-link"></a>
+        <div class="profile-pre-dropdown r2">
+            <div class="yourprofile">
+                <div class="flex-col flex-center profile-pre-dropdown-topmost">
+                    <div class="header-drop-pfp-wrapper">
+                        <img alt="{{ name }}" class="header-pfp-image" src="{{ pfp_src }}">
+                    </div>
+                    <h1 class="yourprofile-text">{{ name }}</h1>
+                </div>
+                <ul class="yourprofile-dropdown-list">
+                    <li class="yourprofile-dropdown-personal">
+                        <ul class="yourprofile-dropdown-list">
+                            <li>BİO BİO BİO BİO BİO</li>
+                            <li>email</li>
+                            <li>Location</li>
+                            <li>phone number</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="my/edit">
+                            <i class="fas fa-edit"></i> Edit Profile</li>
+                    </a>
+                    <li>
+                        <a href="/admin">
+                            <i class="fas fa-hammer"></i> Admin Panel</li>
+                    </a>
+                    <li class="yourprofile-danger yourprofile-bottom">
+                        <a href="logout">
+                            <i class="fas fa-sign-out-alt"></i> Log out</li>
+                    </a>
+
+                </ul>
+            </div>
         </div>
+        </>
     </div>
-{% endmacro %}
+    {% endmacro %}
 
-{% macro header_auth() %}
+    {% macro header_auth() %}
     <div class="profile-area">
         <button onclick="display('login-area', 'flex')" class="header-button auth pointer">
             Log in /
@@ -59,4 +165,4 @@
             Register
         </button>
     </div>
-{% endmacro %}
+    {% endmacro %}
