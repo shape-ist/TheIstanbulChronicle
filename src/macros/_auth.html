@@ -1,7 +1,6 @@
 {% from "./macros/_form.html" import form %}
 {% macro auth_handlers() %}
     <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_auth.css') }}">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/dismissHandler.js') }}"></script>
 {% endmacro %}
 {% macro login() %}
     <script src="{{ url_for('static', filename='js/ajax/login.js') }}"></script>

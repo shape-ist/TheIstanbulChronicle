@@ -38,6 +38,11 @@ def current_uid():
         return None
 
 
+def logout():
+    print("sign out here")
+    # implement sign out here
+
+
 def is_signed_in():
     return current() is not None
     # check if this function reutrns expected values
