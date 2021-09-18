@@ -17,17 +17,19 @@ document.addEventListener('mouseup', function (e) {
     }
 });
 
+
 function displayDismiss(trigger, el, displayMethod) {
     elJq = '#' + el
-    document.addEventListener('mouseup', function (e) {
-        if ($(elJq).is(':visible')) {
+    if ($(elJq).attr('data-event-click') !== 'true') {
+        $(elJq).attr('data-event-click', 'true');
+        document.addEventListener('mouseup', function (e) {
             var container = document.getElementById(el);
-            if (!container.contains(e.target) &&
-                !document.getElementById(trigger).contains(e.target)) {
+            if (!container.contains(e.target)
+                && !document.getElementById(trigger).contains(e.target)) {
                 $(elJq).hide()
-    }}});
-    if ($(el).is(':visible')) {
-        $(el).hide()
+            }});}
+    if ($(elJq).is(':visible')) {
+        $(elJq).hide()
     } else {
         display(el, displayMethod)
     }

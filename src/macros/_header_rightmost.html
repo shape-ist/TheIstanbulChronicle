@@ -121,6 +121,7 @@
     .drop-bio {
         text-align: center;
     }
+
     .drop-handler-btn {
         background: transparent;
         height: 100%;
@@ -128,17 +129,18 @@
         margin: 0;
         padding: 0;
     }
+
     #profile-pre {
         display: none;
         animation: .16s top-in-subtle;
     }
+
     .drop-handler-btn:hover,
     .drop-handler-btn:active {
         filter: none !important;
         opacity: 100% !important;
         box-shadow: initial !important;
     }
-
 </style>
 <div class="header-profile-is-signed-in flex-row flex-center">
     {% set user = c_user() %}
@@ -159,8 +161,9 @@
         {% else %}
         {% set pfp_src = url_for('static', filename='assets/default_pfp/pfp.svg') %}
         {% endif %}
-        <button id="profile-pre-btn" class="pointer drop-handler-btn" onclick="displayDismiss('profile-pre-btn', 'profile-pre', 'block')">
-        <img alt="{{ name }}" class="header-pfp-image" src="{{ pfp_src }}">
+        <button id="profile-pre-btn" class="pointer drop-handler-btn"
+            onclick="displayDismiss('profile-pre-btn', 'profile-pre', 'block')">
+            <img alt="{{ name }}" class="header-pfp-image" src="{{ pfp_src }}">
         </button>
         <div id="profile-pre" class="profile-pre-dropdown r2">
             <div class="yourprofile">
@@ -176,30 +179,41 @@
                     <li class="yourprofile-dropdown-personal">
                         <ul class="yourprofile-dropdown-list">
 
+                            {% if user['bio'] != '' %}
                             <li class="drop-bio">{{ user['bio'] }}</li>
+                            {% endif %}
+
+                            {% if user['email'] != '' %}
                             <li>
                                 <i class="profile-info-icon fas fa-envelope"></i>
                                 {{ user['email'] }}
                             </li>
+                            {% endif %}
+
+                            {% if user['location'] != '' %}
                             <li>
                                 <i class="profile-info-icon fas fa-map-marker-alt"></i>
                                 {{ user['location'] }}
                             </li>
+                            {% endif %}
+
+                            {% if user['phone'] != '' %}
                             <li>
                                 <i class="profile-info-icon fas fa-phone"></i>
                                 {{ user['phone'] }}
                             </li>
+                            {% endif %}
                         </ul>
                     </li>
                     {% else %}
-                        {% set elevated_drop = true %}
+                    {% set elevated_drop = true %}
                     {% endif %}
                     {% if elevated_drop %}
                     <li class="yourprofile-btn yourprofile-item">
                         <a href="/profile/me">
                             <i class="fas fa-user-circle"></i> View Profile</li>
                     </a>
-                    {% endif %} 
+                    {% endif %}
                     <li class="yourprofile-btn yourprofile-item">
                         <a href="my/edit">
                             <i class="fas fa-edit"></i> Edit Profile</li>
