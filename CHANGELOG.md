@@ -4,6 +4,8 @@
 
 - Autosave articles
 - Now non-writers cannot access the write page
+- Profile preview
+- pagination backend
 
 ### 0.0.5-dev
 
