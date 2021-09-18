@@ -30,12 +30,11 @@
 
     .profile-pre-dropdown {
         height: fit-content;
-        min-width: 150px;
-        max-width: 200px;
+        width: 156px;
         background: var(--bg);
         position: relative;
-        left: calc(-200px / 2 - var(--m2));
-        top: var(--m2);
+        left: calc(-200px / 2 - var(--m1));
+        top: var(--m1);
         border: 1px solid var(--g2);
         font-size: .65em;
         box-shadow: var(--bs-s);
@@ -44,19 +43,20 @@
     .header-drop-pfp-wrapper {
         height: 50px;
         width: 50px;
+        padding-top: var(--m1);
     }
 
     .profile-pre-dropdown-topmost {
-        padding: var(--m2);
+        padding: var(--m1);
     }
 
     .yourprofile-text {
         font-size: var(--size1);
         color: var(--fg);
-        margin-top: 1em;
+        margin: 1em 0;
         font-family: var(--f1);
         text-align: center;
-        margin-bottom: .5em;
+        padding: 0 1em;
     }
 
     .yourprofile-dropdown-list {
@@ -65,10 +65,11 @@
         font-family: var(--f1);
         font-weight: 600;
         margin: 0;
+        margin-bottom: var(--m1);
     }
 
     .yourprofile-dropdown-list li {
-        padding: var(--m1);
+        padding: var(--m1) calc(var(--m1) * 1.5);
     }
 
     .yourprofile-dropdown-list li .fas {
@@ -84,18 +85,60 @@
         border-bottom: 1px solid var(--g2);
     }
 
-    .yourprofile-bottom {
-        border-radius: calc(var(--r2) / 1.5);
-        margin: calc(var(--m1) / 1.25);
-        padding: calc(var(--m1) / 1.25) !important;
-    }
-
-    .yourprofile-danger {
+    .yourprofile-bottom:hover {
         background: rgb(var(--danger));
     }
-    .yourprofile-danger a {
+
+    .yourprofile-bottom:hover a {
         color: white;
     }
+
+    .yourprofile-danger a {
+        color: rgb(var(--danger));
+    }
+
+    .yourprofile-btn:hover {
+        background: var(--fg);
+    }
+
+    .yourprofile-btn:hover a {
+        color: var(--bg);
+    }
+
+    .yourprofile-item {
+        transition: .2s ease !important;
+    }
+
+    .non-elevated-hidden-text {
+        margin: var(--m2);
+        text-align: center;
+    }
+
+    .non-elevated-hidden-text .fas {
+        margin-right: .2em;
+    }
+
+    .drop-bio {
+        text-align: center;
+    }
+    .drop-handler-btn {
+        background: transparent;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #profile-pre {
+        display: none;
+        animation: .16s top-in-subtle;
+    }
+    .drop-handler-btn:hover,
+    .drop-handler-btn:active {
+        filter: none !important;
+        opacity: 100% !important;
+        box-shadow: initial !important;
+    }
+
 </style>
 <div class="header-profile-is-signed-in flex-row flex-center">
     {% set user = c_user() %}
@@ -116,10 +159,10 @@
         {% else %}
         {% set pfp_src = url_for('static', filename='assets/default_pfp/pfp.svg') %}
         {% endif %}
+        <button id="profile-pre-btn" class="pointer drop-handler-btn" onclick="displayDismiss('profile-pre-btn', 'profile-pre', 'block')">
         <img alt="{{ name }}" class="header-pfp-image" src="{{ pfp_src }}">
-
-        <a href="/profile/me" class="header-profile-link"></a>
-        <div class="profile-pre-dropdown r2">
+        </button>
+        <div id="profile-pre" class="profile-pre-dropdown r2">
             <div class="yourprofile">
                 <div class="flex-col flex-center profile-pre-dropdown-topmost">
                     <div class="header-drop-pfp-wrapper">
@@ -128,31 +171,59 @@
                     <h1 class="yourprofile-text">{{ name }}</h1>
                 </div>
                 <ul class="yourprofile-dropdown-list">
+                    {% if user['elevation'] == [] %}
+                    {% set elevated_drop = false %}
                     <li class="yourprofile-dropdown-personal">
                         <ul class="yourprofile-dropdown-list">
-                            <li>BİO BİO BİO BİO BİO</li>
-                            <li>email</li>
-                            <li>Location</li>
-                            <li>phone number</li>
+
+                            <li class="drop-bio">{{ user['bio'] }}</li>
+                            <li>
+                                <i class="profile-info-icon fas fa-envelope"></i>
+                                {{ user['email'] }}
+                            </li>
+                            <li>
+                                <i class="profile-info-icon fas fa-map-marker-alt"></i>
+                                {{ user['location'] }}
+                            </li>
+                            <li>
+                                <i class="profile-info-icon fas fa-phone"></i>
+                                {{ user['phone'] }}
+                            </li>
                         </ul>
                     </li>
-                    <li>
+                    {% else %}
+                        {% set elevated_drop = true %}
+                    {% endif %}
+                    {% if elevated_drop %}
+                    <li class="yourprofile-btn yourprofile-item">
+                        <a href="/profile/me">
+                            <i class="fas fa-user-circle"></i> View Profile</li>
+                    </a>
+                    {% endif %} 
+                    <li class="yourprofile-btn yourprofile-item">
                         <a href="my/edit">
                             <i class="fas fa-edit"></i> Edit Profile</li>
                     </a>
-                    <li>
+                    {% if 'A' in user['elevation'] %}
+                    <li class="yourprofile-btn yourprofile-item">
                         <a href="/admin">
                             <i class="fas fa-hammer"></i> Admin Panel</li>
                     </a>
-                    <li class="yourprofile-danger yourprofile-bottom">
+                    {% endif %}
+                    <li class="yourprofile-item yourprofile-danger yourprofile-bottom">
                         <a href="logout">
                             <i class="fas fa-sign-out-alt"></i> Log out</li>
                     </a>
-
+                    {% if not elevated_drop %}
+                    <p class="sub non-elevated-hidden-text">
+                        <i class="fas fa-eye-slash"></i>
+                        Your profile won't be visible to other users unless you are a contributor of The Chronicle.
+                    </p>
+                    {% endif %}
                 </ul>
             </div>
         </div>
-        </>
+        </bu>
     </div>
     {% endmacro %}
 

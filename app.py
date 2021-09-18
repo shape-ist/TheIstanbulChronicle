@@ -83,6 +83,7 @@ def home():
 @app.route('/profile/me', methods=['GET', 'POST'])
 def profile_me():
     # TODO: Check if user signed in, redirect to /register
+    # TODO: #44 this method should cache the uid (or get if from the session) to reduce individual requests
     return redirect(f'/profile/{user.current_uid()}')
 
 
@@ -181,6 +182,12 @@ def register():
 @app.route('/login')
 def login():
     return redirect("/?goto=login")
+
+
+@app.route('/logout')
+def logout():
+    user.logout()
+    return redirect("/")
 
 
 @app.route('/profile/<uid>')
