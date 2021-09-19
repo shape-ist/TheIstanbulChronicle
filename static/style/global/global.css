@@ -1,8 +1,3 @@
-p {
-    margin: 0;
-    padding: 0;
-}
-
 .app-wrapper {
     max-width: 1080px;
     margin: auto;
@@ -124,10 +119,13 @@ button:active {
 }
 
 p {
+    margin: 0;
+    padding: 0;
     color: var(--g1);
     font-size: var(--size1);
     font-family: var(--f1);
     line-height: 125%;
+    font-weight: 500;
 }
 
 .sub {
