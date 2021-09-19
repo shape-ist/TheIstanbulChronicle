@@ -97,8 +97,11 @@ li::marker {
     align-items: flex-end;
 }
 
-.new-article-cover h1 {
+.new-article-title-wrapper {
     padding: calc(var(--m2) * 1.5) var(--m2);
+}
+
+.new-article-cover h1 {
     padding-right: 25%;
     font-family: var(--f2);
     color: white;
