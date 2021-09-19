@@ -33,14 +33,17 @@
         })();
     </script>
 
+
+    <script src="{{ url_for('static', filename='js/pagi.js') }}"></script>
+
     <div class="flex-col">
         <div class="article-highlight-section flex-row">
             <div class="new-article-item-container flex-col">
                 <div class="new-article-cover"
-                     style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 49.48%, rgba(0, 0, 0, 0.75) 100%), url(https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg);">
-                    <div class="new-article-cover-wrapper">
-                        <h1 id="new-article-title">Article Title the quick brown this is a very very long title, indeed</h1>
-                    </div>
+                     style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.75) 100%),
+                     url(https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg),
+                     linear-gradient(var(--g2) 100%, transparent);">
+                    <h1 id="new-article-title">This is a very long title, indeed.</h1>
                 </div>
                 <div class="new-article-highlighted-content flex-col">
                     <div class="new-article-preview-text-wrapper">
@@ -179,22 +182,13 @@
 
             </div>
         </div>
-
         <!-- LightWidget WIDGET -->
         
         <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
         <iframe src="//lightwidget.com/widgets/9843effc490857cf95b426cdbc825469.html" scrolling="no" allowtransparency="true" class="lightwidget-widget"></iframe>
 
         </div>
-
-
-<style>
-    .widget-container {
-        display: none;
-    }
-</style>
-
-        <div class="article-list-area">
+        <div class="article-list-area" id="article-list">
             <ul class="article-list">
 
 
