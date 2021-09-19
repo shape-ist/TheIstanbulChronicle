@@ -1,0 +1,118 @@
+#edit-profile {
+    display: grid;
+}
+
+.profile-edit-pfp {
+    align-items: center;
+    width: 80%;
+    margin-bottom: var(--m4);
+}
+
+.pfp {
+    border-radius: 999px;
+    height: 200px;
+    width: 200px;
+}
+
+.profile-edit-header-right {
+    margin-left: var(--m2);
+    width: 100%;
+}
+
+.profile-edit-name {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: var(--size5);
+    width: 100%;
+    font-family: var(--f2);
+    color: var(--fg);
+}
+
+.profile-edit-name:focus {
+    border: none;
+    outline: none;
+    transform: scale(110%) translateX(5%);
+}
+
+.pfp-wrapper {
+    height: 200px;
+    border-radius: 999px;
+    box-shadow: var(--bs-s);
+}
+
+.pfp-edit-overlay {
+    opacity: 0;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    left: 0;
+    top: -200px;
+    background: rgba(0, 0, 0, .75);
+    border-radius: 999px;
+    color: white;
+    font-size: var(--size3);
+    transition: .2s ease;
+}
+
+.pfp-wrapper:hover .pfp-edit-overlay {
+    opacity: 1;
+    transition: .2s ease;
+}
+
+.profile-edit-input {
+    background: var(--bg-alt) !important;
+    width: 25% !important;
+}
+
+.profile-edit-area {
+    margin: var(--m2);
+}
+
+.email_public_check {
+    margin: var(--m1) 0 !important;
+}
+
+.email-vis-info {
+    max-width: 200px;
+    margin-top: 1em;
+    font-size: .65em !important;
+    font-weight: 400;
+}
+
+.profile-edit-btn {
+    margin-right: var(--m1);
+}
+
+.profile-edit-btn:hover,
+.profile-edit-btn:focus {
+    box-shadow: var(--bs-s);
+    filter: none !important;
+}
+
+.delete-account {
+    background: rgb(var(--danger)) !important;
+    color: white !important;
+}
+
+.delete-account-verification {
+    position: absolute;
+    display: none;
+    box-shadow: var(--bs-s);
+    padding: var(--m2) var(--m2);
+    width: 220px;
+    background: var(--bg-alt) !important;
+    animation: .2s top-in-subtle;
+}
+
+.delete-account-verification p {
+    margin: var(--m1) 0;
+}
+
+.delete-account-verification button {
+    margin-bottom: var(--m1);
+}
+
+.delete-account-verification p i {
+    margin-right: .25em;
+}

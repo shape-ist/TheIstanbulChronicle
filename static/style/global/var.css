@@ -1,4 +1,3 @@
-
 .theme-dark {
     --bg: #191919;
     --bg-alt: #212121;
@@ -29,7 +28,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     --topbar-height: 40px;
-    --danger: 255, 112, 70;
+    --danger: 255, 90, 60;
     --positive: 40, 200, 120;
     --f1: 'Inter', 'Roboto', 'Noto Sans', 'Arial', sans-serif;
     --f2: 'DM Serif Display', 'Times New Roman', 'Times', serif;

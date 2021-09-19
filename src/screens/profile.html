@@ -22,7 +22,7 @@
                         {% set pfp = user_data["pfp"] %}
                         {% if pfp|string() == '' %}
                             <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
-                                 alt="current username comes here" class="profile-default-pfp pfp">
+                                 alt="user_data['name']" class="profile-default-pfp pfp">
                         {% else %}
                             <img src="{{ pfp }}" alt="{{ user_data['name'] }}" class="custom-pfp pfp">
                         {% endif %}
