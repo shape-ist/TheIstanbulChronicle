@@ -6,6 +6,7 @@
 - Now non-writers cannot access the write page
 - Profile preview
 - pagination backend
+- instagram integration
 
 ### 0.0.5-dev
 

@@ -43,11 +43,6 @@ li::marker {
     align-items: center;
 }
 
-.article-list-area {
-    padding-top: var(--m2) !important;
-}
-
-
 .article-list-body {
     width: 100%;
     height: 160px;
