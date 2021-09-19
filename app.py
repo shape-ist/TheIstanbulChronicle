@@ -61,17 +61,10 @@ def utility_processor():
     def authorized(level, uid=user.current_uid()):
         return fbtools.isauthorized(level, uid)
 
-    def c_user():
-        try:
-            return fbtools.get_doc(u'users', user.current_uid())
-        except Exception:
-            return None
-
     return dict(is_signed_in=is_signed_in,
                 current_pfp=current_pfp,
                 user_elevations=user_elevations,
-                authorized=authorized,
-                c_user=c_user)
+                authorized=authorized)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -83,7 +76,6 @@ def home():
 @app.route('/profile/me', methods=['GET', 'POST'])
 def profile_me():
     # TODO: Check if user signed in, redirect to /register
-    # TODO: #44 this method should cache the uid (or get if from the session) to reduce individual requests
     return redirect(f'/profile/{user.current_uid()}')
 
 
@@ -94,11 +86,6 @@ def profile_redir():
 
 @app.route('/user')
 def user_redir():
-    return redirect("/profile/me")
-
-
-@app.route('/my')
-def my_redir():
     return redirect("/profile/me")
 
 
@@ -182,12 +169,6 @@ def register():
 @app.route('/login')
 def login():
     return redirect("/?goto=login")
-
-
-@app.route('/logout')
-def logout():
-    user.logout()
-    return redirect("/")
 
 
 @app.route('/profile/<uid>')

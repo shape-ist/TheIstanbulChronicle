@@ -27,7 +27,9 @@ function displayDismiss(trigger, el, displayMethod) {
             if (!container.contains(e.target)
                 && !document.getElementById(trigger).contains(e.target)) {
                 $(elJq).hide()
-            }});}
+            }
+        });
+    }
     if ($(elJq).is(':visible')) {
         $(elJq).hide()
     } else {
