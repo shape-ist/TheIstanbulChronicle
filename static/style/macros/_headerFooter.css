@@ -9,7 +9,7 @@
 .toggle-theme-btn {
     background: transparent;
     color: var(--g1);
-    margin-left: .25em;
+    margin-left: .5em;
 }
 
 #logo-wrapper {
