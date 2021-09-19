@@ -125,6 +125,7 @@
     max-width: 400px;
     -webkit-animation: .45s slide-in;
     animation: .45s slide-in;
+    box-shadow: var(--bs-invert);
 }
 
 

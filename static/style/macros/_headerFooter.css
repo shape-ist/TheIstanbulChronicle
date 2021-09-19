@@ -6,6 +6,12 @@
     font-size: var(--size1);
 }
 
+.toggle-theme-btn {
+    background: transparent;
+    color: var(--g1);
+    margin-left: .25em;
+}
+
 #logo-wrapper {
     position: absolute;
     left: 50%;
