@@ -33,11 +33,9 @@ def article(db=db,
             writer_uid: str = '',
             tag: str = '',
             article_type: str = '',
-            cover_image: str = ''):
-    article_type: str = '',
-    is_approved: bool = False):
-
-
+            cover_image: str = '',
+            is_approved: bool = False):
+    from time import time
     return {
         u'title': title,
         u'body': body,
@@ -45,11 +43,10 @@ def article(db=db,
         u'article_type': article_type,
         u'is_approved': False,
         u'timestamp': time(),
-        u'cover_image': cover_image
+        u'cover_image': cover_image,
         u'is_approved': is_approved
         # TODO: implement tags here ^^^^
     }
-
     """
         The schema module will be used like so:
     

@@ -61,10 +61,17 @@ def utility_processor():
     def authorized(level, uid=user.current_uid()):
         return fbtools.isauthorized(level, uid)
 
+    def c_user():
+        try:
+            return fbtools.get_doc(u'users', user.current_uid())
+        except Exception:
+            return None
+
     return dict(is_signed_in=is_signed_in,
                 current_pfp=current_pfp,
                 user_elevations=user_elevations,
-                authorized=authorized)
+                authorized=authorized,
+                c_user=c_user)
 
 
 @app.route('/', methods=['GET', 'POST'])
