@@ -192,14 +192,31 @@ def login():
     return redirect("/?goto=login")
 
 
-@app.route('/profile/my/edit')
+@app.route('/profile/my/edit', methods=['GET', 'POST'])
 def profile_edit():
     try:
-        if user.current() is not None and fbtools.get_doc(
-                u'users', user.current_uid())['elevation'] != []:
-            return render_template('./screens/profile_edit.html')
-        else:
+        if (user.current() is None or fbtools.get_doc(
+                u'users', user.current_uid())['elevation'] == []):
             return redirect('/login')
+        if request.method == "POST":
+            fbtools.update_fields(
+                'users',
+                user.current_uid(),
+                {
+                    # TODO: #51 add pfp post method here too
+                    u'email_public':
+                    request.form.get("profile-edit-email-public") == 'on',
+                    u'bio':
+                    request.form.get("profile-edit-bio").strip(),
+                    u'phone':
+                    request.form.get("profile-edit-phone").strip(),
+                    u'location':
+                    request.form.get("profile-edit-location").strip(),
+                    u'name':
+                    request.form.get("profile-edit-name").strip(),
+                },
+            )
+        return render_template('./screens/profile_edit.html')
     except:
         return redirect('/login')
 
@@ -241,6 +258,21 @@ def article(uid):
     except Exception:
         # Render an article not found message
         return render_template('./screens/article.html', article=None)
+
+
+@app.route('/profile/my/rmpfp')
+def rmpfp():
+    try:
+        fbtools.update_fields(u'users', user.current_uid(), {u'pfp': ''})
+    except:
+        pass
+    return ("current user pfp reset")
+
+
+@app.route('/profile/my/delete-acc')
+def rmacc():
+    # TODO: #52 this should open up a verification page. using the button, get a post method and when method='post', call remove account function.
+    return ("alla")
 
 
 if __name__ == '__main__':

@@ -155,3 +155,10 @@
 #upload-pfp {
     opacity: 0;
 }
+
+.del-pfp-btn {
+    color: rgb(var(--danger));
+    position: relative;
+    left: 100%;
+    transform: translate(100%, -100%);
+}

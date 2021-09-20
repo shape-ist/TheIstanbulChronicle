@@ -12,6 +12,28 @@
 {% endblock %}
 
 {% block body %}
+
+<script type=text/javascript>
+    $(function() {
+      $('#del-pfp-btn').on('click', function(e) {
+        e.preventDefault()
+        $.getJSON('/profile/my/rmpfp',
+            function(data) {
+        });
+        location.reload();
+        return false;
+      });
+      $('#rm-acc').on('click', function(e) {
+        e.preventDefault()
+        $.getJSON('/profile/my/delete-acc',
+            function(data) {
+        });
+        window.location.replace("/");
+        return false;
+      });
+    });
+</script>
+
 <form id="profile-edit-form" method="POST" class="flex-center">
     <div class="flex-col profile-edit-fields r2">
             <div class="pfp-wrapper">
@@ -19,12 +41,15 @@
                 {% if pfp|string() == '' %}
                 <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}" alt="{{ user['name'] }}"
                     class="profile-default-pfp pfp">
+                {% set pfp_icon = 'plus' %}
                 {% else %}
+                <i class="fas fa-trash del-pfp-btn" id="del-pfp-btn"></i>
                 <img src="{{ pfp }}" alt="{{ user['name'] }}" class="custom-pfp pfp">
+                {% set pfp_icon = 'pen' %}
                 {% endif %}
                 <div class="pfp-edit-overlay flex-center">
                     <label for="upload-pfp">
-                        <i class="flex-center fas fa-pen pointer"></i>
+                        <i class="flex-center fas fa-{{ pfp_icon }}"></i>
                     </label>
                     <input type="file" name="upload-pfp" id="upload-pfp" />
                 </div>
@@ -32,7 +57,7 @@
         <div class="profile-edit-area">
             <div class="flex-col profile-edit-header-right">
                 <input type="text" maxlength="40" placeholder="Your Name" value="{{ user['name'] }}"
-                    class="profile-edit-name">
+                    class="profile-edit-name" name="profile-edit-name">
                 <p class="sub">{{ user['email'] }}</p>
             </div>
         </div>
@@ -75,7 +100,7 @@
                     WARNING:
                 </p>
                 <p class="sub">This will permanently delete your account, are you sure?</p>
-                <button onclick="delete_account()" class="submit-button profile-edit-btn pointer delete-account r1">Yes,
+                <button id="rm-acc" value="delete-account" class="submit-button profile-edit-btn pointer delete-account r1">Yes,
                     delete my account.</button>
             </div>
         </div>
