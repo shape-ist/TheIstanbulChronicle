@@ -15,7 +15,6 @@
 }
 
 .profile-edit-header-right {
-    margin-left: var(--m2);
     width: 100%;
 }
 
@@ -37,8 +36,10 @@
 
 .pfp-wrapper {
     height: 200px;
+    width: 200px;
     border-radius: 999px;
     box-shadow: var(--bs-s);
+    margin-left: var(--m2);
 }
 
 .pfp-edit-overlay {
@@ -86,7 +87,7 @@
 
 .profile-edit-btn:hover,
 .profile-edit-btn:focus {
-    box-shadow: var(--bs-s);
+    box-shadow: var(--bs-s) !important;
     filter: none !important;
 }
 
@@ -100,10 +101,10 @@
     display: none;
     padding: var(--m2) var(--m2);
     width: 220px;
-    background: rgba(var(--danger), .2) !important;
     border: 2px solid rgba(var(--danger), .075);
     animation: .25s top-in-subtle;
     margin: 0;
+    background-image: linear-gradient(rgba(var(--danger), .2) 101%, transparent), linear-gradient(var(--bg), 101%, transparent) !important;
 }
 
 .delete-account-verification p {
@@ -125,4 +126,32 @@
 
 .profile-edit-fields {
     width: 35%;
+}
+
+#profile-edit-bio {
+    resize: none;
+    height: 6em;
+    font-family: var(--f1);
+    padding: var(--m2);
+}
+
+.profile-edit-fields {
+    background: var(--bg);
+    border: 2px solid var(--bg-alt);
+    padding: var(--m3) var(--m2);
+    padding-right: calc(var(--m2) * 3);
+    box-shadow: var(--bs);
+}
+
+.profile-save-btn {
+    background: var(--bg-alt) !important;
+}
+
+.pfp-edit-overlay i {
+    width: 200px;
+    height: 200px;
+}
+
+#upload-pfp {
+    opacity: 0;
 }

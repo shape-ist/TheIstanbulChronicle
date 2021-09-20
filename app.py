@@ -194,9 +194,13 @@ def login():
 
 @app.route('/profile/my/edit')
 def profile_edit():
-    if user.current() is not None:
-        return render_template('./screens/profile_edit.html')
-    else:
+    try:
+        if user.current() is not None and fbtools.get_doc(
+                u'users', user.current_uid())['elevation'] != []:
+            return render_template('./screens/profile_edit.html')
+        else:
+            return redirect('/login')
+    except:
         return redirect('/login')
 
 
