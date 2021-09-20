@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block body %}
+<form id="profile-edit-form" method="POST">
     <div class="profile-edit-pfp flex-row">
         <div class="pfp-wrapper pointer">
         {% set pfp = user["pfp"] %}
@@ -41,19 +42,19 @@
             {% else %}
                 {% set email_public = '' %}
             {% endif %}
-            <input id="profile-edit-email-public" type="checkbox" {{ email_public }} class="pointer input-check email_public_check">
+            <input name="profile-edit-email-public" id="profile-edit-email-public" type="checkbox" {{ email_public }} class="pointer input-check email_public_check">
         </div>
         <div class="profile-edit-area">
             <p class="sub">Phone Number</p>
-            <input id="profile-edit-phone" type="tel" maxlength="19" placeholder="Phone Number" value="{{ user['phone'] }}" class="input-field profile-edit-input">
+            <input name="profile-edit-phone" id="profile-edit-phone" type="tel" maxlength="19" placeholder="Phone Number" value="{{ user['phone'] }}" class="input-field profile-edit-input">
         </div>
         <div class="profile-edit-area">
             <p class="sub">Location</p>
-            <input id="profile-edit-location" type="text" maxlength="20" placeholder="Location" value="{{ user['location'] }}" class="input-field profile-edit-input">
+            <input name="profile-edit-location" id="profile-edit-location" type="text" maxlength="20" placeholder="Location" value="{{ user['location'] }}" class="input-field profile-edit-input">
         </div>
         <div class="profile-edit-area">
             <button id="del-passive-btn" class="submit-button profile-edit-btn pointer delete-account r1" onclick="displayDismiss('del-passive-btn' ,'del-verify', 'block')">Delete Account</button>
-            <button class="submit-button profile-edit-btn pointer r1">Save Changes</button>
+            <button type="submit" class="submit-button profile-edit-btn pointer r1">Save Changes</button>
         </div>
         <div class="profile-edit-area">
         <div class="r2 delete-account-verification" id="del-verify">
@@ -66,4 +67,5 @@
         </div>
         </div>
     </div>
+</form>
 {% endblock %}
