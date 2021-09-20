@@ -210,12 +210,12 @@
                     {% endif %}
                     {% if elevated_drop %}
                         <li class="yourprofile-btn yourprofile-item">
-                            <a href="/profile/me">
+                            <a href="/profile/my">
                                 <i class="fas fa-user-circle"></i> View Profile</li>
                         </a>
                     {% endif %}
                     <li class="yourprofile-btn yourprofile-item">
-                        <a href="my/edit">
+                        <a href="/profile/my/edit">
                             <i class="fas fa-edit"></i> Edit Profile</li>
                     </a>
                     {% if 'A' in user['elevation'] %}
@@ -225,7 +225,7 @@
                         </a>
                     {% endif %}
                     <li class="yourprofile-item yourprofile-danger yourprofile-bottom">
-                        <a href="my/logout">
+                        <a href="/profile/my/logout">
                             <i class="fas fa-sign-out-alt"></i> Log out</li>
                     </a>
                     {% if not elevated_drop %}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% from "./macros/_style.html" import style %}
+{% from "./macros/_modules.html" import modules %}
 {% from "./macros/_headerFooter.html" import header, footer with context %}
 {% from "./macros/_socials.html" import socials %}
 {% from "./macros/_write_btn.html" import write_btn %}
@@ -16,12 +17,11 @@
     <meta name="description" content="The Istanbul Chronicle: Breaking news and articles from unbiased writers">
     <meta name="theme-color" content="#000000">
     <link rel="icon" type="image/png" href="favicon.png"/>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/dismissHandler.js') }}"></script>
-    <script src="{{ url_for('static', filename='modules/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='modules/clamp.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='modules/fa.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dismissHandler.js') }}"></script>
     <script src="{{ url_for('static', filename='js/clamp.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ani.js') }}"></script>
+    {{ modules() }}
     {% block title %}
     {% endblock %}
 </head>

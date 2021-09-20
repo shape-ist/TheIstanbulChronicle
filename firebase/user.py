@@ -26,9 +26,7 @@ def delete_user(uid):
 
 
 def current():
-    current_user = auth.current_user
-    if current_user is None: return ''
-    return current_user
+    return auth.current_user
 
 
 def current_uid():

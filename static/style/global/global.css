@@ -71,7 +71,11 @@
 
 .hide {
     opacity: 0 !important;
-    transition: .65s ease;
+    transition: .5s ease;
+}
+
+.none {
+    display: none;
 }
 
 .overlay {
@@ -181,7 +185,7 @@ button {
 
 .submit-button {
     padding: var(--m1) var(--m2);
-    background: linear-gradient(0deg, var(--bg), var(--g2) 170%);
+    background: var(--bg-alt);
     color: var(--fg);
 }
 
@@ -280,4 +284,10 @@ input {
     overflow: hidden;
     transform: translateX(-12px);
     padding-top: var(--m3);
+}
+
+.input-check {
+    margin: 0;
+    height: var(--size2);
+    width: var(--size2);
 }

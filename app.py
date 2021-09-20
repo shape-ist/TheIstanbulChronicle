@@ -81,9 +81,13 @@ def home():
 
 
 @app.route('/profile/me', methods=['GET', 'POST'])
-def profile_me():
-    # TODO: Check if user signed in, redirect to /register
-    return redirect(f'/profile/{user.current_uid()}')
+def current_user_profile_redir():
+    try:
+        cuid = user.current_uid()
+        if cuid != None: return redirect(f'/profile/{cuid}')
+        else: return redirect('/login')
+    except:
+        return redirect('/login')
 
 
 @app.route('/profile')
@@ -103,6 +107,16 @@ def account_redir():
 
 @app.route('/me')
 def me_redir():
+    return redirect("/profile/me")
+
+
+@app.route('/profile/my')
+def profile_my():
+    return redirect("/profile/me")
+
+
+@app.route('/my')
+def my_redir():
     return redirect("/profile/me")
 
 
@@ -178,11 +192,21 @@ def login():
     return redirect("/?goto=login")
 
 
+@app.route('/profile/my/edit')
+def profile_edit():
+    if user.current() is not None:
+        return render_template('./screens/profile_edit.html')
+    else:
+        return redirect('/login')
+
+
 @app.route('/profile/<uid>')
 def user_profile(uid):
     # try fetching data from the uid using fbtools and redirect to / if Exception
+    user_data = fbtools.get_doc(u'users', uid)
+    if uid == user.current_uid() and user_data['elevation'] == []:
+        return redirect("/login")
     try:
-        user_data = fbtools.get_doc(u'users', uid)
         if user_data["elevation"] != [] and user_data["ban"] is False:
             # user is elevated, return profile page
             return render_template('./screens/profile.html',

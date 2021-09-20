@@ -11,4 +11,5 @@ function classOnURL(slug, elementID, className) {
 
 (function () {
     classOnURL('/about', 'header-about', 'about-us-active')
+    classOnURL('/write', 'write-btn', 'none')
 })();

@@ -51,8 +51,9 @@
 }
 
 .profile-info-icon {
-    margin-right: .15em;
+    margin-right: .5em;
     font-size: .8em;
+    width: 1em;
 }
 
 .profile-main {

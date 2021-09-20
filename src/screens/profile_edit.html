@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% set user = c_user() %}
+
+{% block title %}
+    <title>Edit Profile: {{ user['name'] }}</title>
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/edit_profile.css') }}">
+    <script src="{{ url_for('static', filename='js/filterInput.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ajax/del.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<form id="profile-edit-form" method="POST">
+    <div class="profile-edit-pfp flex-row">
+        <div class="pfp-wrapper pointer">
+        {% set pfp = user["pfp"] %}
+        {% if pfp|string() == '' %}
+            <img src="{{ url_for('static', filename='assets/default_pfp/pfp.svg') }}"
+                 alt="{{ user['name'] }}" class="profile-default-pfp pfp">
+        {% else %}
+            <img src="{{ pfp }}" alt="{{ user['name'] }}" class="custom-pfp pfp">
+        {% endif %}
+        <div class="pfp-edit-overlay flex-center">
+            <i class="fas fa-pen"></i>
+        </div>
+        </div>
+
+        <div class="flex-col profile-edit-header-right">
+            <input type="text" maxlength="40" placeholder="Your Name" value="{{ user['name'] }}" class="profile-edit-name">
+            <p class="sub">{{ user['email'] }}</p>
+        </div>
+    </div>
+    
+    <div class="flex-col profile-edit-fields">
+        <div class="profile-edit-area">
+            <p class="sub">Email Visibility</p>
+            <p class="sub email-vis-info">This option makes your email public. This means that other users will be able to see your email address.</p>
+            {% if user['email_public'] == true %}
+                {% set email_public = 'checked' %}
+            {% else %}
+                {% set email_public = '' %}
+            {% endif %}
+            <input name="profile-edit-email-public" id="profile-edit-email-public" type="checkbox" {{ email_public }} class="pointer input-check email_public_check">
+        </div>
+        <div class="profile-edit-area">
+            <p class="sub">Phone Number</p>
+            <input name="profile-edit-phone" id="profile-edit-phone" type="tel" maxlength="19" placeholder="Phone Number" value="{{ user['phone'] }}" class="input-field profile-edit-input">
+        </div>
+        <div class="profile-edit-area">
+            <p class="sub">Location</p>
+            <input name="profile-edit-location" id="profile-edit-location" type="text" maxlength="20" placeholder="Location" value="{{ user['location'] }}" class="input-field profile-edit-input">
+        </div>
+        <div class="profile-edit-area">
+            <button id="del-passive-btn" class="submit-button profile-edit-btn pointer delete-account r1" onclick="displayDismiss('del-passive-btn' ,'del-verify', 'block')">Delete Account</button>
+            <button type="submit" class="submit-button profile-edit-btn pointer r1">Save Changes</button>
+        </div>
+        <div class="profile-edit-area">
+        <div class="r2 delete-account-verification" id="del-verify">
+            <p>
+                <i class="fas fa-exclamation-triangle"></i>
+                WARNING:
+            </p>
+            <p class="sub">This will permanently delete your account, are you sure?</p>
+            <button onclick="delete_account()" class="submit-button profile-edit-btn pointer delete-account r1">Yes, delete my account.</button>
+        </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
