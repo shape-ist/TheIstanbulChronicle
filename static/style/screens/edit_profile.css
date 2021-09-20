@@ -62,7 +62,7 @@
 
 .profile-edit-input {
     background: var(--bg-alt) !important;
-    width: 25% !important;
+    width: 100% !important;
 }
 
 .profile-edit-area {
@@ -98,15 +98,17 @@
 .delete-account-verification {
     position: absolute;
     display: none;
-    box-shadow: var(--bs-s);
     padding: var(--m2) var(--m2);
     width: 220px;
-    background: var(--bg-alt) !important;
-    animation: .2s top-in-subtle;
+    background: rgba(var(--danger), .2) !important;
+    border: 2px solid rgba(var(--danger), .075);
+    animation: .25s top-in-subtle;
+    margin: 0;
 }
 
 .delete-account-verification p {
     margin: var(--m1) 0;
+    color: rgb(var(--danger)) !important;
 }
 
 .delete-account-verification button {
@@ -115,4 +117,12 @@
 
 .delete-account-verification p i {
     margin-right: .25em;
+}
+
+.profile-edit-area p {
+    margin-bottom: .5em !important;
+}
+
+.profile-edit-fields {
+    width: 35%;
 }
