@@ -78,6 +78,7 @@ li::marker {
 .article-li h1 {
     font-size: var(--size2);
     margin-bottom: .25em;
+    font-family: var(--f2);
 }
 
 .article-cover {
