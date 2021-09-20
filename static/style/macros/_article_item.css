@@ -147,3 +147,8 @@ li::marker {
 .main-article-cover {
     margin-right: var(--m2);
 }
+
+.article-list-item .highlight-article-item {
+    margin-left: 0;
+    width: 100%;
+}
