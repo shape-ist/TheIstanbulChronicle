@@ -83,13 +83,16 @@
 
 .profile-edit-btn {
     margin-right: var(--m1);
+    margin-bottom: var(--m1);
+    font-size: var(--size1);
+    font-weight: 500 !important;
 }
 
 .profile-edit-btn:hover,
 .profile-edit-btn:focus {
     box-shadow: var(--bs-s) !important;
     -webkit-filter: none !important;
-            filter: none !important;
+    filter: none !important;
 }
 
 .delete-account {
@@ -104,7 +107,7 @@
     width: 220px;
     border: 2px solid rgba(var(--danger), .075);
     -webkit-animation: .25s top-in-subtle;
-            animation: .25s top-in-subtle;
+    animation: .25s top-in-subtle;
     margin: 0;
     background-image: linear-gradient(rgba(var(--danger), .2) 101%, transparent), linear-gradient(var(--bg), 101%, transparent) !important;
 }
@@ -162,4 +165,14 @@
     position: relative;
     left: 100%;
     transform: translate(100%, -100%);
+}
+
+.profile-edit-buttons {
+    width: 50%;
+}
+
+.reset-pass-btn {
+    font-weight: 500;
+    text-align: center;
+    font-size: var(--size1);
 }

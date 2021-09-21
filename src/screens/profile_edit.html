@@ -14,28 +14,11 @@
 
 {% block body %}
 
-<script type=text/javascript>
-    $(function() {
-      $('#del-pfp-btn').on('click', function(e) {
-        e.preventDefault()
-        $.getJSON('/profile/my/rmpfp',
-            function(data) {
-        });
-        location.reload();
-        return false;
-      });
-      $('#rm-acc').on('click', function(e) {
-        e.preventDefault()
-        $.getJSON('/profile/my/delete-acc',
-            function(data) {
-        });
-        window.location.replace("/");
-        return false;
-      });
-    });
-</script>
-
-<form id="profile-edit-form" method="POST" class="flex-center">
+<script type=text/javascript> $(function() { $('#del-pfp-btn').on('click', function(e) { e.preventDefault()
+    $.getJSON('/profile/my/rmpfp', function(data) { }); location.reload(); return false; }); $('#rm-acc').on('click',
+    function(e) { e.preventDefault() $.getJSON('/profile/my/delete-acc', function(data) { });
+    window.location.replace("/"); return false; }); }); </script> <form id="profile-edit-form" method="POST"
+    class="flex-center">
     <div class="flex-col profile-edit-fields r2">
             <div class="pfp-wrapper">
                 {% set pfp = user["pfp"] %}
@@ -89,11 +72,11 @@
             <input name="profile-edit-location" id="profile-edit-location" type="text" maxlength="20"
                 placeholder="Location" value="{{ user['location'] }}" class="input-field profile-edit-input">
         </div>
-        <div class="profile-edit-area">
-            <button id="del-passive-btn" class="submit-button profile-edit-btn pointer delete-account r1"
-                onclick="displayDismiss('del-passive-btn' ,'del-verify', 'block')">Delete Account</button>
+        <div class="profile-edit-area flex-col profile-edit-buttons">
             <button type="submit" class="submit-button profile-edit-btn pointer r1 profile-save-btn">Save Changes</button>
-            <button class="submit-button profile-edit-btn pointer r1 profile-save-btn">Change Password</button>
+            <a href="/profile/my/reset" class="reset-pass-btn submit-button profile-edit-btn pointer r1 profile-save-btn">Change Password</a>
+            <button id="del-passive-btn" class="submit-button profile-edit-btn pointer delete-account r1"
+            onclick="displayDismiss('del-passive-btn' ,'del-verify', 'block')">Delete Account</button>
         </div>
         <div class="profile-edit-area">
             <div class="r2 delete-account-verification" id="del-verify">
