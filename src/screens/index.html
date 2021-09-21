@@ -28,8 +28,10 @@
             var sub = htmlDecode('{{subpage}}')
             if (sub == 'login') {
                 display('login-area', 'flex')
+                window.history.pushState({}, document.title, "/" + "");
             } else if (sub == 'register') {
                 display('register-area', 'flex')
+                window.history.pushState({}, document.title, "/" + "");
             }
         })();
     </script>
