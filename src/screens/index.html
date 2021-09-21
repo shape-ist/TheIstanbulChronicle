@@ -12,33 +12,17 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/pagi.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/cleanAuthURL.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pagi.js') }}"></script>
     <title>The Istanbul Chronicle</title>
 {% endblock %}
 
 {% block body %}
-
     <script>
-        function htmlDecode(input) {
-            var e = document.createElement('textarea');
-            e.innerHTML = input;
-            return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-        }
-
         (function () {
-            var sub = htmlDecode('{{subpage}}')
-            if (sub == 'login') {
-                display('login-area', 'flex')
-                window.history.replaceState({}, document.title, "/" + "");
-            } else if (sub == 'register') {
-                display('register-area', 'flex')
-                window.history.replaceState({}, document.title, "/" + "");
-            }
+            cleanAuthURL('{{ subpage }}')
         })();
     </script>
-
-
-    <script src="{{ url_for('static', filename='js/pagi.js') }}"></script>
-
     <div class="flex-col">
         <div class="article-highlight-section flex-row">
             <div class="new-article-item-container flex-col">

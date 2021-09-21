@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/edit_profile.css') }}">
 <script src="{{ url_for('static', filename='js/filterInput.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ajax/del.js') }}"></script>
+<script src="{{ url_for('static', filename='js/date.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -92,6 +93,7 @@
             <button id="del-passive-btn" class="submit-button profile-edit-btn pointer delete-account r1"
                 onclick="displayDismiss('del-passive-btn' ,'del-verify', 'block')">Delete Account</button>
             <button type="submit" class="submit-button profile-edit-btn pointer r1 profile-save-btn">Save Changes</button>
+            <button class="submit-button profile-edit-btn pointer r1 profile-save-btn">Change Password</button>
         </div>
         <div class="profile-edit-area">
             <div class="r2 delete-account-verification" id="del-verify">

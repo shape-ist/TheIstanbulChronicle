@@ -6,6 +6,7 @@
     <title>New article - The Istanbul Chronicle</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/mde.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/write.css') }}">
+    <script src="{{ url_for('static', filename='js/date.js') }}"></script>
     <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
     <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
 {% endblock %}
@@ -15,9 +16,17 @@
 {% endblock %}
 
 {% block body %}
+    <script>
+        document.onreadystatechange = function () {
+            displayCurrentDate('write-current-date');
+        };        
+    </script>
     <div class="flex-row article-top-section">
         {{ form('Title',       'write-input-field article-name-field' ,    'write-article-title',       'text',        'name-article-title') }}
-        <span class="sub article-date">Real date comes here.<i class="article-date-icon fas fa-calendar"></i></span>
+        <p class="sub article-date">
+            <span id="write-current-date"></span>
+            <i class="article-date-icon fas fa-calendar"></i>
+        </p>
     </div>
     <div class="mde-container flex-center">
         <textarea></textarea>
