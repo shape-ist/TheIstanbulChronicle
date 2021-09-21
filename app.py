@@ -223,21 +223,14 @@ def profile_edit():
 
 @app.route('/profile/<uid>')
 def user_profile(uid):
-    # try fetching data from the uid using fbtools and redirect to / if Exception
-    user_data = fbtools.get_doc(u'users', uid)
-    if uid == user.current_uid() and user_data['elevation'] == []:
-        return redirect("/login")
+    
     try:
-        if user_data["elevation"] != [] and user_data["ban"] is False:
-            # user is elevated, return profile page
-            return render_template('./screens/profile.html',
-                                   user_data=user_data)
-        else:
-            raise Exception("Unelevated user profile")
-    except Exception:
-        # render a profile doesn't exists or is deleted message if user_data=None
-        return render_template('./screens/profile.html', user_data=None)
-
+        user_data = fbtools.get_doc(u'users', uid)
+        if user_data['elevation'] == []:
+            raise Exception()
+        else: return  render_template('./screens/profile.html', user_data=user_data)
+    except:
+        return render_template('./screens/profile_not_found.html')
 
 def md_html(md_str):
     return markdown(md_str)
