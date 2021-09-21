@@ -11,9 +11,9 @@
         {{ register() }}
         <div id="title" class="flex-row">
             <div id="logo-wrapper" class="flex-col flex-center">
-                <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<span class="beta top-beta">beta</span>
+                <a href="/" class="logo-link pointer logo">The Istanbul Chronicle<span id="logo-beta" class="beta top-beta">beta</span>
                 </a>
-                <h2 class="subtitle">From truth, comes liberation</h2>
+                <h2 id="ftcl" class="subtitle">From truth, comes liberation</h2>
             </div>
             <div class="title-side topmost left-section">
                 <a id="header-about" href="/about" class="header-button about-us">About Us</a>
@@ -21,7 +21,7 @@
                     <i class="fas fa-adjust"></i>
                 </button>
             </div>
-            <div class="title-side topmost right-section">
+            <div class="title-side topmost right-section" id="header-rightmost">
                 {% if is_signed_in() %}
                     {{ header_profile() }}
                 {% else %}

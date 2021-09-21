@@ -40,13 +40,14 @@
     left: -50%;
     text-align: center;
     margin: 0;
+    margin-top: .25em;
     font-size: var(--size1)
 }
 
 #title {
     height: var(--topbar-height);
     justify-content: space-between;
-    margin: 24px auto 20px auto;
+    margin: 40px auto 20px auto;
     max-width: 1200px;
     padding: 0 40px;
 }
@@ -55,7 +56,8 @@
     align-self: center;
     margin: 0 20px;
     font-family: Lora;
-    color: var(--g1)
+    color: var(--g1);
+    transition: .25s ease-out !important;
 }
 
 .auth {
@@ -96,4 +98,12 @@ header {
 .about-us-active {
     pointer-events: none;
     opacity: .35;
+}
+
+header * {
+    transition: .075s ease-out !important;
+}
+
+#logo-beta {
+    transition: .6s ease !important;
 }

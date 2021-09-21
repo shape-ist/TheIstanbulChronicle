@@ -1,13 +1,13 @@
 .theme-dark {
-    --bg: #191919;
-    --bg-alt: #212121;
+    --bg: #171717;
+    --bg-alt: #242424;
     --fg: #ffffff;
     --g1: #909090;
     --g2: #505050;
     --a: #ffffff;
     --c: #161616;
     --bs: 0 10px 64px -28px #000000;
-    --bs-s: 0 6px 16px -5px #121212;
+    --bs-s: 0 6px 20px -5px #121212;
     --bs-invert: 0 0 48px -20px var(--fg);
 }
 
@@ -20,7 +20,7 @@
     --a: #000000;
     --c: #eeeeee;
     --bs: 0 10px 40px -24px rgba(0, 0, 0, .25);
-    --bs-s: 0 6px 10px -2px rgba(0, 0, 0, .2);
+    --bs-s: 0 6px 20px -2px rgba(0, 0, 0, .1);
     --bs-invert: 0 0 60px -12px var(--fg);
 }
 

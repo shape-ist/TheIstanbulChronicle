@@ -28,10 +28,10 @@
             var sub = htmlDecode('{{subpage}}')
             if (sub == 'login') {
                 display('login-area', 'flex')
-                window.history.pushState({}, document.title, "/" + "");
+                window.history.replaceState({}, document.title, "/" + "");
             } else if (sub == 'register') {
                 display('register-area', 'flex')
-                window.history.pushState({}, document.title, "/" + "");
+                window.history.replaceState({}, document.title, "/" + "");
             }
         })();
     </script>
@@ -42,9 +42,9 @@
     <div class="flex-col">
         <div class="article-highlight-section flex-row">
             <div class="new-article-item-container flex-col">
-                <div class="new-article-cover"
-                     style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.75) 100%),
-                     url(https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg),
+                <div class="new-article-cover article-cover"
+                     style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%),
+                     url(https://i.imgur.com/CcWkjGh.jpeg),
                      linear-gradient(var(--g2) 100%, transparent);">
                      <div class="new-article-title-wrapper">
                         <h1 id="new-article-title">This is a very long title, indeed and it needs to be shortened using an ellipsis.</h1>

@@ -82,8 +82,9 @@ li::marker {
 }
 
 .article-cover {
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    background-size: cover !important;
 }
 
 .article-readmore {
@@ -107,7 +108,7 @@ li::marker {
     font-family: var(--f2);
     color: white;
     font-size: var(--size4);
-    text-shadow: 0 10px 20px black !important;
+    filter: drop-shadow(0px 6px 10px black);
 }
 
 .mini-pfp {
