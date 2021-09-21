@@ -84,7 +84,6 @@
 }
 
 .profile-main {
-    box-shadow: var(--bs);
     padding: var(--m3) var(--m2);
     background: var(--bg);
     border: 2px solid var(--bg-alt);

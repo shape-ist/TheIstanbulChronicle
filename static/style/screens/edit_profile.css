@@ -140,7 +140,6 @@
     border: 2px solid var(--bg-alt);
     padding: var(--m3) var(--m2);
     padding-right: calc(var(--m2) * 3);
-    box-shadow: var(--bs);
 }
 
 .profile-save-btn {

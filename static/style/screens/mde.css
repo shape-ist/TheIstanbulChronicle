@@ -2,7 +2,6 @@
     background: var(--bg);
     border-radius: var(--r2);
     border: 2px solid var(--g2);
-    box-shadow: var(--bs);
     margin: 0 !important;
     width: 100%;
     min-height: 100%;

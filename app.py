@@ -223,14 +223,17 @@ def profile_edit():
 
 @app.route('/profile/<uid>')
 def user_profile(uid):
-    
+
     try:
         user_data = fbtools.get_doc(u'users', uid)
         if user_data['elevation'] == []:
             raise Exception()
-        else: return  render_template('./screens/profile.html', user_data=user_data)
+        else:
+            return render_template('./screens/profile.html',
+                                   user_data=user_data)
     except:
         return render_template('./screens/profile_not_found.html')
+
 
 def md_html(md_str):
     return markdown(md_str)
