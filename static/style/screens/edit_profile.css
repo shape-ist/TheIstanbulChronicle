@@ -88,7 +88,8 @@
 .profile-edit-btn:hover,
 .profile-edit-btn:focus {
     box-shadow: var(--bs-s) !important;
-    filter: none !important;
+    -webkit-filter: none !important;
+            filter: none !important;
 }
 
 .delete-account {
@@ -102,7 +103,8 @@
     padding: var(--m2) var(--m2);
     width: 220px;
     border: 2px solid rgba(var(--danger), .075);
-    animation: .25s top-in-subtle;
+    -webkit-animation: .25s top-in-subtle;
+            animation: .25s top-in-subtle;
     margin: 0;
     background-image: linear-gradient(rgba(var(--danger), .2) 101%, transparent), linear-gradient(var(--bg), 101%, transparent) !important;
 }
