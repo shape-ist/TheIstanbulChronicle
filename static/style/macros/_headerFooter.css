@@ -46,7 +46,7 @@
 #title {
     height: var(--topbar-height);
     justify-content: space-between;
-    margin: 24px auto 20px auto;
+    margin: 24px auto 20px;
     max-width: 1200px;
     padding: 0 40px;
 }
