@@ -4,7 +4,7 @@ function htmlDecode(input) {
     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
 }
 
-function cleanAuthURL(subpage) {
+function handleAuthURL(subpage) {
     var sub = htmlDecode(subpage)
     if (sub == 'login') {
         display('login-area', 'flex')

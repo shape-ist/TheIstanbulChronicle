@@ -1,0 +1,17 @@
+{% macro highlights() %}
+{% from "./macros/feed/src/_new_article.html" import new_article %}
+{% from "./macros/feed/src/_highlight_article.html" import highlight_article %}
+{% from "./macros/feed/src/_instagram_carousel.html" import instagram_carousel %}
+<div class="flex-col">
+    <div class="article-highlight-section flex-row">
+        {{ new_article() }}
+        <div class="highlights-right-container flex-col">
+            {{ highlight_article() }}
+            {{ highlight_article() }}
+            {{ highlight_article() }}
+            {{ highlight_article() }}
+        </div>
+    </div>
+   {{ instagram_carousel() }} 
+</div>
+{% endmacro %}
