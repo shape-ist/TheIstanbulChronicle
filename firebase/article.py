@@ -2,7 +2,12 @@ from firebase.setup import db
 
 
 def upload_article(content):
-    db.collection(u'articles').document().set(content)
+    from firebase import tools as fbtools
+    article_ref = db.collection(u'articles').document()
+    article_ref.set(content)
+    uid = article_ref.id
+    fbtools.update_fields('articles', uid, {'uid': uid})
+    return uid
 
 
 def delete_article(id):

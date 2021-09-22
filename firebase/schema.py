@@ -39,7 +39,7 @@ def article(db=db,
     return {
         u'title': title,
         u'body': body,
-        u'writer_uid': db.collection(u'users').document(writer_uid),
+        u'writer': db.collection(u'users').document(writer_uid),
         u'article_type': article_type,
         u'is_approved': False,
         u'timestamp': time(),

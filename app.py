@@ -14,6 +14,7 @@ content = load_content("content.yml")
 # firebase imports (should be done after dotenv validation)
 from firebase import user
 from firebase import tools as fbtools
+from firebase import paginate
 
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -240,7 +241,7 @@ def md_html(md_str):
 
 
 @app.route('/article/<uid>')
-def article(uid):
+def article_page(uid):
     # try fetching data from the uid using fbtools and redirect to / if Exception
     try:
         article = fbtools.get_doc(u'articles', uid)
@@ -269,6 +270,14 @@ def rmpfp():
 def rmacc():
     # TODO: #52 this should open up a verification page. using the button, get a post method and when method='post', call remove account function.
     return ("alla")
+
+
+@app.route('/api/pagi/q')
+def api_pagi():
+    try:
+        return paginate.paginate('articles', 'timestamp')
+    except:
+        return {}
 
 
 if __name__ == '__main__':

@@ -1,4 +1,7 @@
 {
   "python.formatting.provider": "yapf",
-  "discord.enabled": true
+  "discord.enabled": true,
+  "cSpell.words": [
+    "pagi"
+  ]
 }
