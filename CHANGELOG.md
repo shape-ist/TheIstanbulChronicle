@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.0.7-dev-pre
+- Pagination api
+- 
+
 ### 0.0.6-dev
 - Autosave articles
 - Now non-writers cannot access the write page
