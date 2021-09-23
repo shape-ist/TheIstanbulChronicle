@@ -13,5 +13,7 @@ def paginate(coll: str,
     pagi_stream = query.stream()
     for i in pagi_stream:
         out.append(i.to_dict())
+    for article in out:
+        article['writer'] = article['writer'].get().to_dict()
     if order.upper() == 'DESC': out = out[::-1]
     return {'data': out}
