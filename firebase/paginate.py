@@ -16,4 +16,5 @@ def paginate(coll: str,
     for article in out:
         article['writer'] = article['writer'].get().to_dict()
     if order.upper() == 'DESC': out = out[::-1]
-    return {'data': out}
+    return {'data': out,
+            'last_uid': str(out[-1]['uid'])}
