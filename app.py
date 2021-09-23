@@ -275,8 +275,11 @@ def rmacc():
 @app.route('/api/pagi/q')
 def api_pagi():
     try:
-        return paginate.paginate('articles', 'timestamp')
-    except:
+        coll = request.args.get('coll')
+        sort = request.args.get('sort')
+        return paginate.paginate(coll, sort, **(dict(request.args)))
+    except Exception as e:
+        print(e)
         return {}
 
 
