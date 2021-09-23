@@ -272,12 +272,12 @@ def rmacc():
     return ("alla")
 
 
-@app.route('/api/pagi/q')
-def api_pagi():
+@app.route('/api/pagi/<coll>/<sort>/q')
+def api_pagi(coll, sort):
     try:
-        return paginate.paginate('articles', 'timestamp', **(dict(request.args)))
+        return paginate.paginate(coll, sort, **dict(request.args))
     except Exception as e:
-        return {'error': e}
+        return {'error': str(e)}
 
 
 if __name__ == '__main__':

@@ -36,8 +36,8 @@ def firebase_init():
     auth = firebase.auth()
     db = firestore.client()
     storage = firebase.storage()
-    return auth, db, storage
+    return auth, db, storage, firestore
 
 
-auth, db, storage = firebase_init()
+auth, db, storage, firestore = firebase_init()
 # use 'from firebase.setup import auth' / 'from firestore.setup import storage' etc.
