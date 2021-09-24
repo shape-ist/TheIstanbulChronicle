@@ -12,8 +12,7 @@ def paginate(coll: str, sort: str, **kwargs):
             raise Exception('Max limit reached, cannot query more than 100 documents using the pagination API')
         order_obj = firestore.Query.DESCENDING if order.upper(
         ) == 'DESC' else firestore.Query.ASCENDING
-        query = db.collection(coll).order_by(sort,
-                                            direction=order_obj).limit(limit)
+        query = db.collection(coll).order_by(sort, direction = order_obj).limit(limit)
         if last_uid is not None:
             query = query.start_after(db.collection(coll).document(last_uid).get())
         pagi_stream = query.stream()
