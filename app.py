@@ -82,14 +82,17 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    pagi_out = paginate.paginate('articles',
-                                 'timestamp',
-                                 limit=5,
-                                 order='DESC')
-    return render_template('./screens/index.html',
-                           subpage=request.args.get('goto'),
-                           h=pagi_out['data'],
-                           last_uid=pagi_out['last_uid'])
+    try:
+        pagi_out = paginate.paginate('articles',
+                                     'timestamp',
+                                     limit=5,
+                                     order='DESC')
+        return render_template('./screens/index.html',
+                               subpage=request.args.get('goto'),
+                               h=pagi_out['data'],
+                               last_uid=pagi_out['last_uid'])
+    except:
+        return 'error'  # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
 
 
 @app.route('/profile/me', methods=['GET', 'POST'])
