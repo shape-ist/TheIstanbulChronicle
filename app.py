@@ -82,10 +82,7 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    pagi_out = paginate.paginate('articles',
-                                 'timestamp',
-                                 limit=7,
-                                 order='DESC')
+    pagi_out = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     return render_template('./screens/index.html',
                            subpage=request.args.get('goto'),
                            h=pagi_out['data'])
