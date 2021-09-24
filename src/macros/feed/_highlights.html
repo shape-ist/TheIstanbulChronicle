@@ -6,7 +6,7 @@
     <div class="article-highlight-section flex-row">
         {{ new_article(h[0]) }}
         <div class="highlights-right-container flex-col">
-            {% for i in h if i != h[0] %}
+            {% for i in h if i != h[0] | sort(i['local_sort']) %}
                 {{ highlight_article( i ) }}
             {% endfor %}
         </div>

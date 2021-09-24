@@ -24,6 +24,7 @@ def paginate(coll: str, sort: str, **kwargs):
         obj = {'data': out, 'last_uid': str(out[-1]['uid'])}
         data, dictkeys = obj['data'], set()
         for item in data:
+            item['local_sort'] = data.index(item)
             for key, value in item.items():
                 if isinstance(value, firestore.DocumentReference):
                     dictkeys.add(key)
