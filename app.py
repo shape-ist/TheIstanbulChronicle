@@ -1,5 +1,6 @@
 from os.path import isfile
 from os.path import join
+from datetime import datetime
 
 from flask import *
 
@@ -68,17 +69,27 @@ def utility_processor():
         except Exception:
             return None
 
+    def unix_time(time):
+        return datetime.fromtimestamp(time).strftime('%d/%m/%Y')
+
     return dict(is_signed_in=is_signed_in,
                 current_pfp=current_pfp,
                 user_elevations=user_elevations,
                 authorized=authorized,
-                c_user=c_user)
+                c_user=c_user,
+                unix_time=unix_time)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    pagi_out = paginate.paginate('articles',
+                                 'timestamp',
+                                 limit=5,
+                                 order='DESC')
     return render_template('./screens/index.html',
-                           subpage=request.args.get('goto'))
+                           subpage=request.args.get('goto'),
+                           h=pagi_out['data'],
+                           last_uid=pagi_out['last_uid'])
 
 
 @app.route('/profile/me', methods=['GET', 'POST'])
@@ -270,20 +281,6 @@ def rmpfp():
 def rmacc():
     # TODO: #52 this should open up a verification page. using the button, get a post method and when method='post', call remove account function.
     return ("alla")
-
-def pagi_unpack_docs(obj):
-    from firebase.setup import firestore
-    data, dictkeys = obj['data'], set()
-    for item in data:
-        for key, value in item.items():
-            if isinstance(value, firestore.DocumentReference):
-                dictkeys.add(key)
-    for dk in dictkeys:
-        for pagi_item in data:
-            for currentkey, value in pagi_item.items():
-                if currentkey == dk:
-                    pagi_item[dk] = pagi_item[dk].get().to_dict()
-    return obj
 
 
 @app.route('/api/pagi/<coll>/<sort>/q')

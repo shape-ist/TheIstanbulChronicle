@@ -18,14 +18,14 @@
 {% endblock %}
 
 {% block body %}
-    {% from "./macros/feed/_highlights.html" import highlights %}
+    {% from "./macros/feed/_highlights.html" import highlights with context%}
     <script>
         (function () {
             handleAuthURL('{{ subpage }}')
         })();
     </script>
-
-    {{ highlights() }}
+    
+    {{ highlights(h) }}
 
     <div class="article-list-area" id="article-list">
 

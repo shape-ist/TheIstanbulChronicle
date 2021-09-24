@@ -1,15 +1,14 @@
-{% macro highlights() %}
-{% from "./macros/feed/src/_new_article.html" import new_article %}
-{% from "./macros/feed/src/_highlight_article.html" import highlight_article %}
-{% from "./macros/feed/src/_instagram_carousel.html" import instagram_carousel %}
+{% macro highlights(h) %}
+{% from "./macros/feed/src/_new_article.html" import new_article with context %}
+{% from "./macros/feed/src/_highlight_article.html" import highlight_article with context %}
+{% from "./macros/feed/src/_instagram_carousel.html" import instagram_carousel with context %}
 <div class="flex-col">
     <div class="article-highlight-section flex-row">
-        {{ new_article() }}
+        {{ new_article(h[0]) }}
         <div class="highlights-right-container flex-col">
-            {{ highlight_article() }}
-            {{ highlight_article() }}
-            {{ highlight_article() }}
-            {{ highlight_article() }}
+            {% for i in h if i != h[0] %}
+                {{ highlight_article( i ) }}
+            {% endfor %}
         </div>
     </div>
    {{ instagram_carousel() }} 

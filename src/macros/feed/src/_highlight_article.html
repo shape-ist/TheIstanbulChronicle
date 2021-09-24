@@ -1,10 +1,10 @@
-{% macro highlight_article() %}
+{% macro highlight_article(article) %}
 <div class="highlight-article-item flex-row artlicle-list-item article-li">
     <div class="highlight-article-text">
-        <h1>Article Title</h1>
+        <h1> {{ article['title'] }} </h1>
         <p>
-            <b>Emir Şahin</b>
-            <span class="sub"> 12 Sep 2021 </span>
+            <b> {{ article['writer']['name'] }} </b>
+            <span class="sub"> {{ unix_time(article['timestamp']) }} </span>
         </p>
     </div>
     <div class="highlight-article-right-section flex-row flex-center">
@@ -12,15 +12,14 @@
             <p class="highlight-article-preview flex-col">
             <span class="select">
                 <!--this part should be cut to x characters, the below list should have an ellipsis overflow-->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum is dummy text used
-                in
-                typewriting <span>...</span> <a class="article-readmore" href="/allah">Read More... </a>
+                {{ article['body'] }}
+                <span>...</span> <a class="article-readmore" href="/allah">Read More... </a>
             </span>
             </p>
         </div>
 
         <img class="highlight-article-image  article-cover"
-             src="https://live.staticflickr.com/8582/16780740792_29d66b43d3_h.jpg" alt="Article image">
+             src="{{ article['cover_image'] }}" alt="Article image">
     </div>
 </div>
 {% endmacro %}
