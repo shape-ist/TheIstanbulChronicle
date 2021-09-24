@@ -82,19 +82,14 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    try:
-        pagi_out = paginate.paginate('articles',
-                                     'timestamp',
-                                     limit=5,
-                                     order='DESC')
-        return render_template('./screens/index.html',
-                               subpage=request.args.get('goto'),
-                               h=pagi_out['data'],
-                               last_uid=pagi_out['last_uid'])
-    except Exception as e:
-        return {
-            'error': str(e)
-        }  # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
+    pagi_out = paginate.paginate('articles',
+                                 'timestamp',
+                                 limit=7,
+                                 order='DESC')
+    return render_template('./screens/index.html',
+                           subpage=request.args.get('goto'),
+                           h=pagi_out['data'])
+    # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
 
 
 @app.route('/profile/me', methods=['GET', 'POST'])
@@ -263,9 +258,7 @@ def article_page(uid):
         article = fbtools.get_doc(u'articles', uid)
         if article["is_approved"] is True:
             # Article approved and published, return the content
-            return render_template('./screens/article.html',
-                                   article=article,
-                                   article_body=md_html(article["body"]))
+            return render_template('./screens/article.html', article=article)
         else:
             raise Exception("Non-approved article")
     except Exception:

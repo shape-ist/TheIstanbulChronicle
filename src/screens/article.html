@@ -12,32 +12,10 @@
 {% endblock %}
 
 {% block body %}
-    {% if article != none %}
 
-        <div class="article-wrapper">
-            {% filter markdown %}
-                # Title
-                body body body
-
-                * body
-                * body
-                * body
-                * body
-
-                - body
-                - body
-                - body
-                - body
-
-                *body*
-                **body**
-            {% endfilter %}
-            {{ article["body"]|markdown }}
-        </div>
-
-    {% else %}
-        {% from "./macros/_article_not_found.html" import article_not_found %}
-        {{ article_not_found() }}
-    {% endif %}
+{{ article['title'] }}
+{{ article['writer']['pfp'] }}
+{{ article['writer']['name'] }}
+{{ article['body'] }}
 
 {% endblock %}

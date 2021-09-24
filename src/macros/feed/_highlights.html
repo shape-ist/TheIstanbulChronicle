@@ -4,9 +4,9 @@
 {% from "./macros/feed/src/_instagram_carousel.html" import instagram_carousel with context %}
 <div class="flex-col">
     <div class="article-highlight-section flex-row">
-        {{ new_article(h[0]) }}
+        {{ new_article(h[-1]) }}
         <div class="highlights-right-container flex-col">
-            {% for i in h if i != h[0] | sort(i['local_sort']) %}
+            {% for i in h|reverse if i != h[-1] %}
                 {{ highlight_article( i ) }}
             {% endfor %}
         </div>
