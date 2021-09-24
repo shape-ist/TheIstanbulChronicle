@@ -271,13 +271,24 @@ def rmacc():
     # TODO: #52 this should open up a verification page. using the button, get a post method and when method='post', call remove account function.
     return ("alla")
 
+def pagi_unpack_docs(obj):
+    from firebase.setup import firestore
+    data, dictkeys = obj['data'], set()
+    for item in data:
+        for key, value in item.items():
+            if isinstance(value, firestore.DocumentReference):
+                dictkeys.add(key)
+    for dk in dictkeys:
+        for pagi_item in data:
+            for currentkey, value in pagi_item.items():
+                if currentkey == dk:
+                    pagi_item[dk] = pagi_item[dk].get().to_dict()
+    return obj
+
 
 @app.route('/api/pagi/<coll>/<sort>/q')
 def api_pagi(coll, sort):
-    try:
-        return paginate.paginate(coll, sort, **dict(request.args))
-    except Exception as e:
-        return {'error': str(e)}
+    return paginate.paginate(coll, sort, **dict(request.args))
 
 
 if __name__ == '__main__':
