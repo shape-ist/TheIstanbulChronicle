@@ -1,4 +1,3 @@
-from firebase import tools as fbtools
 from firebase.setup import db, firestore
 
 
