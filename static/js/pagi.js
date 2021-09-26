@@ -13,7 +13,7 @@ function triggerPagi(last_uid=null) {
     pagiState = true;
     if (last_uid == null){index = ''}
     else {index = `&i=${last_uid}`}
-    getPagi(`o=desc&l=2${index}`)
+    getPagi(`o=desc&l=10${index}`)
     .then(data => o = data)
     .catch(error => console.log('Pagination Error:', error));
     $('#article-list').height("+=1000");
@@ -25,12 +25,20 @@ function triggerPagi(last_uid=null) {
     // compare numbers of children in article-list, only continue if they are not equivalent.
 }
 
-/* var intervalId = window.setInterval(function(){
-    if (inArea()) {triggerPagi()}
-}, 500); */
+function appendPagi(obj) {
+    for (let i = 0; i < obj['data'].length; i++) {
+        e = obj['data'][i]
+        $("#article-list").append('<li class="article-list-item"></li>');
+        $('#article-list').loadTemplate($("#template"),
+        {
+            ...e
+        });
+    }
+}
 
 var intervalId = window.setInterval(function(){
     if ($('#pagi-trigger').visible() && !pagiState){
-        console.log(triggerPagi())
+        pagi_obj = triggerPagi()
+        appendPagi(pagi_obj)
     }
 }, 500);

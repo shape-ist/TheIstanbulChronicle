@@ -2,7 +2,10 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
   }  
 
-function display(id, method) {
+function display(id, method, overflowLock=null) {
+    if (overflowLock == true) {
+      document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    }
     document.getElementById(id).style.opacity = 1;
     document.getElementById(id).style.display = method;
 }

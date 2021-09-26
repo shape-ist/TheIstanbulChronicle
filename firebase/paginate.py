@@ -1,5 +1,7 @@
 from firebase.setup import db, firestore
 
+# !!!important!!! do not return is_approved = false;
+
 
 def paginate(coll: str, sort: str, **kwargs):
     try:
