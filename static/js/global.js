@@ -3,5 +3,12 @@ function delay(time) {
   }  
 
 function display(id, method) {
-    document.getElementById(id).style.display = method
+    document.getElementById(id).style.opacity = 1;
+    document.getElementById(id).style.display = method;
+}
+
+
+// TODO: check if this works, we want to prevent form resubmission as seen in login/register and profile edit page
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
 }

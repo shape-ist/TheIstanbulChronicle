@@ -1,5 +1,4 @@
 function hide(el) {
-    el.classList.add('opacity-animation');
     el.parentElement.style.display = "none";
 };
 

@@ -39,7 +39,7 @@ def before_request():
 
 
 def start():
-    user.login("allah@gmail.comuwu", "uwu123")
+    # user.login("allah@gmail.comuwu", "uwu123")
     app.run(debug=True, threaded=True)
 
 
@@ -61,7 +61,10 @@ def utility_processor():
             return []
 
     def authorized(level, uid=user.current_uid()):
-        return fbtools.isauthorized(level, uid)
+        try:
+            return fbtools.isauthorized(level, uid)
+        except:
+            return False
 
     def c_user():
         try:
@@ -82,10 +85,19 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    pagi_out = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
+    if request.method == 'POST':
+        for _ in range(1000):
+            print(request.form)
+        if request.form['job'] == 'login':
+            print("login sex")
+        elif request.form['job'] == 'register':
+            print("register sex")
+        else:
+            raise Exception('Authentication Failed')
+    init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     return render_template('./screens/index.html',
                            subpage=request.args.get('goto'),
-                           h=pagi_out['data'])
+                           h=init_pagi['data'])
     # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
 
 
