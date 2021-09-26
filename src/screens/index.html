@@ -19,6 +19,7 @@
 
 {% block body %}
     {% from "./macros/feed/_highlights.html" import highlights with context%}
+    {% from "./macros/feed/_pagi_trigger.html" import pagi_trigger %}
     <script>
         (function () {
             handleAuthURL('{{ subpage }}')
@@ -27,15 +28,16 @@
     
     {{ highlights(h) }}
 
-    <div class="article-list-area" id="article-list">
+
+    <div class="article-list-area" id="article-list" style="background: red; height: 1000px;">
+        
+        {{ pagi_trigger() }}
 
         <ul class="article-list">
 
-            <!--
             <li class="article-list-item">
                 paginated article div comes here
             </li>
-            -->
 
         </ul>
     </div>
