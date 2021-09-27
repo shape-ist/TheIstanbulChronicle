@@ -9,6 +9,8 @@ function getPagi(props){
   }
 
 var pagiState = false;
+var uidIndex = null;
+
 function triggerPagi(last_uid=null) {
     pagiState = true;
     if (last_uid == null){index = ''}
@@ -28,17 +30,25 @@ function triggerPagi(last_uid=null) {
 function appendPagi(obj) {
     for (let i = 0; i < obj['data'].length; i++) {
         e = obj['data'][i]
+        console.log(e.title)
         $("#article-list").append('<li class="article-list-item"></li>');
         $('#article-list').loadTemplate($("#template"),
-        {
-            ...e
-        });
+        {...e});
     }
 }
 
-var intervalId = window.setInterval(function(){
-    if ($('#pagi-trigger').visible() && !pagiState){
-        pagi_obj = triggerPagi()
+function runPagi(){
+    if ($('#pagi-trigger').visible() && !pagiState && uidIndex !== undefined){
+        pagi_obj = triggerPagi(uidIndex)
+        uidIndex = pagi_obj.last_uid
         appendPagi(pagi_obj)
     }
-}, 500);
+}
+
+document.addEventListener(
+    'scroll',
+    (event) => {
+        runPagi()
+    }, 
+    { passive: true }
+);
