@@ -19,6 +19,7 @@ function triggerPagi(last_uid=null) {
     .then(data => o = data)
     .catch(error => console.log('Pagination Error:', error));
     $('#article-list').height("+=1000");
+    uidIndex = o['last_uid']
     pagiState = false;
     return o
     // get number of children in article-list
@@ -40,7 +41,6 @@ function appendPagi(obj) {
 function runPagi(){
     if ($('#pagi-trigger').visible() && !pagiState && uidIndex !== undefined){
         pagi_obj = triggerPagi(uidIndex)
-        uidIndex = pagi_obj.last_uid
         appendPagi(pagi_obj)
     }
 }
