@@ -1,6 +1,6 @@
 from typing import List
 
-from firebase.setup import db
+from firebase.setup import db, auth
 
 
 def user(email: str = '',
@@ -27,10 +27,8 @@ def user(email: str = '',
     }
 
 
-def article(db=db,
-            title: str = '',
+def article(title: str = '',
             body: str = '',
-            writer_uid: str = '',
             tag: str = '',
             article_type: str = '',
             cover_image: str = '',
@@ -39,7 +37,7 @@ def article(db=db,
     return {
         u'title': title,
         u'body': body,
-        u'writer': db.collection(u'users').document(writer_uid),
+        u'writer': db.collection(u'users').document(auth.current_user['localId']),
         u'article_type': article_type,
         u'is_approved': False,
         u'timestamp': time(),
