@@ -31,7 +31,7 @@ def firebase_init():
     firebaseConfig = get_secrets()
     firebase = pyrebase.initialize_app(firebaseConfig)
     cred = credentials.Certificate(
-        'theistanbulchronicle-3173a-242f3f0f0efe.json')
+        'chron-backup-firebase-adminsdk-dftk9-52ebddb5d4.json')
     initialize_app(cred)
     auth = firebase.auth()
     db = firestore.client()
