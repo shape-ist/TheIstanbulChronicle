@@ -38,11 +38,6 @@ def before_request():
 """
 
 
-def start():
-    # user.login("allah@gmail.comuwu", "uwu123")
-    app.run(debug=True, threaded=True)
-
-
 @app.context_processor
 def utility_processor():
     def is_signed_in():
@@ -68,9 +63,9 @@ def utility_processor():
 
     def c_user():
         try:
-            return fbtools.get_doc(u'users', user.current_uid())
+            return fbtools.get_doc(u'users', uuid())
         except Exception:
-            return None
+            return 'cu'
 
     def unix_time(time):
         return datetime.fromtimestamp(time).strftime('%d/%m/%Y')
@@ -216,7 +211,7 @@ def login():
 @app.route('/profile/my/edit', methods=['GET', 'POST'])
 def profile_edit():
     try:
-        if (user.current() is None or fbtools.get_doc(
+        if (user.current_uid() is None or fbtools.get_doc(
                 u'users', user.current_uid())['elevation'] == []):
             return redirect('/login')
         if request.method == "POST":
@@ -293,6 +288,20 @@ def rmacc():
 @app.route('/api/pagi/<coll>/<sort>/q')
 def api_pagi(coll, sort):
     return paginate.paginate(coll, sort, **dict(request.args))
+
+
+def start():
+    # user.register("dmeoeom@gdgd.com", "passssword", "name")
+    user.login("dmeoeom@gdgd.com", "passssword")
+    app.run(debug=True, threaded=True)
+
+
+def uuid():
+    from firebase.setup import auth
+    try:
+        return auth.current_user['localId']
+    except:
+        return None
 
 
 if __name__ == '__main__':

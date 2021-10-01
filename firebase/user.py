@@ -25,13 +25,9 @@ def delete_user(uid):
     db.collection(u'users').document(uid).delete()
 
 
-def current():
-    return auth.current_user
-
-
 def current_uid():
     try:
-        return current()['localId']
+        return auth.current_user['localId']
     except Exception:
         return None
 
@@ -42,5 +38,5 @@ def logout():
 
 
 def is_signed_in():
-    return current() is not None
+    return current_uid() is not None
     # check if this function reutrns expected values
