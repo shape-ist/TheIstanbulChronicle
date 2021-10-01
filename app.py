@@ -3,6 +3,7 @@ from os.path import join
 from datetime import datetime
 
 from flask import *
+from flask_socketio import SocketIO, emit
 
 from content import load_content
 
@@ -18,6 +19,7 @@ from firebase import tools as fbtools
 from firebase import paginate
 
 app = Flask(__name__, template_folder='src')
+sio = SocketIO(app, debug=True, threaded=True)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
 
@@ -290,10 +292,22 @@ def api_pagi(coll, sort):
     return paginate.paginate(coll, sort, **dict(request.args))
 
 
+@sio.on('pushPagi')
+def push_pagi():
+    emit('i emmitted this neg', ('foo', 'bar', json), namespace='/uwu')
+
+
+@sio.on('pagiRequest')
+def pagi_request(data):
+    print('received message: ' + str(data))
+    push_pagi()
+
+
 def start():
     # user.register("dmeoeom@gdgd.com", "passssword", "name")
     user.login("dmeoeom@gdgd.com", "passssword")
-    app.run(debug=True, threaded=True)
+    # app.run(debug=True, threaded=True)
+    sio.run(app)
 
 
 def uuid():

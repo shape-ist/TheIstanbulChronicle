@@ -6,10 +6,41 @@
         position: relative;
         background: transparent;
         opacity: 0;
-        height: 800px;
+        height: 1px;
         width: 100%;
         top: calc(100% - 800px);
         pointer-events: none !important;
     }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+    integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8">
+    var pagiState = false
+
+    function inArea(threshold = 100, current = $(window).scrollTop()) {
+        return current + $(window).height() > $(document).height() - threshold
+    }
+
+    function canPagi() {
+        return ($('#pagi-trigger').visible() && !pagiState)
+    }
+
+    var socket = io();
+
+    socket.once("pushPagi", (...args) => {
+        console.log('got response from python')
+      });
+
+    var intervalId = window.setInterval(function(){
+        if (canPagi()){
+            pagiState = true
+            console.log('emit here')
+            socket.emit('pagiRequest', 'request');
+            $('#article-list').height("+=1000");
+            pagiState = false
+        }
+    }, 500);
+
+</script>
 {% endmacro %}
