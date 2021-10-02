@@ -22,10 +22,6 @@
     height: 600px;
 }
 
-.article-list-item {
-    list-style-type: none;
-}
-
 li::marker {
     display: none !important;
 }
@@ -36,6 +32,11 @@ li::marker {
     width: 100%;
     margin: 0;
     padding: 0;
+}
+
+.article-list-item {
+    list-style-type: none;
+    padding: 20px 0 !important;
 }
 
 .highlight-article-item {

@@ -8,13 +8,11 @@
         opacity: 0;
         height: 1px;
         width: 100%;
-        top: calc(100% - 800px);
+        top: calc(100% - 200px);
         pointer-events: none !important;
     }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
-    integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
-    crossorigin="anonymous"></script>
+<script src='https://cdn.socket.io/4.1.2/socket.io.min.js' crossorigin='anonymous'></script>
 <script type="text/javascript" charset="utf-8">
     var pagiState = false
 
@@ -26,27 +24,41 @@
         return ($('#pagi-trigger').visible() && !pagiState)
     }
 
+    function appendArticle(article) {
+        article.timestamp = unixTime(article.timestamp)
+        cuid = generateUID()
+        appended = $('#article-list').append($(`<li class="article-list-item"><div id=${cuid}>`))
+        $(`#${cuid}`).loadTemplate($("#article-item"), {...article});
+    }
+
     var socket = io();
-    var uidFlags = [null]
+    var pagiStore = [{
+        data: null,
+        last_uid: null
+    }]
 
-    $(document).ready(function(){
-        socket.on('message', function(msg){
-            console.log(msg)
-            uidFlags.push(msg.last_uid)
-            pagiState = false
+    socket.on('message', function (msg) {
+        pagiStore.push(msg)
+        msg.data.forEach(function(i){
+            console.log(i)
+            appendArticle(i)
         })
-    });
+        pagiState = false
+    })
 
-    var intervalId = window.setInterval(function(){
-        if (canPagi()){
-            pagiState = true
-            if (uidFlags.at(-1) !== undefined){
-                socket.emit('pagiRequest', uidFlags.at(-1));
-            }
-            $('#article-list').height("+=1000");
-            
+    function pagi() {
+        pagiState = true
+        if (pagiStore.at(-1).last_uid !== undefined) {
+            socket.emit('pagiRequest', pagiStore.at(-1).last_uid);
+        } else {
+            clearInterval(pagiInterval);
+        }
+    }
+
+    var pagiInterval = window.setInterval(function () {
+        if (canPagi()) {
+            pagi()
         }
     }, 500);
-
 </script>
 {% endmacro %}

@@ -10,6 +10,16 @@ function display(id, method, overflowLock = null) {
   document.getElementById(id).style.display = method;
 }
 
+function unixTime(t){
+  var date = new Date(t * 1000);
+  var options = { year: 'numeric', month: 'short', day: 'numeric' };
+  return (date.toLocaleDateString("en-US", options));
+}
+
+function generateUID() {
+  return '_' + Math.random().toString(36).substr(2, 9);
+}
+
 
 // TODO: check if this works, we want to prevent form resubmission as seen in login/register and profile edit page
 if (window.history.replaceState) {
