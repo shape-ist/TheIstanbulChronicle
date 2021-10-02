@@ -12,7 +12,9 @@ function appendArticle(article) {
     article.timestamp = unixTime(article.timestamp)
     cuid = generateUID()
     appended = $('#article-list-inner').append($(`<div class="article-list-item"><div id=${cuid}>`))
-    $(`#${cuid}`).loadTemplate($("#article-item"), {...article});
+    $(`#${cuid}`).loadTemplate($("#article-item"), {
+        ...article
+    });
 }
 
 var socket = io();
@@ -23,11 +25,12 @@ var pagiStore = [{
 
 socket.on('message', function (msg) {
     pagiStore.push(msg)
-    msg.data.forEach(function(i){
-        console.log(i.title)
-        appendArticle(i)
-    })
-    pagiState = false
+    if (msg.data.error === undefined) {
+        msg.data.forEach(function (i) {
+            appendArticle(i)
+        })
+        pagiState = false
+    }
 })
 
 function pagi() {
