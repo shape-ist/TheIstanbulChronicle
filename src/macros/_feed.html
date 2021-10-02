@@ -3,4 +3,6 @@
 {% from "./macros/feed/_articles.html" import articles %}
 {{ highlights(h) }}
 {{ articles() }}
+<script src='https://cdn.socket.io/4.1.2/socket.io.min.js' crossorigin='anonymous'></script>
+<script src="{{ url_for('static', filename='js/pagi.js') }}"></script>
 {% endmacro %}
