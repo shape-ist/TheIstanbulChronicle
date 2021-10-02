@@ -4,10 +4,6 @@
     <title>The Istanbul Chronicle: From truth, comes liberation</title>
 {% endblock %}
 
-{% block imports %}
-    {% from "./macros/_load.html" import load %}
-{% endblock %}
-
 {% block head %}
     <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
@@ -18,42 +14,14 @@
 {% endblock %}
 
 {% block body %}
-    {% from "./macros/feed/_highlights.html" import highlights with context%}
-    {% from "./macros/feed/_pagi_trigger.html" import pagi_trigger %}
+    {% from "./macros/_feed.html" import feed with context %}
     <script>
         (function () {
             handleAuthURL('{{ subpage }}')
         })();
     </script>
     
-    {{ highlights(h) }}
-
-
-    <div class="article-list-area" id="article-list" style="background: red; height: 1000px;">
-        
-        {{ pagi_trigger() }}
-
-        <ul class="article-list">
-
-            <div id='cu'>
-                
-            </div>
-
-            <div id="template">
-                <p data-content='title'></p>
-                <p data-content='body'></p>
-                <p data-content='timestamp'></p>
-            </div>
-
-            <li class="article-list-item">
-                paginated article div comes here
-            </li>
-
-        </ul>
-    </div>
-    </div>
-
-
+    {{ feed(h) }}
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_article_item.css') }}">
 

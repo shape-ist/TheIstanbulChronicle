@@ -1,0 +1,6 @@
+{% macro feed(h) %}
+{% from "./macros/feed/_highlights.html" import highlights with context %}
+{% from "./macros/feed/_articles.html" import articles %}
+{{ highlights(h) }}
+{{ articles() }}
+{% endmacro %}

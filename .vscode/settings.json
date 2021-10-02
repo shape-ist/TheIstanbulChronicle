@@ -2,6 +2,7 @@
   "python.formatting.provider": "yapf",
   "discord.enabled": true,
   "cSpell.words": [
+    "endmacro",
     "inview",
     "pagi"
   ]

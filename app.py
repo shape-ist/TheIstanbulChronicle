@@ -3,7 +3,7 @@ from os.path import join
 from datetime import datetime
 
 from flask import *
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, send
 
 from content import load_content
 
@@ -292,15 +292,10 @@ def api_pagi(coll, sort):
     return paginate.paginate(coll, sort, **dict(request.args))
 
 
-@sio.on('pushPagi')
-def push_pagi():
-    emit('i emmitted this neg', ('foo', 'bar', json), namespace='/uwu')
-
-
 @sio.on('pagiRequest')
 def pagi_request(data):
-    print('received message: ' + str(data))
-    push_pagi()
+    print('received message\n' + str(data))
+    send(paginate.paginate('articles', 'timestamp', l=10, o='desc', i=data))
 
 
 def start():

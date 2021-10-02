@@ -1,0 +1,8 @@
+{% macro articles() %}
+{% from "./macros/feed/pagi/_pagi_trigger.html" import pagi_trigger %}
+{% from "./macros/feed/pagi/_pagi_list.html" import pagi_list %}
+<div class="article-list-area" id="article-list" style="background: red; height: 1000px;">
+    {{ pagi_trigger() }}
+    {{ pagi_list() }}
+</div>
+{% endmacro %}

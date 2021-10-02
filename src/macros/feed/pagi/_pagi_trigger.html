@@ -27,18 +27,24 @@
     }
 
     var socket = io();
+    var uidFlags = [null]
 
-    socket.once("pushPagi", (...args) => {
-        console.log('got response from python')
-      });
+    $(document).ready(function(){
+        socket.on('message', function(msg){
+            console.log(msg)
+            uidFlags.push(msg.last_uid)
+            pagiState = false
+        })
+    });
 
     var intervalId = window.setInterval(function(){
         if (canPagi()){
             pagiState = true
-            console.log('emit here')
-            socket.emit('pagiRequest', 'request');
+            if (uidFlags.at(-1) !== undefined){
+                socket.emit('pagiRequest', uidFlags.at(-1));
+            }
             $('#article-list').height("+=1000");
-            pagiState = false
+            
         }
     }, 500);
 
