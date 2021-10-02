@@ -21,7 +21,7 @@
     }
 
     function canPagi() {
-        return ($('#pagi-trigger').visible() && !pagiState)
+        return ($('#pagi-trigger').visible() && !pagiState && $('article-list').height() > 1)
     }
 
     function appendArticle(article) {
@@ -40,7 +40,7 @@
     socket.on('message', function (msg) {
         pagiStore.push(msg)
         msg.data.forEach(function(i){
-            console.log(i)
+            console.log(i.title)
             appendArticle(i)
         })
         pagiState = false
@@ -55,6 +55,7 @@
         }
     }
 
+    pagi()
     var pagiInterval = window.setInterval(function () {
         if (canPagi()) {
             pagi()
