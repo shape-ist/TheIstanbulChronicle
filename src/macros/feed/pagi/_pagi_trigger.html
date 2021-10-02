@@ -8,7 +8,8 @@
         opacity: 0;
         height: 1px;
         width: 100%;
-        top: calc(100% - 200px);
+        top: 100%;
+        bottom: 800px;
         pointer-events: none !important;
     }
 </style>
@@ -21,13 +22,13 @@
     }
 
     function canPagi() {
-        return ($('#pagi-trigger').visible() && !pagiState && $('article-list').height() > 1)
+        return ($('#pagi-trigger').visible() && !pagiState && $('#article-list').height() > 1)
     }
 
     function appendArticle(article) {
         article.timestamp = unixTime(article.timestamp)
         cuid = generateUID()
-        appended = $('#article-list').append($(`<li class="article-list-item"><div id=${cuid}>`))
+        appended = $('#article-list-inner').append($(`<div class="article-list-item"><div id=${cuid}>`))
         $(`#${cuid}`).loadTemplate($("#article-item"), {...article});
     }
 
