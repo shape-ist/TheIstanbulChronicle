@@ -2,16 +2,13 @@ import pyrebase
 from firebase_admin import credentials
 from firebase_admin import firestore
 from firebase_admin import initialize_app
+from os import getenv
+from dotenv import load_dotenv
 
 
 def get_secrets():
-    from dotenv import load_dotenv
-    from os import getenv
     load_dotenv()
 
-    GCP_PROJECT_ID = getenv('GCP_PROJECT_ID')
-    SERVICE_ACCOUNT_FILE = getenv('SERVICE_ACCOUNT_FILE')
-    STORAGE_BUCKET_NAME = getenv('STORAGE_BUCKET_NAME')
     return {
         'apiKey': getenv('apiKey'),
         'authDomain': getenv('authDomain'),
@@ -30,8 +27,7 @@ def firebase_init():
     # get secrets from dotenv. see function get_secrets()
     firebaseConfig = get_secrets()
     firebase = pyrebase.initialize_app(firebaseConfig)
-    cred = credentials.Certificate(
-        'chron-backup-firebase-adminsdk-dftk9-52ebddb5d4.json')
+    cred = credentials.Certificate(getenv('certificate'))
     initialize_app(cred)
     auth = firebase.auth()
     db = firestore.client()

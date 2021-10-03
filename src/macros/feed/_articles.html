@@ -1,6 +1,6 @@
 {% macro articles() %}
-{% from "./macros/feed/pagi/_pagi_list.html" import pagi_list %}
-<div class="article-list-area" id="article-list">
-    {{ pagi_list() }}
-</div>
+    {% from "./macros/feed/pagi/_pagi_list.html" import pagi_list %}
+    <div class="article-list-area" id="article-list">
+        {{ pagi_list() }}
+    </div>
 {% endmacro %}

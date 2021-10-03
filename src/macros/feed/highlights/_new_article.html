@@ -1,40 +1,40 @@
 {% macro new_article( article ) %}
-<div class="new-article-item-container flex-col">
-    {% set cover_image = article['cover_image'] %}
-    <div class="new-article-cover article-cover" style="
-                     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%),
-                     url('{{ cover_image }}'),
-                     linear-gradient(var(--g2) 100%, transparent);">
-        <div class="new-article-title-wrapper">
-            <h1 id="new-article-title">
-                {{ article['title'] }}
-            </h1>
+    <div class="new-article-item-container flex-col">
+        {% set cover_image = article['cover_image'] %}
+        <div class="new-article-cover article-cover" style="
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%),
+                url('{{ cover_image }}'),
+                linear-gradient(var(--g2) 100%, transparent);">
+            <div class="new-article-title-wrapper">
+                <h1 id="new-article-title">
+                    {{ article['title'] }}
+                </h1>
+            </div>
         </div>
-    </div>
-    <div class="new-article-highlighted-content flex-col">
-        <div class="new-article-preview-text-wrapper">
-            <p class="new-article-preview select">
-                {{ article['body'] }}
-            </p>
-            <div class="new-article-text-fade-out"></div>
-        </div>
+        <div class="new-article-highlighted-content flex-col">
+            <div class="new-article-preview-text-wrapper">
+                <p class="new-article-preview select">
+                    {{ article['body'] }}
+                </p>
+                <div class="new-article-text-fade-out"></div>
+            </div>
 
-        <div class="mini-user flex-row">
-            {% set pfp = article['writer']['pfp'] %}
-            {% if pfp|string() == '' %}
-                {% set pfp = url_for('static', filename='assets/default_pfp/pfp.svg') %}
-            {% endif %}
-            <img class="mini-pfp" src="{{ pfp }}"
-                alt="{{ article['writer']['name'] }}">
-            <p>
-                <b>
-                    {{ article['writer']['name'] }}
-                </b>
-                <span class="sub">
+            <div class="mini-user flex-row">
+                {% set pfp = article['writer']['pfp'] %}
+                {% if pfp|string() == '' %}
+                    {% set pfp = url_for('static', filename='assets/default_pfp/pfp.svg') %}
+                {% endif %}
+                <img class="mini-pfp" src="{{ pfp }}"
+                     alt="{{ article['writer']['name'] }}">
+                <p>
+                    <b>
+                        {{ article['writer']['name'] }}
+                    </b>
+                    <span class="sub">
                     {{ unix_time(article['timestamp']) }}
                 </span>
-            </p>
+                </p>
+            </div>
         </div>
     </div>
-</div>
 {% endmacro %}
