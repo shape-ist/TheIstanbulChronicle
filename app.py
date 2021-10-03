@@ -1,9 +1,9 @@
+from datetime import datetime
 from os.path import isfile
 from os.path import join
-from datetime import datetime
 
 from flask import *
-from flask_socketio import SocketIO, emit, send
+from flask_socketio import SocketIO, send
 
 from content import load_content
 
@@ -102,8 +102,10 @@ def home():
 def current_user_profile_redir():
     try:
         cuid = user.current_uid()
-        if cuid != None: return redirect(f'/profile/{cuid}')
-        else: return redirect('/login')
+        if cuid != None:
+            return redirect(f'/profile/{cuid}')
+        else:
+            return redirect('/login')
     except:
         return redirect('/login')
 
@@ -223,15 +225,15 @@ def profile_edit():
                 {
                     # TODO: #51 add pfp post method here too
                     u'email_public':
-                    request.form.get("profile-edit-email-public") == 'on',
+                        request.form.get("profile-edit-email-public") == 'on',
                     u'bio':
-                    request.form.get("profile-edit-bio").strip(),
+                        request.form.get("profile-edit-bio").strip(),
                     u'phone':
-                    request.form.get("profile-edit-phone").strip(),
+                        request.form.get("profile-edit-phone").strip(),
                     u'location':
-                    request.form.get("profile-edit-location").strip(),
+                        request.form.get("profile-edit-location").strip(),
                     u'name':
-                    request.form.get("profile-edit-name").strip(),
+                        request.form.get("profile-edit-name").strip(),
                 },
             )
         return render_template('./screens/profile_edit.html')
@@ -241,7 +243,6 @@ def profile_edit():
 
 @app.route('/profile/<uid>')
 def user_profile(uid):
-
     try:
         user_data = fbtools.get_doc(u'users', uid)
         if user_data['elevation'] == []:
