@@ -1,6 +1,21 @@
 {% macro instagram_carousel() %}
     <!-- LightWidget WIDGET -->
-    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-    <iframe src="//lightwidget.com/widgets/9843effc490857cf95b426cdbc825469.html" scrolling="no"
-            allowtransparency="true" class="lightwidget-widget"></iframe>
+    <style>
+        button.lightwidget__nav-button {
+            margin: 0 24px;
+            z-index: 999;
+        }
+        
+        figure.lightwidget__photo:before {
+            backdrop-filter: blur(10px) saturate(1.5);
+        }
+        /* this is the styling used in lightwidget. paste in 'custom css' section when creating instagram widget */        
+    </style>
+<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/50899775d2d851929cc294e497950a2d.html" scrolling="no" allowtransparency="true" class="lightwidget-widget"></iframe>
+    <style>
+        .instagram-handle {
+            text-align: right;
+        }
+    </style>
+    <a rel="noopener" tabindex="-1" target="_blank" aria-hidden="true" href="https://www.instagram.com/theistanbulchronicle/" class="aria-hidden pointer sub instagram-handle">@theistanbulchronicle</a>
 {% endmacro %}

@@ -12,14 +12,15 @@
 {% endblock %}
 
 {% block body %}
-
     <script>
         (function () {
             handleAuthURL('{{ subpage }}')
         })();
+        document.addEventListener('DOMContentLoaded', function(event) {
+            document.getElementById('highlights').setAttribute('data-highlights-end', '{{ h["last_uid"] }}');
+        })
     </script>
-
     {% from "./macros/_feed.html" import feed with context %}
-    {{ feed(h) }}
+    {{ feed(h['data']) }}
 
 {% endblock %}

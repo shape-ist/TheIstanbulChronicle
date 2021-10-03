@@ -10,6 +10,8 @@ function canPagi() {
 
 function appendArticle(article) {
     article.timestamp = unixTime(article.timestamp)
+    article.url = `/article/${article.uid}`
+    article.writer_url = `/profile/${article.writer.uid}`
     cuid = generateUID()
     appended = $('#article-list-inner').append($(`<div class="article-list-item"><div id=${cuid}>`))
     $(`#${cuid}`).loadTemplate($("#article-item"), {
@@ -18,11 +20,6 @@ function appendArticle(article) {
 }
 
 var socket = io();
-var pagiStore = [{
-    data: null,
-    last_uid: null
-}]
-
 socket.on('message', function (msg) {
     pagiStore.push(msg)
     if (msg.data.error === undefined) {
@@ -42,9 +39,34 @@ function pagi() {
     }
 }
 
-pagi()
-var pagiInterval = window.setInterval(function () {
-    if (canPagi()) {
-        pagi()
-    }
-}, 500);
+function waitForFirstRender(elementPath, callBack){
+    window.setTimeout(function(){
+      if($(elementPath).children().length){
+        callBack(elementPath, $(elementPath));
+      }else{
+        waitForFirstRender(elementPath, callBack);
+      }
+    },500)
+  }
+
+function triggerPagi() {
+    pagi()
+    waitForFirstRender('#article-list-inner', function(){
+        $('#pagi-trigger').css('bottom', Math.round($('#article-list-inner').height() / 2));
+    })
+    var pagiInterval = window.setInterval(function () {
+        if (canPagi()) {
+            pagi()
+        }
+    }, 500);
+}
+
+var pagiStore = []
+
+document.addEventListener('DOMContentLoaded', function () {
+    pagiStore.push({
+        data: [],
+        last_uid: document.getElementById('highlights').getAttribute('data-highlights-end')
+    })
+    triggerPagi()
+})

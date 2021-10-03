@@ -94,7 +94,7 @@ def home():
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     return render_template('./screens/index.html',
                            subpage=request.args.get('goto'),
-                           h=init_pagi['data'])
+                           h=init_pagi)
     # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
 
 
@@ -225,15 +225,15 @@ def profile_edit():
                 {
                     # TODO: #51 add pfp post method here too
                     u'email_public':
-                        request.form.get("profile-edit-email-public") == 'on',
+                    request.form.get("profile-edit-email-public") == 'on',
                     u'bio':
-                        request.form.get("profile-edit-bio").strip(),
+                    request.form.get("profile-edit-bio").strip(),
                     u'phone':
-                        request.form.get("profile-edit-phone").strip(),
+                    request.form.get("profile-edit-phone").strip(),
                     u'location':
-                        request.form.get("profile-edit-location").strip(),
+                    request.form.get("profile-edit-location").strip(),
                     u'name':
-                        request.form.get("profile-edit-name").strip(),
+                    request.form.get("profile-edit-name").strip(),
                 },
             )
         return render_template('./screens/profile_edit.html')
