@@ -2,7 +2,7 @@
 
 ### 0.0.7-dev-pre
 - Pagination api
-- 
+- Pagination frontend
 
 ### 0.0.6-dev
 - Autosave articles

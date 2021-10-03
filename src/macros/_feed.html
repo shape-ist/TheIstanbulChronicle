@@ -1,6 +1,7 @@
 {% macro feed(h) %}
 {% from "./macros/feed/_highlights.html" import highlights with context %}
 {% from "./macros/feed/_articles.html" import articles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_feed.css') }}">
 {{ highlights(h) }}
 {{ articles() }}
 <script src='https://cdn.socket.io/4.1.2/socket.io.min.js' crossorigin='anonymous'></script>

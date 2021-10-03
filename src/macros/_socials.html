@@ -1,24 +1,40 @@
 {% macro socials() %}
-    <style>
-        #socials-side {
-            position: fixed;
-            width: 60px;
-            top: 50%;
-            left: calc(100% - 60px);
-            font-size: 32px;
-            z-index: 99;
-        }
+<style>
+    #socials-side {
+        position: fixed;
+        width: 60px;
+        top: 50%;
+        left: calc(100% - 60px);
+        font-size: 32px;
+        z-index: 99;
+    }
 
-        .social-icon {
-            margin: 4px 12px;
-            text-decoration: none;
-            color: var(--g1);
-        }
-    </style>
-    <div id="socials-side" tabindex="-1" class="flex-col">
-        <a tabindex="-1" rel="noopener" href="https://twitter.com/theistchronicle" target="_blank"
-           class="aria-hidden pointer social-icon fab fa-twitter-square"></a>
-        <a tabindex="-1" rel="noopener" href="https://www.instagram.com/theistanbulchronicle/" target="_blank"
-           class="aria-hidden pointer social-icon fab fa-instagram-square"></a>
-    </div>
+    .social-icon {
+        margin: 4px 12px;
+        text-decoration: none;
+        color: var(--g1);
+        transition: none !important;
+    }
+
+    .social-icon.fa-twitter-square:hover,
+    .social-icon.fa-twitter-square:active {
+        color: #00ACEE;
+        transition: none !important;
+    }
+
+    .social-icon.fa-instagram-square:hover,
+    .social-icon.fa-instagram-square:active {
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: none !important;
+    }
+</style>
+<div id="socials-side" tabindex="-1" class="flex-col">
+    <a tabindex="-1" rel="noopener" href="https://twitter.com/theistchronicle" target="_blank"
+        class="aria-hidden pointer social-icon fab fa-twitter-square"></a>
+    <a tabindex="-1" rel="noopener" href="https://www.instagram.com/theistanbulchronicle/" target="_blank"
+        class="aria-hidden pointer social-icon fab fa-instagram-square"></a>
+</div>
 {% endmacro %}
