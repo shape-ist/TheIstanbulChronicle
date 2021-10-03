@@ -9,9 +9,6 @@ from dotenv import load_dotenv
 def get_secrets():
     load_dotenv()
 
-    GCP_PROJECT_ID = getenv('GCP_PROJECT_ID')
-    SERVICE_ACCOUNT_FILE = getenv('SERVICE_ACCOUNT_FILE')
-    STORAGE_BUCKET_NAME = getenv('STORAGE_BUCKET_NAME')
     return {
         'apiKey': getenv('apiKey'),
         'authDomain': getenv('authDomain'),
