@@ -8,7 +8,7 @@ click==8.0.1
 cryptography==35.0.0
 Deprecated==1.2.13
 firebase-admin==5.0.3
-Flask==2.0.1
+Flask==2.0.2
 Flask-SocketIO==5.1.1
 gcloud==0.18.3
 google-api-core==2.1.0
