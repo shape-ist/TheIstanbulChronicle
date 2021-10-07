@@ -280,7 +280,7 @@ def article_page(auid):
         article = fbtools.get_doc(u'articles', auid)
         article['writer'] = article['writer'].get().to_dict()
         return render_template('./screens/article.html', article=article)
-    except:
+    except Exception:
         return render_template('./screens/article_not_found.html')
 
 

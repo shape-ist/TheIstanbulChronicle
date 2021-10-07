@@ -76,8 +76,7 @@ li::marker {
     border-bottom: 1px solid var(--g2);
 }
 
-.article-li p,
-.article-li a {
+.article-li p {
     font-size: .75em;
 }
 
@@ -128,7 +127,7 @@ li::marker {
 }
 
 .mini-user {
-    font-size: .75em;
+    font-size: .9em;
     align-items: center;
     margin: var(--m1) 0;
 }
@@ -208,4 +207,46 @@ li::marker {
 .article-page-title {
     font-size: var(--size5);
     font-family: var(--f2);
+    margin-bottom: var(--m1);
+}
+
+.article-page-cover {
+    width: 100%;
+    height: 300px;
+    border-top-right-radius: var(--r2);
+    border-top-left-radius: var(--r2);
+    border-bottom: 1px solid var(--bg-alt);
+}
+
+.article-content-wrapper {
+    position: absolute;
+    left: var(--m3);
+    width: calc(100% - calc(var(--m3) * 2));
+    margin-top: var(--m1);
+}
+
+.article-content-wrapper-inner {
+    width: clamp(200px, 900px, 100%);
+    margin: auto;
+    border: 1px solid var(--bg-alt);
+    border-top-left-radius: var(--r2);
+    border-top-right-radius: var(--r2);
+    box-shadow: var(--bs);
+}
+
+.article-page-text {
+    padding: var(--m4);
+}
+
+.article-page-top {
+    margin-right: 20%;
+    margin-bottom: var(--m3);
+}
+
+.article-page-content-text-body {
+    line-height: 150%;
+    font-family: 'Lora';
+    font-weight: 500;
+    color: var(--g1);
+    margin-bottom: var(--m4);
 }

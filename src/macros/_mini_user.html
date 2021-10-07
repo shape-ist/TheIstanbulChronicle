@@ -8,7 +8,9 @@
          alt="{{ article['writer']['name'] }}">
     <p>
         <b>
-            {{ article['writer']['name'] }}
+            <a href="/profile/{{ article['writer']['uid'] }}">
+                {{ article['writer']['name'] }}
+            </a>
         </b>
         <span style='font-size:.25em; margin:0 .5em'>●</span>
         <span class="sub">

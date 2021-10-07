@@ -19,7 +19,7 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     line-height: 90%;
-    background-size: cover;
+    object-fit: cover;
 }
 
 .select {

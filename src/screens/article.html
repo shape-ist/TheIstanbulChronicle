@@ -12,11 +12,24 @@
 {% endblock %}
 
 {% block body %}
-
-    {% from "./macros/_mini_user.html" import mini_user with context %}
-    <h1 class="article-page-title">
-        {{ article['title'] }}
-    </h1>
-    {{ mini_user(article) }}
-
+<script>
+    $('#socials-side').hide();
+</script>
+<div class="article-content-wrapper">
+    <div class="article-content-wrapper-inner">
+        <img src="{{ article['cover_image'] }}" alt="{{ article['title'] }}" class="article-page-cover">
+        <div class="article-page-text">
+            <div class="article-page-top">
+                {% from "./macros/_mini_user.html" import mini_user with context %}
+                <h1 class="article-page-title">
+                    {{ article['title'] }}
+                </h1>
+                {{ mini_user(article) }}
+            </div>
+            <div class="article-page-content-text-body">
+                {{ article['body'] }}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

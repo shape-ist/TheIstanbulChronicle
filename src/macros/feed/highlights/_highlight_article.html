@@ -1,11 +1,15 @@
 {% macro highlight_article(article) %}
     <div class="highlight-article-item flex-row artlicle-list-item article-li">
         <div class="highlight-article-text">
-            <h1> {{ article['title'] }} </h1>
-            <p>
-                <b> {{ article['writer']['name'] }} </b>
-                <span class="sub"> {{ unix_time(article['timestamp']) }} </span>
-            </p>
+            <h1>
+                <a href="/article/{{ article['uid'] }}">
+                    {{ article['title'] }}
+                </a>
+            </h1>
+            <div class="higlight-article-mini-user">
+                {% from "./macros/_mini_user.html" import mini_user with context %}
+                {{ mini_user(article) }}
+            </div>
         </div>
         <div class="highlight-article-right-section flex-row flex-center">
             <div class="highlight-article-preview-wrapper">
