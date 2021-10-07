@@ -13,7 +13,7 @@ Flask-SocketIO==5.1.1
 gcloud==0.18.3
 google-api-core==2.1.0
 google-api-python-client==2.23.0
-google-auth==2.2.1
+google-auth==2.3.0
 google-auth-httplib2==0.1.0
 google-cloud-core==2.1.0
 google-cloud-firestore==2.3.4
