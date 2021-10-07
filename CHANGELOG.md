@@ -1,9 +1,12 @@
 ## Changelog
 
-### 0.0.7-dev-pre
+### 0.0.8-dev-pre
+
+### 0.0.7-dev
 
 - Pagination api
 - Pagination frontend
+- frontpage feed ready
 
 ### 0.0.6-dev
 
