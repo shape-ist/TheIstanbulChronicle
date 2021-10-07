@@ -14,7 +14,9 @@
 {% block body %}
 
     {% from "./macros/_mini_user.html" import mini_user with context %}
-    {{ article['title'] }}
+    <h1 class="article-page-title">
+        {{ article['title'] }}
+    </h1>
     {{ mini_user(article) }}
 
 {% endblock %}

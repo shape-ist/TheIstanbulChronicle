@@ -273,6 +273,12 @@ input {
     background: var(--fg);
 }
 
+.earlyaccess {
+    padding: .5em 1em;
+    border: 1px solid var(--g2);
+    border-radius: var(--r2);
+}
+
 .top-beta {
     pointer-events: none;
     -webkit-animation: .65s fade;

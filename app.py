@@ -13,6 +13,7 @@ if not isfile('.env'):
         'Missing .env file, please add a .env file in your root directory.')
 
 content = load_content("content.yml")
+earlyaccess = True
 
 # firebase imports (should be done after dotenv validation)
 from firebase import user
@@ -87,6 +88,7 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    subpage = request.args.get('goto') if earlyaccess is not True else None
     if request.method == 'POST':
         for _ in range(1000):
             print(request.form)
@@ -98,7 +100,7 @@ def home():
             raise Exception('Authentication Failed')
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     return render_template('./screens/index.html',
-                           subpage=request.args.get('goto'),
+                           subpage=subpage,
                            h=init_pagi)
     # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
 
@@ -207,16 +209,19 @@ def forbidden(e):
 
 @app.route('/register')
 def register():
-    return redirect("/?goto=register")
+    return redirect(
+        "/?goto=register") if earlyaccess is not True else redirect('/')
 
 
 @app.route('/login')
 def login():
-    return redirect("/?goto=login")
+    return redirect("/?goto=login") if earlyaccess is not True else redirect(
+        '/')
 
 
 @app.route('/profile/my/edit', methods=['GET', 'POST'])
 def profile_edit():
+    if earlyaccess is True: return redirect('/')
     try:
         if (user.current_uid() is None or fbtools.get_doc(
                 u'users', user.current_uid())['elevation'] == []):
@@ -246,6 +251,7 @@ def profile_edit():
 
 @app.route('/profile/<uid>')
 def user_profile(uid):
+    if earlyaccess is True: return redirect('/')
     try:
         user_data = fbtools.get_doc(u'users', uid)
         if user_data['elevation'] == []:

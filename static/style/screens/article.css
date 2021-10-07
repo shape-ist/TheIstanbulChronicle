@@ -204,3 +204,8 @@ li::marker {
 .article-pagi-title {
     max-width: 80%;
 }
+
+.article-page-title {
+    font-size: var(--size5);
+    font-family: var(--f2);
+}
