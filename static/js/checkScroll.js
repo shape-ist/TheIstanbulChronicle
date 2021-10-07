@@ -3,14 +3,13 @@ function headerState() {
     const scaleFactor = '.8';
     if (window.scrollY > 100) {
         header.css('box-shadow', 'var(--bs-s)');
-        header.css('font-size', `${scaleFactor}em`);
+        $('#logo-wrapper').css('font-size', `${scaleFactor}em`);
         $('#title').css('margin', '18px auto 16px auto');
-        $('#header-pfp-container').css('transform', `scale(${scaleFactor})`);
         $('#logo-beta').css('opacity', '0');
         $('#ftcl').css('display', 'none');
     } else {
         header.css('box-shadow', '');
-        header.css('font-size', '');
+        $('#logo-wrapper').css('font-size', '');
         $('#title').css('margin', '');
         $('#header-rightmost').css('transform', '');
         $('#logo-beta').css('opacity', '');

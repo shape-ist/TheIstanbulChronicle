@@ -23,10 +23,18 @@
                 </button>
             </div>
             <div class="title-side topmost right-section" id="header-rightmost">
+                {% set earlyaccess = true %}
+
+                {% if earlyaccess is false %}
                 {% if is_signed_in() %}
                     {{ header_profile() }}
                 {% else %}
                     {{ header_auth() }}
+                {% endif %}
+                {% else %}
+                    <span class="sub earlyaccess">
+                        Early Access    
+                    </span>
                 {% endif %}
             </div>
         </div>

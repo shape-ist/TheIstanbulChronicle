@@ -19,6 +19,7 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     line-height: 90%;
+    object-fit: cover;
 }
 
 .select {
@@ -270,6 +271,12 @@ input {
 ::selection {
     color: var(--bg);
     background: var(--fg);
+}
+
+.earlyaccess {
+    padding: .5em 1em;
+    border: 1px solid var(--g2);
+    border-radius: var(--r2);
 }
 
 .top-beta {
