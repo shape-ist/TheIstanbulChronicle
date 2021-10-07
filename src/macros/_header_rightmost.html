@@ -155,7 +155,7 @@
     {% elif 'W' in elevations %}
         <span class="profile-tag mini-tag header-profile-tag">Writer</span>{% endif %}
 
-    <div class="header-pfp-container">
+    <div class="header-pfp-container" id='header-pfp-container'>
         {% if current_pfp() != '' %}
             {% set pfp_src = current_pfp() %}
         {% else %}
@@ -215,10 +215,10 @@
                         </a>
                     {% endif %}
                     {% if elevated_drop == true %}
-                    <li class="yourprofile-btn yourprofile-item">
-                        <a href="/profile/my/edit">
-                            <i class="fas fa-edit"></i> Edit Profile</li>
-                    </a>
+                        <li class="yourprofile-btn yourprofile-item">
+                            <a href="/profile/my/edit">
+                                <i class="fas fa-edit"></i> Edit Profile</li>
+                        </a>
                     {% endif %}
                     {% if 'A' in user['elevation'] %}
                         <li class="yourprofile-btn yourprofile-item">
@@ -245,10 +245,10 @@
 
 {% macro header_auth() %}
     <div class="profile-area">
-        <button onclick="display('login-area', 'flex')" class="header-button auth pointer">
+        <button onclick="display('login-area', 'flex', overflowLock=true)" class="header-button auth pointer">
             Log in /
         </button>
-        <button onclick="display('register-area', 'flex')" class="header-button auth pointer">
+        <button onclick="display('register-area', 'flex', overflowLock=true)" class="header-button auth pointer">
             Register
         </button>
     </div>

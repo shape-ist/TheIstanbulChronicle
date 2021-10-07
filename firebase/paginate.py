@@ -1,15 +1,21 @@
 from firebase.setup import db, firestore
 
 
+# !!!important!!! do not return is_approved = false;
+
+
 def paginate(coll: str, sort: str, **kwargs):
     try:
+        public_coll = ['articles']
+        if coll not in public_coll:
+            raise Exception('You are not authorized to view this collection')
         limit, order, last_uid = int(kwargs.get('l', 10)), kwargs.get(
             'o', 'ASC'), kwargs.get('i', None)
         if order.upper() not in ['ASC', 'DESC']:
             raise Exception("invalid order: use 'ASC' or 'DESC'")
-        if limit > 100:
+        if limit > 50:
             raise Exception(
-                'Max limit reached, cannot query more than 100 documents using the pagination API'
+                'Max limit reached, cannot query more than 50 documents using the pagination API'
             )
         order_obj = firestore.Query.DESCENDING if order.upper(
         ) == 'DESC' else firestore.Query.ASCENDING

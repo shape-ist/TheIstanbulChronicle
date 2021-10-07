@@ -1,8 +1,9 @@
+from datetime import datetime
 from os.path import isfile
 from os.path import join
-from datetime import datetime
 
 from flask import *
+from flask_socketio import SocketIO, send
 
 from content import load_content
 
@@ -18,6 +19,7 @@ from firebase import tools as fbtools
 from firebase import paginate
 
 app = Flask(__name__, template_folder='src')
+sio = SocketIO(app, debug=True, threaded=True)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
 
@@ -36,11 +38,6 @@ def before_request():
         code = 301
         return redirect(url, code = code)
 """
-
-
-def start():
-    # user.login("allah@gmail.comuwu", "uwu123")
-    app.run(debug=True, threaded=True)
 
 
 @app.context_processor
@@ -68,9 +65,9 @@ def utility_processor():
 
     def c_user():
         try:
-            return fbtools.get_doc(u'users', user.current_uid())
+            return fbtools.get_doc(u'users', uuid())
         except Exception:
-            return None
+            return 'cu'
 
     def unix_time(time):
         return datetime.fromtimestamp(time).strftime('%d/%m/%Y')
@@ -97,7 +94,7 @@ def home():
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     return render_template('./screens/index.html',
                            subpage=request.args.get('goto'),
-                           h=init_pagi['data'])
+                           h=init_pagi)
     # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
 
 
@@ -105,8 +102,10 @@ def home():
 def current_user_profile_redir():
     try:
         cuid = user.current_uid()
-        if cuid != None: return redirect(f'/profile/{cuid}')
-        else: return redirect('/login')
+        if cuid != None:
+            return redirect(f'/profile/{cuid}')
+        else:
+            return redirect('/login')
     except:
         return redirect('/login')
 
@@ -216,7 +215,7 @@ def login():
 @app.route('/profile/my/edit', methods=['GET', 'POST'])
 def profile_edit():
     try:
-        if (user.current() is None or fbtools.get_doc(
+        if (user.current_uid() is None or fbtools.get_doc(
                 u'users', user.current_uid())['elevation'] == []):
             return redirect('/login')
         if request.method == "POST":
@@ -244,7 +243,6 @@ def profile_edit():
 
 @app.route('/profile/<uid>')
 def user_profile(uid):
-
     try:
         user_data = fbtools.get_doc(u'users', uid)
         if user_data['elevation'] == []:
@@ -293,6 +291,27 @@ def rmacc():
 @app.route('/api/pagi/<coll>/<sort>/q')
 def api_pagi(coll, sort):
     return paginate.paginate(coll, sort, **dict(request.args))
+
+
+@sio.on('pagiRequest')
+def pagi_request(data):
+    print('received message\n' + str(data))
+    send(paginate.paginate('articles', 'timestamp', l=10, o='desc', i=data))
+
+
+def start():
+    # user.register("dmeoeom@gdgd.com", "passssword", "name")
+    user.login("dmeoeom@gdgd.com", "passssword")
+    # app.run(debug=True, threaded=True)
+    sio.run(app)
+
+
+def uuid():
+    from firebase.setup import auth
+    try:
+        return auth.current_user['localId']
+    except:
+        return None
 
 
 if __name__ == '__main__':
