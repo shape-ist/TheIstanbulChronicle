@@ -13,9 +13,8 @@
 
 {% block body %}
 
+    {% from "./macros/_mini_user.html" import mini_user with context %}
     {{ article['title'] }}
-    {{ article['writer']['pfp'] }}
-    {{ article['writer']['name'] }}
-    {{ article['body'] }}
+    {{ mini_user(article) }}
 
 {% endblock %}

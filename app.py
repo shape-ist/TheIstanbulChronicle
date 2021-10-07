@@ -1,6 +1,7 @@
 from datetime import datetime
 from os.path import isfile
 from os.path import join
+from markdown import markdown
 
 from flask import *
 from flask_socketio import SocketIO, send
@@ -38,6 +39,10 @@ def before_request():
         code = 301
         return redirect(url, code = code)
 """
+
+
+def md_html(md_str):
+    return markdown(md_str)
 
 
 @app.context_processor
@@ -179,15 +184,13 @@ def write():
         return forbidden(Exception("User not authorized"))
 
 
-@app.route('/legal/license')
-def license():
-    return render_template('./screens/legal/LICENSE.html')
-
-
 @app.route('/legal/terms-and-conditions')
 def terms():
+    with open('terms.md', 'r') as f:
+        tac = md_html(f.read())
     return render_template('./screens/legal/terms-and-conditions.html',
-                           updated="2021-09-06")
+                           updated="2021-09-06",
+                           tac=tac)
 
 
 @app.errorhandler(404)
@@ -254,14 +257,10 @@ def user_profile(uid):
         return render_template('./screens/profile_not_found.html')
 
 
-def md_html(md_str):
-    return markdown(md_str)
-
-
-@app.route('/article/<uid>')
-def article_page(uid):
+@app.route('/article/<auid>')
+def article_page(auid):
     # try fetching data from the uid using fbtools and redirect to / if Exception
-    try:
+    """ try:
         article = fbtools.get_doc(u'articles', uid)
         if article["is_approved"] is True:
             # Article approved and published, return the content
@@ -270,7 +269,13 @@ def article_page(uid):
             raise Exception("Non-approved article")
     except Exception:
         # Render an article not found message
-        return render_template('./screens/article.html', article=None)
+        return render_template('./screens/article.html', article=None) """
+    try:
+        article = fbtools.get_doc(u'articles', auid)
+        article['writer'] = article['writer'].get().to_dict()
+        return render_template('./screens/article.html', article=article)
+    except:
+        return render_template('./screens/article_not_found.html')
 
 
 @app.route('/profile/my/rmpfp')

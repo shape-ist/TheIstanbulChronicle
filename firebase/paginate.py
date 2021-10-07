@@ -1,7 +1,6 @@
 from firebase.setup import db, firestore
 
-
-# !!!important!!! do not return is_approved = false;
+# !!!important!!! do not return is_approved = false; articles because we don't want our unapproved articles to be displayed
 
 
 def paginate(coll: str, sort: str, **kwargs):

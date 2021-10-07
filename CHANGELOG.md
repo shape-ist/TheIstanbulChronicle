@@ -1,6 +1,8 @@
 ## Changelog
 
 ### 0.0.8-dev-pre
+- terms and conditions back online
+- article read page implemented
 
 ### 0.0.7-dev
 

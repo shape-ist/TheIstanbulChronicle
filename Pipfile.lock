@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "12afa10be2da8093d8ae18d4f669fc2e51e9e77ff178fd4055c6f39614dd2fa2"
+            "sha256": "5a63921d9a6567e5a5d5edcc07f3e46cc0c9a835a71033018e9e3e23c4a39e04"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -203,7 +203,6 @@
                 "sha256:6dc8173abd50f25b6e62fc5b42802c96fc7cd9deb9bfeeb10a79f5606225cdf4"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.6'",
             "version": "==2.2.1"
         },
         "google-auth-httplib2": {
@@ -220,6 +219,7 @@
                 "sha256:90ee99648ccf9e11a16781a7fc58d13e58f662b439c737d48c24ef18662c2702"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==2.0.0"
         },
         "google-cloud-firestore": {
@@ -395,6 +395,14 @@
             ],
             "index": "pypi",
             "version": "==1.0"
+        },
+        "markdown": {
+            "hashes": [
+                "sha256:31b5b491868dcc87d6c24b7e3d19a0d730d59d3e46f4eea6430a321bed387a49",
+                "sha256:96c3ba1261de2f7547b46a00ea8463832c921d3f9d6aba3f255a6f71386db20c"
+            ],
+            "index": "pypi",
+            "version": "==3.3.4"
         },
         "markupsafe": {
             "hashes": [
