@@ -1,0 +1,25 @@
+{% macro highlight_article(article) %}
+    <div class="highlight-article-item flex-row artlicle-list-item article-li">
+        <div class="highlight-article-text">
+            <h1> {{ article['title'] }} </h1>
+            <p>
+                <b> {{ article['writer']['name'] }} </b>
+                <span class="sub"> {{ unix_time(article['timestamp']) }} </span>
+            </p>
+        </div>
+        <div class="highlight-article-right-section flex-row flex-center">
+            <div class="highlight-article-preview-wrapper">
+                <p class="highlight-article-preview flex-col">
+            <span class="select">
+                <!--this part should be cut to x characters, the below list should have an ellipsis overflow-->
+                {{ article['body'] }}
+                <span>...</span> <a class="article-readmore" href="/article/{{ article['uid'] }}">Read More... </a>
+            </span>
+                </p>
+            </div>
+
+            <img class="highlight-article-image  article-cover"
+                 src="{{ article['cover_image'] }}" alt="Article image">
+        </div>
+    </div>
+{% endmacro %}

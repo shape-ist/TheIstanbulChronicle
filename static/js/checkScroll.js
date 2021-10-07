@@ -5,7 +5,7 @@ function headerState() {
         header.css('box-shadow', 'var(--bs-s)');
         header.css('font-size', `${scaleFactor}em`);
         $('#title').css('margin', '18px auto 16px auto');
-        $('#header-rightmost').css('transform', `scale(${scaleFactor})`);
+        $('#header-pfp-container').css('transform', `scale(${scaleFactor})`);
         $('#logo-beta').css('opacity', '0');
         $('#ftcl').css('display', 'none');
     } else {

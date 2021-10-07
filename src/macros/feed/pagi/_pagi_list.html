@@ -1,0 +1,23 @@
+{% macro pagi_list() %}
+<div class="article-list" id="article-list">
+    <div id="article-list-inner"></div>
+    {% from "./macros/feed/pagi/_pagi_trigger.html" import pagi_trigger %}
+    {{ pagi_trigger() }}
+    <script type="text/html" id="article-item">
+        <div class="flex-row article-li article-li-pagi">
+        <img data-src="cover_image" data-alt="title"
+        class="article-list-image">
+        <div class="flex-row article-pagi-right">
+            <div class="flex-col article-pagi-content">
+            <a class="article-pagi-title" data-href="url" data-content="title"></a>
+            <p class="sub select article-pagi-preview" data-content="body"></p>
+            </div>
+            <div class="flex-col article-pagi-extra-content">
+                <a class="article-pagi-writer" data-href="writer_url" data-content="writer.name"></a>
+                <p class="sub" data-content="timestamp"></p>
+            </div> 
+        </div>
+        </div>
+        </script>
+    </div>
+{% endmacro %}

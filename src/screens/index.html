@@ -4,46 +4,23 @@
     <title>The Istanbul Chronicle: From truth, comes liberation</title>
 {% endblock %}
 
-{% block imports %}
-    {% from "./macros/_load.html" import load %}
-{% endblock %}
-
 {% block head %}
     <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/pagi.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/cleanAuthURL.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/pagi.js') }}"></script>
     <title>The Istanbul Chronicle</title>
 {% endblock %}
 
 {% block body %}
-    {% from "./macros/feed/_highlights.html" import highlights with context%}
     <script>
         (function () {
             handleAuthURL('{{ subpage }}')
         })();
+        document.addEventListener('DOMContentLoaded', function(event) {
+            document.getElementById('highlights').setAttribute('data-highlights-end', '{{ h["last_uid"] }}');
+        })
     </script>
-    
-    {{ highlights(h) }}
-
-    <div class="article-list-area" id="article-list">
-
-        <ul class="article-list">
-
-            <!--
-            <li class="article-list-item">
-                paginated article div comes here
-            </li>
-            -->
-
-        </ul>
-    </div>
-    </div>
-
-
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_article_item.css') }}">
-
+    {% from "./macros/_feed.html" import feed with context %}
+    {{ feed(h['data']) }}
 
 {% endblock %}
