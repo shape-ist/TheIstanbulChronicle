@@ -212,7 +212,7 @@ li::marker {
 
 .article-page-cover {
     width: 100%;
-    height: 300px;
+    height: 360px;
     border-top-right-radius: var(--r2);
     border-top-left-radius: var(--r2);
     border-bottom: 1px solid var(--bg-alt);
@@ -231,22 +231,23 @@ li::marker {
     border: 1px solid var(--bg-alt);
     border-top-left-radius: var(--r2);
     border-top-right-radius: var(--r2);
-    box-shadow: var(--bs);
+    box-shadow: var(--bs-s);
 }
 
 .article-page-text {
-    padding: var(--m4);
+    padding: var(--m3) var(--m4);
 }
 
 .article-page-top {
     margin-right: 20%;
     margin-bottom: var(--m3);
+    margin-top: var(--m3);
 }
 
 .article-page-content-text-body {
     line-height: 150%;
     font-family: 'Lora';
-    font-weight: 500;
+    font-weight: 400;
     color: var(--g1);
     margin-bottom: var(--m4);
 }
