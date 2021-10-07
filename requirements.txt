@@ -15,14 +15,14 @@ google-api-core==2.0.1
 google-api-python-client==2.23.0
 google-auth==2.2.1
 google-auth-httplib2==0.1.0
-google-cloud-core==2.0.0
+google-cloud-core==2.1.0
 google-cloud-firestore==2.3.4
 google-cloud-storage==1.42.3
 google-crc32c==1.2.0
 google-resumable-media==2.0.3
 googleapis-common-protos==1.53.0
 grpcio==1.41.0
-httplib2==0.19.1
+httplib2==0.20.1
 idna==3.2
 itsdangerous==2.0.1
 Jinja2==3.0.1
