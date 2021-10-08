@@ -8,15 +8,24 @@ function canPagi() {
     return ($('#pagi-trigger').visible() && !pagiState && $('#article-list').height() > 1)
 }
 
-function appendArticle(article) {
+function displayAppended(content, cuid, callback) {
+    $(`#${cuid}`).loadTemplate($("#article-item"), {
+        ...content
+    })
+    callback()
+}
+
+function appendArticle(article, clamp_threshold = 6) {
     article.timestamp = unixTime(article.timestamp)
     article.url = `/article/${article.uid}`
     article.writer_url = `/profile/${article.writer.uid}`
     cuid = generateUID()
     appended = $('#article-list-inner').append($(`<div class="article-list-item"><div id=${cuid}>`))
-    $(`#${cuid}`).loadTemplate($("#article-item"), {
-        ...article
-    });
+    displayAppended(article, cuid, function(){
+        $clamp(document.getElementById(cuid)
+        .getElementsByClassName('clamp-article-preview')[0],
+        {clamp: clamp_threshold});
+    })
 }
 
 var socket = io();
@@ -39,19 +48,19 @@ function pagi() {
     }
 }
 
-function waitForFirstRender(elementPath, callBack){
-    window.setTimeout(function(){
-      if($(elementPath).children().length){
-        callBack(elementPath, $(elementPath));
-      }else{
-        waitForFirstRender(elementPath, callBack);
-      }
-    },500)
-  }
+function waitForFirstRender(elementPath, callBack) {
+    window.setTimeout(function () {
+        if ($(elementPath).children().length) {
+            callBack(elementPath, $(elementPath));
+        } else {
+            waitForFirstRender(elementPath, callBack);
+        }
+    }, 500)
+}
 
 function triggerPagi() {
     pagi()
-    waitForFirstRender('#article-list-inner', function(){
+    waitForFirstRender('#article-list-inner', function () {
         $('#pagi-trigger').css('bottom', Math.round($('#article-list-inner').height() / 2));
     })
     var pagiInterval = window.setInterval(function () {

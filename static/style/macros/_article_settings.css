@@ -1,0 +1,32 @@
+#article-settings {
+    background: var(--bg);
+    border: 1px solid var(--bg-alt);
+    padding: .5em;
+    width: fit-content;
+    position: relative;
+    left: 100%;
+    transform: translate(calc(-100% - var(--m2)), -50%);
+    box-shadow: var(--bs-s);
+}
+
+.article-font-size-btn {
+    font-family: var(--f2);
+    background: transparent;
+    color: var(--fg);
+}
+
+.article-font-size-btn:active {
+    filter: none !important;
+}
+
+.article-font-size-btn-small {
+    font-size: 1em
+}
+
+.article-font-size-btn-medium {
+    font-size: 1.25em
+}
+
+.article-font-size-btn-big {
+    font-size: 1.5em
+}

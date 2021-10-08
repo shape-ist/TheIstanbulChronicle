@@ -1,0 +1,9 @@
+{% macro article_settings() %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_article_settings.css') }}">
+    <script src="{{ url_for('static', filename='js/articleSettings.js') }}"></script>
+    <div id="article-settings" class="r1">
+        <button class='pointer article-font-size-btn article-font-size-btn-small' onclick='setTextSmall()'>T</button>
+        <button class='pointer article-font-size-btn article-font-size-btn-medium' onclick='setTextMedium()'>T</button>
+        <button class='pointer article-font-size-btn article-font-size-btn-big' onclick='setTextBig()'>T</button>
+    </div>
+{% endmacro %}

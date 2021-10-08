@@ -9,8 +9,9 @@ from flask_socketio import SocketIO, send
 from content import load_content
 
 if not isfile('.env'):
-    raise Exception(
-        'Missing .env file, please add a .env file in your root directory.')
+    print(
+        'WARN: Missing .env file, please add a .env file in your root directory.'
+    )
 
 content = load_content("content.yml")
 earlyaccess = True
@@ -24,22 +25,6 @@ app = Flask(__name__, template_folder='src')
 sio = SocketIO(app, debug=True, threaded=True)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
-
-# TODO: might be useful in the future
-# use to pass article content to article page as a kwarg though article id?
-# https://root/a=article_id
-# login_arg = request.args.get('login')
-"""
-TODO: !!!important!!!
-UNCOMMENT THIS ON PRODUCTION FOR SECURE SSL CONNECTIONS
-
-@app.before_request
-def before_request():
-    if not request.is_secure:
-        url = request.url.replace('http://', 'https://', 1)
-        code = 301
-        return redirect(url, code = code)
-"""
 
 
 def md_html(md_str):

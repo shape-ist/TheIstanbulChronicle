@@ -108,6 +108,10 @@ li::marker {
     padding: calc(var(--m2) * 1.5) var(--m2);
 }
 
+.new-article-title-a {
+    color: white !important;
+}
+
 .new-article-cover h1 {
     padding-right: 25%;
     font-family: var(--f2);
@@ -226,7 +230,7 @@ li::marker {
 }
 
 .article-content-wrapper-inner {
-    width: clamp(200px, 900px, 100%);
+    width: clamp(200px, var(--article-content-width), 100%);
     margin: auto;
     border: 1px solid var(--bg-alt);
     border-top-left-radius: var(--r2);
@@ -236,6 +240,7 @@ li::marker {
 
 .article-page-text {
     padding: var(--m3) var(--m4);
+    padding-top: 0 !important;
 }
 
 .article-page-top {

@@ -7,7 +7,9 @@
                 linear-gradient(var(--g2) 100%, transparent);">
             <div class="new-article-title-wrapper">
                 <h1 id="new-article-title">
-                    {{ article['title'] }}
+                    <a class="new-article-title-a" href="/article/{{ article['uid'] }}">
+                        {{ article['title'] }}
+                    </a>
                 </h1>
             </div>
         </div>
@@ -24,4 +26,10 @@
 
         </div>
     </div>
+    <script>
+        document.onreadystatechange = function () {
+            var module = document.getElementById("new-article-title");
+            $clamp(module, {clamp: 3});
+        };        
+    </script>
 {% endmacro %}
