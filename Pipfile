@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+gunicorn = "==20.1.0"
 bidict = "==0.21.3"
 CacheControl = "==0.12.6"
 cachetools = "==4.2.4"
