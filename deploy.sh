@@ -44,11 +44,11 @@ git commit -q -a -m "Release: ${releasetag}"
 git push -q
 
 gh release create $releasetag
-printf "${c}INFO: ${w}Deploying code..."
+printf "${c}INFO: ${w}Deploying code...\n"
 heroku git:remote -a istchron
 mv .gitignore .gitignore-deploy
 git push heroku main
-printf "${c}INFO: ${w}Deploy complete, cleaning up..."
+printf "${c}INFO: ${w}Deploy complete, cleaning up...\n"
 mv .gitignore-deploy .gitignore
 git remote rm heroku
 printf "${p}\nSuccesfully deployed the Chronicle!\n${w}"
