@@ -42,6 +42,7 @@ printf "${c}INFO: ${w}Committing release to remote... "
 git pull -q
 git commit -q -a -m "Release: ${releasetag}"
 git push -q
+git pull -q
 
 gh release create $releasetag
 printf "${c}INFO: ${w}Deploying code...\n"
