@@ -37,9 +37,9 @@ while true; do
     esac
 done
 
-git pull
-git commit -a -m "Release: ${releasetag}"
-git push
+git pull -q
+git commit -q -a -m "Release: ${releasetag}"
+git push -q
 
 gh release create $releasetag
 heroku git:remote -a istchron
