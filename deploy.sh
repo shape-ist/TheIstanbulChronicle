@@ -40,6 +40,7 @@ done
 
 printf "${c}INFO: ${w}Committing release to remote...\n"
 git pull -q
+git add -A
 git commit -q -a -m "Release: ${releasetag}"
 git push -q
 
