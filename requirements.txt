@@ -9,7 +9,7 @@
 bidict==0.21.3
 cachecontrol==0.12.6
 cachetools==4.2.4
-certifi==2021.5.30
+certifi==2021.10.8
 cffi==1.14.6
 charset-normalizer==2.0.6
 click==8.0.1
