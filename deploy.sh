@@ -49,8 +49,8 @@ git pull -q
 printf "${c}INFO: ${w}Deploying code...\n"
 heroku git:remote -a istchron
 mv .gitignore .gitignore-deploy
-git pull heroku master
-git push heroku main
+git pull -q heroku main
+git push -q -f heroku main
 printf "${c}INFO: ${w}Deploy complete, cleaning up...\n"
 mv .gitignore-deploy .gitignore
 git remote rm heroku
