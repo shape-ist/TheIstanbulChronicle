@@ -1,6 +1,7 @@
 #!/bin/bash
 # depends on: gh, git, heroku
 #!/bin/bash
+
 g='\033[1;32m' # green
 r='\033[1;31m' # red
 p='\033[1;35m' # purple
@@ -35,6 +36,10 @@ while true; do
         * ) ;;
     esac
 done
+
+git pull
+git commit -a -m "Release: ${releasetag}"
+git push
 
 gh release create $releasetag
 heroku git:remote -a istchron
