@@ -38,13 +38,14 @@ while true; do
     esac
 done
 
-printf "${c}INFO: ${w}Committing release to remote... "
+printf "${c}INFO: ${w}Committing release to remote...\n"
 git pull -q
 git commit -q -a -m "Release: ${releasetag}"
 git push -q
-git pull -q
 
 gh release create $releasetag
+git pull -q
+
 printf "${c}INFO: ${w}Deploying code...\n"
 heroku git:remote -a istchron
 mv .gitignore .gitignore-deploy
