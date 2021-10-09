@@ -78,9 +78,9 @@ def home():
         for _ in range(1000):
             print(request.form)
         if request.form['job'] == 'login':
-            print("login sex")
+            print("login")
         elif request.form['job'] == 'register':
-            print("register sex")
+            print("register")
         else:
             raise Exception('Authentication Failed')
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
