@@ -256,3 +256,15 @@ li::marker {
     color: var(--g1);
     margin-bottom: var(--m4);
 }
+
+.mobile-drawer-handle {
+    width: 12%;
+    position: relative;
+    background: rgba(255, 255, 255, .7);
+    height: 8px;
+    border-radius: 999px;
+    left: 50%;
+    transform: translate(-50%, calc(100% + 4px));
+    box-shadow: var(--bs-s);
+    display: none;
+}

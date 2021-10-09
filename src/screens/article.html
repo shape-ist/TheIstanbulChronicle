@@ -17,7 +17,8 @@
 </script>
 <div class="article-content-wrapper">
     <div class="article-content-wrapper-inner">
-        <img src="{{ article['cover_image'] }}" alt="{{ article['title'] }}" class="article-page-cover">
+        <div class="mobile-drawer-handle"></div>
+        <img src="{{ article['cover_image'] }}" alt="Cover image of article {{ article['title'] }}" class="article-page-cover">
         {% from "./macros/_article_settings.html" import article_settings %}
         {{ article_settings() }}
         <div class="article-page-text">

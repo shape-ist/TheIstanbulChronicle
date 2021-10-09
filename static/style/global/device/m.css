@@ -1,0 +1,48 @@
+@media only screen and (max-width: 500px) {
+    .article-page-text {
+        padding-right: var(--m2) !important;
+        padding-left: var(--m3) !important;
+        padding-top: var(--m2) !important;
+        padding-bottom: var(--m3) !important;
+    }
+
+    .article-content-wrapper-inner,
+    .article-content-wrapper {
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    .article-content-wrapper-inner {
+        border: none !important;
+    }
+
+    .article-page-content-text-body {
+        font-size: 1.2em;
+    }
+
+    .article-page-cover {
+        height: 25vh !important;
+    }
+
+    .article-page-title {
+        font-size: var(--size3) !important;
+    }
+
+    .article-page-cover {
+        border-top-right-radius: var(--r3) !important;
+        border-top-left-radius: var(--r3) !important;
+    }
+
+    .article-page-top {
+        margin-top: 0 !important;
+    }
+
+    .mobile-drawer-handle {
+        display: block !important;
+    }
+
+    .app-wrapper {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+}
