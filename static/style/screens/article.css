@@ -146,10 +146,10 @@ li::marker {
 }
 
 .new-article-text-fade-out {
-    height: 40%;
+    height: 50%;
     width: 100%;
     position: relative;
-    bottom: 40%;
+    bottom: 50%;
     background: linear-gradient(transparent, var(--bg));
     pointer-events: none
 }

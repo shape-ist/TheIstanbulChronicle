@@ -44,7 +44,7 @@
     }
 
     .new-article-preview {
-        max-height: 340px !important;
+        max-height: 360px !important;
         width: 360px !important;
     }
 
@@ -76,5 +76,38 @@
 
     .highlight-article-item.artlicle-list-item.article-li {
         height: 120px;
+    }
+
+    #about-wrapper {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        font-size: 1.25em;
+    }
+
+    #about-page-wrapper {
+        max-width: 65%;
+    }
+
+    .about-content-wrapper {
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-bottom: var(--m2) !important;
+        padding-bottom: var(--m2) !important;
+        border-bottom: 1px solid var(--g2) !important;
+    }
+
+    #mobile-logo {
+        display: block !important;
+        font-size: 1.2em;
+    }
+
+    #header-logo,
+    #ftcl {
+        display: none !important;
+    }
+
+    #logo-beta {
+        transform: translate(50%, 25%);
     }
 }
