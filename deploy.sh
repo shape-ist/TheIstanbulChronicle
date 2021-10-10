@@ -1,6 +1,5 @@
 #!/bin/bash
 # depends on: gh, git, heroku
-#!/bin/bash
 
 g='\033[1;32m' # green
 r='\033[1;31m' # red
