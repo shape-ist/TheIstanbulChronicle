@@ -34,6 +34,7 @@
     </div>
 {% endmacro %}
 {% macro register() %}
+    <script src="{{ url_for('static', filename='js/ajax/register.js') }}"></script>
     {{ auth_handlers() }}
     <div id="register-area" class="overlay auth-overlay flex-col flex-center" style="display:none">
         <div id="register-content-container" class="flex-col flex-center">
