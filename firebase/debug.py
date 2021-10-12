@@ -15,11 +15,15 @@ def debug_user():
 
 
 def test_articles():
+    import random
+    cover_list = [
+        'https://i.imgur.com/eRM6hHb.jpeg', 'https://i.imgur.com/2k8WNSM.jpeg',
+        'https://i.imgur.com/LEbNkdn.jpeg'
+    ]
     for i in range(50):
         article.upload_article(
-            schema.article(
-                title=f'{i + 1}- Article title',
-                body=str("""
+            schema.article(title=f'{i + 1}- Article title',
+                           body=str("""
                 
                 # This is a title
                 
@@ -54,6 +58,4 @@ def test_articles():
                 Etiam quam odio, mattis nec elit in, accumsan fermentum magna. Curabitur eget nisl vel nisi mollis laoreet non efficitur leo. Curabitur nec enim lacus. Nunc non facilisis lectus. Duis eu dolor massa. Vivamus tincidunt odio cursus est bibendum, at lacinia quam tempor. Ut arcu ante, egestas ac tempus a, convallis et ex. Pellentesque sit amet felis condimentum, maximus ex consectetur, feugiat diam. Nam aliquet velit sit amet finibus dignissim. Morbi in orci egestas, gravida mi eget, aliquam odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec massa diam, dapibus fermentum rhoncus et, consequat vel mi.
 
                 """),
-                cover_image=
-                'https://udiscoverbrand.co/img/products/84396-goel-tekne-agaclar-daglar-bulutlar-doga-manzara-255fj-odas-ev-duvar-modern-sanat-dekor-ahsap-cerceve-poster.jpg'
-            ))
+                           cover_image=random.choice(cover_list)))

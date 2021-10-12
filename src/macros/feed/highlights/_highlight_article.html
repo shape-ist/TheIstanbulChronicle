@@ -12,15 +12,14 @@
             </div>
         </div>
         <div class="highlight-article-right-section flex-row flex-center">
-            <div class="highlight-article-preview-wrapper">
-                <p class="highlight-article-preview flex-col">
-            <span class="select" style='line-height: 120%;'>
-                {{ article['body'] }}
-                <span>...</span> <a class="article-readmore" href="/article/{{ article['uid'] }}">Read More... </a>
-            </span>
-                </p>
-            </div>
-
+                <div class="highlight-article-preview-wrapper">
+                    <p class="highlight-article-preview flex-col">
+                <span class="select" style='line-height: 120%;'>
+                    {{ article['body'] }}
+                    <span>...</span> <a class="article-readmore" href="/article/{{ article['uid'] }}">Read More... </a>
+                </span>
+                    </p>
+                </div>
             <img class="highlight-article-image  article-cover"
                  src="{{ article['cover_image'] }}" alt="Article image">
         </div>

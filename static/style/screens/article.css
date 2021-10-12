@@ -258,9 +258,9 @@ li::marker {
 }
 
 .mobile-drawer-handle {
-    width: 12%;
+    width: 15%;
     position: relative;
-    background: rgba(255, 255, 255, .7);
+    background: rgba(255, 255, 255, .75);
     height: 8px;
     border-radius: 999px;
     left: 50%;

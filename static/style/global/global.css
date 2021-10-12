@@ -298,3 +298,9 @@ input {
     height: var(--size2);
     width: var(--size2);
 }
+
+#mobile-menu {
+    font-size: 1.25em;
+    background: transparent !important;
+    color: var(--fg);
+}

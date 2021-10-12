@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1600px) {
     .social-icon {
         box-shadow: var(--bs-s);
         font-size: .75em;
@@ -9,8 +9,8 @@
         width: fit-content !important;
         flex-direction: row;
         top: 100% !important;
-        left: 100% !important;
-        transform: translate(calc(-100% - var(--m1)), calc(-100% - var(--m1)));
+        left: 0 !important;
+        transform: translate(calc(var(--m1)), calc(-100% - var(--m1)));
         background: var(--bg);
         padding: 6px;
         border: 1px solid var(--bg-alt);

@@ -2,6 +2,8 @@
     {% from "./macros/_auth.html" import login %}
     {% from "./macros/_auth.html" import register %}
     {% from "./macros/_header_rightmost.html" import header_profile, header_auth with context %}
+    {% from "./macros/_mobile_menu.html" import mobile_menu %}
+    {{ mobile_menu() }}
     <header id="header">
         <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/disableOnURL.js') }}"></script>
@@ -43,6 +45,7 @@
                     </span>
                 {% endif %}
             </div>
+        <button onclick="displayDismiss('mobile-menu','mobile-menu-drawer-wrapper','block')" id="mobile-menu" class="pointer none fas fa-bars"></button>
         </div>
     </header>
 {% endmacro %}
