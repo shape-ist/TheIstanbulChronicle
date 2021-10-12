@@ -59,6 +59,7 @@ fi
 printf "${c}INFO: ${w}Deploying code...\n"
 heroku git:remote -a istchron
 mv .gitignore .gitignore-deploy
+git add -A
 git pull -q heroku main
 git push -q -f heroku main
 printf "${c}INFO: ${w}Deploy complete, cleaning up...\n"
