@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('#login-form').on('submit', function (event) {
         $.ajax({
             data: {
+                job: "login",
                 email: $('#login-email').val(),
                 password: $('#login-password').val()
             },

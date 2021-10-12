@@ -14,7 +14,7 @@ if not isfile('.env'):
     )
 
 content = load_content("content.yml")
-earlyaccess = True
+earlyaccess = False
 
 # firebase imports (should be done after dotenv validation)
 from firebase import user
@@ -75,9 +75,9 @@ def utility_processor():
 def home():
     subpage = request.args.get('goto') if earlyaccess is not True else None
     if request.method == 'POST':
-        for _ in range(1000):
-            print(request.form)
         if request.form['job'] == 'login':
+            print(dict(request.form))
+            user.login(request.form["email"], request.form["password"])
             print("login")
         elif request.form['job'] == 'register':
             print("register")
