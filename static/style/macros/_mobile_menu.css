@@ -40,3 +40,19 @@
     pointer-events: none;
     opacity: .25;
 }
+
+#mobile-theme {
+    font-size: 1.5em;
+    position: relative;
+    right: 0;
+    left: 100%;
+    transform: translate(-150%, -50%);
+}
+
+#mobile-theme i {
+    padding: var(--m1);
+    border-radius: 999px;
+    background: var(--g2);
+    color: var(--fg);
+    border: 1px solid var(--bg-alt);
+}

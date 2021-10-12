@@ -1,13 +1,15 @@
 {% macro mobile_menu() %}
 <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_mobile_menu.css') }}">
 <div id="mobile-menu-drawer-wrapper">
-    <button class="toggle-theme-btn pointer" onclick="toggleTheme()">
-        <i class="fas fa-adjust"></i>
-    </button>
     <div id="mobile-menu-drawer">
+        <div>
+            <button id="mobile-theme" class="toggle-theme-btn pointer" onclick="toggleTheme()">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
         <ul>
             <li>
-            <a href="/about">About Us</a>
+                <a href="/about">About Us</a>
             </li>
             <li class="disabled-menu">
                 <a href="/login">Login</a>
