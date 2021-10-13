@@ -2,8 +2,8 @@ function flyIn(target) {
     anime({
       targets: target,
       translateY: '-100%',
-      easing: 'easeOutCubic',
-      duration: 400
+      easing: 'easeOutQuad',
+      duration: 250
     });
   }
   function flyOut(target) {
