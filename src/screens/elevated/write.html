@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% from "./macros/_form.html" import form %}
 
 {% block head %}
     <meta charset="utf-8">
@@ -22,7 +21,7 @@
         };
     </script>
     <div class="flex-row article-top-section">
-        {{ form('Title',       'write-input-field article-name-field' ,    'write-article-title',       'text',        'name-article-title') }}
+        <input name="name-article-title" type="text" placeholder="Title" id="write-article-title" class="input-field write-input-field article-name-field" maxlength="60" spellcheck="false" data-ms-editor="true">
         <p class="sub article-date">
             <span id="write-current-date"></span>
             <i class="article-date-icon fas fa-calendar"></i>

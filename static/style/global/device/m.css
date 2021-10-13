@@ -80,7 +80,7 @@
     }
 
     #socials-side {
-        font-size: 2em !important;
+        display: none !important;
     }
 
     .highlights-right-container {
@@ -193,5 +193,20 @@
 
     #mobile-menu {
         display: inline-block !important;
+    }
+
+    #write-btn-text {
+        display: none;
+    }
+
+    .write-btn {
+        padding: var(--m2) !important;
+        margin: var(--m2) !important;
+    }
+
+    .write-icon,
+    .write-link {
+        font-size: 1.25em !important;
+        margin-right: 0 !important;
     }
 }
