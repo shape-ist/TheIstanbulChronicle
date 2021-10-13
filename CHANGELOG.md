@@ -1,8 +1,11 @@
 ## Changelog
 
-### 0.0.8-dev-pre
+### 0.0.8-dev
 - terms and conditions back online
 - article read page implemented
+- mobile view added
+- authentication ajax progress
+- dependency bump
 
 ### 0.0.7-dev
 
