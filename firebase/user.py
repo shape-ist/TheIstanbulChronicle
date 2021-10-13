@@ -40,3 +40,11 @@ def logout():
 def is_signed_in():
     return current_uid() is not None
     # check if this function reutrns expected values
+
+
+def email_auth(r):
+    print(r)
+    if r['job'] == 'login':
+        login(r['email'], r['password'])
+    elif r['job'] == 'register':
+        register(r['email'], r['password'], r['name'])

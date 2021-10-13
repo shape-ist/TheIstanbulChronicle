@@ -14,7 +14,7 @@ if not isfile('.env'):
     )
 
 content = load_content("content.yml")
-earlyaccess = True
+earlyaccess = False
 
 # firebase imports (should be done after dotenv validation)
 from firebase import user
@@ -75,14 +75,10 @@ def utility_processor():
 def home():
     subpage = request.args.get('goto') if earlyaccess is not True else None
     if request.method == 'POST':
-        for _ in range(1000):
-            print(request.form)
-        if request.form['job'] == 'login':
-            print("login")
-        elif request.form['job'] == 'register':
-            print("register")
-        else:
-            raise Exception('Authentication Failed')
+        try:
+            user.email_auth(dict(request.form))
+        except:
+            raise Exception('Auth failed')
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     for i in init_pagi['data'][1:]:
         i['body'] = i['body'].strip().replace("\n", "")[:200].rsplit(' ', 1)[0]
