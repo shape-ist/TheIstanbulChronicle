@@ -75,10 +75,6 @@
     transition: .5s ease;
 }
 
-.none {
-    display: none;
-}
-
 .overlay {
     position: fixed;
     height: 100%;
@@ -92,7 +88,7 @@
     -webkit-animation: .4s fade;
     animation: .4s fade;
     -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px)
+    backdrop-filter: blur(12px);
 }
 
 .title-large {

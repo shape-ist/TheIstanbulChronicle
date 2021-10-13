@@ -12,13 +12,6 @@
     border: 1px solid var(--g1);
 }
 
-#mobile-menu-drawer-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: fit-content;
-}
-
 #mobile-menu-drawer ul {
     height: 100%;
     list-style-type: none;
@@ -76,6 +69,8 @@
 }
 
 #mobile-menu-drawer-wrapper {
+    position: fixed;
+    left: 0;
     z-index: 999999;
     position: fixed;
     margin-top: 24px;

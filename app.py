@@ -51,7 +51,7 @@ def utility_processor():
     def authorized(level, uid=user.current_uid()):
         try:
             return fbtools.isauthorized(level, uid)
-        except:
+        except Exception:
             return False
 
     def c_user():
@@ -77,7 +77,7 @@ def home():
     if request.method == 'POST':
         try:
             user.email_auth(dict(request.form))
-        except:
+        except Exception:
             raise Exception('Auth failed')
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     for i in init_pagi['data'][1:]:
@@ -95,9 +95,8 @@ def current_user_profile_redir():
         cuid = user.current_uid()
         if cuid != None:
             return redirect(f'/profile/{cuid}')
-        else:
-            return redirect('/login')
-    except:
+        return redirect('/login')
+    except Exception:
         return redirect('/login')
 
 
@@ -149,8 +148,7 @@ def verify():
     if user.user_exists(uid):
         return render_template('./screens/verify.html',
                                verification_text=content["verification_text"])
-    else:
-        return redirect("/")
+    return redirect("/")
 
 
 @app.route('/favicon.png')
@@ -166,8 +164,7 @@ def write():
 
     if fbtools.isauthorized('W', user.current_uid()):
         return render_template('./screens/elevated/write.html')
-    else:
-        return forbidden(Exception("User not authorized"))
+    return forbidden(Exception("User not authorized"))
 
 
 @app.route('/legal/terms-and-conditions')
@@ -229,21 +226,20 @@ def profile_edit():
                 },
             )
         return render_template('./screens/profile_edit.html')
-    except:
+    except Exception:
         return redirect('/login')
 
 
 @app.route('/profile/<uid>')
 def user_profile(uid):
-    if earlyaccess is True: return redirect('/')
+    if earlyaccess is True:
+        return redirect('/')
     try:
         user_data = fbtools.get_doc(u'users', uid)
         if user_data['elevation'] == []:
             raise Exception()
-        else:
-            return render_template('./screens/profile.html',
-                                   user_data=user_data)
-    except:
+        return render_template('./screens/profile.html', user_data=user_data)
+    except Exception:
         return render_template('./screens/profile_not_found.html')
 
 
@@ -272,7 +268,7 @@ def article_page(auid):
 def rmpfp():
     try:
         fbtools.update_fields(u'users', user.current_uid(), {u'pfp': ''})
-    except:
+    except Exception:
         pass
     return ("current user pfp reset")
 
@@ -305,7 +301,7 @@ def uuid():
     from firebase.setup import auth
     try:
         return auth.current_user['localId']
-    except:
+    except Exception:
         return None
 
 
