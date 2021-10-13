@@ -1,6 +1,6 @@
 {% macro mobile_menu() %}
 <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_mobile_menu.css') }}">
-<div id="mobile-menu-drawer-wrapper">
+<div class='none' id="mobile-menu-drawer-wrapper" style="transform: translateY(100%)">
     <div id="mobile-menu-drawer">
         <div>
             <button id="mobile-theme" class="toggle-theme-btn pointer" onclick="toggleTheme()">
@@ -29,5 +29,8 @@
             </li>
         </ul>
     </div>
+    <button id="mobile-back-btn" onclick="flyOut('#mobile-menu-drawer-wrapper')">
+        Back
+    </button>
 </div>
 {% endmacro %}
