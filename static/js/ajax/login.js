@@ -7,7 +7,8 @@ $(document).ready(function () {
                 password: $('#login-password').val()
             },
             type: 'POST',
-            url: '/'
+            url: '/',
+            traditional: true
         }).done(function (data) {
             if (data.error) {
                 alert(data.error)
@@ -18,5 +19,3 @@ $(document).ready(function () {
         event.preventDefault();
     });
 });
-
-// test commit 
