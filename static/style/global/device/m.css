@@ -43,7 +43,8 @@
     }
 
     #about-page-wrapper {
-        margin-top: 220px;
+        top: 120px !important;
+        position: absolute;
     }
 
     .app-wrapper {
