@@ -63,9 +63,9 @@
 #mobile-theme i {
     padding: var(--m1);
     border-radius: 999px;
-    background: var(--g2);
+    background: var(--bg);
     color: var(--fg);
-    border: 1px solid var(--bg-alt);
+    border: 1px solid var(--g1);
 }
 
 #mobile-menu-drawer-wrapper {
@@ -79,7 +79,7 @@
     bottom: 0;
     top: calc(100% - 24px);
     transform: translateY(-100%);
-    background: linear-gradient(transparent, rgba(10, 10, 10, .75));
+    background: linear-gradient(transparent, rgba(10, 10, 10, .2));
 }
 
 .mobile-social {
