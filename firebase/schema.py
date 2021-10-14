@@ -30,7 +30,7 @@ def user(email: str = '',
 def article(title: str = '',
             body: str = '',
             tag: str = '',
-            article_type: str = '',
+            article_type: str = 'article',
             cover_image: str = '',
             is_approved: bool = False):
     from time import time
