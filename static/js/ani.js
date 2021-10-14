@@ -3,7 +3,7 @@ function flyIn(target) {
       targets: target,
       translateY: '-100%',
       easing: 'easeOutQuad',
-      duration: 250
+      duration: 200
     });
   }
   function flyOut(target) {
@@ -11,6 +11,6 @@ function flyIn(target) {
       targets: target,
       translateY: '100%',
       easing: 'easeInOutCirc',
-      duration: 350
+      duration: 300
     });
-  }     
+  }

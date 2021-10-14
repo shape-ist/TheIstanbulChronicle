@@ -85,7 +85,9 @@
     }
 
     #about-page-wrapper {
-        max-width: 65%;
+        top: 120px !important;
+        position: absolute;
+        max-width: 60%;
     }
 
     .about-content-wrapper {

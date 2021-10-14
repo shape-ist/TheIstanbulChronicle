@@ -41,7 +41,7 @@
     color: var(--fg);
     font-family: var(--f2);
     padding: var(--m2);
-    margin: var(--m2) 5%;
+    margin: var(--m1) 5%;
     border-radius: var(--r3);
     font-weight: 600;
     font-size: var(--size1);
@@ -69,6 +69,7 @@
 }
 
 #mobile-menu-drawer-wrapper {
+    font-weight: 600;
     position: fixed;
     left: 0;
     z-index: 999999;
@@ -86,4 +87,9 @@
     width: fit-content !important;
     padding: .5em .25em !important;
     font-size: 1.8em;
+}
+
+.mobile-menu-text {
+    font-weight: 600 !important;
+    color: var(--fg);
 }
