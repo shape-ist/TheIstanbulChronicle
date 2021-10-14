@@ -1,6 +1,7 @@
 {% macro mobile_menu() %}
 <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_mobile_menu.css') }}">
 <div class='none' id="mobile-menu-drawer-wrapper" style="transform: translateY(100%)">
+    <div class="mobile-menu-fade"></div>
     <div id="mobile-menu-drawer">
         <div>
             <button id="mobile-theme" class="toggle-theme-btn pointer" onclick="toggleTheme()">
@@ -10,19 +11,18 @@
         <ul>
             <li>
                 <a href="/about">
-                    <p class="mobile-menu-text">
                         About Us
-                    </p>
                 </a>
+            </li>        
+            <li>
+                <a class="disabled-menu" href="/login">Login</a>
             </li>
-            <!--            
-            <li class="disabled-menu">
-                <a href="/login">Login</a>
+            <li>
+                <a class="disabled-menu" href="/register">Register</a>
             </li>
-            <li class="disabled-menu">
-                <a href="/register">Register</a>
+            <li>
+                <a class="disabled-menu" href="/contribute">Contribute</a>
             </li>
-            -->
             <li>
                 <div class="flex-row flex-center">
                     <a tabindex="-1" rel="noopener" href="https://twitter.com/theistchronicle" target="_blank"
@@ -34,9 +34,7 @@
         </ul>
     </div>
     <button id="mobile-back-btn" onclick="flyOut('#mobile-menu-drawer-wrapper')">
-        <p class="mobile-menu-text">
             Back
-        </p>
     </button>
 </div>
 {% endmacro %}

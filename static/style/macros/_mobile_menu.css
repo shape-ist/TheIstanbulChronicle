@@ -1,7 +1,7 @@
 #mobile-menu-drawer {
     z-index: 9999;
-    min-height: 25vh;
-    max-height: 75vh;
+    min-height: 10vh;
+    max-height: 25vh;
     width: 90%;
     margin: auto;
     background: var(--bg);
@@ -10,6 +10,13 @@
     border-radius: var(--r3);
     box-shadow: var(--bs);
     border: 1px solid var(--g1);
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: var(--m2) 0;
+}
+
+#mobile-menu-drawer::-webkit-scrollbar {
+    width: 0 !important;
 }
 
 #mobile-menu-drawer ul {
@@ -31,7 +38,7 @@
     display: inline-block;
     width: 100%;
     text-align: center;
-    padding: var(--m2) 0;
+    padding: 26px 0;
 }
 
 #mobile-back-btn {
@@ -54,10 +61,9 @@
 
 #mobile-theme {
     font-size: 1.5em;
-    position: relative;
-    right: 0;
+    position: fixed;
     left: 100%;
-    transform: translate(-150%, -50%);
+    transform: translate(calc(-150% - var(--m1)), calc(-50% - var(--m2)));
 }
 
 #mobile-theme i {
