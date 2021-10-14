@@ -1,0 +1,25 @@
+﻿Twitter Tests ‘Safety Mode’ To Block Hate Speech 
+Verbal harassment, trolls, bullying are big problems on the internet, and especially on Twitter. Twitter is known for some users’ harsh and brutal words that can’t be taken back, and that can be hurtful to one’s feelings. To try to improve this problem, Twitter has recently announced that they are launching a new feature that cracks down abuse. Because ‘Safety Mode is still being tested, it is not available worldwide just yet. However, it is being tested with a “small feedback group” that consists of about 1000 English language users. This is a big step for Twitter considering the amount of harassment a Twitter user faces nowadays. 
+
+You may ask: “How does ‘Safety Mode’ work?”
+ Well, it temporarily blocks accounts for seven days for potentially using harmful language (hateful words, insults) or it will detect accounts that bombard people with uninvited comments and block them as well. The system takes both the tweets’ content and the relationship between the author of the tweet and replier.  
+
+Katy Minshall, head of Twitter United Kingdom Public Policy, said: "While we have made strides in giving people greater control over their safety experience on Twitter, there is always more to be done. We're introducing Safety Mode; a feature that allows you to automatically reduce disruptive interactions on Twitter, which in turn improves the health of the public conversation." Since Twitter was declared as “the worst tech giant” when it comes to hate speech by Facts Against Hate on behalf of the Finnish government, this clearly is a big step for them. Along with dealing with abuse Twitter is also more determined than ever to crack down misinformation. 
+
+I can hear you asking: “Well, then what’s next for Twitter then?”
+ Well, the company says they are going to observe how the system works and incorporate improvement and adjustments before making the ‘Safety Mode’ available to everyone. Shortly, they are trying to improve themselves during this trial period of ‘Safety Mode’ to block hate speech on the platform. This new feature is clearly destined to make a lot of people’s lives easier and free from internet abuse. 
+
+--Ekin Toker
+
+Work Cited
+----------
+Twitter launches "safety mode" to block accounts for harmful language
+https://www.reuters.com/article/twitter-feature/twitter-launches-safety-mode-to-block-accounts-for-harmful-language-idUSKBN2FX3UV
+Twitter tests safety mode feature to silence abuse
+Wakefield
+https://www.bbc.com/news/technology-58408781
+Introducing Safety Mode
+https://blog.twitter.com/en_us/topics/product/2021/introducing-safety-mode#:~:text=Safety%20Mode%20is%20a%20feature,and%20uninvited%20replies%20or%20mentions.
+Twitter tests new harassment prevention feature with 'Safety Mode'
+Bell
+https://www.engadget.com/twitter-tests-safety-mode-164638754.html

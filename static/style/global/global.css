@@ -1,7 +1,7 @@
 .app-wrapper {
     max-width: 1080px;
     margin: auto;
-    padding: calc(var(--topbar-height) * 4) 100px;
+    padding: 15vh
 }
 
 * {

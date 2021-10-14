@@ -37,11 +37,6 @@
         display: block !important;
     }
 
-    .app-wrapper {
-        width: 100% !important;
-        padding: 0 !important;
-    }
-
     #about-page-wrapper {
         max-width: 80% !important;
     }
