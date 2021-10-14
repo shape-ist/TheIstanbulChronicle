@@ -3,7 +3,6 @@
 {% endmacro %}
 {% macro login() %}
     <script src="{{ url_for('static', filename='js/ajax/login.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ajax/register.js') }}"></script>
     {{ auth_handlers() }}
     <div id="login-area" class="overlay auth-overlay flex-col flex-center" style="display:none;">
         <div id="login-content-container" class="flex-col flex-center">
