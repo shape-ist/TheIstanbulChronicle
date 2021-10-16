@@ -4,6 +4,7 @@ from os.path import join
 from markdown import markdown
 
 from flask import *
+from flask_caching import Cache
 from flask_socketio import SocketIO, send
 
 from content import load_content
@@ -22,9 +23,12 @@ from firebase import tools as fbtools
 from firebase import paginate
 
 app = Flask(__name__, template_folder='src')
-sio = SocketIO(app, debug=True, threaded=True)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
+app.config['DEBUG'] = True
+app.config['CACHE_TYPE'] = 'SimpleCache'
+app.config['CACHE_DEFAULT_TIMEOUT'] = 600
+sio = SocketIO(app, debug=True, threaded=True)
 
 
 def md_html(md_str):
@@ -82,7 +86,6 @@ def home():
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     for i in init_pagi['data'][1:]:
         i['body'] = i['body'].strip().replace("\n", "")[:200].rsplit(' ', 1)[0]
-    print(init_pagi['data'])
     return render_template('./screens/index.html',
                            subpage=subpage,
                            h=init_pagi)
@@ -284,7 +287,6 @@ def api_pagi(coll, sort):
 
 @sio.on('pagiRequest')
 def pagi_request(data):
-    print('received message\n' + str(data))
     send(paginate.paginate('articles', 'timestamp', l=10, o='desc', i=data))
 
 

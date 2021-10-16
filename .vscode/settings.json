@@ -3,6 +3,7 @@
   "discord.enabled": true,
   "cSpell.words": [
     "auid",
+    "dotenv",
     "endmacro",
     "endraw",
     "inview",

@@ -43,7 +43,6 @@ def is_signed_in():
 
 
 def email_auth(r):
-    print(r)
     if r['job'] == 'login':
         login(r['email'], r['password'])
     elif r['job'] == 'register':

@@ -17,22 +17,12 @@ def debug_user():
 def test_articles():
     import random
     cover_list = [
-        'https://i.imgur.com/eRM6hHb.jpeg', 'https://i.imgur.com/2k8WNSM.jpeg',
-        'https://i.imgur.com/LEbNkdn.jpeg'
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Discount_Codes_Online.jpg/640px-Discount_Codes_Online.jpg'
     ]
     for i in range(50):
         article.upload_article(
-            schema.article(title=f'{i + 1}- Article title',
+            schema.article(title=f'{i + 1}- This is a debug article',
                            body=str("""
-                
-                # This is a title
-                
-                * hello there *
-                
-                - list
-                - list
-                - list         
-
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur sit amet sapien non lobortis. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus iaculis pharetra dolor, ullamcorper volutpat elit. Morbi a purus a justo interdum consequat. Nam iaculis ante vel augue aliquam, at volutpat lacus lacinia. Fusce tempus ligula sit amet mauris lacinia varius.
 
                 Morbi nulla nulla, tempor aliquet tellus eu, suscipit scelerisque nisi. Nunc sagittis ultrices arcu, ac fermentum lacus facilisis sit amet. Vivamus hendrerit tempus nunc sit amet maximus. Sed velit turpis, tristique vel metus id, aliquet fermentum nibh. Nulla finibus, enim quis sollicitudin commodo, ex orci semper tellus, a porta eros mi sit amet tellus. Phasellus commodo a mauris nec laoreet. Vivamus rutrum lorem eu ex faucibus scelerisque. Proin ac turpis nec urna vestibulum pulvinar. Suspendisse et nisl ultrices, tristique elit sed, viverra est. Vivamus eu tortor at dolor feugiat aliquet. Sed nec ornare purus. Etiam laoreet mi leo, vitae pharetra sapien congue egestas.
