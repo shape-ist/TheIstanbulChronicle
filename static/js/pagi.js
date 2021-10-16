@@ -28,7 +28,7 @@ function appendArticle(article, clamp_threshold = 6) {
     })
 }
 
-var socket = io();
+var socket = io.connect(window.location.host);
 socket.on('message', function (msg) {
     pagiStore.push(msg)
     if (msg.data.error === undefined) {

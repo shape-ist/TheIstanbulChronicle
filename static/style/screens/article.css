@@ -110,6 +110,7 @@ li::marker {
 
 .new-article-title-a {
     color: white !important;
+    line-height: 115%;
 }
 
 .new-article-cover h1 {
