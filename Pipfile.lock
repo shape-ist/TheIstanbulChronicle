@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e6aafb0b7f1ab01c07193d4cb43ca9dd07a04d6ae4cc76c08a53c1feef849321"
+            "sha256": "f0b916685c70befd965f8006788f31c75be813cac7dc16eee0ae0d5ec791f01f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -193,11 +193,11 @@
         },
         "google-api-python-client": {
             "hashes": [
-                "sha256:1c6267c7f018d86afc62dd8ec844a3e7189022a35ee239ed704cbda010888998",
-                "sha256:75edc13a5c6dd9ff6f47721162a845edc343b4987ee059842e9a7905ad62e917"
+                "sha256:66389e23fdd23dc7fabf3235afc4bd9bf4d1332e960aa7c058f17ea8848dae35",
+                "sha256:faac5b276f90de1258d553b4dcf1cad92827b047ea31819927514b60e62616da"
             ],
             "index": "pypi",
-            "version": "==2.24.0"
+            "version": "==2.26.1"
         },
         "google-auth": {
             "hashes": [
