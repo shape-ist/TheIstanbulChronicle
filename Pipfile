@@ -3,6 +3,10 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[[source]]
+url = "https://pypi.python.org/simple/"
+verify_ssl = true
+
 [packages]
 bidict = "==0.21.3"
 CacheControl = "==0.12.6"
@@ -14,14 +18,12 @@ click = "==8.0.1"
 cryptography = "==35.0.0"
 Deprecated = "==1.2.13"
 firebase-admin = "==5.0.3"
-Flask = "==2.0.2"
 Flask-SocketIO = "==5.1.1"
-gunicorn = "==20.1.0"
+Flask = "==2.0.2"
 gcloud = "==0.18.3"
-google-api-core = "==2.1.0"
 google-api-python-client = "==2.24.0"
-google-auth = "==2.3.0"
 google-auth-httplib2 = "==0.1.0"
+google-auth = "==2.3.0"
 google-cloud-core = "==2.1.0"
 google-cloud-firestore = "==2.3.4"
 google-cloud-storage = "==1.42.3"
@@ -29,6 +31,7 @@ google-crc32c = "==1.3.0"
 google-resumable-media = "==2.0.3"
 googleapis-common-protos = "==1.53.0"
 grpcio = "==1.41.0"
+gunicorn = "==20.1.0"
 httplib2 = "==0.20.1"
 idna = "==3.2"
 itsdangerous = "==2.0.1"
@@ -40,8 +43,8 @@ msgpack = "==1.0.2"
 oauth2client = "==4.1.3"
 proto-plus = "==1.19.5"
 protobuf = "==3.18.1"
-pyasn1 = "==0.4.8"
 pyasn1-modules = "==0.2.8"
+pyasn1 = "==0.4.8"
 pycparser = "==2.20"
 pycryptodome = "==3.11.0"
 pyparsing = "==2.4.7"
@@ -51,16 +54,21 @@ python-engineio = "==4.2.1"
 python-jwt = "==3.3.0"
 python-socketio = "==5.4.0"
 PyYAML = "==5.4.1"
-requests = "==2.26.0"
 requests-toolbelt = "==0.9.1"
+requests = "==2.26.0"
 rsa = "==4.7.2"
 six = "==1.16.0"
 uritemplate = "==3.0.1"
 urllib3 = "==1.26.7"
 Werkzeug = "==2.0.2"
 wrapt = "==1.13.1"
+Flask-Caching = "==1.10.1"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+
+[packages.google-api-core]
+extras = [ "grpc",]
+version = "==2.1.0"
