@@ -6,6 +6,7 @@
 #
 
 -i https://pypi.python.org/simple/
+--extra-index-url https://pypi.python.org/simple/
 bidict==0.21.3
 cachecontrol==0.12.6
 cachetools==4.2.4
@@ -16,6 +17,7 @@ click==8.0.1
 cryptography==35.0.0
 deprecated==1.2.13
 firebase-admin==5.0.3
+flask-caching==1.10.1
 flask-socketio==5.1.1
 flask==2.0.2
 gcloud==0.18.3
@@ -49,7 +51,7 @@ pycparser==2.20
 pycryptodome==3.11.0
 pyparsing==2.4.7
 pyrebase4==4.5.0
-python-dotenv==0.19.0
+python-dotenv==0.19.1
 python-engineio==4.2.1
 python-jwt==3.3.0
 python-socketio==5.4.0
@@ -62,4 +64,3 @@ uritemplate==3.0.1
 urllib3==1.26.7
 werkzeug==2.0.2
 wrapt==1.13.1
-Flask-Caching==1.10.1

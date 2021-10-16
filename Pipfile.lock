@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e705ac7e0cb304cd55eeea0b18d8262332917fdb3f36b9d6325c49ade1ea6b85"
+            "sha256": "6835bba04f4ad358d153b04e6d724749b1103eef521f09bb59974800cde19825"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -109,7 +109,6 @@
                 "sha256:5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3'",
             "version": "==2.0.6"
         },
         "click": {
@@ -194,6 +193,9 @@
             "version": "==0.18.3"
         },
         "google-api-core": {
+            "extras": [
+                "grpc"
+            ],
             "hashes": [
                 "sha256:5ec27b942b34d04559cbf3674430bb83fc3d74e7d32b8bbd31c4466e71740b83",
                 "sha256:c344e1aacd8330527c5130bdfe03118d8859ce798bcf0e5d23770ab6873e0615"
@@ -239,7 +241,6 @@
                 "sha256:714e1bc1fc51029d78aa64933bef2efc03daedc9565ea79ec91b843b052016ec"
             ],
             "index": "pypi",
-            "markers": "platform_python_implementation != 'PyPy'",
             "version": "==2.3.4"
         },
         "google-cloud-storage": {
@@ -305,7 +306,6 @@
                 "sha256:efe23e22bc9838630f0fd185e21de503c731a726e66da90c1572653d8480e8e4"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.6'",
             "version": "==2.0.3"
         },
         "googleapis-common-protos": {
@@ -388,7 +388,6 @@
                 "sha256:467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3'",
             "version": "==3.2"
         },
         "itsdangerous": {
@@ -530,6 +529,7 @@
                 "sha256:7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7",
                 "sha256:c86254f9220d55e31cc94d69bade760f0847da8000def4dfe1c6b872fd14ff14"
             ],
+            "markers": "python_version >= '3.6'",
             "version": "==21.0"
         },
         "proto-plus": {
@@ -667,11 +667,11 @@
         },
         "python-dotenv": {
             "hashes": [
-                "sha256:aae25dc1ebe97c420f50b81fb0e5c949659af713f31fdb63c749ca68748f34b1",
-                "sha256:f521bc2ac9a8e03c736f62911605c5d83970021e3fa95b37d769e2bbbe9b6172"
+                "sha256:14f8185cc8d494662683e6914addcb7e95374771e707601dfc70166946b4c4b8",
+                "sha256:bbd3da593fc49c249397cbfbcc449cf36cb02e75afc8157fcc6a81df6fb7750a"
             ],
             "index": "pypi",
-            "version": "==0.19.0"
+            "version": "==0.19.1"
         },
         "python-engineio": {
             "hashes": [
