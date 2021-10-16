@@ -9,7 +9,7 @@ from firebase.setup import db
 from firebase.setup import storage
 
 
-def update_pfp(uid, target_size=400, target_filetype='webp'):
+def update_pfp(uid, target_size=400, target_filetype='webp', coll=u'users'):
     # image = Image.open(io.BytesIO(request.files['pfpinput'].read()))
     image = Image.open('test.jpeg').convert('RGB')
 
@@ -45,10 +45,6 @@ def update_pfp(uid, target_size=400, target_filetype='webp'):
 
     # get_url method requires one positional argument for some reason, we don't know why
     url = storage.child(f'pfps/{uid}.{target_filetype}').get_url(None)
-    db.collection(u'users').document(uid).update({u'pfp': url})
+    db.collection(coll).document(uid).update({u'pfp': url})
 
     return url
-
-
-def get_default():
-    return storage.child(f'default_pfp.webp').get_url(None)

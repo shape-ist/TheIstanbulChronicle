@@ -1,7 +1,7 @@
 #mobile-menu-drawer {
     z-index: 9999;
     min-height: 10vh;
-    max-height: 25vh;
+    max-height: 50vh;
     width: 90%;
     margin: auto;
     background: var(--bg);
@@ -9,7 +9,7 @@
     left: 5%;
     border-radius: var(--r3);
     box-shadow: var(--bs);
-    border: 1px solid var(--g1);
+    border: 1px solid var(--g2);
     overflow-y: scroll;
     scrollbar-width: none;
     padding: var(--m2) 0;
@@ -24,7 +24,7 @@
     list-style-type: none;
     padding: var(--m2) var(--m3);
     padding-top: 0 !important;
-    padding-bottom: var(--m3);
+    padding-bottom: 0;
 }
 
 #mobile-menu-drawer ul li {
@@ -44,9 +44,8 @@
 #mobile-back-btn {
     width: 90%;
     background: var(--bg);
-    border: 1px solid var(--g1);
+    border: 1px solid var(--g2);
     color: var(--fg);
-    font-family: var(--f2);
     padding: var(--m2);
     margin: var(--m1) 5%;
     border-radius: var(--r3);
@@ -63,7 +62,7 @@
     font-size: 1.5em;
     position: fixed;
     left: 100%;
-    transform: translate(calc(-150% - var(--m1)), calc(-50% - var(--m2)));
+    transform: translate(calc(-150% - .5em), calc(-50% - var(--m2)));
 }
 
 #mobile-theme i {
@@ -71,7 +70,7 @@
     border-radius: 999px;
     background: var(--bg);
     color: var(--fg);
-    border: 1px solid var(--g1);
+    border: 1px solid var(--g2);
 }
 
 #mobile-menu-drawer-wrapper {
@@ -96,6 +95,7 @@
 }
 
 .mobile-menu-text {
-    font-weight: 600 !important;
+    font-weight: 400 !important;
     color: var(--fg);
+    font-family: var(--f1);
 }

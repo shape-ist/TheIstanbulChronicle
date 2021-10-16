@@ -10,18 +10,15 @@
         </div>
         <ul>
             <li>
-                <a href="/about">
+                <a class="mobile-menu-text" href="/about">
                         About Us
                 </a>
             </li>        
             <li>
-                <a class="disabled-menu" href="/login">Login</a>
+                <a class="mobile-menu-text disabled-menu" href="/login">Login</a>
             </li>
             <li>
-                <a class="disabled-menu" href="/register">Register</a>
-            </li>
-            <li>
-                <a class="disabled-menu" href="/contribute">Contribute</a>
+                <a class="mobile-menu-text disabled-menu" href="/register">Register</a>
             </li>
             <li>
                 <div class="flex-row flex-center">
@@ -33,6 +30,6 @@
             </li>
         </ul>
     </div>
-    <button id="mobile-back-btn" onclick="flyOut('#mobile-menu-drawer-wrapper')">Close</button>
+    <button class="mobile-menu-text" id="mobile-back-btn" onclick="flyOut('#mobile-menu-drawer-wrapper')">Close</button>
 </div>
 {% endmacro %}

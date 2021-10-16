@@ -145,7 +145,6 @@ a {
     color: var(--a);
     font-weight: bold;
     text-decoration: none;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, .12);
 }
 
 .opacity-animation {
@@ -299,4 +298,5 @@ input {
     font-size: 1.25em;
     background: transparent !important;
     color: var(--fg);
+    transform: translateX(50%);
 }

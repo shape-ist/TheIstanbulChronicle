@@ -15,7 +15,7 @@
     {% if user_data is iterable and (var is not string and var is not mapping) %}
 
         <div class="profile-area flex-center flex-col">
-            <div class="flex-row profile-top">
+            <div class="flex-row flex-center profile-top">
                 <div class="profile-main flex-center flex-col r2">
                     <div class="profile-pfp-area">
                         {% set pfp = user_data["pfp"] %}

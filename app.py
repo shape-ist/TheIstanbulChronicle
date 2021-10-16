@@ -232,8 +232,6 @@ def profile_edit():
 
 @app.route('/profile/<uid>')
 def user_profile(uid):
-    if earlyaccess is True:
-        return redirect('/')
     try:
         user_data = fbtools.get_doc(u'users', uid)
         if user_data['elevation'] == []:
