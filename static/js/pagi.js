@@ -70,12 +70,38 @@ function triggerPagi() {
     }, 500);
 }
 
-var pagiStore = []
+function getFallbackBatch(props){
+    return Promise.resolve($.ajax({
+        url: `/api/pagi/articles/timestamp/q?${props}`
+    }));
+  }
 
+async function pagiFallback(x, limit = 50) {
+    let fallbackUIDIndex = [x]
+    if (limit % 5 != 0) {
+        throw new Error('pagiFallback: Enter a multiple of 5')
+    }
+    sliceLen = (limit / 5)
+    for (const i of Array(sliceLen).keys()) {
+        var articleBatch = await getFallbackBatch(`o=desc&l=5&i=${fallbackUIDIndex[fallbackUIDIndex.length - 1]}`)
+        fallbackUIDIndex.push(articleBatch.last_uid)
+        articleBatch.data.forEach(function (i) {
+            appendArticle(i)
+        })
+    }
+}
+
+var pagiStore = []
 document.addEventListener('DOMContentLoaded', function () {
+    var highlightEndArticle = document.getElementById('highlights').getAttribute('data-highlights-end')
     pagiStore.push({
         data: [],
-        last_uid: document.getElementById('highlights').getAttribute('data-highlights-end')
+        last_uid: highlightEndArticle
     })
-    triggerPagi()
+    try {
+        triggerPagi()
+    }
+    catch {
+        pagiFallback(highlightEndArticle, limit=40)
+    }
 })

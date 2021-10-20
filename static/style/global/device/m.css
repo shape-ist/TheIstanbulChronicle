@@ -210,4 +210,35 @@
     #mobile-menu-drawer-wrapper {
         display: block !important;
     }
+
+    .new-article-text-fade-out {
+        display: none;
+    }
+
+    footer {
+        align-items: flex-start !important;
+        flex-direction: column-reverse !important;
+        text-align: left !important;
+    }
+
+    .footer-right {
+        margin-bottom: var(--m3) !important;
+    }
+
+    footer p {
+        text-align: left !important;
+    }
+
+    .footer-socials {
+        display: flex !important;
+    }
+
+    .footer-social {
+        margin-top: 0 !important;
+        margin-left: .1em !important;
+    }
+
+    .footer-socials h3 {
+        margin-right: 1em !important;
+    }
 }

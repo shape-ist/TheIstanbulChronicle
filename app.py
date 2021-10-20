@@ -85,7 +85,7 @@ def home():
             raise Exception('Auth failed')
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     for i in init_pagi['data'][1:]:
-        i['body'] = i['body'].strip().replace("\n", "")[:200].rsplit(' ', 1)[0]
+        i['body'] = i['body'].strip().replace("\n", "")[:150].rsplit(' ', 1)[0]
     return render_template('./screens/index.html',
                            subpage=subpage,
                            h=init_pagi)
