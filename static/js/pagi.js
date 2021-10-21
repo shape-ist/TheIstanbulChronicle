@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
         last_uid: highlightEndArticle
     })
     try {
-        triggerPagi()
+        throw new Error('pagiFallback')
+        // triggerPagi()
     }
     catch {
         pagiFallback(highlightEndArticle, limit=40)
