@@ -112,12 +112,12 @@ def init_articles(a):
 
         fbtools.update_fields('articles', current_uid, {
             'title': title_str,
-            'body': '\\n\\n'.join(lines)
+            'body': '<br>'.join(lines)
         })
 
         print(f'article created: {title_str}')
         print('article uploaded.')
-        sleep(.5)
+        sleep(.25)
 
 
 def cleanup():
