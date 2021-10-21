@@ -16,17 +16,23 @@
         border: none !important;
     }
 
-    .article-page-cover {
-        height: 25vh !important;
-    }
-
     .article-page-title {
         font-size: var(--size3) !important;
     }
 
     .article-page-cover {
-        border-top-right-radius: var(--r2) !important;
-        border-top-left-radius: var(--r2) !important;
+        height: 25vh !important;
+        border-top-right-radius: var(--r3) !important;
+        border-top-left-radius: var(--r3) !important;
+    }
+
+    .article-content-wrapper .mini-pfp {
+        display: none
+    }
+
+    .article-content-wrapper .mini-user {
+        margin-top: var(--m2);
+        margin-bottom: var(--m2);
     }
 
     .article-page-top {
