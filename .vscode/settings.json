@@ -8,7 +8,8 @@
     "endraw",
     "fbtools",
     "inview",
-    "pagi"
+    "pagi",
+    "webp"
   ],
   "python.linting.mypyEnabled": false,
   "python.linting.banditEnabled": true,

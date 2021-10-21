@@ -2,18 +2,19 @@ from firebase.setup import auth, db, storage, firestore
 import urllib.request
 from PIL import Image, ImageOps
 import uuid
-from os import mkdir, path, listdir
+from os import mkdir, path, listdir, system
 from shutil import rmtree, copyfile
 from firebase.article import upload_article
 from firebase import schema
 from firebase import user
 from firebase import tools as fbtools
 from sys import maxsize
+from time import sleep
 
 
 def upload_img(img_path,
                uid,
-               target_size=600,
+               target_size=480,
                target_filetype='webp',
                coll=u'articles'):
     image = Image.open(img_path).convert('RGB')
@@ -55,6 +56,13 @@ def upload_img(img_path,
     return url
 
 
+def clear_screen():
+    try:
+        system('clear')
+    except:
+        system('cls')
+
+
 def init_article_upload():
     if path.isdir('./temp'):
         rmtree('./temp')
@@ -77,10 +85,13 @@ def read_remove_first_line(filename):
 
 def init_articles(a):
     for index, i in enumerate(a):
+        clear_screen()
         current_uid = upload_article(schema.article())
         data_path = f'./temp/{current_uid}/DATA'
         article_source_path = f'./article/{a[index]}'
-        cover_path = f"./temp/{current_uid}/img.webp"
+        cover_path = f'./temp/{current_uid}/img.webp'
+
+        print(f'initiated article: {current_uid}')
 
         mkdir(f'./temp/{current_uid}')
         copyfile(article_source_path, data_path)
@@ -88,17 +99,25 @@ def init_articles(a):
         img_url = read_remove_first_line(data_path)
         title_str = read_remove_first_line(data_path)
 
+        print('uploading article cover...')
+
         urllib.request.urlretrieve(img_url, cover_path)
+
+        permalink = upload_img(cover_path, current_uid)
 
         with open(data_path) as f:
             lines = f.readlines()
+
+        print('uploading contents...')
 
         fbtools.update_fields('articles', current_uid, {
             'title': title_str,
             'body': '\\n\\n'.join(lines)
         })
 
-        permalink = upload_img(cover_path, current_uid)
+        print(f'article created: {title_str}')
+        print('article uploaded.')
+        sleep(.5)
 
 
 def cleanup():
@@ -109,7 +128,8 @@ def cleanup():
 
 
 def main():
-    user.login("dmeoeom@gdgd.com", "passssword")
+    # user.register("chron@theistanbulchronicle.com", "ftcl1234", "The Istanbul Chronicle")
+    user.login("chron@theistanbulchronicle.com", "ftcl1234")
     init_article_upload()
     init_articles(listdir('./article'))
     cleanup()
