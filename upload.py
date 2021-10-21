@@ -101,10 +101,18 @@ def init_articles(a):
         permalink = upload_img(cover_path, current_uid)
 
 
+def cleanup():
+    if path.isdir('./temp'):
+        rmtree('./temp')
+    if path.isdir('./img_temp'):
+        rmtree('./img_temp')
+
+
 def main():
     user.login("dmeoeom@gdgd.com", "passssword")
     init_article_upload()
     init_articles(listdir('./article'))
+    cleanup()
 
 
 if __name__ == '__main__':
