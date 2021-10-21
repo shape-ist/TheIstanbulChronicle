@@ -1,11 +1,22 @@
 from firebase.setup import auth, db, storage, firestore
+import urllib.request
+from PIL import Image, ImageOps
+import uuid
+from os import mkdir, path, listdir
+from shutil import rmtree, copyfile
 from firebase.article import upload_article
 from firebase import schema
-import os
+from firebase import user
+from firebase import tools as fbtools
+from sys import maxsize
 
 
-def update_pfp(uid, target_size=600, target_filetype='webp', coll=u'users'):
-    image = Image.open('test.jpeg').convert('RGB')
+def upload_img(img_path,
+               uid,
+               target_size=600,
+               target_filetype='webp',
+               coll=u'articles'):
+    image = Image.open(img_path).convert('RGB')
 
     width, height = image.size
 
@@ -26,42 +37,75 @@ def update_pfp(uid, target_size=600, target_filetype='webp', coll=u'users'):
         resize_size = (target_size, target_size)
         cropped_image = ImageOps.contain(image, resize_size)
 
-    if not exists('pfp_temp'):
-        mkdir('pfp_temp')
+    if not path.isdir('img_temp'):
+        mkdir('img_temp')
 
-    cropped_image.save(f'./pfp_temp/{uid}.{target_filetype}',
+    cropped_image.save(f'./img_temp/{uid}.{target_filetype}',
                        target_filetype.upper(),
                        optimize=True,
                        quality=95)
-    storage.child(f'pfps/{uid}.{target_filetype}').put(
-        f'./pfp_temp/{uid}.{target_filetype}')
-    remove(f'./pfp_temp/{uid}.{target_filetype}')
+    storage.child(f'article_covers/{uid}.{target_filetype}').put(
+        f'./img_temp/{uid}.{target_filetype}')
 
     # get_url method requires one positional argument for some reason, we don't know why
-    url = storage.child(f'pfps/{uid}.{target_filetype}').get_url(None)
-    db.collection(coll).document(uid).update({u'pfp': url})
+    url = storage.child(f'article_covers/{uid}.{target_filetype}').get_url(
+        None)
+    db.collection(coll).document(uid).update({u'cover_image': url})
 
     return url
 
 
-import urllib.request as r
+def init_article_upload():
+    if path.isdir('./temp'):
+        rmtree('./temp')
 
-r.urlopen(
-    "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
-    b"./allah.png")
+    mkdir('./temp/')
+
+
+def read_remove_first_line(filename):
+    with open(filename, 'r') as f_in:
+        first_line = f_in.readline()
+    with open(filename, 'r+') as f:  # open file in read / write mode
+        firstLine = f.readline()  # read the first line and throw it out
+        data = f.read()  # read the rest
+        f.seek(0)  # set the cursor to the top of the file
+        f.write(data)  # write the data back
+        f.truncate()  # set the file size to the current size
+        return firstLine
+    return first_line
+
+
+def init_articles(a):
+    for index, i in enumerate(a):
+        current_uid = upload_article(schema.article())
+        data_path = f'./temp/{current_uid}/DATA'
+        article_source_path = f'./article/{a[index]}'
+        cover_path = f"./temp/{current_uid}/img.webp"
+
+        mkdir(f'./temp/{current_uid}')
+        copyfile(article_source_path, data_path)
+
+        img_url = read_remove_first_line(data_path)
+        title_str = read_remove_first_line(data_path)
+
+        urllib.request.urlretrieve(img_url, cover_path)
+
+        with open(data_path) as f:
+            lines = f.readlines()
+
+        fbtools.update_fields('articles', current_uid, {
+            'title': title_str,
+            'body': '\\n\\n'.join(lines)
+        })
+
+        permalink = upload_img(cover_path, current_uid)
 
 
 def main():
-    for filename in os.listdir('./article'):
-        print(filename)
+    user.login("dmeoeom@gdgd.com", "passssword")
+    init_article_upload()
+    init_articles(listdir('./article'))
 
 
 if __name__ == '__main__':
     main()
-""" upload_article(
-    schema.article(
-        title='some title',
-        body='some text',
-        cover_image=
-        'https://example.com/example.png'  # will be implemented later, this needs to be uploaded to the server as a file before article object is sent to database 
-    )) """
