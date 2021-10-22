@@ -219,7 +219,7 @@ li::marker {
 .article-pagi-preview,
 .article-pagi-content,
 .article-pagi-title {
-    max-width: 300px;
+    max-width: 75%;
 }
 
 .article-page-title {

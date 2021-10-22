@@ -1,4 +1,4 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 720px) {
     .article-page-text {
         padding-right: var(--m3) !important;
         padding-left: var(--m3) !important;
