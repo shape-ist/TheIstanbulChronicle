@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block head %}
-    <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/cleanAuthURL.js') }}"></script>
     <title>The Istanbul Chronicle</title>
@@ -24,4 +23,6 @@
     {{ feed(h['data']) }}
     {% from "./macros/_headerFooter.html" import footer %}
     {{ footer() }}
+    {% from "./macros/_load.html" import load %}
+    {{ load() }}
 {% endblock %}

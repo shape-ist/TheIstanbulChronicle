@@ -1,5 +1,6 @@
 .theme-dark {
     --bg: #171717;
+    --bg-t: #17171700;
     --bg-alt: #242424;
     --fg: #ffffff;
     --g1: #909090;
@@ -13,6 +14,7 @@
 
 .theme-light {
     --bg: #ffffff;
+    --bg-t: #ffffff00;
     --bg-alt: #e2e2e2;
     --fg: #000000;
     --g1: #505050;

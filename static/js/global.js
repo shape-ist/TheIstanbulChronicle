@@ -45,3 +45,13 @@ function displayDismiss(trigger, el, displayMethod) {
         display(el, displayMethod)
     }
 }
+
+function waitForFirstRender(elementPath, callBack) {
+    window.setTimeout(function () {
+        if ($(elementPath).children().length) {
+            callBack(elementPath, $(elementPath));
+        } else {
+            waitForFirstRender(elementPath, callBack);
+        }
+    }, 500)
+}

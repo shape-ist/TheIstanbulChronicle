@@ -6,7 +6,7 @@
 
 .new-article-item-container {
     height: 100%;
-    width: 70%;
+    width: 40%;
     margin: var(--m1) 0;
     justify-content: space-between;
 }
@@ -66,10 +66,15 @@ li::marker {
     max-width: 220px;
     text-align: right;
     margin-right: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
 }
 
 .highlight-article-text {
-    margin-right: var(--m2);
+    margin-right: var(--m3);
 }
 
 .article-li {
@@ -81,6 +86,8 @@ li::marker {
 }
 
 .article-li h1 {
+    line-height: 120%;
+    color: var(--a);
     font-size: var(--size2);
     margin-bottom: .25em;
     font-family: var(--f2);
@@ -89,7 +96,7 @@ li::marker {
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
 }
 
 .article-cover {
@@ -157,8 +164,8 @@ li::marker {
     width: 100%;
     position: relative;
     bottom: 50%;
-    background: linear-gradient(transparent, var(--bg));
-    pointer-events: none
+    background: linear-gradient(var(--bg-t), var(--bg));
+    pointer-events: none;
 }
 
 .main-article-cover {
@@ -198,7 +205,7 @@ li::marker {
 .article-pagi-extra-content {
     justify-content: center;
     text-align: right;
-    width: 15%;
+    width: 20%;
 }
 
 .article-pagi-content p.sub {
@@ -212,7 +219,7 @@ li::marker {
 .article-pagi-preview,
 .article-pagi-content,
 .article-pagi-title {
-    max-width: 80%;
+    max-width: 300px;
 }
 
 .article-page-title {

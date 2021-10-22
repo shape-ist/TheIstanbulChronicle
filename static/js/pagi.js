@@ -21,10 +21,11 @@ function appendArticle(article, clamp_threshold = 6) {
     article.writer_url = `/profile/${article.writer.uid}`
     cuid = generateUID()
     appended = $('#article-list-inner').append($(`<div class="article-list-item"><div id=${cuid}>`))
-    displayAppended(article, cuid, function(){
+    displayAppended(article, cuid, function () {
         $clamp(document.getElementById(cuid)
-        .getElementsByClassName('clamp-article-preview')[0],
-        {clamp: clamp_threshold});
+            .getElementsByClassName('clamp-article-preview')[0], {
+                clamp: clamp_threshold
+            });
     })
 }
 
@@ -48,16 +49,6 @@ function pagi() {
     }
 }
 
-function waitForFirstRender(elementPath, callBack) {
-    window.setTimeout(function () {
-        if ($(elementPath).children().length) {
-            callBack(elementPath, $(elementPath));
-        } else {
-            waitForFirstRender(elementPath, callBack);
-        }
-    }, 500)
-}
-
 function triggerPagi() {
     pagi()
     waitForFirstRender('#article-list-inner', function () {
@@ -70,24 +61,30 @@ function triggerPagi() {
     }, 500);
 }
 
-function getFallbackBatch(props){
+function getFallbackBatch(props) {
     return Promise.resolve($.ajax({
         url: `/api/pagi/articles/timestamp/q?${props}`
     }));
-  }
+}
 
 async function pagiFallback(x, limit = 50) {
     let fallbackUIDIndex = [x]
-    if (limit % 5 != 0) {
-        throw new Error('pagiFallback: Enter a multiple of 5')
+    try {
+
+        if (limit % 5 != 0) {
+            throw new Error('pagiFallback: Enter a multiple of 5')
+        }
+        sliceLen = (limit / 5)
+        for (const i of Array(sliceLen).keys()) {
+            var articleBatch = await getFallbackBatch(`o=desc&l=5&i=${fallbackUIDIndex[fallbackUIDIndex.length - 1]}`)
+            fallbackUIDIndex.push(articleBatch.last_uid)
+            articleBatch.data.forEach(function (i) {
+                appendArticle(i)
+            })
+        }
     }
-    sliceLen = (limit / 5)
-    for (const i of Array(sliceLen).keys()) {
-        var articleBatch = await getFallbackBatch(`o=desc&l=5&i=${fallbackUIDIndex[fallbackUIDIndex.length - 1]}`)
-        fallbackUIDIndex.push(articleBatch.last_uid)
-        articleBatch.data.forEach(function (i) {
-            appendArticle(i)
-        })
+    finally {
+        console.log('pagiFallback done')
     }
 }
 
@@ -101,8 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
         throw new Error('pagiFallback')
         // triggerPagi()
-    }
-    catch {
-        pagiFallback(highlightEndArticle, limit=40)
+    } catch {
+        pagiFallback(highlightEndArticle, limit = 40)
     }
 })

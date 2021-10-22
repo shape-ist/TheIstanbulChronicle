@@ -1,4 +1,5 @@
 {% macro load() %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/loadHandler.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_load.css') }}">
     <div id="loading" class="overlay">
         <p id="loading-icon">C</p>

@@ -73,6 +73,11 @@
         width: 100% !important;
         height: 140px !important;
         margin-top: 1.5em;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        -webkit-box-orient: vertical !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
     }
 
     .new-article-item-container {
@@ -215,10 +220,6 @@
 
     #mobile-menu-drawer-wrapper {
         display: block !important;
-    }
-
-    .new-article-text-fade-out {
-        display: none;
     }
 
     footer {
