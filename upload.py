@@ -3,7 +3,7 @@ import urllib.request
 from PIL import Image, ImageOps
 import uuid
 from os import mkdir, path, listdir, system
-from shutil import rmtree, copyfile
+from shutil import rmtree, copyfile, move
 from firebase.article import upload_article
 from firebase import schema
 from firebase import user
@@ -14,7 +14,7 @@ from time import sleep
 
 def upload_img(img_path,
                uid,
-               target_size=480,
+               target_size=400,
                target_filetype='webp',
                coll=u'articles'):
     image = Image.open(img_path).convert('RGB')
@@ -69,6 +69,9 @@ def init_article_upload():
 
     mkdir('./temp/')
 
+    if not path.isdir('./archive'):
+        mkdir('./archive')
+
 
 def read_remove_first_line(filename):
     with open(filename, 'r') as f_in:
@@ -101,7 +104,11 @@ def init_articles(a):
 
         print('uploading article cover...')
 
-        urllib.request.urlretrieve(img_url, cover_path)
+        try:
+            urllib.request.urlretrieve(img_url, cover_path)
+        except Exception:
+            print(f'CANT UPLOAD: {img_url} on {article_source_path}')
+            raise Exception('http err')
 
         permalink = upload_img(cover_path, current_uid)
 
@@ -117,7 +124,8 @@ def init_articles(a):
 
         print(f'article created: {title_str}')
         print('article uploaded.')
-        sleep(.25)
+        sleep(.1)
+        move(article_source_path, f'./archive/{i}')
 
 
 def cleanup():
@@ -133,6 +141,8 @@ def main():
     init_article_upload()
     init_articles(listdir('./article'))
     cleanup()
+    clear_screen()
+    print('upload finished')
 
 
 if __name__ == '__main__':
