@@ -134,7 +134,8 @@
     }
 
     .highlight-article-item.artlicle-list-item.article-li {
-        height: 160px;
+        height: fit-content;
+        padding: var(--m3) 0;
         border-bottom: 1px solid var(--bg-alt) !important;
     }
 
@@ -251,5 +252,13 @@
 
     .article-font-size-btn {
         width: 1em;
+    }
+
+    .article-li h1 {
+        overflow: unset !important;
+        text-overflow: unset !important;
+        -webkit-box-orient: unset !important;
+        display: unset !important;
+        -webkit-line-clamp: unset !important;
     }
 }
