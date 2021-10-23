@@ -1,11 +1,11 @@
 {% macro mini_user(article) %}
 <div class="mini-user flex-row">
-    {% set pfp = article['writer']['pfp'] %}
+    <!-- {% set pfp = article['writer']['pfp'] %}
     {% if pfp|string() == '' %}
         {% set pfp = url_for('static', filename='assets/default_pfp/pfp.svg') %}
     {% endif %}
     <img class="mini-pfp" src="{{ pfp }}"
-         alt="{{ article['writer']['name'] }}">
+         alt="{{ article['writer']['name'] }}"> -->
     <p>
         <b>
             <a href="/profile/{{ article['writer']['uid'] }}">
