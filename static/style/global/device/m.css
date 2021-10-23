@@ -87,7 +87,7 @@
     }
 
     .new-article-item-container {
-        height: 80vh !important;
+        height: 75vh !important;
         flex-direction: column !important;
         max-height: 900px;
     }
