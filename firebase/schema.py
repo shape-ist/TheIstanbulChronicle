@@ -31,17 +31,26 @@ def article(title: str = '',
             body: str = '',
             tag: str = '',
             article_type: str = '',
-            cover_image: str = '',
+            cover_image: dict = {
+                's': '',
+                'm': '',
+                'l': ''
+            },
             is_approved: bool = False):
     from time import time
+    cover_image_s, cover_image_m, cover_image_l = cover_image[
+        's'], cover_image['m'], cover_image['l']
     return {
         u'title': title,
         u'body': body,
-        u'writer': db.collection(u'users').document(auth.current_user['localId']),
+        u'writer':
+        db.collection(u'users').document(auth.current_user['localId']),
         u'article_type': article_type,
         u'is_approved': False,
         u'timestamp': time(),
-        u'cover_image': cover_image,
+        u'cover_image_s': cover_image_s,
+        u'cover_image_m': cover_image_m,
+        u'cover_image_l': cover_image_l,
         u'is_approved': is_approved
         # TODO: implement tags here ^^^^
     }

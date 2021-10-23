@@ -14,9 +14,10 @@ from time import sleep
 
 def upload_img(img_path,
                uid,
-               target_size=400,
+               target_size,
                target_filetype='webp',
-               coll=u'articles'):
+               coll=u'articles',
+               target_field=u'cover_image'):
     image = Image.open(img_path).convert('RGB')
 
     width, height = image.size
@@ -45,13 +46,13 @@ def upload_img(img_path,
                        target_filetype.upper(),
                        optimize=True,
                        quality=95)
-    storage.child(f'article_covers/{uid}.{target_filetype}').put(
-        f'./img_temp/{uid}.{target_filetype}')
+    storage.child(f'article_covers/{uid}.{target_field}.{target_filetype}'
+                  ).put(f'./img_temp/{uid}.{target_filetype}')
 
     # get_url method requires one positional argument for some reason, we don't know why
-    url = storage.child(f'article_covers/{uid}.{target_filetype}').get_url(
-        None)
-    db.collection(coll).document(uid).update({u'cover_image': url})
+    url = storage.child(
+        f'article_covers/{uid}.{target_field}.{target_filetype}').get_url(None)
+    db.collection(coll).document(uid).update({target_field: url})
 
     return url
 
@@ -110,7 +111,23 @@ def init_articles(a):
             print(f'CANT UPLOAD: {img_url} on {article_source_path}')
             raise Exception('http err')
 
-        permalink = upload_img(cover_path, current_uid)
+        print(
+            upload_img(cover_path,
+                       current_uid,
+                       target_size=200,
+                       target_field=u'cover_image_s'))
+
+        print(
+            upload_img(cover_path,
+                       current_uid,
+                       target_size=400,
+                       target_field=u'cover_image_m'))
+
+        print(
+            upload_img(cover_path,
+                       current_uid,
+                       target_size=720,
+                       target_field=u'cover_image_l'))
 
         with open(data_path) as f:
             lines = f.readlines()

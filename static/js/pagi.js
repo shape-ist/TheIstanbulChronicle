@@ -99,6 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         throw new Error('pagiFallback')
         // triggerPagi()
     } catch {
-        pagiFallback(highlightEndArticle, limit = 40)
+        pagiFallback(highlightEndArticle, limit = 80)
     }
 })

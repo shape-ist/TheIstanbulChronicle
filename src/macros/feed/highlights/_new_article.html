@@ -1,6 +1,6 @@
 {% macro new_article( article ) %}
     <div class="new-article-item-container flex-col">
-        {% set cover_image = article['cover_image'] %}
+        {% set cover_image = article['cover_image_l'] %}
         <div class="new-article-cover article-cover" style="
                 background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%),
                 url('{{ cover_image }}'),
