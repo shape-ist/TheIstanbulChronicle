@@ -1,4 +1,13 @@
 @media only screen and (max-width: 720px) {
+
+    .theme-dark {
+        --bg: #000000 !important;
+        --bg-t: #00000000 !important;
+        --bg-alt: #212121 !important;
+        --g1: #909092 !important;
+        --g2: #424243 !important;
+    }
+
     .article-page-text {
         padding-right: var(--m3) !important;
         padding-left: var(--m3) !important;
@@ -14,6 +23,7 @@
 
     .article-content-wrapper-inner {
         border: none !important;
+        box-shadow: none !important;
     }
 
     .article-page-title {
@@ -54,10 +64,6 @@
         padding-top: 15vh !important;
     }
 
-    .new-article-item-container {
-        flex-direction: column !important;
-    }
-
     .new-article-cover {
         box-shadow: var(--bs-s);
         border-radius: var(--r2) !important;
@@ -81,8 +87,9 @@
     }
 
     .new-article-item-container {
-        height: 70vh !important;
-        max-height: 720px;
+        height: 80vh !important;
+        flex-direction: column !important;
+        max-height: 900px;
     }
 
     #socials-side {
