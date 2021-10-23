@@ -15,7 +15,7 @@ function displayAppended(content, cuid, callback) {
     callback()
 }
 
-function appendArticle(article, clamp_threshold = 6) {
+function appendArticle(article, clamp_threshold = 9) {
     article.timestamp = unixTime(article.timestamp)
     article.url = `/article/${article.uid}`
     article.writer_url = `/profile/${article.writer.uid}`

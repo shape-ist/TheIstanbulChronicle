@@ -6,7 +6,7 @@
 
 .new-article-item-container {
     height: 100%;
-    width: 40%;
+    width: 60%;
     margin: var(--m1) 0;
     justify-content: space-between;
 }
