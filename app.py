@@ -27,7 +27,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FLASK_ENV'] = 'development'
 app.config['DEBUG'] = True
 app.config['CACHE_TYPE'] = 'SimpleCache'
-app.config['CACHE_DEFAULT_TIMEOUT'] = 600
+app.config['CACHE_DEFAULT_TIMEOUT'] = 1800
 sio = SocketIO(app, debug=True, threaded=True)
 
 
