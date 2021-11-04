@@ -34,14 +34,15 @@
     text-decoration: none;
 }
 
-.subtitle {
+#ftcl {
     font-family: var(--f2);
     position: relative;
     left: -50%;
     text-align: center;
     margin: 0;
     margin-top: .25em;
-    font-size: var(--size1)
+    font-size: var(--size1);
+    font-weight: 400;
 }
 
 #title {

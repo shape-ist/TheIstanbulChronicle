@@ -6,6 +6,7 @@ from markdown import markdown
 from flask import *
 from flask_caching import Cache
 from flask_socketio import SocketIO, send
+from authlib.integrations.flask_client import OAuth
 
 from content import load_content
 
@@ -18,7 +19,7 @@ content = load_content("content.yml")
 earlyaccess = False
 
 # firebase imports (should be done after dotenv validation)
-from firebase import user
+from firebase import user as fbuser
 from firebase import tools as fbtools
 from firebase import paginate
 
@@ -28,7 +29,25 @@ app.config['FLASK_ENV'] = 'development'
 app.config['DEBUG'] = True
 app.config['CACHE_TYPE'] = 'SimpleCache'
 app.config['CACHE_DEFAULT_TIMEOUT'] = 1800
+app.secret_key = 'randomsecret'
+
 sio = SocketIO(app, debug=True, threaded=True)
+oauth = OAuth(app)
+
+google = oauth.register(
+    name='google',
+    client_id=
+    "147967012916-4ks7435ve0kc2gp3tket5ekhpe7a6ds2.apps.googleusercontent.com",
+    client_secret="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",
+    access_token_url='https://accounts.google.com/o/oauth2/token',
+    access_token_params=None,
+    authorize_url='https://accounts.google.com/o/oauth2/auth',
+    authorize_params=None,
+    api_base_url='https://www.googleapis.com/oauth2/v1/',
+    userinfo_endpoint=
+    'https://openidconnect.googleapis.com/v1/userinfo',  # This is only needed if using openId to fetch user info
+    client_kwargs={'scope': 'openid email profile'},
+)
 
 
 def md_html(md_str):
@@ -38,21 +57,21 @@ def md_html(md_str):
 @app.context_processor
 def utility_processor():
     def is_signed_in():
-        return user.is_signed_in()
+        return fbuser.is_signed_in()
 
     def current_pfp():
         try:
-            return fbtools.get_doc(u'users', user.current_uid())['pfp']
+            return fbtools.get_doc(u'users', fbuser.current_uid())['pfp']
         except Exception:
             return ''
 
     def user_elevations():
         try:
-            return fbtools.get_doc(u'users', user.current_uid())['elevation']
+            return fbtools.get_doc(u'users', fbuser.current_uid())['elevation']
         except Exception:
             return []
 
-    def authorized(level, uid=user.current_uid()):
+    def authorized(level, uid=fbuser.current_uid()):
         try:
             return fbtools.isauthorized(level, uid)
         except Exception:
@@ -78,11 +97,6 @@ def utility_processor():
 @app.route('/', methods=['GET', 'POST'])
 def home():
     subpage = request.args.get('goto') if earlyaccess is not True else None
-    if request.method == 'POST':
-        try:
-            user.email_auth(dict(request.form))
-        except Exception:
-            raise Exception('Auth failed')
     init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
     for i in init_pagi['data'][1:]:
         i['body'] = i['body'].strip().replace("\n", "")[:150].rsplit(' ', 1)[0]
@@ -92,10 +106,42 @@ def home():
     # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
 
 
+@app.route('/greet')
+def greet():
+    return dict(session)['profile']
+
+
+@app.route('/login/google')
+def google_auth():
+    google = oauth.create_client('google')
+    redirect_uri = url_for('authorize', _external=True)
+    return google.authorize_redirect(redirect_uri)
+
+
+@app.route('/authorize')
+def authorize():
+    google = oauth.create_client('google')
+    token = google.authorize_access_token()
+    resp = google.get('userinfo')
+    user_info = resp.json()
+    user = oauth.google.userinfo()
+    session['profile'] = user_info
+    session.permanent = True
+    fbuser.google_user_doc(user_info)
+    return redirect('/')
+
+
+@app.route('/profile/my/logout')
+def logout():
+    for key in list(session.keys()):
+        session.pop(key)
+    return redirect('/')
+
+
 @app.route('/profile/me', methods=['GET', 'POST'])
 def current_user_profile_redir():
     try:
-        cuid = user.current_uid()
+        cuid = fbuser.current_uid()
         if cuid != None:
             return redirect(f'/profile/{cuid}')
         return redirect('/login')
@@ -148,7 +194,7 @@ def contribute():
 # return redirect if uid param is not istype(int)
 def verify():
     uid = request.args.get('uid')
-    if user.user_exists(uid):
+    if fbuser.user_exists(uid):
         return render_template('./screens/verify.html',
                                verification_text=content["verification_text"])
     return redirect("/")
@@ -165,7 +211,7 @@ def favicon():
 def write():
     # TODO: add different favicon on elevated pages. (see elevated directory)
 
-    if fbtools.isauthorized('W', user.current_uid()):
+    if fbtools.isauthorized('W', fbuser.current_uid()):
         return render_template('./screens/elevated/write.html')
     return forbidden(Exception("User not authorized"))
 
@@ -207,13 +253,13 @@ def login():
 def profile_edit():
     if earlyaccess is True: return redirect('/')
     try:
-        if (user.current_uid() is None or fbtools.get_doc(
-                u'users', user.current_uid())['elevation'] == []):
+        if (fbuser.current_uid() is None or fbtools.get_doc(
+                u'users', fbuser.current_uid())['elevation'] == []):
             return redirect('/login')
         if request.method == "POST":
             fbtools.update_fields(
                 'users',
-                user.current_uid(),
+                fbuser.current_uid(),
                 {
                     # TODO: #51 add pfp post method here too
                     u'email_public':
@@ -268,7 +314,7 @@ def article_page(auid):
 @app.route('/profile/my/rmpfp')
 def rmpfp():
     try:
-        fbtools.update_fields(u'users', user.current_uid(), {u'pfp': ''})
+        fbtools.update_fields(u'users', fbuser.current_uid(), {u'pfp': ''})
     except Exception:
         pass
     return ("current user pfp reset")
@@ -291,8 +337,8 @@ def pagi_request(data):
 
 
 def start():
-    # user.register("dmeoeom@gdgd.com", "passssword", "name")
-    user.login("dmeoeom@gdgd.com", "passssword")
+    # fbuser.register("dmeoeom@gdgd.com", "passssword", "name")
+    # fbuser.login("dmeoeom@gdgd.com", "passssword")
     # app.run(debug=True, threaded=True)
     sio.run(app)
 

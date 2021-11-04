@@ -2,16 +2,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_auth.css') }}">
 {% endmacro %}
 {% macro login() %}
+    <!--
     <script src="{{ url_for('static', filename='js/ajax/login.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ajax/register.js') }}"></script>
+    -->
     {{ auth_handlers() }}
     <div id="login-area" class="overlay auth-overlay flex-col flex-center" style="display:none;">
         <div id="login-content-container" class="flex-col flex-center">
             <div id="login-popup" class="auth-container flex-col flex-center r2">
                 <h1 class="auth-content title-large auth-main">Log in to<br>the Chronicle</h1>
-                <button class="auth-content google-auth"><i class="auth-icon fab fa-google"></i>
-                    Continue with Google
-                </button>
+                <a class="auth-content google-auth" href="/login/google">
+                    <span>
+                        <i class="auth-icon fab fa-google"></i>
+                    </span>
+                    <span>Continue with Google</span>
+                </a>
+                <!--                 
                 <form id="login-form" method="POST" class="form-container flex-col">
                     <input type="email" placeholder="Email" id='login-email' class="input-field auth-item 
                            maxlength=" 64"><br>
@@ -19,19 +25,19 @@
                            class="input-field auth-item register-form" maxlength="32"><br>
                     <div class="auth-lower-container flex-row flex-between">
                         <a href="/profile/my/reset" class="forgot sub">Forgot<br>Password?</a>
-                        <button type="submit" class="r2 submit-button">Log in</button>
-                        <!--
-                            TODO: submit button triggers js and verification code popup appears. (Button should not be enabled if password is invalid.)
-                            -->
+                        <button type="submit" class="r1 submit-button">Log in</button>
                     </div>
                 </form>
+                -->
             </div>
             <!-- TODO: use button tag to display('register', 'flex') to switch between login and register. A a href will result in a refresh, thus another initial pagi batch. Avoid extra api calls -->
+            <!--
             <a href="/register" id="register-link-popup" class="sub-auth-redirect-popup auth-container">
                 <p class="register-redirector sub">
                     Don't have an account? <span class="register-link">Register</span>
                 </p>
             </a>
+        -->
         </div>
     </div>
 {% endmacro %}
@@ -58,7 +64,7 @@
                         <div class="submit-container flex-col">
                             <p class="sub register-sub terms-sub">By clicking register, you agree to the <a
                                     href="/legal/terms-and-conditions" class="terms">terms and conditions.</a></p>
-                            <button type="submit" class="r2 submit-button">Register</button>
+                            <button type="submit" class="r1 submit-button">Register</button>
                         </div>
                     </div>
 

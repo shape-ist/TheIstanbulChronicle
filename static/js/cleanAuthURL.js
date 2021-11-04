@@ -8,9 +8,9 @@ function handleAuthURL(subpage) {
     var sub = htmlDecode(subpage)
     if (sub == 'login') {
         display('login-area', 'flex')
-        window.history.replaceState({}, document.title, "/" + "");
+        // window.history.replaceState({}, document.title, "/" + "");
     } else if (sub == 'register') {
         display('register-area', 'flex')
-        window.history.replaceState({}, document.title, "/" + "");
+        // window.history.replaceState({}, document.title, "/" + "");
     }
 }

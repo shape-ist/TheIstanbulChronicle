@@ -180,8 +180,8 @@ button {
 }
 
 .submit-button {
-    padding: var(--m1) var(--m2);
-    background: var(--bg-alt);
+    padding: var(--m1) calc(var(--m2) * 1.25);
+    background: var(--bg);
     color: var(--fg);
 }
 

@@ -1,4 +1,6 @@
 from firebase.setup import db, auth
+from firebase import schema
+from flask import session
 
 
 def register(email, password, display_name):
@@ -6,7 +8,6 @@ def register(email, password, display_name):
     uid = new_user['localId']
 
     # creates user document
-    from firebase import schema
     db.collection(u'users').document(uid).set(
         schema.user(name=display_name, email=email, uid=uid))
 
@@ -27,19 +28,16 @@ def delete_user(uid):
 
 def current_uid():
     try:
-        return auth.current_user['localId']
+        try:
+            return auth.current_user['localId']
+        except Exception:
+            return dict(session)['profile']['id']
     except Exception:
         return None
 
 
-def logout():
-    print("sign out here")
-    # implement sign out here
-
-
 def is_signed_in():
     return current_uid() is not None
-    # check if this function reutrns expected values
 
 
 def email_auth(r):
@@ -47,3 +45,11 @@ def email_auth(r):
         login(r['email'], r['password'])
     elif r['job'] == 'register':
         register(r['email'], r['password'], r['name'])
+
+
+def google_user_doc(data):
+    db.collection(u'users').document(data['id']).set(
+        schema.user(name=" ".join([data['given_name'], data['family_name']]),
+                    email=data['email'],
+                    uid=data['id'],
+                    pfp=data['picture']))

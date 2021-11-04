@@ -131,15 +131,17 @@
 
 .google-auth {
     background: var(--bg);
-    color: var(--fg);
     outline: none;
     border: none;
-    padding: 20px 40px;
-    border-radius: 999px;
+    padding: 1em 2em;
+    border-radius: var(--r1);
     font-family: var(--f1);
-    font-weight: bold;
+    font-weight: medium;
     font-size: var(--size1);
-    display: none !important;
+}
+
+.google-auth span {
+    color: var(--fg);
 }
 
 .auth-content {
