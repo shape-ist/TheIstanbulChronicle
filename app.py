@@ -9,6 +9,7 @@ from flask_socketio import SocketIO, send
 from authlib.integrations.flask_client import OAuth
 
 from content import load_content
+import g_auth
 
 if not isfile('.env'):
     print(
@@ -29,25 +30,12 @@ app.config['FLASK_ENV'] = 'development'
 app.config['DEBUG'] = True
 app.config['CACHE_TYPE'] = 'SimpleCache'
 app.config['CACHE_DEFAULT_TIMEOUT'] = 1800
-app.secret_key = 'randomsecret'
+app.secret_key = g_auth.secret_key
 
 sio = SocketIO(app, debug=True, threaded=True)
 oauth = OAuth(app)
 
-google = oauth.register(
-    name='google',
-    client_id=
-    "147967012916-4ks7435ve0kc2gp3tket5ekhpe7a6ds2.apps.googleusercontent.com",
-    client_secret="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",
-    access_token_url='https://accounts.google.com/o/oauth2/token',
-    access_token_params=None,
-    authorize_url='https://accounts.google.com/o/oauth2/auth',
-    authorize_params=None,
-    api_base_url='https://www.googleapis.com/oauth2/v1/',
-    userinfo_endpoint=
-    'https://openidconnect.googleapis.com/v1/userinfo',  # This is only needed if using openId to fetch user info
-    client_kwargs={'scope': 'openid email profile'},
-)
+google = oauth.register(**g_auth.config)
 
 
 def md_html(md_str):
