@@ -101,10 +101,6 @@
         margin: var(--m3) 0;
     }
 
-    .highlight-article-image {
-        display: unset !important;
-    }
-
     .new-article-item-container .mini-user {
         margin-top: var(--m2);
         font-size: .9em !important;
@@ -128,6 +124,7 @@
         width: 90px !important;
         border-radius: var(--r2);
         box-sizing: var(--bs-s);
+        display: unset !important;
     }
 
     .mini-user {

@@ -67,9 +67,9 @@ def utility_processor():
 
     def c_user():
         try:
-            return fbtools.get_doc(u'users', uuid())
+            return fbtools.get_doc(u'users', fbuser.current_uid())
         except Exception:
-            return 'cu'
+            return None
 
     def unix_time(time):
         return datetime.fromtimestamp(time).strftime('%d/%m/%Y')
@@ -84,14 +84,17 @@ def utility_processor():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    subpage = request.args.get('goto') if earlyaccess is not True else None
-    init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
-    for i in init_pagi['data'][1:]:
-        i['body'] = i['body'].strip().replace("\n", "")[:150].rsplit(' ', 1)[0]
-    return render_template('./screens/index.html',
-                           subpage=subpage,
-                           h=init_pagi)
-    # TODO: #59 implement a something went wrong page here. Since the api can return an error, we should be able to catch it.
+    try:
+        subpage = request.args.get('goto') if earlyaccess is not True else None
+        init_pagi = paginate.paginate('articles', 'timestamp', l=5, o='DESC')
+        for i in init_pagi['data'][1:]:
+            i['body'] = i['body'].strip().replace("\n",
+                                                  "")[:150].rsplit(' ', 1)[0]
+        return render_template('./screens/index.html',
+                               subpage=subpage,
+                               h=init_pagi)
+    except Exception as e:
+        return f"Something went wrong: {e}"
 
 
 @app.route('/greet')
@@ -124,6 +127,15 @@ def logout():
     for key in list(session.keys()):
         session.pop(key)
     return redirect('/')
+
+
+@app.route('/profile/my/delete')
+def delete_user():
+    try:
+        fbuser.delete_user()
+        return redirect('/profile/my/logout')
+    except Exception:
+        return "Couldn't delete your account"
 
 
 @app.route('/profile/me', methods=['GET', 'POST'])

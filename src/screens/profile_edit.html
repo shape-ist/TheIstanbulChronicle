@@ -8,7 +8,6 @@
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='style/screens/edit_profile.css') }}">
     <script src="{{ url_for('static', filename='js/filterInput.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ajax/del.js') }}"></script>
     <script src="{{ url_for('static', filename='js/date.js') }}"></script>
 {% endblock %}
 
@@ -22,14 +21,6 @@
             location.reload();
             return false;
         });
-        $('#rm-acc').on('click',
-            function (e) {
-                e.preventDefault()
-                $.getJSON('/profile/my/delete-acc', function (data) {
-                });
-                window.location.replace("/");
-                return false;
-            });
     }); </script>
     <form id="profile-edit-form" method="POST"
           class="flex-center">
@@ -41,9 +32,11 @@
                          class="profile-default-pfp pfp">
                     {% set pfp_icon = 'plus' %}
                 {% else %}
-                    <i class="fas fa-trash del-pfp-btn" id="del-pfp-btn"></i>
-                    <img src="{{ pfp }}" alt="{{ user['name'] }}" class="custom-pfp pfp">
-                    {% set pfp_icon = 'pen' %}
+                    <div class="pointer">
+                        <i class="fas fa-trash del-pfp-btn" id="del-pfp-btn"></i>
+                        <img src="{{ pfp }}" alt="{{ user['name'] }}" class="custom-pfp pfp">
+                        {% set pfp_icon = 'pen' %}
+                    </div>
                 {% endif %}
                 <div class="pfp-edit-overlay flex-center">
                     <label for="upload-pfp">
@@ -89,27 +82,29 @@
                        placeholder="Location" value="{{ user['location'] }}" class="input-field profile-edit-input">
             </div>
             <div class="profile-edit-area flex-col profile-edit-buttons">
-                <button type="submit" class="submit-button profile-edit-btn pointer r1 profile-save-btn">Save Changes
-                </button>
-                <a href="/profile/my/reset"
-                   class="reset-pass-btn submit-button profile-edit-btn pointer r1 profile-save-btn">Change Password</a>
-                <button id="del-passive-btn" class="submit-button profile-edit-btn pointer delete-account r1"
-                        onclick="displayDismiss('del-passive-btn' ,'del-verify', 'block')">Delete Account
-                </button>
+                <button type="submit" class="submit-button profile-edit-btn pointer r1 profile-save-btn">Save Changes </button>
+                <a href="/profile/my/reset" class="none reset-pass-btn submit-button profile-edit-btn pointer r1 profile-save-btn">Change Password</a>
             </div>
-            <div class="profile-edit-area">
-                <div class="r2 delete-account-verification" id="del-verify">
+        </div>
+    </form>
+    <div class="del-account-wrapper flex-center">
+        <button id="del-passive-btn" class="submit-button profile-edit-btn pointer delete-account r1"
+        onclick="displayDismiss('del-passive-btn' ,'del-verify', 'flex')">Delete Account
+    </button>
+        <div class="profile-edit-area">
+            <div class="r2 delete-account-verification" id="del-verify">
+                <div class="flex-col">
                     <p>
                         <i class="fas fa-exclamation-triangle"></i>
                         WARNING:
                     </p>
                     <p class="sub">This will permanently delete your account, are you sure?</p>
-                    <button id="rm-acc" value="delete-account"
-                            class="submit-button profile-edit-btn pointer delete-account r1">Yes,
-                        delete my account.
-                    </button>
+                    <a href="/profile/my/delete"
+                    class="submit-button profile-edit-btn pointer delete-account r1">
+                    Yes, delete my account.
+                    </a>
                 </div>
-            </div>
         </div>
-    </form>
+        </div>
+    </div>
 {% endblock %}

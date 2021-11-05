@@ -51,31 +51,6 @@ def article(title: str = '',
         u'cover_image_s': cover_image_s,
         u'cover_image_m': cover_image_m,
         u'cover_image_l': cover_image_l,
-        u'is_approved': is_approved
-        # TODO: implement tags here ^^^^
+        u'is_approved': is_approved,
+        u'tag': tag
     }
-    """
-        The schema module will be used like so:
-    
-        import schema
-        schema.user(
-            name = 'Emir Öven',
-            uid = 72358260,
-            elevation = ['W', 'E', 'A']
-        )
-    
-        or in context:
-        
-        db.collection(u'users').document(uid).set(schema.user(
-            name=display_name,
-            email=email,
-            uid=uid
-        ))
-    
-        which will return an object.
-        Empty paramteres will be set to default with their respective types.
-    
-        Note that these functions are strongly typed:
-        Every parameter must be the specified type, wrong types raise a TypeError, this is important for security purposes.
-    
-    """

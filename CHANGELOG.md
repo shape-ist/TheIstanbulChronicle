@@ -1,5 +1,14 @@
 ## Changelog
 
+### 0.0.9-dev
+- Google sign in added
+- Delete profile and log out implemented
+- Security improvements
+- Bugfixes
+- Added article uploader
+- Improved UI
+- Went over todos
+
 ### 0.0.8-dev
 - terms and conditions back online
 - article read page implemented
@@ -48,7 +57,7 @@
 
 ### 0.0.2-dev
 
-- Implement Continous Integration
+- Implement Continuous Integration
 - Update Dependencies
 
 ### 0.0.1-dev

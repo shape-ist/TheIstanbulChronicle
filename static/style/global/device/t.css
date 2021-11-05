@@ -112,4 +112,8 @@
     #logo-beta {
         transform: translate(50%, 25%);
     }
+
+    .profile-edit-fields {
+        width: 100% !important;
+    }
 }

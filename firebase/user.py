@@ -14,7 +14,6 @@ def register(email, password, display_name):
 
 def login(email, password):
     auth.sign_in_with_email_and_password(email, password)
-    # TODO: implement persistent login here. (Maybe use @persistent decorator?)
 
 
 def user_exists(uid):
@@ -22,8 +21,8 @@ def user_exists(uid):
     return bool(doc.exists)
 
 
-def delete_user(uid):
-    db.collection(u'users').document(uid).delete()
+def delete_user():
+    return db.collection(u'users').document(current_uid()).delete()
 
 
 def current_uid():
@@ -48,8 +47,11 @@ def email_auth(r):
 
 
 def google_user_doc(data):
-    db.collection(u'users').document(data['id']).set(
-        schema.user(name=" ".join([data['given_name'], data['family_name']]),
-                    email=data['email'],
-                    uid=data['id'],
-                    pfp=data['picture']))
+    ref = db.collection(u'users').document(data['id'])
+    if not ref.get().exists:
+        ref.set(
+            schema.user(name=" ".join(
+                [data['given_name'], data['family_name']]),
+                        email=data['email'],
+                        uid=data['id'],
+                        pfp=data['picture']))

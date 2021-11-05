@@ -8,8 +8,22 @@
          alt="{{ article['writer']['name'] }}"> -->
     <p style="color: var(--g1) !important;">
         <b>
-            <a style="font-weight: 400 !important; color: var(--g1)" href="/profile/{{ article['writer']['uid'] }}">
-                {{ article['writer']['name'] }}
+            {% set name_raw = article['writer']['name'] %}
+            {% if name_raw is not defined %}
+                {% set name = '[Deleted Profile]' %}
+            {% else %}
+                {% set name = name_raw %} 
+            {% endif %}
+
+            {% set uid_raw = article['writer']['uid'] %}
+            {% if uid_raw is not defined %}
+                {% set uid = '#' %}
+            {% else %}
+                {% set uid = uid_raw %} 
+            {% endif %}
+            
+            <a style="font-weight: 400 !important; color: var(--g1)" href="{{ uid }}">
+                {{ name }}
             </a>
         </b>
         <span style='margin:0 .5em'>●</span>

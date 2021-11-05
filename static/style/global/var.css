@@ -21,8 +21,8 @@
     --g2: #cecece;
     --a: #000000;
     --c: #eeeeee;
-    --bs: 0 10px 40px -24px rgba(0, 0, 0, .25);
-    --bs-s: 0 6px 20px -2px rgba(0, 0, 0, .2);
+    --bs: 0 10px 40px -24px rgba(0, 0, 0, .2);
+    --bs-s: 0 6px 20px -2px rgba(0, 0, 0, .12);
     --bs-invert: 0 0 60px -12px var(--fg);
 }
 

@@ -6,7 +6,7 @@
 
 .new-article-item-container {
     height: 100%;
-    width: 60%;
+    width: 35%;
     margin: var(--m1) 0;
     justify-content: space-between;
 }
@@ -59,11 +59,11 @@ li::marker {
 
 .highlight-article-image {
     height: 100px;
-    width: 120px;
+    min-width: 120px;
 }
 
 .highlight-article-preview {
-    max-width: 140px;
+    width: 220px;
     text-align: right;
     margin-right: 2em;
     overflow: hidden;
@@ -91,12 +91,12 @@ li::marker {
     font-size: var(--size2);
     margin-bottom: .25em;
     font-family: var(--f2);
-    max-width: 240px;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
 }
 
 .article-cover {
@@ -226,6 +226,8 @@ li::marker {
     font-size: var(--size5);
     font-family: var(--f2);
     margin-bottom: var(--m1);
+    line-height: 120%;
+    margin-bottom: var(--m2);
 }
 
 .article-page-cover {

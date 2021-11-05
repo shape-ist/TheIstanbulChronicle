@@ -1,8 +1,8 @@
 {% macro header_profile() %}
     <style>
         .header-pfp-container {
-            height: 40px;
-            width: 40px;
+            height: 32px;
+            width: 32px;
             background: var(--g2);
             border-radius: 999px;
             padding: 0;
@@ -135,6 +135,10 @@
             animation: .16s top-in-subtle;
         }
 
+        #profile-pre {
+            overflow-wrap: anywhere;
+        }
+
         .drop-handler-btn:hover,
         .drop-handler-btn:active {
             filter: none !important;
@@ -246,9 +250,12 @@
 {% macro header_auth() %}
     <div class="profile-area">
         <button onclick="display('login-area', 'flex', overflowLock=true)" class="header-button auth pointer">
-            Log in /
+            Log in / Register
         </button>
-        <button onclick="display('register-area', 'flex', overflowLock=true)" class="header-button auth pointer">
+        <span class="none">
+            /
+        </span>
+        <button onclick="display('register-area', 'flex', overflowLock=true)" class="header-button auth pointer none">
             Register
         </button>
     </div>

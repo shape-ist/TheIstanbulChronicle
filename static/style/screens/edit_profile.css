@@ -26,6 +26,7 @@
     width: 100%;
     font-family: var(--f2);
     color: var(--fg);
+    margin: var(--m2) 0;
 }
 
 .profile-edit-name:focus {
@@ -49,7 +50,7 @@
     position: relative;
     left: 0;
     top: -200px;
-    background: rgba(0, 0, 0, .75);
+    background: transparent;
     border-radius: 999px;
     color: white;
     font-size: var(--size3);
@@ -86,6 +87,7 @@
     margin-bottom: var(--m1);
     font-size: var(--size1);
     font-weight: 500 !important;
+    text-align: left !important;
 }
 
 .profile-edit-btn:hover,
@@ -98,6 +100,7 @@
 .delete-account {
     background: rgb(var(--danger)) !important;
     color: white !important;
+    margin: 10px 0;
 }
 
 .delete-account-verification {
@@ -130,7 +133,7 @@
 }
 
 .profile-edit-fields {
-    width: 35%;
+    width: 40%;
 }
 
 #profile-edit-bio {
@@ -175,4 +178,22 @@
     font-weight: 500;
     text-align: center;
     font-size: var(--size1);
+}
+
+.pfp-edit-overlay .fa-plus:before,
+.pfp-edit-overlay .fa-pen:before {
+    background: var(--bg);
+    color: var(--fg);
+    padding: var(--m3);
+    border-radius: 999px;
+    border: 1px solid var(--g2);
+    box-shadow: var(--bs);
+}
+
+#del-passive-btn {
+    margin-top: var(--m2);
+}
+
+.del-account-wrapper {
+    width: 100%;
 }

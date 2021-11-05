@@ -1,4 +1,4 @@
-/* var pagiState = false
+var pagiState = false
 
 function inArea(threshold = 100, current = $(window).scrollTop()) {
     return current + $(window).height() > $(document).height() - threshold
@@ -101,4 +101,4 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch {
         pagiFallback(highlightEndArticle, limit = 80)
     }
-}) */
+})
