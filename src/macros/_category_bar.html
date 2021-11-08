@@ -1,16 +1,18 @@
 {% macro category_bar() %}
-<div class="category-area flex-row flex-center">
-    {% set cat = cats()['cats'] %}
-    {% for i in cat %}
+<div class="category-area">
+    <div class="category-area-inner flex-row flex-center">
+        {% set cat = cats()['cats'] %}
+        {% for i in cat %}
         {% if i['id'] == 'home' %}
-            {% set href = '/' %}
+        {% set href = '/' %}
         {% else %}
-            {% set href = '/category/' + i['id'] %}
+        {% set href = '/c/' + i['id'] %}
         {% endif %}
         <a href="{{ href }}">
             {{ i['name'] }}
         </a>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 <style>
     .category-area {
@@ -18,9 +20,14 @@
         width: 100%;
         margin-top: 24px;
     }
+    .category-area-inner {
+        margin: auto;
+        max-width: 1200px;
+        justify-content: space-evenly;
+    }
     .category-area a {
         font-size: .75em;
-        padding: 12px 3em;
+        padding: 12px 1em;
     }
     .category-area a.active {
         background: var(--fg);

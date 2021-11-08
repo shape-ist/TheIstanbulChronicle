@@ -7,6 +7,7 @@ function headerState() {
         $('#title').css('margin', '18px auto 16px auto');
         $('#logo-beta').css('opacity', '0');
         $('#ftcl').css('display', 'none');
+        $('.category-area').css('margin', '0')
     } else {
         header.css('box-shadow', '');
         $('#logo-wrapper').css('font-size', '');
