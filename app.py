@@ -9,6 +9,7 @@ from flask import *
 from flask_caching import Cache
 from flask_socketio import SocketIO, send
 from authlib.integrations.flask_client import OAuth
+import json
 
 from content import load_content
 import g_auth
@@ -38,6 +39,11 @@ sio = SocketIO(app, debug=True, threaded=True)
 oauth = OAuth(app)
 
 google = oauth.register(**g_auth.config)
+
+CATS = {}
+
+with open('cats.json') as f:
+    CATS = json.load(f)
 
 
 def md_html(md_str):
@@ -76,12 +82,16 @@ def utility_processor():
     def unix_time(time):
         return datetime.fromtimestamp(time).strftime('%d/%m/%Y')
 
+    def cats():
+        return CATS
+
     return dict(is_signed_in=is_signed_in,
                 current_pfp=current_pfp,
                 user_elevations=user_elevations,
                 authorized=authorized,
                 c_user=c_user,
-                unix_time=unix_time)
+                unix_time=unix_time,
+                cats=cats)
 
 
 @app.route('/', methods=['GET', 'POST'])

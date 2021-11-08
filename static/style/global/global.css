@@ -300,8 +300,3 @@ input {
     color: var(--fg);
     transform: translateX(50%);
 }
-
-#header-logo,
-.footer-logo {
-    font-weight: 300 !important;
-}

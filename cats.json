@@ -1,0 +1,47 @@
+{
+    "cats": [{
+            "name": "Home",
+            "id": "home"
+        },
+        {
+            "name": "Politics",
+            "id": "politics"
+        },
+        {
+            "name": "Business",
+            "id": "business"
+        },
+        {
+            "name": "Tech",
+            "id": "tech"
+        },
+        {
+            "name": "Science",
+            "id": "science"
+        },
+        {
+            "name": "Arts",
+            "id": "arts"
+        },
+        {
+            "name": "Literature",
+            "id": "literature"
+        },
+        {
+            "name": "Sports",
+            "id": "sports"
+        },
+        {
+            "name": "Food",
+            "id": "food"
+        },
+        {
+            "name": "Travel",
+            "id": "travel"
+        },
+        {
+            "name": "Opinion",
+            "id": "opinion"
+        }
+    ]
+}

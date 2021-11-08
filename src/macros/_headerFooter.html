@@ -3,6 +3,7 @@
     {% from "./macros/_auth.html" import register %}
     {% from "./macros/_header_rightmost.html" import header_profile, header_auth with context %}
     {% from "./macros/_mobile_menu.html" import mobile_menu %}
+    {% from "./macros/_category_bar.html" import category_bar with context %}
     {{ mobile_menu() }}
     <header id="header">
         <script type="text/javascript" src="{{ url_for('static', filename='js/global.js') }}"></script>
@@ -32,7 +33,6 @@
             </div>
             <div class="title-side topmost right-section" id="header-rightmost">
                 {% set earlyaccess = false %}
-
                 {% if earlyaccess is false %}
                 {% if is_signed_in() %}
                     {{ header_profile() }}
@@ -47,6 +47,7 @@
             </div>
         <button onclick="flyIn('#mobile-menu-drawer-wrapper')" id="mobile-menu" class="pointer none fas fa-bars"></button>
         </div>
+        {{ category_bar() }}
     </header>
 {% endmacro %}
 

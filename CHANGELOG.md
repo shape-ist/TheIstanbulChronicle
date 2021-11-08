@@ -1,5 +1,10 @@
 ## Changelog
 
+### 0.0.10-dev
+- Better dark mode
+- Categories
+- New favicon
+
 ### 0.0.9-dev
 - Google sign in added
 - Delete profile and log out implemented
