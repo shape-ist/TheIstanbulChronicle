@@ -40,3 +40,18 @@ def paginate(coll: str, sort: str, **kwargs):
         return obj
     except Exception as e:
         return {'data': {'error': str(e)}}
+
+
+# searching articles by keyword
+def search_article(keyword: str):
+    searched_articles = []
+    articles = db.collection(u'articles')
+
+    for article in articles.get():
+        content = article.to_dict()["body"]
+        if keyword.lower() in content.lower():
+            searched_articles.append(article)
+    if not articles: 
+        print("\nno article available\n")
+
+    return searched_articles
