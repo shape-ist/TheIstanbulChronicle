@@ -26,6 +26,7 @@ earlyaccess = False
 from firebase import user as fbuser
 from firebase import tools as fbtools
 from firebase import paginate
+from firebase import search as fbsearch
 
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -341,6 +342,11 @@ def rmacc():
 @app.route('/api/pagi/<coll>/<sort>/q')
 def api_pagi(coll, sort):
     return paginate.paginate(coll, sort, **dict(request.args))
+
+
+@app.route('/search/<kw>')
+def search(kw):
+    return fbsearch.search_article(kw)
 
 
 @sio.on('pagiRequest')

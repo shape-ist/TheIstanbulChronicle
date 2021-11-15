@@ -6,6 +6,7 @@
     "dotenv",
     "endmacro",
     "endraw",
+    "fbsearch",
     "fbtools",
     "fbuser",
     "frontpage",
