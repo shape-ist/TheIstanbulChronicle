@@ -6,6 +6,7 @@ from os.path import join
 from markdown import markdown
 
 from flask import *
+from pyasn1_modules.rfc2459 import PhysicalDeliveryOrganizationName
 from flask_caching import Cache
 from flask_socketio import SocketIO, send
 from authlib.integrations.flask_client import OAuth
@@ -108,6 +109,14 @@ def home():
     except Exception as e:
         return f"Something went wrong: {e}"
 
+@app.route("/c/<cat>")
+def categories(cat):
+    subpage = request.args.get('goto') if earlyaccess is not True else None
+    articles = paginate.category_articles(cat)
+    
+    return render_template("./screens/index.html", 
+    subpage=subpage,
+    h=articles)
 
 @app.route('/greet')
 def greet():

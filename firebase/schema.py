@@ -1,6 +1,7 @@
 from typing import List
 
 from firebase.setup import db, auth
+from firebase import debug
 
 
 def user(email: str = '',
@@ -29,7 +30,7 @@ def user(email: str = '',
 
 def article(title: str = '',
             body: str = '',
-            tag: str = '',
+            cats: str = '',
             article_type: str = '',
             cover_image: dict = {
                 's': '',
@@ -52,5 +53,5 @@ def article(title: str = '',
         u'cover_image_m': cover_image_m,
         u'cover_image_l': cover_image_l,
         u'is_approved': is_approved,
-        u'tag': tag
+        u'cats': cats
     }
