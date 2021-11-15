@@ -55,3 +55,12 @@ def search_article(keyword: str):
         print("\nno article available\n")
 
     return searched_articles
+
+def category_articles(category: str):
+    query = db.collection(u'articles').where(u'cats', u'array_contains', u'{category}')
+    pagi_stream = query.stream()
+    out = [i.to_dict() for i in pagi_stream]
+    print(out)
+    obj = {'data': out, 'last_uid': None}
+
+    return obj
