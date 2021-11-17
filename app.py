@@ -12,6 +12,7 @@ from authlib.integrations.flask_client import OAuth
 import json
 
 from content import load_content
+from firebase.article import upload_article
 import g_auth
 
 if not isfile('.env'):
@@ -25,8 +26,9 @@ earlyaccess = False
 # firebase imports (should be done after dotenv validation)
 from firebase import user as fbuser
 from firebase import tools as fbtools
-from firebase import paginate
+from firebase import paginate, schema
 from firebase import search as fbsearch
+
 
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -227,6 +229,15 @@ def write():
     if fbtools.isauthorized('W', fbuser.current_uid()):
         return render_template('./screens/elevated/write.html')
     return forbidden(Exception("User not authorized"))
+
+@app.route("/write/submit", methods=["POST"])
+def submit_article():
+    data = request.form
+    body = data["body"]
+    new_article = schema.article(title=data["title"], body=md_html(body))
+    upload_article(new_article)
+
+    return redirect("/?goto=login")
 
 
 @app.route('/legal/terms-and-conditions')

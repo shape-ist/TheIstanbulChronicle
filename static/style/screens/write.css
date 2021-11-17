@@ -22,3 +22,7 @@
 .article-date-icon {
     margin-left: .5em;
 }
+
+.submit-button {
+    background: var(--bg-alt) !important;
+}

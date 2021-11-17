@@ -180,6 +180,7 @@ button {
 }
 
 .submit-button {
+    border-radius: var(--r1) !important;
     padding: var(--m1) calc(var(--m2) * 1.25);
     background: var(--bg);
     color: var(--fg);
