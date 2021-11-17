@@ -1,7 +1,7 @@
 // get all write content here and send using ajax
 function articleIsValid(title,body) {
-    min_length = 1000
-    max_length = 10000
+    min_length = 1
+    max_length = 10
     if ((body.length > max_length) || (body.length < min_length)) {
         return false;
     }
@@ -12,10 +12,10 @@ function articleIsValid(title,body) {
 }
 
 $(document).ready(function () {
-    console.log("ready");
-    $('#submit-button').on('click', function (event) {
+    $('#write-submit-button').on('click', function (event) {
+        console.log('uwu')
         title = $("#write-article-title").val();
-        body = $(".CodeMirror-lines").text().replace("x\xa0","");
+        body = easyMDE.value(); 
         if (!articleIsValid(title, body)) {return;}
         $.ajax({
             data: {
