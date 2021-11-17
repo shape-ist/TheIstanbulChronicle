@@ -20,16 +20,20 @@
             displayCurrentDate('write-current-date');
         };
     </script>
-    <div class="flex-row article-top-section">
-        <input name="name-article-title" type="text" placeholder="Title" id="write-article-title" class="input-field write-input-field article-name-field" maxlength="60" spellcheck="false" data-ms-editor="true">
-        <p class="sub article-date">
-            <span id="write-current-date"></span>
-            <i class="article-date-icon fas fa-calendar"></i>
-        </p>
-    </div>
-    <div class="mde-container flex-center">
-        <textarea></textarea>
-        <script src="{{ url_for('static', filename='js/mde.js') }}"></script>
-        <!--TODO: #20 use jquery ajax here to send a request to server and read data -->
-    </div>
+    <form action="">
+        <div class="flex-row article-top-section">
+            <input name="name-article-title" type="text" placeholder="Title" id="write-article-title" class="input-field write-input-field article-name-field" maxlength="60" spellcheck="false" data-ms-editor="true">
+            <p class="sub article-date">
+                <span id="write-current-date"></span>
+                <i class="article-date-icon fas fa-calendar"></i>
+            </p>
+        </div>
+        <div class="mde-container flex-center">
+            <textarea></textarea>
+            <script src="{{ url_for('static', filename='js/mde.js') }}"></script>
+        </div>
+        <br>
+        <input name="name-article-image-url" type="url" placeholder="Cover image URL" id="write-article-image" class="input-field write-input-field article-name-field" maxlength="400" spellcheck="false" data-ms-editor="true">
+        <button type="submit" class="r1 submit-button pointer" style="pointer-events: none; opacity: .5" id="write-submit-button" onclick="submitArticle()">Submit Article</button>
+    </form>
 {% endblock %}

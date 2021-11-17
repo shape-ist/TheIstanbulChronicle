@@ -1,7 +1,7 @@
 from typing import List
 
 from firebase.setup import db, auth
-
+from firebase import user as fbuser
 
 def user(email: str = '',
          bio: str = '',
@@ -44,7 +44,7 @@ def article(title: str = '',
         u'title': title,
         u'body': body,
         u'writer':
-        db.collection(u'users').document(auth.current_user['localId']),
+        db.collection(u'users').document(fbuser.current_uid()),
         u'article_type': article_type,
         u'is_approved': False,
         u'timestamp': time(),
