@@ -22,13 +22,15 @@ if not isfile('.env'):
 
 content = load_content("content.yml")
 earlyaccess = False
+ARTICLE_MIN = 10
+ARTICLE_MAX = 100
 
 # firebase imports (should be done after dotenv validation)
 from firebase import user as fbuser
 from firebase import tools as fbtools
-from firebase import paginate, schema
+from firebase import paginate
 from firebase import search as fbsearch
-
+from firebase import article as fbarticle
 
 app = Flask(__name__, template_folder='src')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -222,22 +224,19 @@ def favicon():
                                mimetype='image/vnd.microsoft.icon')
 
 
-@app.route('/write')
+@app.route('/write', methods=['POST', 'GET'])
 def write():
-    # TODO: add different favicon on elevated pages. (see elevated directory)
-
+    if request.method == "POST":
+        article_title = request.form.get('title')
+        article_body = request.form.get('body')
+        if len(article_title) <= 40 or (len(article_body) < ARTICLE_MIN
+                                        and len(article_body) > ARTICLE_MAX):
+            fbarticle.writer_upload(article_title, article_body)
+        else:
+            return 'illegal'
     if fbtools.isauthorized('W', fbuser.current_uid()):
         return render_template('./screens/elevated/write.html')
     return forbidden(Exception("User not authorized"))
-
-@app.route("/write/submit", methods=["POST"])
-def submit_article():
-    data = request.form
-    body = data["body"]
-    new_article = schema.article(title=data["title"], body=md_html(body))
-    upload_article(new_article)
-
-    return redirect("/?goto=login")
 
 
 @app.route('/legal/terms-and-conditions')

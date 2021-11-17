@@ -1,4 +1,5 @@
 from firebase.setup import db
+from firebase import schema
 
 
 def upload_article(content):
@@ -10,17 +11,10 @@ def upload_article(content):
     return uid
 
 
+def writer_upload(t, b):
+    article_content = schema.article(title=t, body=b)
+    upload_article(article_content)
+
+
 def delete_article(id):
     db.collection(u'articles').document(id).delete()
-
-
-"""use it like so:
-
-upload_article(
-    article(
-        db,
-        writer_uid = 'kqsAAv8QQNN37m2kETro7GbsnNB3',
-        title = 'Nirvana sued!!',
-        body = 'text text text',
-        article_type = 'article'
-))"""

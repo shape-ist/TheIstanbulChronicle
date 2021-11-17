@@ -1,8 +1,27 @@
-// get all write content here and send using ajax
-function articleIsValid(title,body) {
-    min_length = 1
-    max_length = 10
-    if ((body.length > max_length) || (body.length < min_length)) {
+function submitArticle() {
+    let title = $("#write-article-title").val()
+    $.ajax({
+        data: {
+            title: title,
+            body: easyMDE.value()
+        },
+        type: 'POST',
+    }).done(function (data) {
+        if (data.error) {
+            console.log(data.error)
+        } else {
+            location.href = `/write/success?t=${title}`
+        }
+    });
+}
+
+
+function validateWrite() {
+    let body = easyMDE.value()
+    let title = $("#write-article-title").val()
+    let minLen = 2
+    let maxLen = 100
+    if ((body.length > maxLen) || (body.length < minLen)) {
         return false;
     }
     if (!title) {
@@ -11,27 +30,23 @@ function articleIsValid(title,body) {
     return true;
 }
 
-$(document).ready(function () {
-    $('#write-submit-button').on('click', function (event) {
-        console.log('uwu')
-        title = $("#write-article-title").val();
-        body = easyMDE.value(); 
-        if (!articleIsValid(title, body)) {return;}
-        $.ajax({
-            data: {
-                title: title,
-                body: body
-            },
-            type: 'POST',
-            url: '/write/submit',
-            traditional: true
-        }).done(function (data) {
-            if (data.error) {
-                alert(data.error)
-            } else {
-                location.href = "/"
-            }
-        });
-        event.preventDefault();
-    });
-});
+function disableWriteSubmit() {
+    console.log('disable')
+    $('#write-submit-button').css('pointer-events', 'none');
+    $('#write-submit-button').css('opacity', '.5');
+}
+
+function enableWriteSubmit() {
+    console.log('enable')
+    $('#write-submit-button').css('pointer-events', 'unset');
+    $('#write-submit-button').css('opacity', '1');
+}
+
+
+setInterval(function () {
+    if (validateWrite() == false) {
+        disableWriteSubmit()
+    } else {
+        enableWriteSubmit()
+    }
+}, 500)
