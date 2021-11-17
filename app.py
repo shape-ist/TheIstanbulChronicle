@@ -22,8 +22,8 @@ if not isfile('.env'):
 
 content = load_content("content.yml")
 earlyaccess = False
-ARTICLE_MIN = 10
-ARTICLE_MAX = 100
+ARTICLE_MIN = 2000
+ARTICLE_MAX = 30000
 
 # firebase imports (should be done after dotenv validation)
 from firebase import user as fbuser
@@ -229,9 +229,11 @@ def write():
     if request.method == "POST":
         article_title = request.form.get('title')
         article_body = request.form.get('body')
-        if len(article_title) <= 40 or (len(article_body) < ARTICLE_MIN
-                                        and len(article_body) > ARTICLE_MAX):
-            fbarticle.writer_upload(article_title, article_body)
+        article_cover = request.form.get('cover')
+        if (len(article_title) <= 60 and len(article_title) >= 5) or (
+                len(article_body) <= ARTICLE_MIN
+                and len(article_body) >= ARTICLE_MAX):
+            fbarticle.writer_upload(article_title, article_body, article_cover)
         else:
             return 'illegal'
     if fbtools.isauthorized('W', fbuser.current_uid()):

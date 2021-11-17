@@ -3,7 +3,8 @@ function submitArticle() {
     $.ajax({
         data: {
             title: title,
-            body: easyMDE.value()
+            body: easyMDE.value(),
+            cover: $("#write-article-image").val().trim()
         },
         type: 'POST',
     }).done(function (data) {
@@ -19,12 +20,12 @@ function submitArticle() {
 function validateWrite() {
     let body = easyMDE.value()
     let title = $("#write-article-title").val()
-    let minLen = 2
-    let maxLen = 100
-    if ((body.length > maxLen) || (body.length < minLen)) {
+    let minLen = 2000
+    let maxLen = 30000
+    if ((body.length >= maxLen) || (body.length <= minLen)) {
         return false;
     }
-    if (!title) {
+    if ((title.length >= 60) || (title.length <= 5)) {
         return false;
     }
     return true;

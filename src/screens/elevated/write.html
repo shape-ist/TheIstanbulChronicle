@@ -33,6 +33,7 @@
             <script src="{{ url_for('static', filename='js/mde.js') }}"></script>
         </div>
         <br>
+        <input name="name-article-image-url" type="url" placeholder="Cover image URL" id="write-article-image" class="input-field write-input-field article-name-field" maxlength="400" spellcheck="false" data-ms-editor="true">
         <button type="submit" class="r1 submit-button pointer" style="pointer-events: none; opacity: .5" id="write-submit-button" onclick="submitArticle()">Submit Article</button>
     </form>
 {% endblock %}

@@ -11,8 +11,17 @@ def upload_article(content):
     return uid
 
 
-def writer_upload(t, b):
-    article_content = schema.article(title=t, body=b)
+def writer_upload(t, b, c):
+    article_content = schema.article(
+        title=t,
+        body=b,
+        cover_image={
+            's': c.strip(),
+            'm': c.strip(),
+            'l': c.strip(),
+        }
+        # TODO: RESIZE THESE IMAGES TO CORRESPONDING RESOLUTIONS
+    )
     upload_article(article_content)
 
 
