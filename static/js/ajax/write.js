@@ -1,8 +1,11 @@
 // get all write content here and send using ajax
-function bodyIsValid(body) {
-    min_length = 0
-    max_length = 9999999
+function articleIsValid(title,body) {
+    min_length = 1000
+    max_length = 10000
     if ((body.length > max_length) || (body.length < min_length)) {
+        return false;
+    }
+    if (!title) {
         return false;
     }
     return true;
@@ -13,8 +16,7 @@ $(document).ready(function () {
     $('#submit-button').on('click', function (event) {
         title = $("#write-article-title").val();
         body = $(".CodeMirror-lines").text().replace("x\xa0","");
-        console.log(title);
-        if (!bodyIsValid(body)) {return;}
+        if (!articleIsValid(title, body)) {return;}
         $.ajax({
             data: {
                 title: title,
