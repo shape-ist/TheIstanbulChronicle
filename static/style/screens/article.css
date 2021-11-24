@@ -273,6 +273,10 @@ li::marker {
     margin-bottom: var(--m4);
 }
 
+.article-page-content-text-body img {
+    width: 100%;
+}
+
 .mobile-drawer-handle {
     width: 15%;
     position: relative;

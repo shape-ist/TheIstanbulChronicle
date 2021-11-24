@@ -31,7 +31,9 @@
             </div>
             <div class="article-page-content-text-body">
                 <p id="article-body" class="select article-page-content-text-body">
-                    {{ article['body']|safe }}
+                    <p>
+                        {{ md(article['body']) | safe }}
+                    </p>
                 </p>
             </div>
         </div>

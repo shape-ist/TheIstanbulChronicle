@@ -10,6 +10,7 @@ from flask_caching import Cache
 from flask_socketio import SocketIO, send
 from authlib.integrations.flask_client import OAuth
 import json
+import markdown
 
 from content import load_content
 from firebase.article import upload_article
@@ -89,6 +90,9 @@ def utility_processor():
 
     def cats():
         return CATS
+    
+    def md(m):
+        return markdown.markdown(m)
 
     return dict(is_signed_in=is_signed_in,
                 current_pfp=current_pfp,
@@ -96,7 +100,8 @@ def utility_processor():
                 authorized=authorized,
                 c_user=c_user,
                 unix_time=unix_time,
-                cats=cats)
+                cats=cats,
+                md=md)
 
 
 @app.route('/', methods=['GET', 'POST'])
