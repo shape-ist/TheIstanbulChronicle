@@ -13,7 +13,8 @@ import json
 import markdown
 
 from content import load_content
-from firebase.article import upload_article
+from firebase.article import upload_article, delete_article
+from firebase.schema import article
 import g_auth
 
 if not isfile('.env'):
@@ -245,6 +246,11 @@ def write():
         return render_template('./screens/elevated/write.html')
     return forbidden(Exception("User not authorized"))
 
+@app.route("/delete", methods=["POST"])
+def delete():
+    if request.method == "POST":
+        delete_article(request.form.get("id"))
+        
 
 @app.route('/legal/terms-and-conditions')
 def terms():

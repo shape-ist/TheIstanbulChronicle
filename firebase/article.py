@@ -1,6 +1,6 @@
 from firebase.setup import db
 from firebase import schema
-
+import urllib.request
 
 def upload_article(content):
     from firebase import tools as fbtools
@@ -27,3 +27,6 @@ def writer_upload(t, b, c):
 
 def delete_article(id):
     db.collection(u'articles').document(id).delete()
+
+def saveImage(url, path):
+    urllib.request.urlretrieve(url, path)
