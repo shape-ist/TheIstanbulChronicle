@@ -12,6 +12,9 @@
 {% endblock %}
 
 {% block body %}
+{% if authorized('W') %}
+    {{ delete_btn() }}
+{% endif %}
 <script>
     $('#socials-side').hide();
 </script>

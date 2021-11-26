@@ -1,4 +1,5 @@
-.write-btn {
+.write-btn,
+.delete-btn {
     background: var(--fg);
     color: var(--bg);
     position: fixed;
@@ -12,12 +13,19 @@
     z-index: 999;
 }
 
-.write-btn:hover {
+.delete-btn {
+    left: 0 !important;
+    background: rgb(182, 7, 7) !important;
+}
+
+.write-btn:hover,
+.delete-btn:hover {
     box-shadow: var(--bs-invert) !important;
     transform: scale(1.08);
 }
 
-.write-icon {
+.write-icon,
+.delete-icon {
     font-size: .85em;
 }
 
@@ -27,6 +35,7 @@
 }
 
 .write-icon,
-.write-link {
+.write-link,
+.delete-icon {
     margin-right: .25em;
 }
