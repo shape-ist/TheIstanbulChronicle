@@ -4,6 +4,9 @@
 - Better dark mode
 - Categories
 - New favicon
+- Fix profile page 404
+- Support markdown
+- 
 
 ### 0.0.9-dev
 - Google sign in added
