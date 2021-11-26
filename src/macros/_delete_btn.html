@@ -1,0 +1,9 @@
+{% macro delete_btn() %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/macros/_write_btn.css') }}">
+
+<button class="delete-btn" id="delete-btn">
+    <i class="fas fa-trash delete-icon"></i>
+    <span id="delete-btn-text">Write</span>
+</button>
+<script src="{{ url_for('static', filename='static/js/ajax/delete.js') }}"></script>
+{% endmacro %}
